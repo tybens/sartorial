@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { commerce } from "./lib/Commerce";
-import { Products, Navbar, Cart, Checkout } from "./components";
+import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import { Navbar, Products, Cart, Checkout } from "./components";
+import { commerce } from "./lib/Commerce";
+
 const App = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -55,6 +58,7 @@ const App = () => {
       );
 
       setOrder(incomingOrder);
+
       refreshCart();
     } catch (error) {
       setErrorMessage(error.data.error.message);
@@ -66,15 +70,23 @@ const App = () => {
     fetchCart();
   }, []);
 
-  console.log(cart);
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   return (
     <Router>
-      <div>
-        <Navbar totalItems={cart.total_items} />
+      <div style={{ display: "flex" }}>
+        <CssBaseline />
+        <Navbar
+          totalItems={cart.total_items}
+          handleDrawerToggle={handleDrawerToggle}
+        />
         <Switch>
           <Route exact path="/">
-            <Products products={products} onAddToCart={handleAddToCart} />
+            <Products
+              products={products}
+              onAddToCart={handleAddToCart}
+              handleUpdateCartQty
+            />
           </Route>
           <Route exact path="/cart">
             <Cart
