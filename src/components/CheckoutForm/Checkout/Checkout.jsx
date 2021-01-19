@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 
-import { commerce } from "../../../lib/commerce";
+import { commerce } from "../../../lib/Commerce";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 import useStyles from "./styles";

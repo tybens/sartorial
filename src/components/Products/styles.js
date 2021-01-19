@@ -10,4 +10,9 @@ export default makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  spinner: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
