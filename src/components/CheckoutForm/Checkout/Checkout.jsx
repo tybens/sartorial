@@ -14,6 +14,7 @@ import useStyles from "./styles";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 import { Link, useHistory } from "react-router-dom";
+import { commerce } from "../../../lib/Commerce";
 
 const steps = ["Shipping address", "Payment details"];
 
@@ -24,6 +25,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   const classes = useStyles();
   const history = useHistory();
+
   useEffect(() => {
     const generateToken = async () => {
       try {
@@ -110,7 +112,11 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
               </Step>
             ))}
           </Stepper>
-          {activeStep == steps.length ? <Confirmation /> : <Form />}
+          {activeStep == steps.length ? (
+            <Confirmation />
+          ) : (
+            checkoutToken && <Form />
+          )}
         </Paper>
       </main>
     </>

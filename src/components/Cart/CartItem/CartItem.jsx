@@ -10,7 +10,7 @@ import {
 
 import useStyles from "./styles";
 
-const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   const classes = useStyles();
 
   return (
@@ -31,14 +31,14 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
           <Button
             type="button"
             size="small"
-            onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}
+            onClick={() => onUpdateCartQty(item.id, item.quantity - 1)}
           >
             -
           </Button>
           <Button
             type="button"
             size="small"
-            onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}
+            onClick={() => onUpdateCartQty(item.id, item.quantity + 1)}
           >
             +
           </Button>
@@ -47,7 +47,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
           variant="contained"
           type="button"
           color="secondary"
-          onClick={() => handleRemoveFromCart(item.id)}
+          onClick={() => onRemoveFromCart(item.id)}
         >
           Remove
         </Button>
