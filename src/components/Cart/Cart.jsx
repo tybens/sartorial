@@ -3,12 +3,7 @@ import { Container, Typography, Button, Grid } from "@material-ui/core";
 import useStyles from "./styles";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
-const Cart = ({
-  cart,
-  handleUpdateCartQty,
-  handleRemoveFromCart,
-  handleEmptyCart,
-}) => {
+const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
 
   const EmptyCart = () => (
@@ -27,8 +22,8 @@ const Cart = ({
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem
               item={item}
-              handleUpdateCartQty={handleUpdateCartQty}
-              handleRemoveFromCart={handleRemoveFromCart}
+              onUpdateCartQty={onUpdateCartQty}
+              onRemoveFromCart={onRemoveFromCart}
             />
           </Grid>
         ))}
@@ -44,7 +39,7 @@ const Cart = ({
             type="button"
             variant="contained"
             color="secondary"
-            onClick={handleEmptyCart}
+            onClick={onEmptyCart}
           >
             Empty Cart
           </Button>
