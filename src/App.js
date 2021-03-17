@@ -1,83 +1,85 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { omit } from 'lodash';
 
 import { Navbar, Products, Cart, Checkout } from "./components";
-import { commerce } from "./lib/Commerce";
+import products from './products.js'
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
+  const [cart, setCart] = useState({})
   const [errorMessage, setErrorMessage] = useState("");
 
-  const fetchProducts = async () => {
-    // backend call to list all products
-    // the following code uses commerce.js which probably would take a cut of sales.
-    const { data } = await commerce.products.list();
-
-    setProducts(data);
-  };
-
-  const fetchCart = async () => {
-    setCart(await commerce.cart.retrieve());
-  };
+  function totalItems(obj) {
+    var sum = 0;
+    for (var el in obj) {
+      if (obj.hasOwnProperty(el)) {
+        sum += parseFloat(obj[el]);
+      }
+    }
+    return sum;
+  }
 
   const handleAddToCart = async (productId, quantity) => {
-    const { cart } = await commerce.cart.add(productId, quantity);
-    setCart(cart);
+    setCart((prev) => ({
+      ...prev,
+      [productId]: cart[productId] ? parseInt(cart[productId]) + 1 : parseInt(quantity)
+    }))
+
   };
 
+
   const handleUpdateCartQty = async (productId, quantity) => {
-    const { cart } = await commerce.cart.update(productId, { quantity });
-    setCart(cart);
+    if (parseInt(quantity) < 1) {
+      handleRemoveFromCart(productId)
+    } else {
+      setCart((prev) => ({
+        ...prev,
+        [productId]: parseInt(quantity)
+      }))
+    }
   };
 
   const handleRemoveFromCart = async (productId) => {
-    const { cart } = await commerce.cart.remove(productId);
-    setCart(cart);
+    setCart(Object.assign({}, omit(cart, productId)))
   };
 
   const handleEmptyCart = async () => {
-    const { cart } = await commerce.cart.empty();
-    setCart(cart);
+    setCart({}); // empties the cart
   };
 
-  const refreshCart = async () => {
-    const newCart = await commerce.cart.refresh();
-
-    setCart(newCart);
-  };
-
-  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+  const handleCaptureCheckout = async (incomingOrder) => {
     try {
-      const incomingOrder = await commerce.checkout.capture(
-        checkoutTokenId,
-        newOrder
-      );
+
+      // send an email to Payne or add to database, if successful payment... 
 
       setOrder(incomingOrder);
-
-      refreshCart();
     } catch (error) {
       setErrorMessage(error.data.error.message);
     }
   };
 
-  useEffect(() => {
-    fetchProducts();
-    fetchCart();
-  }, []);
-
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+
+  function thisProduct(productId) {
+    var thisProd;
+    products.forEach((prod) => {
+      if (parseInt(prod.id) === parseInt(productId)) {
+        thisProd = prod;
+      }
+    })
+    return thisProd;
+  }
+
 
   return (
     <Router>
       <div style={{ display: "flex" }}>
         <CssBaseline />
         <Navbar
-          totalItems={cart.total_items}
+          totalItems={totalItems(cart)}
           handleDrawerToggle={handleDrawerToggle}
         />
         <Switch>
@@ -91,6 +93,7 @@ const App = () => {
           <Route exact path="/cart">
             <Cart
               cart={cart}
+              thisProduct={thisProduct}
               onUpdateCartQty={handleUpdateCartQty}
               onRemoveFromCart={handleRemoveFromCart}
               onEmptyCart={handleEmptyCart}

@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 
-import { commerce } from "../../../lib/Commerce";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 import useStyles from "./styles";
@@ -20,7 +19,6 @@ import useStyles from "./styles";
 const steps = ["Shipping address", "Payment details"];
 
 const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
-  const [checkoutToken, setCheckoutToken] = useState(null);
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
   const classes = useStyles();
@@ -29,23 +27,6 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
-  useEffect(() => {
-    if (cart.id) {
-      const generateToken = async () => {
-        try {
-          const token = await commerce.checkout.generateToken(cart.id, {
-            type: "cart",
-          });
-
-          setCheckoutToken(token);
-        } catch {
-          if (activeStep !== steps.length) history.push("/");
-        }
-      };
-
-      generateToken();
-    }
-  }, [cart]);
 
   const test = (data) => {
     setShippingData(data);
@@ -66,16 +47,18 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
             Order ref: {order.customer_reference}
           </Typography>
         </div>
-        <br />
-        <Button component={Link} variant="outlined" type="button" to="/">
-          Back to home
+        <div style={{display: "flex", justifyContent: "center"}}>
+          <br />
+          <Button component={Link} variant="outlined" type="button" to="/">
+            Back to home
         </Button>
+        </div>
       </>
     ) : (
-      <div className={classes.spinner}>
-        <CircularProgress />
-      </div>
-    );
+        <div className={classes.spinner}>
+          <CircularProgress />
+        </div>
+      );
 
   if (error) {
     Confirmation = () => (
@@ -92,20 +75,19 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
   const Form = () =>
     activeStep === 0 ? (
       <AddressForm
-        checkoutToken={checkoutToken}
         nextStep={nextStep}
         setShippingData={setShippingData}
         test={test}
       />
     ) : (
-      <PaymentForm
-        checkoutToken={checkoutToken}
-        nextStep={nextStep}
-        backStep={backStep}
-        shippingData={shippingData}
-        onCaptureCheckout={onCaptureCheckout}
-      />
-    );
+        <PaymentForm
+          cart={cart}
+          nextStep={nextStep}
+          backStep={backStep}
+          shippingData={shippingData}
+          onCaptureCheckout={onCaptureCheckout}
+        />
+      );
 
   return (
     <>
@@ -126,8 +108,8 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
           {activeStep === steps.length ? (
             <Confirmation />
           ) : (
-            checkoutToken && <Form />
-          )}
+              <Form />
+            )}
         </Paper>
       </main>
     </>
