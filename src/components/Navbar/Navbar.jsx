@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -7,9 +7,11 @@ import {
   MenuItem,
   Menu,
   Typography,
+  Button
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
+import axios from 'axios';
 
 import logo from "../../assets/sartorial.png";
 import useStyles from "./styles";
@@ -18,6 +20,8 @@ const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
   const location = useLocation();
+  // const functionUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/helloWorld'
+  const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/helloWorld'
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -70,6 +74,27 @@ const PrimarySearchAppBar = ({ totalItems }) => {
             />{" "}
             Sartorial
           </Typography>
+          <Button onClick={() => {
+            axios.get(functionUrl)
+              .then(function (response) {
+                // handle success
+                console.log(response);
+              })
+              .catch(function (error) {
+                // handle error
+                console.log(error);
+              })
+              .then(function () {
+                // always executed
+                console.log('so anyways')
+              });
+          }}
+            size="large"
+            type="button"
+            variant="contained"
+            color="secondary"
+          />
+
           <div className={classes.grow} />
           {location.pathname === "/" && (
             <div className={classes.button}>
