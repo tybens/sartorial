@@ -11,7 +11,8 @@ const App = () => {
   const [order, setOrder] = useState({});
   const [cart, setCart] = useState({})
   const [errorMessage, setErrorMessage] = useState("");
-  const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
+  // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
+  const functionUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/recordOrder';
 
   function totalItems(obj) {
     var sum = 0;

@@ -25,7 +25,7 @@ const PaymentForm = ({
 }) => {
 
   const [clientSecret, setClientSecret] = useState('');
-  const functionSecretUrl = 'http://localhost:5001/paymentSecret'
+  const functionSecretUrl = 'http://localhost:5001/sartorial-indy/us-central1/paymentSecret'
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads

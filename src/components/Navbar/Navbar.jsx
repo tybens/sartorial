@@ -18,8 +18,6 @@ const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
   const location = useLocation();
-  // const functionUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/helloWorld'
-  const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/helloWorld'
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 

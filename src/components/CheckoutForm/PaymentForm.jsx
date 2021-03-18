@@ -46,7 +46,8 @@ const StripePayment = ({ cart, onCaptureCheckout, nextStep, backStep, shippingDa
     const stripe = useStripe();
     const elements = useElements();
 
-    const functionSecretUrl = 'http://localhost:5001/sartorial-indy/us-central1/paymentSecret'
+    // const functionSecretUrl = 'http://localhost:5001/sartorial-indy/us-central1/paymentSecret'
+    const functionSecretUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/paymentSecret';
     const classes = useStyles();
 
     useEffect(() => {
@@ -66,7 +67,7 @@ const StripePayment = ({ cart, onCaptureCheckout, nextStep, backStep, shippingDa
                 console.log(error);
                 setError(error)
             })
-
+    // eslint-disable-next-line
     }, []);
 
     const cardStyle = {

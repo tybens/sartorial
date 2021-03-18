@@ -1,4 +1,4 @@
-import { baguette, payne_tyler, math, cropped_ty } from './assets/product-img.js'
+import { baguette, payne_tyler } from './assets/product-img.js'
 
 /*  Yo, this file is not automated, so it will need to be updated by hand, 
 the necessary object structure of a product is below

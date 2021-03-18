@@ -1,6 +1,5 @@
 import React from "react";
 import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
-import products from '../../products'
 
 const Review = ({ cart, totalItems }) => {
 
