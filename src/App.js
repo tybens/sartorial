@@ -32,7 +32,6 @@ const App = () => {
         product: thisProduct(productId)
       }
     }))
-    console.log(cart)
   };
 
 
@@ -69,7 +68,6 @@ const App = () => {
       })
         .then(function (response) {
           // handle success
-          console.log(response);
           // set local order so that they are shown confirmation message
           setOrder(incomingOrder);
           // empty the cart so they can buy again :)
@@ -80,10 +78,6 @@ const App = () => {
           console.log(error);
           setErrorMessage(error)
         })
-        .then(function () {
-          // always executed
-          console.log('so anyway')
-        });
     } catch (error) {
       setErrorMessage(error.data.error.message);
     }

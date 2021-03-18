@@ -13,6 +13,21 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
 ![Sartorial](public/images/ha317at.001.jpeg)
 ![Sartorial](public/images/ha317at.002.jpeg)
 
+
+## Todo:
+
+- Add state code to checkout form
+- Add metadata to paymentIntent (so we can observe what payment is for which besides the intent_id)
+- "Order ref: {}", consider telling the user about their order's unique id so they can feel valued
+- Automate cloud functions url between dev and prod
+- Dl andstudio.lt video intro and use to test video intros
+- Stylistic changes
+  - fade transitions (cp andstudio.lt)
+  - Cart view is gross, as are most other views
+  - Change button color scheme to be more universal and less generic. Probably to a slick black & white
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
