@@ -28,7 +28,7 @@ const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
       <CardContent className={classes.cardContent}>
         <Typography variant="h4">{item.name}</Typography>
         <Typography variant="h5">
-          {item.price}
+          ${item.price}
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>

@@ -6,12 +6,10 @@ import {
   Badge,
   MenuItem,
   Menu,
-  Typography,
-  Button
+  Typography
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
-import axios from 'axios';
 
 import logo from "../../assets/sartorial.png";
 import useStyles from "./styles";
@@ -74,27 +72,6 @@ const PrimarySearchAppBar = ({ totalItems }) => {
             />{" "}
             Sartorial
           </Typography>
-          <Button onClick={() => {
-            axios.get(functionUrl)
-              .then(function (response) {
-                // handle success
-                console.log(response);
-              })
-              .catch(function (error) {
-                // handle error
-                console.log(error);
-              })
-              .then(function () {
-                // always executed
-                console.log('so anyways')
-              });
-          }}
-            size="large"
-            type="button"
-            variant="contained"
-            color="secondary"
-          />
-
           <div className={classes.grow} />
           {location.pathname === "/" && (
             <div className={classes.button}>

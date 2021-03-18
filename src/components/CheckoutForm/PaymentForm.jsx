@@ -1,98 +1,175 @@
-import React from "react";
-import { Typography, Button, Divider } from "@material-ui/core";
+import React, { useState, useEffect } from 'react';
+import { Typography, Button, Divider, CircularProgress } from '@material-ui/core';
 import {
-  Elements,
-  CardElement,
-  ElementsConsumer,
-} from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+    Elements,
+    CardElement,
+    useElements,
+    useStripe,
+} from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import axios from 'axios';
 
-import Review from "./Review";
+import useStyles from './payment-form-styles';
+import Review from "./Review"
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC_KEY}`);
 
-const PaymentForm = ({
-  cart,
-  nextStep,
-  backStep,
-  shippingData,
-  onCaptureCheckout,
-}) => {
-  const handleSubmit = async (event, elements, stripe) => {
-    event.preventDefault();
+const PaymentForm = ({ cart, nextStep, backStep, shippingData, onCaptureCheckout, totalItems }) => {
 
-    if (!stripe || !elements) return;
+    return (
+        <>
+            <Review cart={cart} totalItems={totalItems} />
+            <Divider />
+            <Typography variant="h6" gutterBottom style={{ margin: '20px 0' }}>
+                Payment method
+      </Typography>
+            <Elements stripe={stripePromise}>
+                <StripePayment
+                    cart={cart}
+                    onCaptureCheckout={onCaptureCheckout}
+                    nextStep={nextStep}
+                    backStep={backStep}
+                    shippingData={shippingData}
+                />
+            </Elements>
+        </>
+    );
+};
 
-    const cardElement = elements.getElement(CardElement);
+const StripePayment = ({ cart, onCaptureCheckout, nextStep, backStep, shippingData }) => {
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card: cardElement,
-    });
+    const [succeeded, setSucceeded] = useState(false);
+    const [error, setError] = useState(null);
+    const [processing, setProcessing] = useState('');
+    const [disabled, setDisabled] = useState(true);
+    const [clientSecret, setClientSecret] = useState('');
+    const stripe = useStripe();
+    const elements = useElements();
 
-    if (error) {
-      console.log("[error]", error);
-    } else {
-      const orderData = {
-        cart: cart,
-        customer: {
-          firstname: shippingData.firstName,
-          lastname: shippingData.lastName,
-          email: shippingData.email,
-        },
-        shipping: {
-          name: "International",
-          street: shippingData.address1,
-          town_city: shippingData.city,
-          county_state: shippingData.shippingSubdivision,
-          postal_zip_code: shippingData.zip,
-          country: shippingData.shippingCountry,
-        },
-        fulfillment: { shipping_method: shippingData.shippingOption },
-        payment: {
-          gateway: "stripe",
-          stripe: {
-            payment_method_id: paymentMethod.id,
-          },
-        },
-      };
+    const functionSecretUrl = 'http://localhost:5001/sartorial-indy/us-central1/paymentSecret'
+    const classes = useStyles();
 
-      // consider adding a unique id to the order
-      onCaptureCheckout(orderData);
+    useEffect(() => {
+        // Create PaymentIntent as soon as the page loads
+        axios.post(functionSecretUrl, cart, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                setClientSecret(response.data.clientSecret)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+                setError(error)
+            })
 
-      nextStep();
+    }, []);
+
+    const cardStyle = {
+        style: {
+            base: {
+                color: "#32325d",
+                fontFamily: 'Arial, sans-serif',
+                fontSmoothing: "antialiased",
+                fontSize: "16px",
+                "::placeholder": {
+                    color: "#32325d"
+                }
+            },
+            invalid: {
+                color: "orange",
+                iconColor: "orange"
+            }
+        }
+    };
+
+    const handleChange = async (event) => {
+        // Listen for changes in the CardElement
+        // and display any errors as the customer types their card details
+        setDisabled(event.empty);
+        setError(event.error ? event.error.message : '');
+    };
+
+    const handleSubmit = async (ev) => {
+        ev.preventDefault();
+        setProcessing(true);
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement),
+            },
+        });
+        if (payload.error) {
+            setError(`Payment failed ${payload.error.message}`);
+            setProcessing(false);
+        } else {
+            setError(null);
+            setProcessing(false);
+            setSucceeded(true);
+
+            // if payment succeed, log order to database for payne to fulfill
+            // TODO: confirm: true
+            let orderData = {
+                cart: cart,
+                customer: {
+                    firstname: shippingData.firstName,
+                    lastname: shippingData.lastName,
+                    email: shippingData.email,
+                },
+                shipping: {
+                    name: "International",
+                    street: shippingData.address1,
+                    town_city: shippingData.city,
+                    county_state: shippingData.shippingSubdivision,
+                    postal_zip_code: shippingData.zip,
+                    country: shippingData.shippingCountry,
+                },
+                fulfillment: { shipping_method: shippingData.shippingOption },
+                payment: {
+                    gateway: "stripe",
+                    stripe: {
+                        payment_intent_id: payload.paymentIntent.id,
+                    },
+                }
+            };
+
+            // log order to database
+            onCaptureCheckout(orderData);
+
+            nextStep();
+        };
     }
-  };
-
-  return (
-    <>
-      <Review cart={cart} />
-      <Divider />
-      <Elements stripe={stripePromise}>
-        <ElementsConsumer>
-          {({ elements, stripe }) => (
-            <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
-              <CardElement />
-              <br /> <br />
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+    return (
+        <form className={classes.paymentForm} onSubmit={handleSubmit}>
+            <CardElement className={classes.cardElement} options={cardStyle} onChange={handleChange} />
+            <br /> <br />
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Button variant="outlined" onClick={backStep}>
-                  Back
-                </Button>
+                    Back
+        </Button>
                 <Button
-                  type="submit"
-                  variant="contained"
-                  disabled={!stripe}
-                  color="primary"
-                >
-                  Pay
+                    type="submit"
+                    variant="contained"
+                    className={(processing || disabled || succeeded) ? classes.disabled : ''}
+                    disabled={disabled}
+                    id="submit"
+                    color="primary">
+                    <span className={classes.buttonText}>
+                        {processing ? <CircularProgress className={classes.spinner} /> : 'Pay'}
+                    </span>
                 </Button>
-              </div>
-            </form>
-          )}
-        </ElementsConsumer>
-      </Elements>
-    </>
-  );
+            </div>
+            {/* Show any error that happens when processing the payment */}
+            {error && (
+                <div className={classes.cardError} role="alert">
+                    {error}
+                </div>
+            )}
+        </form>
+    );
 };
 
 export default PaymentForm;

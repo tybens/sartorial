@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { omit } from 'lodash';
-
+import axios from 'axios';
 import { Navbar, Products, Cart, Checkout } from "./components";
 import products from './products.js'
 
@@ -11,23 +11,27 @@ const App = () => {
   const [order, setOrder] = useState({});
   const [cart, setCart] = useState({})
   const [errorMessage, setErrorMessage] = useState("");
+  const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
 
   function totalItems(obj) {
     var sum = 0;
     for (var el in obj) {
-      if (obj.hasOwnProperty(el)) {
-        sum += parseFloat(obj[el]);
+      if (obj.hasOwnProperty(el) && obj[el].hasOwnProperty('quantity')) {
+        sum += parseFloat(obj[el].quantity);
       }
     }
     return sum;
-  }
+  };
 
   const handleAddToCart = async (productId, quantity) => {
     setCart((prev) => ({
       ...prev,
-      [productId]: cart[productId] ? parseInt(cart[productId]) + 1 : parseInt(quantity)
+      [productId]: {
+        quantity: cart[productId] && cart[productId].quantity ? parseInt(cart[productId].quantity) + 1 : parseInt(quantity),
+        product: thisProduct(productId)
+      }
     }))
-
+    console.log(cart)
   };
 
 
@@ -37,7 +41,10 @@ const App = () => {
     } else {
       setCart((prev) => ({
         ...prev,
-        [productId]: parseInt(quantity)
+        [productId]: {
+          quantity: parseInt(quantity),
+          product: thisProduct(productId)
+        }
       }))
     }
   };
@@ -53,9 +60,29 @@ const App = () => {
   const handleCaptureCheckout = async (incomingOrder) => {
     try {
 
-      // send an email to Payne or add to database, if successful payment... 
-
-      setOrder(incomingOrder);
+      // add to database, if successful payment... 
+      axios.post(functionUrl, incomingOrder, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(function (response) {
+          // handle success
+          console.log(response);
+          // set local order so that they are shown confirmation message
+          setOrder(incomingOrder);
+          // empty the cart so they can buy again :)
+          handleEmptyCart();
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+          setErrorMessage(error)
+        })
+        .then(function () {
+          // always executed
+          console.log('so anyway')
+        });
     } catch (error) {
       setErrorMessage(error.data.error.message);
     }
@@ -93,7 +120,7 @@ const App = () => {
           <Route exact path="/cart">
             <Cart
               cart={cart}
-              thisProduct={thisProduct}
+              totalItems={totalItems}
               onUpdateCartQty={handleUpdateCartQty}
               onRemoveFromCart={handleRemoveFromCart}
               onEmptyCart={handleEmptyCart}
@@ -103,6 +130,7 @@ const App = () => {
             <Checkout
               cart={cart}
               order={order}
+              totalItems={totalItems}
               onCaptureCheckout={handleCaptureCheckout}
               error={errorMessage}
             />
