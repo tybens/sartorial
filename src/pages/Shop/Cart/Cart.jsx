@@ -13,7 +13,7 @@ const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
       You have no items in your shopping cart,
-      <Link className={classes.link} to="/">
+      <Link className={classes.link} to="/shop">
         start adding some
       </Link>
       !
@@ -54,7 +54,7 @@ const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart
           <Button
             className={classes.checkoutButton}
             component={Link}
-            to="/checkout"
+            to="/shop/checkout"
             size="large"
             type="button"
             variant="contained"
