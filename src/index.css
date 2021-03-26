@@ -1,0 +1,162 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.75;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 25px;
+  }
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+h2 {
+  line-height: 1.4;
+  margin-top: 1.5em;
+}
+
+.view a {
+  color: #ff5252;
+  text-decoration: none;
+}
+
+.view a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
+
+@keyframes nav {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -25px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+nav {
+  animation: nav 0.2s ease-in-out forwards;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 40em;
+  opacity: 0;
+  padding: 3em;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    max-width: 30em;
+    padding: 1em;
+  }
+}
+
+nav a {
+  font-size: 20px;
+  color: black;
+  font-weight: 900;
+  margin: 0 2em;
+  letter-spacing: 0.08em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  nav a {
+    margin: 0 1em;
+  }
+}
+
+@keyframes navdot {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+nav a:before {
+  border-radius: 50%;
+  content: "";
+  background-color: #ff5252;
+  left: 0;
+  height: 10px;
+  opacity: 0;
+  position: absolute;
+  top: 40%;
+  transform: translate(-200%, -50%);
+  width: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  nav a:before {
+    bottom: 150%;
+    top: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+nav a.active:before {
+  animation: navdot 0.25s ease-in-out forwards 0.25s;
+}
+
+.app {
+  padding: 2em;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    padding: 3em 2em 2em;
+  }
+}
+
+.with--accent {
+  color: #ff5252;
+  font-weight: 400;
+}
+
+.content {
+  border-radius: 4px;
+  background-color: white;
+  color: #101010;
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 0.75em;
+  text-align: left;
+}
+
+.content--inner {
+  padding: 3em;
+}
+
+@media screen and (max-width: 768px) {
+  .content--inner {
+    padding: 1em;
+  }
+}
+
+.content--excerpt {
+  font-weight: 700;
+  font-style: italic;
+  margin: 0;
+}

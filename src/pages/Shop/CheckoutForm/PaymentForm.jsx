@@ -59,7 +59,6 @@ const StripePayment = ({ cart, onCaptureCheckout, nextStep, backStep, shippingDa
         })
             .then(function (response) {
                 // handle success
-                console.log(response);
                 setClientSecret(response.data.clientSecret)
             })
             .catch(function (error) {

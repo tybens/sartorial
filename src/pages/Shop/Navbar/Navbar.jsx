@@ -11,7 +11,7 @@ import {
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 
-import logo from "../../assets/sartorial.png";
+import logo from "../../../assets/sartorial.png";
 import useStyles from "./styles";
 
 const PrimarySearchAppBar = ({ totalItems }) => {
@@ -38,7 +38,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
       <MenuItem>
         <IconButton
           component={Link}
-          to="/cart"
+          to="/shop/cart"
           aria-label="Show cart items"
           color="inherit"
         >
@@ -52,7 +52,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
   );
 
   return (
-    <>
+    <div className="">
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography
@@ -71,11 +71,11 @@ const PrimarySearchAppBar = ({ totalItems }) => {
             Sartorial
           </Typography>
           <div className={classes.grow} />
-          {location.pathname === "/" && (
+          {location.pathname === "/shop" && (
             <div className={classes.button}>
               <IconButton
                 component={Link}
-                to="/cart"
+                to="/shop/cart"
                 aria-label="Show cart items"
                 color="inherit"
               >
@@ -88,7 +88,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-    </>
+    </div>
   );
 };
 

@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Transition, TransitionGroup } from 'react-transition-group';
 import { omit } from 'lodash';
 import axios from 'axios';
-import { Navbar, Products, Cart, Checkout } from "./components";
-import products from './products.js'
+import { Shop, Home, Sponsors } from './pages';
+import Nav from './components/Nav';
+import { play, exit } from './timelines'
+import VideoIntro from './components/VideoIntro'
+import products from './products'
 
 const App = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+
   const [order, setOrder] = useState({});
   const [cart, setCart] = useState({})
   const [errorMessage, setErrorMessage] = useState("");
+
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/recordOrder';
-
+  console.log(cart)
   function totalItems(obj) {
     var sum = 0;
     for (var el in obj) {
@@ -32,7 +37,6 @@ const App = () => {
         product: thisProduct(productId)
       }
     }))
-    console.log(cart)
   };
 
 
@@ -69,7 +73,6 @@ const App = () => {
       })
         .then(function (response) {
           // handle success
-          console.log(response);
           // set local order so that they are shown confirmation message
           setOrder(incomingOrder);
           // empty the cart so they can buy again :)
@@ -80,16 +83,11 @@ const App = () => {
           console.log(error);
           setErrorMessage(error)
         })
-        .then(function () {
-          // always executed
-          console.log('so anyway')
-        });
     } catch (error) {
       setErrorMessage(error.data.error.message);
     }
   };
 
-  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   function thisProduct(productId) {
     var thisProd;
@@ -100,43 +98,46 @@ const App = () => {
     })
     return thisProd;
   }
-
-
+  // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
-      <div style={{ display: "flex" }}>
+      <div className="app">
         <CssBaseline />
-        <Navbar
-          totalItems={totalItems(cart)}
-          handleDrawerToggle={handleDrawerToggle}
-        />
-        <Switch>
-          <Route exact path="/">
-            <Products
-              products={products}
-              onAddToCart={handleAddToCart}
-              handleUpdateCartQty
-            />
-          </Route>
-          <Route exact path="/cart">
-            <Cart
-              cart={cart}
-              totalItems={totalItems}
-              onUpdateCartQty={handleUpdateCartQty}
-              onRemoveFromCart={handleRemoveFromCart}
-              onEmptyCart={handleEmptyCart}
-            />
-          </Route>
-          <Route exact path="/checkout">
-            <Checkout
-              cart={cart}
-              order={order}
-              totalItems={totalItems}
-              onCaptureCheckout={handleCaptureCheckout}
-              error={errorMessage}
-            />
-          </Route>
-        </Switch>
+        <VideoIntro />
+        <Nav />
+        <Route render={({ location }) => {
+          const { pathname, key } = location;
+
+          return (
+            <TransitionGroup component={null}>
+              <Transition
+                key={key}
+                appear={true}
+                onEnter={(node, appears) => play(pathname, node, appears)}
+                onExit={(node, appears) => exit(node, appears)}
+                timeout={{ enter: 750, exit: 150 }}
+              >
+                <Switch location={location}>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/shop">
+                    <Shop
+                      thisProduct={thisProduct}
+                      handleCaptureCheckout={handleCaptureCheckout}
+                      handleEmptyCart={handleEmptyCart}
+                      order={order}
+                      cart={cart}
+                      errorMessage={errorMessage}
+                      totalItems={totalItems}
+                      handleAddToCart={handleAddToCart}
+                      handleUpdateCartQty={handleUpdateCartQty}
+                    />
+                  </Route>
+                  <Route path="/sponsors" component={Sponsors} />
+                </Switch>
+              </Transition>
+            </TransitionGroup>
+          )
+        }} />
       </div>
     </Router>
   );
