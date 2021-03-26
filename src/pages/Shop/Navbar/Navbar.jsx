@@ -52,7 +52,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
   );
 
   return (
-    <>
+    <div className="">
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography
@@ -88,7 +88,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-    </>
+    </div>
   );
 };
 

@@ -27,7 +27,7 @@ const VideoIntro = () => {
             appear
         >
             <div className={classes.videoPreloader}>
-                <video width="100%" height="100%" autoPlay="autoplay" muted loop playsInLine>
+                <video width="100%" height="100%" autoPlay="autoplay" muted loop playsInline>
                     <source src="/videos/temp_intro.mp4" type="video/mp4" />
                 </video>
             </div>

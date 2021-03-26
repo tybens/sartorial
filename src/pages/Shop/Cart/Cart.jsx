@@ -7,7 +7,6 @@ import useStyles from "./styles";
 
 const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const classes = useStyles();
-
   const handleEmptyCart = () => onEmptyCart();
   
   const renderEmptyCart = () => (

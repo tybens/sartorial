@@ -1,4 +1,4 @@
-import { baguette, payne_tyler } from './assets/products'
+import { baguette, payne_tyler, cropped_ty } from './assets/products'
 
 /*  Yo, this file is not automated, so it will need to be updated by hand, 
 the necessary object structure of a product is below
@@ -31,6 +31,13 @@ const products = [
         img: payne_tyler,
         description: 'Test description number 2, this is a lame description',
         name: 'a party time',
+    },
+    {
+        id: 2,
+        price: 25,
+        img: cropped_ty,
+        description: 'Teagan is silly dumb dumb hehe',
+        name: 'cropped',
     },
 ]
 
