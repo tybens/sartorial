@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { CssBaseline } from "@material-ui/core";
+// import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { omit } from 'lodash';
 import axios from 'axios';
 import { Shop, Home, Sponsors } from './pages';
 import Nav from './components/Nav';
+import Navbar from './pages/Shop/Navbar/Navbar'
 import { play, exit } from './timelines'
 import VideoIntro from './components/VideoIntro'
 import products from './products'
@@ -15,6 +16,10 @@ const App = () => {
   const [cart, setCart] = useState({})
   const [errorMessage, setErrorMessage] = useState("");
   const [introComplete, setIntroComplete] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   // effect for video intro hide after preload
   useEffect(() => {
@@ -109,14 +114,17 @@ const App = () => {
     })
     return thisProd;
   }
-  
+
   // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
       <div className="app">
-        <CssBaseline />
         {!introComplete ? <VideoIntro />
           : <>
+            <Navbar
+              totalItems={totalItems(cart)}
+              handleDrawerToggle={handleDrawerToggle}
+            />
             <Nav />
             <Route render={({ location }) => {
               const { pathname, key } = location;
@@ -142,6 +150,7 @@ const App = () => {
                           errorMessage={errorMessage}
                           totalItems={totalItems}
                           handleAddToCart={handleAddToCart}
+                          handleRemoveFromCart={handleRemoveFromCart}
                           handleUpdateCartQty={handleUpdateCartQty}
                         />
                       </Route>
@@ -151,8 +160,8 @@ const App = () => {
                 </TransitionGroup>
               )
             }} />
-            </>}
-          </div>
+          </>}
+      </div>
     </Router>
   );
 };
