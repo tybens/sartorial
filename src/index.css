@@ -1,3 +1,7 @@
+:root {
+  --red: #ff5252;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
@@ -8,7 +12,7 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
-    font-size: 25px;
+    font-size: 15px;
   }
 }
 
@@ -25,7 +29,7 @@ h2 {
 }
 
 .view a {
-  color: #ff5252;
+  color: var(--red);
   text-decoration: none;
 }
 
@@ -68,7 +72,7 @@ nav {
 }
 
 nav a {
-  font-size: 20px;
+  font-size: 23px;
   color: black;
   font-weight: 900;
   margin: 0 2em;
@@ -76,6 +80,12 @@ nav a {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
+  transition: color 0.25s ease-in-out;
+}
+
+nav a:hover {
+  color: var(--red);
+
 }
 
 @media screen and (max-width: 768px) {
@@ -96,7 +106,7 @@ nav a {
 nav a:before {
   border-radius: 50%;
   content: "";
-  background-color: #ff5252;
+  background-color: var(--red);
   left: 0;
   height: 10px;
   opacity: 0;
@@ -131,7 +141,7 @@ nav a.active:before {
 }
 
 .with--accent {
-  color: #ff5252;
+  color: var(--red);
   font-weight: 400;
 }
 
