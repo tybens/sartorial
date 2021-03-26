@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
@@ -11,10 +11,21 @@ import VideoIntro from './components/VideoIntro'
 import products from './products'
 
 const App = () => {
-
   const [order, setOrder] = useState({});
   const [cart, setCart] = useState({})
   const [errorMessage, setErrorMessage] = useState("");
+  const [introComplete, setIntroComplete] = useState(false)
+
+  // effect for video intro hide after preload
+  useEffect(() => {
+    if (!introComplete) {
+      const timer = setTimeout(() => {
+        setIntroComplete(true);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  });
 
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/recordOrder';
@@ -98,47 +109,50 @@ const App = () => {
     })
     return thisProd;
   }
+  
   // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
       <div className="app">
         <CssBaseline />
-        <VideoIntro />
-        <Nav />
-        <Route render={({ location }) => {
-          const { pathname, key } = location;
+        {!introComplete ? <VideoIntro />
+          : <>
+            <Nav />
+            <Route render={({ location }) => {
+              const { pathname, key } = location;
 
-          return (
-            <TransitionGroup component={null}>
-              <Transition
-                key={key}
-                appear={true}
-                onEnter={(node, appears) => play(pathname, node, appears)}
-                onExit={(node, appears) => exit(node, appears)}
-                timeout={{ enter: 750, exit: 150 }}
-              >
-                <Switch location={location}>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/shop">
-                    <Shop
-                      thisProduct={thisProduct}
-                      handleCaptureCheckout={handleCaptureCheckout}
-                      handleEmptyCart={handleEmptyCart}
-                      order={order}
-                      cart={cart}
-                      errorMessage={errorMessage}
-                      totalItems={totalItems}
-                      handleAddToCart={handleAddToCart}
-                      handleUpdateCartQty={handleUpdateCartQty}
-                    />
-                  </Route>
-                  <Route path="/sponsors" component={Sponsors} />
-                </Switch>
-              </Transition>
-            </TransitionGroup>
-          )
-        }} />
-      </div>
+              return (
+                <TransitionGroup component={null}>
+                  <Transition
+                    key={key}
+                    appear={true}
+                    onEnter={(node, appears) => play(pathname, node, appears)}
+                    onExit={(node, appears) => exit(node, appears)}
+                    timeout={{ enter: 750, exit: 150 }}
+                  >
+                    <Switch location={location}>
+                      <Route exact path="/" component={Home} />
+                      <Route path="/shop">
+                        <Shop
+                          thisProduct={thisProduct}
+                          handleCaptureCheckout={handleCaptureCheckout}
+                          handleEmptyCart={handleEmptyCart}
+                          order={order}
+                          cart={cart}
+                          errorMessage={errorMessage}
+                          totalItems={totalItems}
+                          handleAddToCart={handleAddToCart}
+                          handleUpdateCartQty={handleUpdateCartQty}
+                        />
+                      </Route>
+                      <Route path="/sponsors" component={Sponsors} />
+                    </Switch>
+                  </Transition>
+                </TransitionGroup>
+              )
+            }} />
+            </>}
+          </div>
     </Router>
   );
 };
