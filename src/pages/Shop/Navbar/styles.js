@@ -4,6 +4,7 @@ const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
   appBar: {
+    marginTop: "15px",
     boxShadow: "none",
     borderBottom: "none",
     color: "black !important",
@@ -13,12 +14,19 @@ export default makeStyles((theme) => ({
       marginLeft: drawerWidth,
     },
   },
-  title: {
+  titleDiv: {
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
   },
+  title: {
+    fontSize: "25px",
+    letterSpacing: "0.05em",
+    fontWeight: "bold !important",
+    marginTop: "7px"
+  },
+
   image: {
     marginRight: "10px",
   },

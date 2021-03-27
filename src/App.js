@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { CssBaseline } from "@material-ui/core";
+// import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { omit } from 'lodash';
 import axios from 'axios';
 import { Shop, Home, Sponsors } from './pages';
 import Nav from './components/Nav';
+import Navbar from './pages/Shop/Navbar/Navbar'
 import { play, exit } from './timelines'
 import VideoIntro from './components/VideoIntro'
 import products from './products'
@@ -15,6 +16,10 @@ const App = () => {
   const [cart, setCart] = useState({})
   const [errorMessage, setErrorMessage] = useState("");
   const [introComplete, setIntroComplete] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   // effect for video intro hide after preload
   useEffect(() => {
@@ -29,7 +34,8 @@ const App = () => {
 
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/recordOrder';
-  console.log(cart)
+
+  // given a cart, returns total number of items 
   function totalItems(obj) {
     var sum = 0;
     for (var el in obj) {
@@ -40,6 +46,18 @@ const App = () => {
     return sum;
   };
 
+  // given a cart, returns price in dollars
+  function totalPrice(obj) {
+    var sum = 0;
+    for (var el in obj) {
+      if (obj.hasOwnProperty(el) && obj[el].hasOwnProperty('quantity') && obj[el].hasOwnProperty('product')) {
+        sum += parseFloat(obj[el].quantity)*parseFloat(obj[el].product.price);
+      }
+    }
+    return sum; // returns price in dolars
+  };
+
+  // add an item to the cart
   const handleAddToCart = async (productId, quantity) => {
     setCart((prev) => ({
       ...prev,
@@ -50,7 +68,7 @@ const App = () => {
     }))
   };
 
-
+  // update the quantity of an item in the cart
   const handleUpdateCartQty = async (productId, quantity) => {
     if (parseInt(quantity) < 1) {
       handleRemoveFromCart(productId)
@@ -65,6 +83,7 @@ const App = () => {
     }
   };
 
+  
   const handleRemoveFromCart = async (productId) => {
     setCart(Object.assign({}, omit(cart, productId)))
   };
@@ -109,14 +128,17 @@ const App = () => {
     })
     return thisProd;
   }
-  
+
   // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
       <div className="app">
-        <CssBaseline />
         {!introComplete ? <VideoIntro />
           : <>
+            <Navbar
+              totalItems={totalItems(cart)}
+              handleDrawerToggle={handleDrawerToggle}
+            />
             <Nav />
             <Route render={({ location }) => {
               const { pathname, key } = location;
@@ -141,7 +163,9 @@ const App = () => {
                           cart={cart}
                           errorMessage={errorMessage}
                           totalItems={totalItems}
+                          totalPrice={totalPrice}
                           handleAddToCart={handleAddToCart}
+                          handleRemoveFromCart={handleRemoveFromCart}
                           handleUpdateCartQty={handleUpdateCartQty}
                         />
                       </Route>
@@ -151,8 +175,8 @@ const App = () => {
                 </TransitionGroup>
               )
             }} />
-            </>}
-          </div>
+          </>}
+      </div>
     </Router>
   );
 };
