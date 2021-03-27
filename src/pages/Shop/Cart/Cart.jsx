@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Button, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import ReactCursorPosition from "react-cursor-position";
 
 import CartItem from "./CartItem/CartItem";
 import useStyles from "./styles";
@@ -8,6 +9,7 @@ import useStyles from "./styles";
 const Cart = ({
   cart,
   totalItems,
+  totalPrice,
   onUpdateCartQty,
   onRemoveFromCart,
   onEmptyCart,
@@ -27,22 +29,24 @@ const Cart = ({
 
   const renderCart = () => (
     <>
-      <Grid container direction="column" spacing={3}>
+      <Grid container direction="column" alignItems="center" spacing={3}>
         {Object.entries(cart).map(([productId, item]) => {
           return (
             <Grid item xs={12} key={productId}>
-              <CartItem
+              <ReactCursorPosition>
+                <CartItem
                 item={item.product}
                 quantity={parseInt(item.quantity)}
                 onUpdateCartQty={onUpdateCartQty}
                 onRemoveFromCart={onRemoveFromCart}
               />
+              </ReactCursorPosition>
             </Grid>
           );
         })}
       </Grid>
       <div className={classes.cardDetails}>
-        <Typography variant="h4">Subtotal: ${totalItems(cart) * 25}</Typography>
+        <Typography variant="h4">Total: ${totalPrice(cart)}</Typography>
         <div>
           <Button
             className={classes.emptyButton}
@@ -72,7 +76,8 @@ const Cart = ({
 
   return (
     <div className={classes.content}>
-      <h1 style={{ marginTop: "0px" }}>Cart</h1>
+      <h1 style={{ margin: "0" }}>Your Cart</h1>
+      <h6 style={{ margin: "-20px 0 10px 0", color: "grey" }}>hover for preview</h6>
       {!Object.keys(cart).length ? renderEmptyCart() : renderCart()}
     </div>
   );

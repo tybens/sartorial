@@ -5,7 +5,7 @@ import Cart from './Cart/Cart'
 import Checkout from './CheckoutForm/Checkout/Checkout'
 import products from '../../products.js'
 
-const Shop = ({ cart, order, totalItems, handleCaptureCheckout, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart, errorMessage, handleAddToCart }) => {
+const Shop = ({ cart, order, totalItems, totalPrice, handleCaptureCheckout, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart, errorMessage, handleAddToCart }) => {
   
   let match = useRouteMatch();
 
@@ -26,6 +26,7 @@ const Shop = ({ cart, order, totalItems, handleCaptureCheckout, handleUpdateCart
           <Cart
             cart={cart}
             totalItems={totalItems}
+            totalPrice={totalPrice}
             onUpdateCartQty={handleUpdateCartQty}
             onRemoveFromCart={handleRemoveFromCart}
             onEmptyCart={handleEmptyCart}
