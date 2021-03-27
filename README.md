@@ -26,5 +26,7 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
   - [x] fade transitions (cp andstudio.lt)
   - [x] Cart view is gross, as are most other views
   - [x] Hover to show image preview
+  - [x] Darkmode to Sponsors page
   - Change button color scheme to be more universal and less generic. Probably to a slick black & white
+- Add realistic content
 
