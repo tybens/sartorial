@@ -59,19 +59,19 @@ const PrimarySearchAppBar = ({ totalItems }) => {
             component={Link}
             to="/"
             variant="h6"
-            className={classes.title}
+            className={classes.titleDiv}
             color="inherit"
           >
             <img
               src={logo}
               alt="Sartorial"
-              height="25px"
+              height="50px"
               className={classes.image}
             />{" "}
-            Sartorial
+            <div className={classes.title}>S<span className="with--accent" style={{fontWeight: "bold"}}>art</span>orial</div>
           </Typography>
           <div className={classes.grow} />
-          {location.pathname === "/shop" && (
+          {(totalItems > 0 || location.pathname === '/shop') && (
             <div className={classes.button}>
               <IconButton
                 component={Link}

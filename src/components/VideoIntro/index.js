@@ -1,5 +1,4 @@
 import React from 'react'
-import "./transition-styles.css";
 import makeStyles from './styles'
 
 const VideoIntro = () => {

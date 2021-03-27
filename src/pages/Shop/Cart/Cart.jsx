@@ -1,17 +1,24 @@
 import React from "react";
-import { Container, Typography, Button, Grid } from "@material-ui/core";
+import { Typography, Button, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 import CartItem from "./CartItem/CartItem";
 import useStyles from "./styles";
 
-const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
+const Cart = ({
+  cart,
+  totalItems,
+  totalPrice,
+  onUpdateCartQty,
+  onRemoveFromCart,
+  onEmptyCart,
+}) => {
   const classes = useStyles();
   const handleEmptyCart = () => onEmptyCart();
-  
+
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
-      You have no items in your shopping cart,
+      You have no items in your shopping cart,{" "}
       <Link className={classes.link} to="/shop">
         start adding some
       </Link>
@@ -21,24 +28,25 @@ const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart
 
   const renderCart = () => (
     <>
-      <Grid container spacing={3}>
+      <h6 style={{ margin: "-20px 0 10px 0", color: "grey" }}>
+        hover product name for preview
+      </h6>
+      <Grid container direction="column" alignItems="center" spacing={3}>
         {Object.entries(cart).map(([productId, item]) => {
-          
           return (
-          <Grid item xs={12} sm={4} key={productId}>
-            <CartItem
-              item={item.product}
-              quantity={parseInt(item.quantity)}
-              onUpdateCartQty={onUpdateCartQty}
-              onRemoveFromCart={onRemoveFromCart}
-            />
-          </Grid>
-        )})}
+            <Grid item xs={12} key={productId}>
+              <CartItem
+                item={item.product}
+                quantity={parseInt(item.quantity)}
+                onUpdateCartQty={onUpdateCartQty}
+                onRemoveFromCart={onRemoveFromCart}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
       <div className={classes.cardDetails}>
-        <Typography variant="h4">
-          Subtotal: ${totalItems(cart)*25}
-        </Typography>
+        <Typography variant="h4">Total: ${totalPrice(cart)}</Typography>
         <div>
           <Button
             className={classes.emptyButton}
@@ -67,13 +75,10 @@ const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart
   );
 
   return (
-    <Container>
-      <div className={classes.toolbar} />
-      <Typography className={classes.title} variant="h3" gutterBottom>
-        Your Shopping Cart
-      </Typography>
+    <div className={classes.content}>
+      <h1 style={{ margin: "0" }}>Your Cart</h1>
       {!Object.keys(cart).length ? renderEmptyCart() : renderCart()}
-    </Container>
+    </div>
   );
 };
 
