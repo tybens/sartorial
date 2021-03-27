@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Button, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import ReactCursorPosition from "react-cursor-position";
 
 import CartItem from "./CartItem/CartItem";
 import useStyles from "./styles";
@@ -19,8 +18,8 @@ const Cart = ({
 
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
-      You have no items in your shopping cart,
-      {" "}<Link className={classes.link} to="/shop">
+      You have no items in your shopping cart,{" "}
+      <Link className={classes.link} to="/shop">
         start adding some
       </Link>
       !
@@ -29,18 +28,19 @@ const Cart = ({
 
   const renderCart = () => (
     <>
+      <h6 style={{ margin: "-20px 0 10px 0", color: "grey" }}>
+        hover product name for preview
+      </h6>
       <Grid container direction="column" alignItems="center" spacing={3}>
         {Object.entries(cart).map(([productId, item]) => {
           return (
             <Grid item xs={12} key={productId}>
-              <ReactCursorPosition>
-                <CartItem
+              <CartItem
                 item={item.product}
                 quantity={parseInt(item.quantity)}
                 onUpdateCartQty={onUpdateCartQty}
                 onRemoveFromCart={onRemoveFromCart}
               />
-              </ReactCursorPosition>
             </Grid>
           );
         })}
@@ -77,7 +77,6 @@ const Cart = ({
   return (
     <div className={classes.content}>
       <h1 style={{ margin: "0" }}>Your Cart</h1>
-      <h6 style={{ margin: "-20px 0 10px 0", color: "grey" }}>hover for preview</h6>
       {!Object.keys(cart).length ? renderEmptyCart() : renderCart()}
     </div>
   );
