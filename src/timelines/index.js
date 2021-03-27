@@ -1,30 +1,30 @@
 // borrowed from Jeremias Menichelli's codesandbox project, react-view-transition-example
-import { TimelineMax as Timeline, Power1 } from 'gsap';
+import gsap from 'gsap';
 
 const getDefaultTimeline = (node, delay) => {
-    const timeline = new Timeline({ paused: true });
+    const timeline = gsap.timeline({ paused: true });
     const content = node.querySelector('.content');
     const contentInner = node.querySelector('.content--inner');
 
     if (content) {
         timeline
-            .from(node, 0.3, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
-            .from(content, 0.15, { autoAlpha: 0, y: 25, ease: Power1.easeInOut })
-            .from(contentInner, 0.15, { autoAlpha: 0, delay: 0.15, ease: Power1.easeIn });
+            .from(node, { duration: 0.3, display: 'none', autoAlpha: 0, delay, ease: "power1.in" })
+            .from(content, { duration: 0.15, autoAlpha: 0, y: 25, ease: "power1.inOut" })
+            .from(contentInner, { duration: 0.15, autoAlpha: 0, delay: 0.15, ease: "power1.in" });
     } else {
         timeline
-            .from(node, 0.3, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
+            .from(node, { duration: 0.3, display: 'none', autoAlpha: 0, delay, ease: "power1.in" })
     }
     return timeline;
 }
 
 const getHomeTimeline = (node, delay) => {
-    const timeline = new Timeline({ paused: true });
+    const timeline = gsap.timeline({ paused: true });
     const texts = node.querySelectorAll('h1 > div');
 
     timeline
-        .from(node, 0.3, { display: 'none', autoAlpha: 0, delay })
-        .staggerFrom(texts, 0.375, { autoAlpha: 0, x: -25, ease: Power1.easeOut }, 0.125);
+        .from(node, { duration: 0.3, display: 'none', autoAlpha: 0, delay })
+        .staggerFrom(texts, 0.375, { autoAlpha: 0, x: -25, ease: "power1" }, 0.125);
 
     return timeline;
 }
@@ -44,8 +44,8 @@ export const play = (pathname, node, appears) => {
 }
 
 export const exit = (node) => {
-    const timeline = new Timeline({ paused: true });
+    var timeline = gsap.timeline({ paused: true });
 
-    timeline.to(node, 0.25, { autoAlpha: 0, ease: Power1.easeOut });
+    timeline.to(node, { duration: 0.25, autoAlpha: 0, ease: "power1.out" });
     timeline.play();
 }

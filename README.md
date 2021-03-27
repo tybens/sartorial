@@ -1,8 +1,8 @@
-# Sartorial
+# [https://www.habitatsartorial.org](Sartorial)
 
-Sartorial, the not-for-profit yes-for-helping.
+Habitat Sartorial, the not-for-profit, habitat-building fashion center.
 
-This is the commerce website built with react and firebase. Currently hosted at [https://www.sartorial-indy.web.app](https://www.sartorial-indy.web.app)
+This is the commerce website built with react and firebase. Currently hosted at [https://www.habitatsartorial.org](https://www.habitatsartorial.org)
 
 ![sartorial logo](public/images/HS_rotary.jpeg)
 
@@ -24,6 +24,7 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
 - [x] Dl andstudio.lt video intro and use to test video intros
 - Stylistic changes
   - [x] fade transitions (cp andstudio.lt)
-  - Cart view is gross, as are most other views
+  - [x] Cart view is gross, as are most other views
+  - [x] Hover to show image preview
   - Change button color scheme to be more universal and less generic. Probably to a slick black & white
 
