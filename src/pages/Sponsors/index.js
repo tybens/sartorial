@@ -1,6 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-const Sponsors = () => {
+const Sponsors = ({ onSetIsSponsors }) => {
+
+    useEffect(() => {
+        onSetIsSponsors(true)
+        return () => {
+            onSetIsSponsors(false)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
         <div className="view">
             <h1>Sponsors</h1>

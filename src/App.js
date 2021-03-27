@@ -6,10 +6,11 @@ import { omit } from 'lodash';
 import axios from 'axios';
 import { Shop, Home, Sponsors } from './pages';
 import Nav from './components/Nav';
-import Navbar from './pages/Shop/Navbar/Navbar'
-import { play, exit } from './timelines'
-import VideoIntro from './components/VideoIntro'
-import products from './products'
+import Navbar from './pages/Shop/Navbar/Navbar';
+import { play, exit } from './timelines';
+import VideoIntro from './components/VideoIntro';
+import products from './products';
+import useWindowSize from './utils/useWindowSize';
 
 const App = () => {
   const [order, setOrder] = useState({});
@@ -17,7 +18,8 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [introComplete, setIntroComplete] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const [isSponsors, setIsSponsors] = useState(false)
+  const windowSize = useWindowSize();
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
@@ -51,7 +53,7 @@ const App = () => {
     var sum = 0;
     for (var el in obj) {
       if (obj.hasOwnProperty(el) && obj[el].hasOwnProperty('quantity') && obj[el].hasOwnProperty('product')) {
-        sum += parseFloat(obj[el].quantity)*parseFloat(obj[el].product.price);
+        sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].product.price);
       }
     }
     return sum; // returns price in dolars
@@ -83,7 +85,7 @@ const App = () => {
     }
   };
 
-  
+
   const handleRemoveFromCart = async (productId) => {
     setCart(Object.assign({}, omit(cart, productId)))
   };
@@ -132,52 +134,56 @@ const App = () => {
   // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
-      <div className="app">
-        {!introComplete ? <VideoIntro />
-          : <>
-            <Navbar
-              totalItems={totalItems(cart)}
-              handleDrawerToggle={handleDrawerToggle}
-            />
-            <Nav />
-            <Route render={({ location }) => {
-              const { pathname, key } = location;
+      <div className="app" style={{ background: (isSponsors) ? 'black' : 'inherit', color: (isSponsors) ? 'white' : 'inherit', minHeight: windowSize.height-64, transition: "color 1s ease-in 0.25s, background 1s ease-in 0.25s"}}>
+      {!introComplete ? <VideoIntro />
+        : <>
+          <Navbar
+            totalItems={totalItems(cart)}
+            handleDrawerToggle={handleDrawerToggle}
+          />
+          <Nav />
+          <Route render={({ location }) => {
+            const { pathname, key } = location;
 
-              return (
-                <TransitionGroup component={null}>
-                  <Transition
-                    key={key}
-                    appear={true}
-                    onEnter={(node, appears) => play(pathname, node, appears)}
-                    onExit={(node, appears) => exit(node, appears)}
-                    timeout={{ enter: 750, exit: 150 }}
-                  >
-                    <Switch location={location}>
-                      <Route exact path="/" component={Home} />
-                      <Route path="/shop">
-                        <Shop
-                          thisProduct={thisProduct}
-                          handleCaptureCheckout={handleCaptureCheckout}
-                          handleEmptyCart={handleEmptyCart}
-                          order={order}
-                          cart={cart}
-                          errorMessage={errorMessage}
-                          totalItems={totalItems}
-                          totalPrice={totalPrice}
-                          handleAddToCart={handleAddToCart}
-                          handleRemoveFromCart={handleRemoveFromCart}
-                          handleUpdateCartQty={handleUpdateCartQty}
-                        />
-                      </Route>
-                      <Route path="/sponsors" component={Sponsors} />
-                    </Switch>
-                  </Transition>
-                </TransitionGroup>
-              )
-            }} />
-          </>}
+            return (
+              <TransitionGroup component={null}>
+                <Transition
+                  key={key}
+                  appear={true}
+                  onEnter={(node, appears) => play(pathname, node, appears)}
+                  onExit={(node, appears) => exit(node, appears)}
+                  timeout={{ enter: 750, exit: 150 }}
+                >
+                  <Switch location={location}>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/shop">
+                      <Shop
+                        thisProduct={thisProduct}
+                        handleCaptureCheckout={handleCaptureCheckout}
+                        handleEmptyCart={handleEmptyCart}
+                        order={order}
+                        cart={cart}
+                        errorMessage={errorMessage}
+                        totalItems={totalItems}
+                        totalPrice={totalPrice}
+                        handleAddToCart={handleAddToCart}
+                        handleRemoveFromCart={handleRemoveFromCart}
+                        handleUpdateCartQty={handleUpdateCartQty}
+                      />
+                    </Route>
+                    <Route path="/sponsors">
+                      <Sponsors
+                        onSetIsSponsors={setIsSponsors}
+                      />
+                    </Route>
+                  </Switch>
+                </Transition>
+              </TransitionGroup>
+            )
+          }} />
+        </>}
       </div>
-    </Router>
+    </Router >
   );
 };
 

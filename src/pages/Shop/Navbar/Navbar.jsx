@@ -6,7 +6,7 @@ import {
   Badge,
   MenuItem,
   Menu,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
@@ -52,26 +52,27 @@ const PrimarySearchAppBar = ({ totalItems }) => {
   );
 
   return (
-    <div className="">
+    <div>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography
-            component={Link}
-            to="/"
-            variant="h6"
-            className={classes.titleDiv}
-            color="inherit"
-          >
+          <Typography variant="h6" className={classes.titleDiv} color="inherit">
+            <Link to="/" className={classes.image}>
             <img
               src={logo}
               alt="Sartorial"
               height="50px"
-              className={classes.image}
-            />{" "}
-            <div className={classes.title}>Habitat S<span className="with--accent" style={{fontWeight: "bold"}}>art</span>orial</div>
+              />
+              </Link>{" "}
+            <Typography component={Link} to="/" className={classes.title} color="inherit">
+              Habitat S
+              <span className="with--accent" style={{ fontWeight: "bold" }}>
+                art
+              </span>
+              orial
+            </Typography>
           </Typography>
           <div className={classes.grow} />
-          {(totalItems > 0 || location.pathname === '/shop') && (
+          {(totalItems > 0 || location.pathname === "/shop") && (
             <div className={classes.button}>
               <IconButton
                 component={Link}
