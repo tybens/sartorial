@@ -80,7 +80,7 @@ nav a {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 0.25s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 nav a:hover {
