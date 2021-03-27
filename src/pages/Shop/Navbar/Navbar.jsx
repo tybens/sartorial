@@ -68,7 +68,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
               height="50px"
               className={classes.image}
             />{" "}
-            <div className={classes.title}>S<span className="with--accent" style={{fontWeight: "bold"}}>art</span>orial</div>
+            <div className={classes.title}>Habitat S<span className="with--accent" style={{fontWeight: "bold"}}>art</span>orial</div>
           </Typography>
           <div className={classes.grow} />
           {(totalItems > 0 || location.pathname === '/shop') && (
