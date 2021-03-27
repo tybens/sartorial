@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     marginTop: "15px",
     boxShadow: "none",
     borderBottom: "none",
-    color: "black !important",
+    color: "inherit",
     background: "inherit",
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -21,6 +21,7 @@ export default makeStyles((theme) => ({
     textDecoration: "none",
   },
   title: {
+    textDecoration: "none",
     fontSize: "25px",
     letterSpacing: "0.05em",
     fontWeight: "bold !important",
@@ -29,6 +30,8 @@ export default makeStyles((theme) => ({
 
   image: {
     marginRight: "10px",
+    display: "flex",
+    alignItems: "center"
   },
   menuButton: {
     marginRight: theme.spacing(2),

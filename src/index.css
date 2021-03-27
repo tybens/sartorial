@@ -1,5 +1,7 @@
 :root {
   --red: #ff5252;
+  --textColor: black;
+  --backgroundColor: white;
 }
 
 body {
@@ -8,6 +10,7 @@ body {
   line-height: 1.75;
   margin: 0;
   padding: 0;
+  transition: color 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -73,7 +76,7 @@ nav {
 
 nav a {
   font-size: 23px;
-  color: black;
+  color: inherit;
   font-weight: 900;
   margin: 0 2em;
   letter-spacing: 0.08em;
@@ -85,7 +88,6 @@ nav a {
 
 nav a:hover {
   color: var(--red);
-
 }
 
 @media screen and (max-width: 768px) {
@@ -169,4 +171,9 @@ nav a.active:before {
   font-weight: 700;
   font-style: italic;
   margin: 0;
+}
+
+.sponsors {
+  --backgroundColor: black;
+  --textColor: white;
 }
