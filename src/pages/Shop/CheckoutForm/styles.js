@@ -51,5 +51,15 @@ cardElement: {
 disabled: {
   opacity: "0.5;",
   cursor: "default;"
+},
+
+stateCode: {
+  width: "100%",
+  height: "100%",
+  borderColor: "rgba(107, 114, 128, 1)",
+  borderWidth: "0 0 1px 0",
+  paddingTop: "0.75rem",
+  color: "rgba(107, 114, 128, 1)",
+  fontSize: "1rem"
 }
 }));
