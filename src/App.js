@@ -34,7 +34,8 @@ const App = () => {
 
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl = 'https://us-central1-sartorial-indy.cloudfunctions.net/recordOrder';
-  console.log(cart)
+
+  // given a cart, returns total number of items 
   function totalItems(obj) {
     var sum = 0;
     for (var el in obj) {
@@ -45,6 +46,18 @@ const App = () => {
     return sum;
   };
 
+  // given a cart, returns price in dollars
+  function totalPrice(obj) {
+    var sum = 0;
+    for (var el in obj) {
+      if (obj.hasOwnProperty(el) && obj[el].hasOwnProperty('quantity') && obj[el].hasOwnProperty('product')) {
+        sum += parseFloat(obj[el].quantity)*parseFloat(obj[el].product.price);
+      }
+    }
+    return sum; // returns price in dolars
+  };
+
+  // add an item to the cart
   const handleAddToCart = async (productId, quantity) => {
     setCart((prev) => ({
       ...prev,
@@ -55,7 +68,7 @@ const App = () => {
     }))
   };
 
-
+  // update the quantity of an item in the cart
   const handleUpdateCartQty = async (productId, quantity) => {
     if (parseInt(quantity) < 1) {
       handleRemoveFromCart(productId)
@@ -70,6 +83,7 @@ const App = () => {
     }
   };
 
+  
   const handleRemoveFromCart = async (productId) => {
     setCart(Object.assign({}, omit(cart, productId)))
   };
@@ -149,6 +163,7 @@ const App = () => {
                           cart={cart}
                           errorMessage={errorMessage}
                           totalItems={totalItems}
+                          totalPrice={totalPrice}
                           handleAddToCart={handleAddToCart}
                           handleRemoveFromCart={handleRemoveFromCart}
                           handleUpdateCartQty={handleUpdateCartQty}
