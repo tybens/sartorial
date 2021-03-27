@@ -5,14 +5,20 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem/CartItem";
 import useStyles from "./styles";
 
-const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
+const Cart = ({
+  cart,
+  totalItems,
+  onUpdateCartQty,
+  onRemoveFromCart,
+  onEmptyCart,
+}) => {
   const classes = useStyles();
   const handleEmptyCart = () => onEmptyCart();
-  
+
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
-      You have no items in your shopping cart, 
-      <Link className={classes.link} to="/shop">
+      You have no items in your shopping cart,
+      {" "}<Link className={classes.link} to="/shop">
         start adding some
       </Link>
       !
@@ -21,24 +27,22 @@ const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart
 
   const renderCart = () => (
     <>
-      <Grid container spacing={3}>
+      <Grid container direction="column" spacing={3}>
         {Object.entries(cart).map(([productId, item]) => {
-          
           return (
-          <Grid item xs={12} sm={4} key={productId}>
-            <CartItem
-              item={item.product}
-              quantity={parseInt(item.quantity)}
-              onUpdateCartQty={onUpdateCartQty}
-              onRemoveFromCart={onRemoveFromCart}
-            />
-          </Grid>
-        )})}
+            <Grid item xs={12} key={productId}>
+              <CartItem
+                item={item.product}
+                quantity={parseInt(item.quantity)}
+                onUpdateCartQty={onUpdateCartQty}
+                onRemoveFromCart={onRemoveFromCart}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
       <div className={classes.cardDetails}>
-        <Typography variant="h4">
-          Subtotal: ${totalItems(cart)*25}
-        </Typography>
+        <Typography variant="h4">Subtotal: ${totalItems(cart) * 25}</Typography>
         <div>
           <Button
             className={classes.emptyButton}
@@ -67,12 +71,10 @@ const Cart = ({ cart, totalItems, onUpdateCartQty, onRemoveFromCart, onEmptyCart
   );
 
   return (
-    <>
-      <div className="view">
-      <h1 style={{marginTop: "0px"}}>Cart</h1>
+    <div className={classes.content}>
+      <h1 style={{ marginTop: "0px" }}>Cart</h1>
       {!Object.keys(cart).length ? renderEmptyCart() : renderCart()}
-      </div>
-    </>
+    </div>
   );
 };
 

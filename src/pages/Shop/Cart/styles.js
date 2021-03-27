@@ -26,4 +26,8 @@ export default makeStyles((theme) => ({
     width: "100%",
     justifyContent: "space-between",
   },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3)
+  }
 }));
