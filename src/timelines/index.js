@@ -20,11 +20,15 @@ const getDefaultTimeline = (node, delay) => {
 
 const getHomeTimeline = (node, delay) => {
     const timeline = gsap.timeline({ paused: true });
-    const texts = node.querySelectorAll('h1 > div');
+    const texts = node.querySelectorAll('div > h1 > div');
+    const divs = node.querySelectorAll('.content-block');
+    console.log(node)
 
     timeline
         .from(node, { duration: 0.3, display: 'none', autoAlpha: 0, delay })
-        .staggerFrom(texts, 0.375, { autoAlpha: 0, x: -25, ease: "power1" }, 0.125);
+        .staggerFrom(texts, 0.375, { autoAlpha: 0, x: -25, ease: "power1" }, 0.125)
+        .staggerFrom(divs, 0.375, { autoAlpha: 0, y: 25, ease: "power1" }, 0.125);
+
 
     return timeline;
 }

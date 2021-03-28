@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <>
+        <div>
         <h1>
             <div>Handcrafted <span className="with--accent">threads</span></div>
             <div>to build <span className="with--accent">habitats</span></div>
@@ -33,7 +33,7 @@ const Home = () => {
 
 
 
-        </>
+        </div>
     );
 }
 
