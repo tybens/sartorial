@@ -61,10 +61,10 @@ nav {
   animation: nav 0.2s ease-in-out forwards;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: auto;
   max-width: 40em;
   opacity: 0;
-  padding: 3em;
+  padding: 6em 3em 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -132,7 +132,7 @@ nav a.active:before {
 }
 
 .app {
-  padding: 2em;
+  /* padding: 2em; */
   text-align: center;
 }
 
@@ -176,4 +176,35 @@ nav a.active:before {
 .sponsors {
   --backgroundColor: black;
   --textColor: white;
+}
+
+.content-block {
+  letter-spacing: 0.03em;
+  font-size: medium;
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.block-0 {
+  background: inherit;
+  color: inherit;
+}
+
+.block-1 {
+  background: black;
+  color: white;
+}
+
+.block-2 {
+  background:#00203FFF;
+  color: #ADEFD1FF;
+}
+
+.block-3 {
+  background: var(--red);
+  color: #fff;
 }
