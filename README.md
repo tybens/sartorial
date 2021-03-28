@@ -16,6 +16,7 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
 
 ## Todo:
 
+- Email domains
 - Add state code to checkout form
 - Fix appbar (make cart show below shop)
 - Add metadata to paymentIntent (so we can observe what payment is for which besides the intent_id)

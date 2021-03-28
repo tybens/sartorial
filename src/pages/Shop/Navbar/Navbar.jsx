@@ -9,15 +9,19 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-import logo from "../../../assets/sartorial.png";
 import useStyles from "./styles";
+
+const routes = [
+  { to: "/", label: "Home" },
+  { to: "/sponsors", label: "Sponsors" },
+  { to: "/shop", label: "Shop" },
+];
 
 const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
-  const location = useLocation();
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -51,20 +55,49 @@ const PrimarySearchAppBar = ({ totalItems }) => {
     </Menu>
   );
 
+  const links = routes.map(({ to, label }) => {
+    return (
+      <>
+        <NavLink strict exact to={to} key={to}>
+          {label}
+        </NavLink>
+        {label === "Shop" && (
+          <div className={classes.button}>
+            <IconButton
+              component={Link}
+              to="/shop/cart"
+              aria-label="Show cart items"
+              color="inherit"
+            >
+              <Badge badgeContent={totalItems} color="secondary">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          </div>
+        )}
+      </>
+    );
+  });
+
   return (
     <div>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.titleDiv} color="inherit">
             <Link to="/" className={classes.image}>
-            <img
-              src={logo}
-              alt="Sartorial"
-              height="50px"
+              <img
+                height="150px"
+                src="/images/spinningrotary.gif"
+                alt="Spinning Sartorial Logo"
               />
-              </Link>{" "}
-            <Typography component={Link} to="/" className={classes.title} color="inherit">
-              Habitat S
+            </Link>{" "}
+            <Typography
+              component={Link}
+              to="/"
+              className={classes.title}
+              color="inherit"
+            >
+              HABITAT S
               <span className="with--accent" style={{ fontWeight: "bold" }}>
                 art
               </span>
@@ -72,20 +105,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
             </Typography>
           </Typography>
           <div className={classes.grow} />
-          {(totalItems > 0 || location.pathname === "/shop") && (
-            <div className={classes.button}>
-              <IconButton
-                component={Link}
-                to="/shop/cart"
-                aria-label="Show cart items"
-                color="inherit"
-              >
-                <Badge badgeContent={totalItems} color="secondary">
-                  <ShoppingCart />
-                </Badge>
-              </IconButton>
-            </div>
-          )}
+          <nav>{links}</nav>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

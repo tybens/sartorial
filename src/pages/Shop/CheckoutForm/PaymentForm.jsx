@@ -17,7 +17,7 @@ import axios from "axios";
 import useStyles from "./styles";
 import Review from "./Review";
 
-const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC_KEY}`);
+// const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC_KEY}`);
 
 const PaymentForm = ({
   cart,
@@ -34,7 +34,7 @@ const PaymentForm = ({
       <Typography variant="h6" gutterBottom style={{ margin: "20px 0" }}>
         Payment method
       </Typography>
-      <Elements stripe={stripePromise}>
+      <Elements stripe={true}>
         <StripePayment
           cart={cart}
           onCaptureCheckout={onCaptureCheckout}
