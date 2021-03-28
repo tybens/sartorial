@@ -62,9 +62,8 @@ nav {
   display: flex;
   justify-content: space-between;
   margin: auto;
-  max-width: 40em;
+  min-width: 20em;
   opacity: 0;
-  padding: 6em 3em 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -75,10 +74,10 @@ nav {
 }
 
 nav a {
-  font-size: 23px;
+  font-size: 18px;
   color: inherit;
   font-weight: 900;
-  margin: 0 2em;
+  margin: 0 0 0 2em;
   letter-spacing: 0.08em;
   position: relative;
   text-decoration: none;
@@ -173,20 +172,20 @@ nav a.active:before {
   margin: 0;
 }
 
-.sponsors {
-  --backgroundColor: black;
-  --textColor: white;
+.toolbar-div {
+  width: 100%;
+  height: 175px;
 }
 
 .content-block {
   letter-spacing: 0.03em;
   font-size: medium;
   width: 100%;
-  min-height: 200px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
 }
 
 .block-0 {

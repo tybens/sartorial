@@ -5,7 +5,6 @@ import { Transition, TransitionGroup } from 'react-transition-group';
 import { omit } from 'lodash';
 import axios from 'axios';
 import { Shop, Home, Sponsors } from './pages';
-import Nav from './components/Nav';
 import Navbar from './pages/Shop/Navbar/Navbar';
 import { play, exit } from './timelines';
 import VideoIntro from './components/VideoIntro';
@@ -137,11 +136,11 @@ const App = () => {
       <div className="app" style={{ background: (isSponsors) ? 'black' : 'inherit', color: (isSponsors) ? 'white' : 'inherit', minHeight: windowSize.height, transition: "color 1s ease-in, background 1s ease-in"}}>
       {!introComplete ? <VideoIntro />
         : <>
+          <div className="toolbar-div" />
           <Navbar
             totalItems={totalItems(cart)}
             handleDrawerToggle={handleDrawerToggle}
           />
-          <Nav />
           <Route render={({ location }) => {
             const { pathname, key } = location;
 

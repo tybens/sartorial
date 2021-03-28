@@ -3,7 +3,6 @@ import React from 'react';
 const Home = () => {
     return (
         <>
-        {/* <img src="/images/spinningrotary.gif" alt="Spinning Sartorial Logo" /> */}
         <h1>
             <div>Handcrafted <span className="with--accent">threads</span></div>
             <div>to build <span className="with--accent">habitats</span></div>

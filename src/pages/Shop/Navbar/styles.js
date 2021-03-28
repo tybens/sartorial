@@ -25,7 +25,7 @@ export default makeStyles((theme) => ({
     fontSize: "25px",
     letterSpacing: "0.05em",
     fontWeight: "bold !important",
-    marginTop: "7px"
+    marginTop: "7px",
   },
 
   image: {
@@ -38,6 +38,9 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
+  },
+  button: {
+    margin: "-10px 0 -10px 0",
   },
   grow: {
     flexGrow: 1,
