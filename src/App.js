@@ -133,7 +133,7 @@ const App = () => {
   // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
-      <div className="app" style={{ background: (isSponsors) ? 'black' : 'inherit', color: (isSponsors) ? 'white' : 'inherit', minHeight: windowSize.height, transition: "color 1s ease-in, background 1s ease-in"}}>
+      <div className="app" style={{ background: (isSponsors) ? 'black' : 'inherit', color: (isSponsors) ? 'white' : 'inherit', minHeight: windowSize.height, transition: "color 0.5s ease-in, background 0.5s ease-in"}}>
       {!introComplete ? <VideoIntro />
         : <>
           <div className="toolbar-div" />
