@@ -4,22 +4,27 @@ const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
   appBar: {
-    marginTop: "15px",
+    padding: "20px 40px 10px 40px",
     boxShadow: "none",
     borderBottom: "none",
     color: "inherit",
-    background: "inherit",
+    backgroundColor: "inherit",
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
+      padding: "40px 40px 0 40px",
       marginLeft: drawerWidth,
+      backgroundColor: "transparent",
     },
   },
   titleDiv: {
-    height: 150,
+    height: 50,
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
+    [theme.breakpoints.up("sm")]: {
+      height: 75,
+    }
   },
   title: {
     display: "flex",

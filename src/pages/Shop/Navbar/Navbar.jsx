@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   AppBar,
   Toolbar,
   IconButton,
   Badge,
-  MenuItem,
-  Menu,
-  Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, NavLink } from "react-router-dom";
@@ -20,40 +17,7 @@ const routes = [
 ];
 
 const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
-
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton
-          component={Link}
-          to="/shop/cart"
-          aria-label="Show cart items"
-          color="inherit"
-        >
-          <Badge badgeContent={totalItems} color="secondary">
-            <ShoppingCart />
-          </Badge>
-        </IconButton>
-        <p>Cart</p>
-      </MenuItem>
-    </Menu>
-  );
 
   const links = routes.map(({ to, label }) => {
     return (
@@ -62,7 +26,7 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
           {label}
         </NavLink>
         {label === "Shop" && (
-          <div className={classes.button}>
+          <div className={classes.button} key={'cart'}>
             <IconButton
               component={Link}
               to="/shop/cart"
@@ -80,10 +44,9 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
   });
 
   return (
-    <div>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
-        <Toolbar>
-          <Typography variant="h6" className={classes.titleDiv} color="inherit">
+        <Toolbar className="navbar" disableGutters={true}>
+          <div className={classes.titleDiv}>
             <Link to="/" className={classes.image}>
               {/* <img
                 height="150px"
@@ -95,26 +58,12 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
                 src={habitatLogo}
                 alt="Ha317at Sartorial Banner"
               />
-            </Link>{" "}
-            <Typography
-              component={Link}
-              to="/"
-              className={classes.title}
-              color="inherit"
-            >
-              S
-              <span className="with--accent" style={{ fontWeight: "bold" }}>
-                ART
-              </span>
-              ORIAL
-            </Typography>
-          </Typography>
+          </Link>{" "}
+          </div>
           <div className={classes.grow} />
           <nav>{links}</nav>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-    </div>
   );
 };
 
