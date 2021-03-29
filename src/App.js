@@ -17,7 +17,7 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [introComplete, setIntroComplete] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isSponsors, setIsSponsors] = useState(false)
+  const [navColors, setNavColors] = useState({ "color": "black", "background": "white" });
   const windowSize = useWindowSize();
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
@@ -133,54 +133,55 @@ const App = () => {
   // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
-      <div className="app" style={{ background: (isSponsors) ? 'black' : 'inherit', color: (isSponsors) ? 'white' : 'inherit', minHeight: windowSize.height, transition: "color 0.5s ease-in, background 0.5s ease-in"}}>
-      {!introComplete ? <VideoIntro />
-        : <>
-          <div className="toolbar-div" />
-          <Navbar
-            totalItems={totalItems(cart)}
-            handleDrawerToggle={handleDrawerToggle}
-          />
-          <Route render={({ location }) => {
-            const { pathname, key } = location;
+      <div className="app" style={{ background: navColors.background, color: navColors.color, minHeight: windowSize.height, transition: "color 0.5s ease-in, background 0.5s ease-in" }}>
+        {!introComplete ? <VideoIntro />
+          : <>
+            <div className="toolbar-div" />
+            <Navbar
+              habitatLogo={((navColors.background === 'black') && (navColors.color === 'white')) ? '/images/ha317at.001.jpeg' : '/images/ha317at.002.jpeg'}
+              totalItems={totalItems(cart)}
+              handleDrawerToggle={handleDrawerToggle}
+            />
+            <Route render={({ location }) => {
+              const { pathname, key } = location;
 
-            return (
-              <TransitionGroup component={null}>
-                <Transition
-                  key={key}
-                  appear={true}
-                  onEnter={(node, appears) => play(pathname, node, appears)}
-                  onExit={(node, appears) => exit(node, appears)}
-                  timeout={{ enter: 750, exit: 150 }}
-                >
-                  <Switch location={location}>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/shop">
-                      <Shop
-                        thisProduct={thisProduct}
-                        handleCaptureCheckout={handleCaptureCheckout}
-                        handleEmptyCart={handleEmptyCart}
-                        order={order}
-                        cart={cart}
-                        errorMessage={errorMessage}
-                        totalItems={totalItems}
-                        totalPrice={totalPrice}
-                        handleAddToCart={handleAddToCart}
-                        handleRemoveFromCart={handleRemoveFromCart}
-                        handleUpdateCartQty={handleUpdateCartQty}
-                      />
-                    </Route>
-                    <Route path="/sponsors">
-                      <Sponsors
-                        onSetIsSponsors={setIsSponsors}
-                      />
-                    </Route>
-                  </Switch>
-                </Transition>
-              </TransitionGroup>
-            )
-          }} />
-        </>}
+              return (
+                <TransitionGroup component={null}>
+                  <Transition
+                    key={key}
+                    appear={true}
+                    onEnter={(node, appears) => play(pathname, node, appears)}
+                    onExit={(node, appears) => exit(node, appears)}
+                    timeout={{ enter: 750, exit: 150 }}
+                  >
+                    <Switch location={location}>
+                      <Route exact path="/" component={Home} />
+                      <Route path="/shop">
+                        <Shop
+                          thisProduct={thisProduct}
+                          handleCaptureCheckout={handleCaptureCheckout}
+                          handleEmptyCart={handleEmptyCart}
+                          order={order}
+                          cart={cart}
+                          errorMessage={errorMessage}
+                          totalItems={totalItems}
+                          totalPrice={totalPrice}
+                          handleAddToCart={handleAddToCart}
+                          handleRemoveFromCart={handleRemoveFromCart}
+                          handleUpdateCartQty={handleUpdateCartQty}
+                        />
+                      </Route>
+                      <Route path="/sponsors">
+                        <Sponsors
+                          setNavColors={setNavColors}
+                        />
+                      </Route>
+                    </Switch>
+                  </Transition>
+                </TransitionGroup>
+              )
+            }} />
+          </>}
       </div>
     </Router >
   );

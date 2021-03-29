@@ -22,7 +22,6 @@ const getHomeTimeline = (node, delay) => {
     const timeline = gsap.timeline({ paused: true });
     const texts = node.querySelectorAll('div > h1 > div');
     const divs = node.querySelectorAll('.content-block');
-    console.log(node)
 
     timeline
         .from(node, { duration: 0.3, display: 'none', autoAlpha: 0, delay })
