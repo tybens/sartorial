@@ -15,21 +15,25 @@ export default makeStyles((theme) => ({
     },
   },
   titleDiv: {
+    height: 150,
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
   },
   title: {
+    display: "flex",
+    alignItems: "center",
+    height: "100%",
     textDecoration: "none",
-    fontSize: "25px",
-    letterSpacing: "0.05em",
+    fontSize: "56px",
+    letterSpacing: "-0.01em",
     fontWeight: "bold !important",
-    marginTop: "7px",
+    marginTop: "0",
   },
 
   image: {
-    marginRight: "10px",
+    height: "100%",
     display: "flex",
     alignItems: "center"
   },

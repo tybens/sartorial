@@ -19,7 +19,7 @@ const routes = [
   { to: "/shop", label: "Shop" },
 ];
 
-const PrimarySearchAppBar = ({ totalItems }) => {
+const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const classes = useStyles();
 
@@ -85,10 +85,15 @@ const PrimarySearchAppBar = ({ totalItems }) => {
         <Toolbar>
           <Typography variant="h6" className={classes.titleDiv} color="inherit">
             <Link to="/" className={classes.image}>
-              <img
+              {/* <img
                 height="150px"
                 src="/images/spinningrotary.gif"
                 alt="Spinning Sartorial Logo"
+              /> */}
+              <img
+                height="100%"
+                src={habitatLogo}
+                alt="Ha317at Sartorial Banner"
               />
             </Link>{" "}
             <Typography
@@ -97,11 +102,11 @@ const PrimarySearchAppBar = ({ totalItems }) => {
               className={classes.title}
               color="inherit"
             >
-              HABITAT S
+              S
               <span className="with--accent" style={{ fontWeight: "bold" }}>
-                art
+                ART
               </span>
-              orial
+              ORIAL
             </Typography>
           </Typography>
           <div className={classes.grow} />

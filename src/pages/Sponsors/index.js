@@ -1,11 +1,14 @@
 import React, {useEffect} from 'react';
 
-const Sponsors = ({ onSetIsSponsors }) => {
+const Sponsors = ({ setNavColors }) => {
 
     useEffect(() => {
-        onSetIsSponsors(true)
+        const navColorsSponsors = {background: "black", color: "white"}        
+        const navColors = {background: "white", color: "black"}
+
+        setNavColors(navColorsSponsors)
         return () => {
-            onSetIsSponsors(false)
+            setNavColors(navColors)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
