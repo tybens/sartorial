@@ -6,22 +6,21 @@ import './ReactRotatingText.css';
 
 import makeStyles from './styles.js'
 
-const Home = () => {
+const Home = ({blackBgRef}) => {
     const classes = makeStyles();
-    const firstBlockRef = useRef(null);
 
     function handleScrollClick() {
-        firstBlockRef.current.scrollIntoView({ behavior: 'smooth'})
+        blackBgRef.current.scrollIntoView({ behavior: 'smooth'})
     }
 
     return (
         <div>
             <h1 className={classes.firstBlock}>
                 <Grid container direction="row" justify="space-around" className={classes.firstRow}>
-                    <Grid item xs={6}>
+                    <Grid item sm={6} xs={12}>
                         Handcrafted
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item sm={4} xs={12}>
                         <span className="with--accent"><ReactRotatingText items={['clothing', 'threads', 'apparel', 'dress', 'fashion', 'finery']} pause={2500} /></span>
                     </Grid>
                 </Grid>
@@ -34,7 +33,7 @@ const Home = () => {
                 Scroll
             </a>
             </h1>
-            <div className="content-block block-1" ref={firstBlockRef}>
+            <div className="content-block block-1" ref={blackBgRef}>
                 <Fade bottom>
                     <h1>This block holds more content</h1>
                 </Fade>
