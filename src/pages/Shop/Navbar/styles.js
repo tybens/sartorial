@@ -6,7 +6,8 @@ export default makeStyles((theme) => ({
   appBar: {
     padding: "20px 40px 10px 40px",
     boxShadow: "none",
-    borderBottom: "none",
+    borderBottom: "2px solid black",
+    borderRadius: "0 0 8px 8px",
     color: "inherit",
     backgroundColor: "inherit",
     [theme.breakpoints.up("sm")]: {
@@ -14,17 +15,23 @@ export default makeStyles((theme) => ({
       padding: "40px 40px 0 40px",
       marginLeft: drawerWidth,
       backgroundColor: "transparent",
+      borderBottom: "none",
+      borderRadius: "none",
     },
   },
   titleDiv: {
-    height: 50,
+    height: 35,
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
+    [theme.breakpoints.up("xs")]: {
+      height: 50,
+    },
     [theme.breakpoints.up("sm")]: {
       height: 75,
-    }
+    },
+    
   },
   title: {
     display: "flex",

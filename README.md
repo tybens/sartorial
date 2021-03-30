@@ -8,7 +8,7 @@ This is the commerce website built with react and firebase. Currently hosted at 
 
 ### Habitat
 
-In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
+In collaboration with Habitat for Humanity. Based in the 317, Indianapolis.
 
 ![Sartorial](public/images/ha317at.001.jpeg)
 ![Sartorial](public/images/ha317at.002.jpeg)
@@ -29,5 +29,6 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
   - [x] Hover to show image preview
   - [x] Darkmode to Sponsors page
   - Change button color scheme to be more universal and less generic. Probably to a slick black & white
+  - Hide navbar on scroll down, show on scroll up.
 - Add realistic content
 
