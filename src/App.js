@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-// import { CssBaseline } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
 import axios from "axios";
+
 import { Shop, Home, Sponsors } from "./pages";
 import Navbar from "./pages/Shop/Navbar/Navbar";
 import { play, exit } from "./timelines";
 import VideoIntro from "./components/VideoIntro";
 import products from "./products";
 import useWindowSize from "./hooks/useWindowSize";
+import theme from "./theme.js";
 
 const App = () => {
   const [order, setOrder] = useState({});
@@ -43,8 +45,6 @@ const App = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  
 
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl =
@@ -152,65 +152,72 @@ const App = () => {
   // when doing nested routing, don't make the <Route /> "exact"
   return (
     <Router>
-      <div
-        className="app"
-        style={{
-          background: navColors.background,
-          color: navColors.color,
-          minHeight: windowSize.height,
-          transition: "color 0.5s ease-in-out, background 0.5s ease-in-out",
-        }}
-      >
-        {!introComplete ? (
-          <VideoIntro />
-        ) : (
-          <>
-            <div className="fake-toolbar-div" />
-            <Navbar habitatLogo={habitatLogo} totalItems={totalItems(cart)} />
-            <Route
-              render={({ location }) => {
-                const { pathname, key } = location;
+      <ThemeProvider theme={theme}>
+        <div
+          className="app"
+          style={{
+            background: navColors.background,
+            color: navColors.color,
+            minHeight: windowSize.height,
+            transition: "color 0.5s ease-in-out, background 0.5s ease-in-out",
+          }}
+        >
+          {!introComplete ? (
+            <VideoIntro />
+          ) : (
+            <>
+              <div className="fake-toolbar-div" />
+              <Navbar habitatLogo={habitatLogo} totalItems={totalItems(cart)} />
+              <Route
+                render={({ location }) => {
+                  const { pathname, key } = location;
 
-                return (
-                  <TransitionGroup component={null}>
-                    <Transition
-                      key={key}
-                      appear={true}
-                      onEnter={(node, appears) => play(pathname, node, appears)}
-                      onExit={(node, appears) => exit(node, appears)}
-                      timeout={{ enter: 750, exit: 150 }}
-                    >
-                      <Switch location={location}>
-                        <Route exact path="/">
-                          <Home navColors={navColors} onSetNavColors={(colors) => setNavColors(colors)} />
-                        </Route>
-                        <Route path="/shop">
-                          <Shop
-                            thisProduct={thisProduct}
-                            handleCaptureCheckout={handleCaptureCheckout}
-                            handleEmptyCart={handleEmptyCart}
-                            order={order}
-                            cart={cart}
-                            errorMessage={errorMessage}
-                            totalItems={totalItems}
-                            totalPrice={totalPrice}
-                            handleAddToCart={handleAddToCart}
-                            handleRemoveFromCart={handleRemoveFromCart}
-                            handleUpdateCartQty={handleUpdateCartQty}
-                          />
-                        </Route>
-                        <Route path="/sponsors">
-                          <Sponsors setNavColors={setNavColors} />
-                        </Route>
-                      </Switch>
-                    </Transition>
-                  </TransitionGroup>
-                );
-              }}
-            />
-          </>
-        )}
-      </div>
+                  return (
+                    <TransitionGroup component={null}>
+                      <Transition
+                        key={key}
+                        appear={true}
+                        onEnter={(node, appears) =>
+                          play(pathname, node, appears)
+                        }
+                        onExit={(node, appears) => exit(node, appears)}
+                        timeout={{ enter: 750, exit: 150 }}
+                      >
+                        <Switch location={location}>
+                          <Route exact path="/">
+                            <Home
+                              navColors={navColors}
+                              onSetNavColors={(colors) => setNavColors(colors)}
+                            />
+                          </Route>
+                          <Route path="/shop">
+                            <Shop
+                              thisProduct={thisProduct}
+                              handleCaptureCheckout={handleCaptureCheckout}
+                              handleEmptyCart={handleEmptyCart}
+                              order={order}
+                              cart={cart}
+                              errorMessage={errorMessage}
+                              totalItems={totalItems}
+                              totalPrice={totalPrice}
+                              handleAddToCart={handleAddToCart}
+                              handleRemoveFromCart={handleRemoveFromCart}
+                              handleUpdateCartQty={handleUpdateCartQty}
+                            />
+                          </Route>
+                          <Route path="/sponsors">
+                            <Sponsors setNavColors={setNavColors} />
+                          </Route>
+                        </Switch>
+                      </Transition>
+                    </TransitionGroup>
+                  );
+                }}
+              />
+            </>
+          )}
+        </div>
+      </ThemeProvider>
     </Router>
   );
 };

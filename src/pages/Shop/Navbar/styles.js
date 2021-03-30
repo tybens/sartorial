@@ -17,14 +17,18 @@ export default makeStyles((theme) => ({
     },
   },
   titleDiv: {
-    height: 50,
+    height: 35,
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
+    [theme.breakpoints.up("xs")]: {
+      height: 50,
+    },
     [theme.breakpoints.up("sm")]: {
       height: 75,
-    }
+    },
+    
   },
   title: {
     display: "flex",
