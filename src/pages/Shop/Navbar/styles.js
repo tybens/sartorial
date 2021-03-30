@@ -4,32 +4,41 @@ const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
   appBar: {
-    marginTop: "15px",
+    padding: "20px 40px 10px 40px",
     boxShadow: "none",
     borderBottom: "none",
     color: "inherit",
-    background: "inherit",
+    backgroundColor: "inherit",
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
+      padding: "40px 40px 0 40px",
       marginLeft: drawerWidth,
+      backgroundColor: "transparent",
     },
   },
   titleDiv: {
+    height: 50,
     flexGrow: 1,
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
+    [theme.breakpoints.up("sm")]: {
+      height: 75,
+    }
   },
   title: {
+    display: "flex",
+    alignItems: "center",
+    height: "100%",
     textDecoration: "none",
-    fontSize: "25px",
-    letterSpacing: "0.05em",
+    fontSize: "56px",
+    letterSpacing: "-0.01em",
     fontWeight: "bold !important",
-    marginTop: "7px"
+    marginTop: "0",
   },
 
   image: {
-    marginRight: "10px",
+    height: "100%",
     display: "flex",
     alignItems: "center"
   },
@@ -38,6 +47,9 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
+  },
+  button: {
+    margin: "-10px 0 -10px 0",
   },
   grow: {
     flexGrow: 1,

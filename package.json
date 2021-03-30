@@ -16,8 +16,11 @@
     "react-cursor-position": "^3.0.3",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.14.2",
+    "react-reveal": "^1.2.2",
+    "react-rotating-text": "^1.4.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-select-us-states": "^0.1.2",
     "react-transition-group": "^4.4.1",
     "web-vitals": "^0.2.4"
   },
@@ -25,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier-eslint --write \"{,!(node_modules)/**/}*.{js,jsx}\""
   },
   "eslintConfig": {
     "extends": [
