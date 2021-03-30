@@ -22,7 +22,7 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
   const links = routes.map(({ to, label }) => {
     return (
       <>
-        <NavLink strict exact to={to} key={to}>
+        <NavLink strict exact to={to} key={to} style={{zIndex: 2}}>
           {label}
         </NavLink>
         {label === "Shop" && (
@@ -32,6 +32,7 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
               to="/shop/cart"
               aria-label="Show cart items"
               color="inherit"
+              style={{zIndex: 1}}
             >
               <Badge badgeContent={totalItems} color="secondary">
                 <ShoppingCart />
@@ -60,7 +61,6 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
               />
           </Link>{" "}
           </div>
-          <div className={classes.grow} />
           <nav>{links}</nav>
         </Toolbar>
       </AppBar>
