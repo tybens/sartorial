@@ -1,36 +1,43 @@
-import {
-  Button,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { useState } from "react";
+import { Button, Grid, Typography } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
 import { Link } from "react-router-dom";
-
+import SelectUSState from "react-select-us-states";
+import makeStyles from "./styles";
 import FormInput from "./FormInput";
 
 const AddressForm = ({ test }) => {
+  const [stateCode, setStateCode] = useState(null);
+
+  const classes = makeStyles();
   const methods = useForm();
-  
 
   return (
     <>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        Shipping address (currently only within the US)
       </Typography>
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit((data) =>
             test({
-              ...data
+              ...data,
+              stateCode,
             })
           )}
         >
           <Grid container spacing={3}>
             <FormInput required name="firstName" label="First name" />
             <FormInput required name="lastName" label="Last name" />
-            <FormInput required name="address1" label="Address" />
             <FormInput required name="email" label="Email" />
+            <FormInput required name="address1" label="Address line 1" />
             <FormInput required name="city" label="City" />
+            <Grid item xs={12} sm={6}>
+              <SelectUSState
+                className={classes.stateCode}
+                onChange={setStateCode}
+              />
+            </Grid>
             <FormInput required name="zip" label="Zip / Postal code" />
           </Grid>
           <br />

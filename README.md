@@ -16,8 +16,9 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
 
 ## Todo:
 
-- Add state code to checkout form
-- Fix appbar (make cart show below shop)
+- Email domains
+- [x] Add state code to checkout form
+- [x] Fix appbar (make cart show below shop)
 - Add metadata to paymentIntent (so we can observe what payment is for which besides the intent_id)
 - "Order ref: {}", consider telling the user about their order's unique id so they can feel valued
 - Automate cloud functions url between dev and prod
@@ -26,5 +27,7 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
   - [x] fade transitions (cp andstudio.lt)
   - [x] Cart view is gross, as are most other views
   - [x] Hover to show image preview
+  - [x] Darkmode to Sponsors page
   - Change button color scheme to be more universal and less generic. Probably to a slick black & white
+- Add realistic content
 
