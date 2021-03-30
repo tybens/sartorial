@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 // import { CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
@@ -20,10 +20,8 @@ const App = () => {
     color: "black",
     background: "white",
   });
-  const isBlackBg = navColors.background !== "white";
   const windowSize = useWindowSize();
   // to figure out if the black background ref is on screen
-  const blackBgRef = useRef(null);
   const useWhiteFontColor = navColors.background !== "white";
   const habitatLogo =
     windowSize.width < 769
@@ -46,22 +44,7 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // logic for changing header color
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent);
-
-    return () => window.removeEventListener("scroll", listenScrollEvent);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const listenScrollEvent = (event) => {
-    const isScrolled = blackBgRef.current && (window.scrollY > blackBgRef.current.offsetTop)
-    if (isScrolled && !isBlackBg) {
-      setNavColors({ background: "black", color: "white" });
-    } else if (!isScrolled && isBlackBg) {
-      setNavColors({ background: "white", color: "black" });
-    }
-  };
+  
 
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl =
@@ -175,7 +158,7 @@ const App = () => {
           background: navColors.background,
           color: navColors.color,
           minHeight: windowSize.height,
-          transition: "color 0.5s ease-in, background 0.5s ease-in",
+          transition: "color 0.5s ease-in-out, background 0.5s ease-in-out",
         }}
       >
         {!introComplete ? (
@@ -199,7 +182,7 @@ const App = () => {
                     >
                       <Switch location={location}>
                         <Route exact path="/">
-                          <Home blackBgRef={blackBgRef} />
+                          <Home navColors={navColors} onSetNavColors={(colors) => setNavColors(colors)} />
                         </Route>
                         <Route path="/shop">
                           <Shop
