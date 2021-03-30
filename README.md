@@ -17,8 +17,8 @@ In collaboration with Habitat for Humanity. Base in the 317, Indianapolis.
 ## Todo:
 
 - Email domains
-- Add state code to checkout form
-- Fix appbar (make cart show below shop)
+- [x] Add state code to checkout form
+- [x] Fix appbar (make cart show below shop)
 - Add metadata to paymentIntent (so we can observe what payment is for which besides the intent_id)
 - "Order ref: {}", consider telling the user about their order's unique id so they can feel valued
 - Automate cloud functions url between dev and prod

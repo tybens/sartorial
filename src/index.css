@@ -10,7 +10,6 @@ body {
   line-height: 1.75;
   margin: 0;
   padding: 0;
-  transition: color 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -75,10 +74,10 @@ nav a {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 0.2s ease-in-out;
 }
 
 nav a:hover {
+  transition: color 0.2s ease-in-out;
   color: var(--red);
 }
 
@@ -239,7 +238,7 @@ nav a.active:before {
 }
 .home-scroll-to {
   right: 4%;
-  bottom: 40%;
+  bottom: 45%;
 }
 
 @media screen and (max-width: 768px) {
