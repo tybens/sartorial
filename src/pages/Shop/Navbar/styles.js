@@ -6,7 +6,8 @@ export default makeStyles((theme) => ({
   appBar: {
     padding: "20px 40px 10px 40px",
     boxShadow: "none",
-    borderBottom: "none",
+    borderBottom: "2px solid black",
+    borderRadius: "0 0 8px 8px",
     color: "inherit",
     backgroundColor: "inherit",
     [theme.breakpoints.up("sm")]: {
@@ -14,6 +15,8 @@ export default makeStyles((theme) => ({
       padding: "40px 40px 0 40px",
       marginLeft: drawerWidth,
       backgroundColor: "transparent",
+      borderBottom: "none",
+      borderRadius: "none",
     },
   },
   titleDiv: {
