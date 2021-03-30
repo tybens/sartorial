@@ -19,7 +19,7 @@ const Home = ({ navColors, onSetNavColors }) => {
 
   const listenScrollEvent = (event) => {
     const isScrolled =
-      blackBgRef.current && window.scrollY > blackBgRef.current.offsetTop - 70;
+      blackBgRef.current && window.scrollY > blackBgRef.current.offsetTop - 110;
     const isBlackBg = "white" !== navColors.background;
     if (isScrolled && !isBlackBg) {
       onSetNavColors({ background: "black", color: "white" });

@@ -60,8 +60,6 @@ nav {
   animation: nav 0.2s ease-in-out forwards;
   display: flex;
   justify-content: space-between;
-  margin: auto;
-  min-width: 20em;
   opacity: 0;
 }
 
@@ -74,6 +72,8 @@ nav a {
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
 nav a:hover {
@@ -103,20 +103,24 @@ nav a:before {
   width: 10px;
 }
 
-
 nav a.active:before {
   animation: navdot 0.25s ease-in-out forwards 0.25s;
+}
+
+@media screen and (max-width: 475px) {
+  nav a {
+    font-size: 13px;
+  }
+
+  nav a:before {
+    height: 8px;
+    width: 8px;
+  }
 }
 
 .app {
   padding: 0em;
   text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-  .app {
-    padding: 0em;
-  }
 }
 
 .with--accent {
@@ -157,7 +161,6 @@ nav a.active:before {
 @media screen and (max-width: 975px) {
   .fake-toolbar-div {
     height: 150px;
-
   }
 }
 
@@ -238,12 +241,12 @@ nav a.active:before {
 }
 .home-scroll-to {
   right: 4%;
-  bottom: 45%;
+  top: 475px;
 }
 
 @media screen and (max-width: 768px) {
   .home-scroll-to {
-    bottom: 50%;
+    top: 450px;
   }
 }
 
@@ -254,6 +257,5 @@ nav a.active:before {
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
-
   }
 }
