@@ -1,14 +1,14 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Products from './Products/Products'
 import Cart from './Cart/Cart'
 import Checkout from './CheckoutForm/Checkout/Checkout'
-import products from '../../products.js'
+import CollectionsRouter from "./Collections/CollectionsRouter";
+
+import collectionsData from '../../data/collections-data'
+
 
 const Shop = ({ cart, order, totalItems, totalPrice, handleCaptureCheckout, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart, errorMessage, handleAddToCart }) => {
-  
   let match = useRouteMatch();
-
 
   return (
     <div>
@@ -32,11 +32,10 @@ const Shop = ({ cart, order, totalItems, totalPrice, handleCaptureCheckout, hand
             onEmptyCart={handleEmptyCart}
           />
         </Route>
-        <Route exact path={`${match.path}`}>
-          <Products
-            products={products}
+        <Route path={`${match.path}/collections`}>
+          <CollectionsRouter
+            collectionsData={collectionsData}
             onAddToCart={handleAddToCart}
-            handleUpdateCartQty
           />
         </Route>
       </Switch>

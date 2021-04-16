@@ -9,9 +9,10 @@ import { Shop, Home, Sponsors } from "./pages";
 import Navbar from "./pages/Shop/Navbar/Navbar";
 import { play, exit } from "./timelines";
 import VideoIntro from "./components/VideoIntro";
-import products from "./products";
+import products from "./data/products";
 import useWindowSize from "./hooks/useWindowSize";
 import theme from "./theme.js";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [order, setOrder] = useState({});
@@ -26,7 +27,7 @@ const App = () => {
   // to figure out if the black background ref is on screen
   const useWhiteFontColor = navColors.background !== "white";
   const habitatLogo =
-    windowSize.width < 769
+    windowSize.width <= 760
       ? useWhiteFontColor
         ? "/images/banners/whitestraight.png"
         : "/images/banners/blackstraight.png"
@@ -183,32 +184,48 @@ const App = () => {
                         onExit={(node, appears) => exit(node, appears)}
                         timeout={{ enter: 750, exit: 150 }}
                       >
-                        <Switch location={location}>
-                          <Route exact path="/">
-                            <Home
-                              navColors={navColors}
-                              onSetNavColors={(colors) => setNavColors(colors)}
+                        <div>
+                          <Switch location={location}>
+                            <Route exact path="/">
+                              <Home
+                                navColors={navColors}
+                                onSetNavColors={(colors) =>
+                                  setNavColors(colors)
+                                }
+                              />
+                            </Route>
+                            <Route path="/shop">
+                              <Shop
+                                thisProduct={thisProduct}
+                                handleCaptureCheckout={handleCaptureCheckout}
+                                handleEmptyCart={handleEmptyCart}
+                                order={order}
+                                cart={cart}
+                                errorMessage={errorMessage}
+                                totalItems={totalItems}
+                                totalPrice={totalPrice}
+                                handleAddToCart={handleAddToCart}
+                                handleRemoveFromCart={handleRemoveFromCart}
+                                handleUpdateCartQty={handleUpdateCartQty}
+                              />
+                            </Route>
+                            <Route path="/sponsors">
+                              <Sponsors setNavColors={setNavColors} />
+                            </Route>
+                            <Route
+                              path="/linkedin"
+                              component={() => {
+                                var link = document.createElement("a");
+                                link.href = "https://www.linkedin.com/company/habitatsartorial/";
+                                document.body.appendChild(link);
+
+                                link.click();
+                                return null;
+                              }}
                             />
-                          </Route>
-                          <Route path="/shop">
-                            <Shop
-                              thisProduct={thisProduct}
-                              handleCaptureCheckout={handleCaptureCheckout}
-                              handleEmptyCart={handleEmptyCart}
-                              order={order}
-                              cart={cart}
-                              errorMessage={errorMessage}
-                              totalItems={totalItems}
-                              totalPrice={totalPrice}
-                              handleAddToCart={handleAddToCart}
-                              handleRemoveFromCart={handleRemoveFromCart}
-                              handleUpdateCartQty={handleUpdateCartQty}
-                            />
-                          </Route>
-                          <Route path="/sponsors">
-                            <Sponsors setNavColors={setNavColors} />
-                          </Route>
-                        </Switch>
+                          </Switch>
+                          <Footer />
+                        </div>
                       </Transition>
                     </TransitionGroup>
                   );
