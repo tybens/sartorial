@@ -1,8 +1,8 @@
-# [https://www.habitatsartorial.org](Sartorial)
+# [Sartorial](https://habitatsartorial.org)
 
 Habitat Sartorial, the not-for-profit, habitat-building fashion center.
 
-This is the commerce website built with react and firebase. Currently hosted at [https://www.habitatsartorial.org](https://www.habitatsartorial.org)
+This is the commerce website built with react and firebase. Currently hosted at [https://habitatsartorial.org](https://habitatsartorial.org)
 
 ![sartorial logo](public/images/HS_rotary.jpeg)
 
