@@ -1,23 +1,21 @@
 import { makeStyles, fade } from "@material-ui/core/styles";
 
-const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
   appBar: {
-    padding: "20px 40px 10px 40px",
+    padding: "0",
     boxShadow: "none",
     borderBottom: "2px solid black",
-    borderRadius: "0 0 8px 8px",
     color: "inherit",
     backgroundColor: "inherit",
     [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      padding: "40px 40px 0 40px",
-      marginLeft: drawerWidth,
       backgroundColor: "transparent",
       borderBottom: "none",
       borderRadius: "none",
     },
+    [theme.breakpoints.up("smmd")]: {
+      padding: "40px 40px 0 40px",
+    }
   },
   titleDiv: {
     height: 35,

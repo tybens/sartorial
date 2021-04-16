@@ -12,7 +12,7 @@ body {
   padding: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) {
   body {
     font-size: 15px;
   }
@@ -29,7 +29,9 @@ h2 {
   line-height: 1.4;
   margin-top: 1.5em;
 }
-
+.view {
+  margin-bottom: 3em;
+}
 .view a {
   color: var(--red);
   text-decoration: none;
@@ -39,7 +41,7 @@ h2 {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) {
   h1 {
     font-size: 3em;
   }
@@ -142,7 +144,7 @@ nav a.active:before {
   padding: 3em;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) {
   .content--inner {
     padding: 1em;
   }
@@ -158,9 +160,19 @@ nav a.active:before {
   width: 100%;
   height: 150px;
 }
-@media screen and (max-width: 975px) {
+@media screen and (max-width: 760px) {
   .fake-toolbar-div {
-    height: 150px;
+    height: 110px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .fake-toolbar-div {
+    height: 83px;
+  }
+}
+@media screen and (max-width: 475px) {
+  .fake-toolbar-div {
+    height: 65px
   }
 }
 
@@ -168,10 +180,7 @@ nav a.active:before {
   letter-spacing: 0.03em;
   font-size: medium;
   width: 100%;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 90vh;
 }
 
 .block-0 {
@@ -190,8 +199,8 @@ nav a.active:before {
 }
 
 .block-3 {
-  background: var(--red);
-  color: #fff;
+  background: white;
+  color: black;
 }
 
 .scroll-to-arrow {
@@ -244,7 +253,7 @@ nav a.active:before {
   top: 475px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) {
   .home-scroll-to {
     top: 450px;
   }
@@ -254,7 +263,7 @@ nav a.active:before {
   flex-direction: row;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) {
   .navbar {
     flex-direction: column;
   }
