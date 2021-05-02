@@ -5,7 +5,7 @@ import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
 import axios from "axios";
 
-import { Shop, Home, Sponsors } from "./pages";
+import { Shop, Home, Sponsors, BusinessPlan } from "./pages";
 import Navbar from "./pages/Shop/Navbar/Navbar";
 import { play, exit } from "./timelines";
 import VideoIntro from "./components/VideoIntro";
@@ -223,6 +223,9 @@ const App = () => {
                                 return null;
                               }}
                             />
+                            <Route path="/businessplan">
+                              <BusinessPlan />
+                            </Route>
                           </Switch>
                           <Footer />
                         </div>
