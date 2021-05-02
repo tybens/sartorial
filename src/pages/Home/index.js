@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import ReactRotatingText from "react-rotating-text";
 import "./ReactRotatingText.css";
+import classNames from "classnames";
 
 import makeStyles from "./styles.js";
 import SunshineSvg from "../../components/SunshineSvg";
@@ -23,7 +24,8 @@ const Home = ({ navColors, onSetNavColors }) => {
       window.scrollY > blackBgRef.current.offsetTop - 110 &&
       window.scrollY <
         blackBgRef.current.getBoundingClientRect().height +
-          blackBgRef.current.offSetTop;
+          blackBgRef.current.offsetTop;
+
     const isBlackBg = "white" !== navColors.background;
     if (isScrolled && !isBlackBg) {
       onSetNavColors({ background: "black", color: "white" });
@@ -72,11 +74,15 @@ const Home = ({ navColors, onSetNavColors }) => {
         <div>for those who</div>
         <div className="with--accent">need it most</div>
         <Typography
-          class="scroll-to scroll-to-arrow home-scroll-to"
+          className={classNames(
+            "scroll-to",
+            "scroll-to-arrow",
+            "home-scroll-to"
+          )}
           onClick={handleScrollClick}
         >
-          <span class="scroll-arrow" />
-          <span class="scroll-line" />
+          <span className="scroll-arrow" />
+          <span className="scroll-line" />
           Scroll
         </Typography>
       </h1>
@@ -182,7 +188,7 @@ const Home = ({ navColors, onSetNavColors }) => {
           </Grid>
           <SunshineSvg
             style={{
-              width: "70vw",
+              width: "calc(400px + 10vw)",
               zIndex: 0,
               height: "auto",
               position: "absolute",
