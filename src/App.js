@@ -223,7 +223,7 @@ const App = () => {
                                 return null;
                               }}
                             />
-                            <Route path="/businessplan">
+                            <Route exact path="/businessplan">
                               <BusinessPlan />
                             </Route>
                           </Switch>
