@@ -1,16 +1,22 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-
-
 export default makeStyles((theme) => ({
   collection: {
     fontSize: "20px",
   },
 
+  parentWrap: {
+    minHeight: "50vh",
+  },
+
+  header: {
+    minWidth: "100%",
+  },
+
   landing: {
     display: "block",
     width: "100%",
-    position: "relative"
+    position: "relative",
   },
 
   landingImage: {
@@ -24,26 +30,26 @@ export default makeStyles((theme) => ({
 
   landingContent: {
     textAlign: "right",
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    width: '100%',
-    height: '100%',
-    padding: '1.5rem',
-    pointerEvents: 'none',
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    height: "100%",
+    padding: "1.5rem",
+    pointerEvents: "none",
     color: "white",
     fontWeight: "bold",
-    zIndex: '1103',
+    zIndex: "1103",
   },
 
   landingSubName: {
     fontWeight: "normal",
-    color: "inherit"
+    color: "inherit",
   },
 
   landingName: {
     fontWeight: "bold",
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
   },
 
   otherCollectionsImage: {
@@ -54,5 +60,5 @@ export default makeStyles((theme) => ({
     display: "block",
     zIndex: "2",
     backgroundSize: "cover",
-  }
+  },
 }));

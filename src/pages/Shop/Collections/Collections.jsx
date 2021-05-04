@@ -1,18 +1,21 @@
 import React from 'react'
-import { Grid } from '@material-ui/core';
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Typography } from '@material-ui/core';
+// import { Link, useRouteMatch } from 'react-router-dom'
 
-import OldCollection from './OldCollection';
+// import OldCollection from './OldCollection';
 import useStyles from './styles';
 
 const Collections = ({ collectionsData  }) => {
-    const { url } = useRouteMatch()
+    // const { url } = useRouteMatch()
     const classes = useStyles();
-    const newestCollectionName = 'Sartorial Spring 2021'
+    // const newestCollectionName = 'Sartorial Spring 2021'
 
     return (
-        <div>
-            {collectionsData.map(({ id, name, img }, index) => {
+        <div className={classes.parentWrap}>
+            <Typography variant="h2" align="center" className={classes.header}>
+                Collections coming soon...
+            </Typography>
+            {/* {collectionsData.map(({ id, name, img }, index) => {
                 if (name === newestCollectionName) {
                     return (
                         <div className={classes.landing} key={name}>
@@ -38,7 +41,7 @@ const Collections = ({ collectionsData  }) => {
                         
                     )
                 }
-            })}
+            })} */}
         </div>
     )
 }

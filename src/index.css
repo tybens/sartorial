@@ -123,6 +123,7 @@ nav a.active:before {
 .app {
   padding: 0em;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .with--accent {
@@ -180,7 +181,7 @@ nav a.active:before {
   letter-spacing: 0.03em;
   font-size: medium;
   width: 100%;
-  min-height: 90vh;
+  min-height: 50vh;
 }
 
 .block-0 {
