@@ -13,18 +13,14 @@ export default makeStyles((theme) => ({
   header: {
     margin: "1em 0",
   },
-  contentWrap: {
-    minHeight: "50vh",
-  },
-
-  gutterBottom: {
-    paddingBottom: "70px",
-  },
   img: {
     marginBottom: "-10px",
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },
+  },
+  rotaryImg: {
+    marginBottom: "-10px",
   },
   imgWrapper: {
     [theme.breakpoints.down("sm")]: {

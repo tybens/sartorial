@@ -5,7 +5,7 @@ import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
 import axios from "axios";
 
-import { Shop, Home, Sponsors, BusinessPlan } from "./pages";
+import { Shop, Home, Sponsors, BusinessPlan, Philosophy } from "./pages";
 import Navbar from "./pages/Shop/Navbar/Navbar";
 import { play, exit } from "./timelines";
 import VideoIntro from "./components/VideoIntro";
@@ -212,11 +212,20 @@ const App = () => {
                             <Route path="/sponsors">
                               <Sponsors setNavColors={setNavColors} />
                             </Route>
+                            <Route path="/philosophy">
+                              <Philosophy
+                                navColors={navColors}
+                                onSetNavColors={(colors) =>
+                                  setNavColors(colors)
+                                }
+                              />
+                            </Route>
                             <Route
                               path="/linkedin"
                               component={() => {
                                 var link = document.createElement("a");
-                                link.href = "https://www.linkedin.com/company/habitatsartorial/";
+                                link.href =
+                                  "https://www.linkedin.com/company/habitatsartorial/";
                                 document.body.appendChild(link);
 
                                 link.click();
