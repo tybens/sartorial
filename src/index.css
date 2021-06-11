@@ -30,6 +30,7 @@ h2 {
   margin-top: 1.5em;
 }
 .view {
+  min-height: 60vh;
   margin-bottom: 3em;
 }
 .view a {

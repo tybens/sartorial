@@ -49,3 +49,20 @@ exports.paymentSecret = functions.https.onRequest(async (req, res) => {
 
     });
 })
+
+// join the email list
+exports.emailListJoin = functions.https.onRequest(async (req, res) => {
+    return cors()(req, res, () => {
+        // Grab the order data (may be in req.query...)
+        const email = req.body.email;
+        // Push the new message into Firestore using the Firebase Admin SDK.
+        const writeResult = admin.firestore().collection('emails').add({
+            email: {
+                email,
+                joined: admin.firestore.Timestamp.now()
+            }
+        });
+        // Send back a message that we've successfully written the message
+        res.json({ result: `Email: ${writeResult} added to email list.` });
+    })
+});
