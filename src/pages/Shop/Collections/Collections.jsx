@@ -1,21 +1,31 @@
-import React from 'react'
-import { Typography } from '@material-ui/core';
+import React from "react";
+import { Typography, Grid } from "@material-ui/core";
 // import { Link, useRouteMatch } from 'react-router-dom'
 
 // import OldCollection from './OldCollection';
-import useStyles from './styles';
+import useStyles from "./styles";
+import EmailList from "../../../components/EmailList";
 
-const Collections = ({ collectionsData  }) => {
-    // const { url } = useRouteMatch()
-    const classes = useStyles();
-    // const newestCollectionName = 'Sartorial Spring 2021'
+const Collections = ({ collectionsData }) => {
+  // const { url } = useRouteMatch()
+  const classes = useStyles();
+  // const newestCollectionName = 'Sartorial Spring 2021'
 
-    return (
-        <div className={classes.parentWrap}>
-            <Typography variant="h2" align="center" className={classes.header}>
-                Collections coming soon...
-            </Typography>
-            {/* {collectionsData.map(({ id, name, img }, index) => {
+  return (
+    <Grid
+      container
+      className={classes.parentWrap}
+      justify="flex-start"
+      alignItems="center"
+      direction="column"
+    >
+      <Grid item>
+        <Typography variant="h4" align="center" className={classes.header}>
+          Collections coming soon...
+        </Typography>
+      </Grid>
+      <EmailList />
+      {/* {collectionsData.map(({ id, name, img }, index) => {
                 if (name === newestCollectionName) {
                     return (
                         <div className={classes.landing} key={name}>
@@ -42,8 +52,8 @@ const Collections = ({ collectionsData  }) => {
                     )
                 }
             })} */}
-        </div>
-    )
-}
+    </Grid>
+  );
+};
 
-export default Collections
+export default Collections;

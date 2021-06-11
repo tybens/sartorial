@@ -7,6 +7,7 @@ import Wave from "react-wavify";
 import Blobs from "./blobs";
 
 import makeStyles from "./styles.js";
+import EmailList from "../../components/EmailList";
 
 const Home = ({ navColors, onSetNavColors }) => {
   const classes = makeStyles();
@@ -159,7 +160,10 @@ const Home = ({ navColors, onSetNavColors }) => {
           direction="column"
           style={{ position: "relative", minHeight: "60vh" }}
         >
-          <Typography variant="h2">Collections coming soon...</Typography>
+          <Grid item style={{marginBottom: 30}}>
+            <Typography variant="h2">Collections coming soon...</Typography>
+          </Grid>
+          <EmailList />
         </Grid>
       </Grid>
     </>

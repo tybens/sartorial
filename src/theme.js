@@ -33,7 +33,6 @@ const breakpoints = createBreakpoints({
 });
 
 const theme = createMuiTheme({
-
   breakpoints: breakpoints,
 
   palette: {
@@ -147,6 +146,14 @@ const theme = createMuiTheme({
       },
     },
 
+    MuiFormLabel: {
+      root: {
+        "&.Mui-focused": {
+          backgroundColor: "white",
+        },
+      },
+    },
+
     MuiInputBase: {
       root: inputRoot,
     },
@@ -201,18 +208,17 @@ const theme = createMuiTheme({
     },
 
     MuiTypography: {
-      
-        caption: {
-          fontSize: "0.65rem",
-          fontWeight: 400,
-          lineHeight: "1.66",
-          letterSpacing: "0.03333em",
-        },
-        h1: {
-          fontSize: "4em",
-          fontWeight: "700",
-          fontStyle: "italic",
-          letterSpacing: "0.03em",
+      caption: {
+        fontSize: "0.65rem",
+        fontWeight: 400,
+        lineHeight: "1.66",
+        letterSpacing: "0.03333em",
+      },
+      h1: {
+        fontSize: "4em",
+        fontWeight: "700",
+        fontStyle: "italic",
+        letterSpacing: "0.03em",
       },
       h2: {
         [breakpoints.down("md")]: {
@@ -229,7 +235,6 @@ const theme = createMuiTheme({
         maxWidth: 1150,
         position: "relative",
         zIndex: 1,
-        fontFamily: "Poppins",
         fontStyle: "normal",
         fontWeight: "bold",
         fontSize: "4em",
