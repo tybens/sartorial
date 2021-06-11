@@ -57,7 +57,7 @@ const Footer = (props) => {
             <Grid
               item
               component={Link}
-              to="/shop"
+              to="/shop/collections"
               className={classes.linkStyle}
             >
               <Typography variant={"h5"} className={classes.footerLinkText}>
@@ -65,7 +65,7 @@ const Footer = (props) => {
               </Typography>
             </Grid>
             <Grid item>
-              <Link to="/shop" className={classes.linkStyle}>
+              <Link to="/shop/collections" className={classes.linkStyle}>
                 <Typography variant={"body1"}>Collections</Typography>
               </Link>
             </Grid>
@@ -95,7 +95,7 @@ const Footer = (props) => {
               </Typography>
             </Grid>
             <Grid item>
-              <Link to="/" className={classes.linkStyle}>
+              <Link to="/philosophy" className={classes.linkStyle}>
                 <Typography variant={"body1"}>About</Typography>
               </Link>
             </Grid>
