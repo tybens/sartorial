@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import Checkout from "./CheckoutForm/Checkout/Checkout";
 import CollectionsRouter from "./Collections/CollectionsRouter";
@@ -17,8 +17,8 @@ const Shop = ({
   handleEmptyCart,
   errorMessage,
   handleAddToCart,
+  match,
 }) => {
-  let match = useRouteMatch();
 
   return (
     <div>
@@ -53,4 +53,4 @@ const Shop = ({
   );
 };
 
-export default Shop;
+export default withRouter(Shop);

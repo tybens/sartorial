@@ -1,11 +1,10 @@
 import React from 'react'
-import { useRouteMatch, Switch, Route } from 'react-router-dom'
+import { withRouter, Switch, Route } from 'react-router-dom'
 import Collections from './Collections';
 import Products from '../Products/Products'
 
 
-const CollectionsRouter = ({ collectionsData, onAddToCart }) => {
-    let match = useRouteMatch();
+const CollectionsRouter = ({ collectionsData, onAddToCart, match }) => {
 
     return (
     <Switch>
@@ -21,4 +20,4 @@ const CollectionsRouter = ({ collectionsData, onAddToCart }) => {
     )
 }
 
-export default CollectionsRouter
+export default withRouter(CollectionsRouter);
