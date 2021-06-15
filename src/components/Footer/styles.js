@@ -6,6 +6,8 @@ const styles = makeStyles((theme) => ({
     overflow: "hidden",
     padding: `${theme.spacing(10)}px 0`,
     background: "white",
+    zIndex: 10,
+    position: "relative",
   },
   colorBlack: {
     color: "#000",

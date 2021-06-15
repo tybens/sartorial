@@ -4,7 +4,7 @@ import classNames from "classnames";
 import Wave from "react-wavify";
 
 import makeStyles from "./styles.js";
-import SunshineSvg from "../../components/SunshineSvg";
+import SunshineSvg from "components/SunshineSvg";
 
 const Philosophy = ({ navColors, onSetNavColors }) => {
   const classes = makeStyles();

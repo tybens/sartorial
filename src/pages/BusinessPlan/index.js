@@ -1,5 +1,5 @@
 import React from "react";
-import businessPlan from "../../assets/businessplan.pdf";
+import businessPlan from "assets/businessplan.pdf";
 import { Typography } from '@material-ui/core'
 
 const BusinessPlan = () => {
