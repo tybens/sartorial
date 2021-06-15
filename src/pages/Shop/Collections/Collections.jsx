@@ -20,10 +20,11 @@ const Collections = ({ collectionsData }) => {
         justify="space-between"
         alignItems="flex-start"
         direction="column"
+        id="content"
       >
         <HenryVid />
         <Grid item>
-          <Typography variant="h2" align="center" className={classes.header}>
+          <Typography variant="h2" align="center" className={classes.header} id="content--inner">
             Collections coming soon...
           </Typography>
         </Grid>
