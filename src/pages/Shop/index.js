@@ -1,13 +1,23 @@
 import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Cart from './Cart/Cart'
-import Checkout from './CheckoutForm/Checkout/Checkout'
+import Cart from "./Cart/Cart";
+import Checkout from "./CheckoutForm/Checkout/Checkout";
 import CollectionsRouter from "./Collections/CollectionsRouter";
 
-import collectionsData from '../../data/collections-data'
+import collectionsData from "data/collections-data";
 
-
-const Shop = ({ cart, order, totalItems, totalPrice, handleCaptureCheckout, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart, errorMessage, handleAddToCart }) => {
+const Shop = ({
+  cart,
+  order,
+  totalItems,
+  totalPrice,
+  handleCaptureCheckout,
+  handleUpdateCartQty,
+  handleRemoveFromCart,
+  handleEmptyCart,
+  errorMessage,
+  handleAddToCart,
+}) => {
   let match = useRouteMatch();
 
   return (

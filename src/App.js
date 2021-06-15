@@ -5,14 +5,14 @@ import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
 import axios from "axios";
 
-import { Shop, Home, Sponsors, BusinessPlan, Philosophy } from "./pages";
-import Navbar from "./pages/Shop/Navbar/Navbar";
-import { play, exit } from "./timelines";
-import VideoIntro from "./components/VideoIntro";
-import products from "./data/products";
-import useWindowSize from "./hooks/useWindowSize";
+import { Shop, Home, Sponsors, BusinessPlan, Philosophy } from "pages";
+import Navbar from "components/Navbar/Navbar";
+import { play, exit } from "timelines";
+import VideoIntro from "components/VideoIntro";
+import products from "data/products";
+import useWindowSize from "hooks/useWindowSize";
 import theme from "./theme.js";
-import Footer from "./components/Footer";
+import Footer from "components/Footer";
 
 const App = () => {
   const [order, setOrder] = useState({});

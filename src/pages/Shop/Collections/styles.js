@@ -6,14 +6,18 @@ export default makeStyles((theme) => ({
   },
 
   parentWrap: {
-    minHeight: "60vh",
-
+    minHeight: "100vh",
+    padding: "30px",
+    zIndex: 3,
+    position: "relative",
   },
 
   header: {
+    zIndex: 3,
     minWidth: "100%",
     padding: 0,
     margin: "35px 0",
+    color: "white",
   },
 
   landing: {

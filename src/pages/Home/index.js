@@ -7,7 +7,7 @@ import Wave from "react-wavify";
 import Blobs from "./blobs";
 
 import makeStyles from "./styles.js";
-import EmailList from "../../components/EmailList";
+import EmailList from "components/EmailList";
 
 const Home = ({ navColors, onSetNavColors }) => {
   const classes = makeStyles();
