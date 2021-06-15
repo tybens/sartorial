@@ -3,9 +3,9 @@ import gsap from "gsap";
 
 const getDefaultTimeline = (node, delay) => {
   const timeline = gsap.timeline({ paused: true });
-  const content = node.querySelector(".content");
-  const contentInner = node.querySelector(".content--inner");
-  const footer = node.querySelector(".footer");
+  const content = node.querySelectorAll("#content");
+  const contentInner = node.querySelectorAll("#content--inner");
+  const footer = node.querySelector("#footer");
 
   if (content) {
     timeline
@@ -16,18 +16,17 @@ const getDefaultTimeline = (node, delay) => {
         delay,
         ease: "power1.in",
       })
-      .from(content, {
+      .staggerFrom(content, 0.15, {
         duration: 0.15,
         autoAlpha: 0,
         y: 25,
         ease: "power1.inOut",
-      })
-      .from(contentInner, {
+      }, 0.15)
+      .staggerFrom(contentInner, 0.15, {
         duration: 0.15,
         autoAlpha: 0,
-        delay: 0.15,
         ease: "power1.in",
-      })
+      }, 0.1)
       .from(footer, {
         duration: 0.15,
         autoAlpha: 0,

@@ -6,7 +6,7 @@ import { omit } from "lodash";
 import { Session } from "bc-react-session";
 import axios from "axios";
 
-import { Shop, Home, Sponsors, BusinessPlan, Philosophy } from "pages";
+import { Shop, Home, Sponsors, BusinessPlan, Philosophy, ContactUs } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
 import VideoIntro from "components/VideoIntro";
@@ -235,6 +235,7 @@ const App = () => {
                                 }
                               />
                             </Route>
+                            <Route path="/contact" component={ContactUs} />
                             <Route
                               path="/linkedin"
                               component={() => {
@@ -251,7 +252,7 @@ const App = () => {
                               <BusinessPlan />
                             </Route>
                           </Switch>
-                          <Footer />
+                          <Footer  />
                         </div>
                       </Transition>
                     </TransitionGroup>

@@ -11,6 +11,7 @@ const Footer = (props) => {
     <Grid
       container
       justify="center"
+      id="footer"
       className={classNames(classes.colorBlack, classes.fullHeightContainer)}
     >
       <Grid

@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core'
 
 const BusinessPlan = () => {
   return (
-    <div style={{ minHeight: "30vh", display: "flex", justifyContent: "center" }}>
+    <div style={{ minHeight: "60vh", display: "flex", justifyContent: "center" }}>
       <a href={businessPlan}>
         <Typography variant="h2">Business Plan</Typography>
       </a>
