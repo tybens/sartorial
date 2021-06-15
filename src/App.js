@@ -3,6 +3,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
+import { Session } from "bc-react-session";
 import axios from "axios";
 
 import { Shop, Home, Sponsors, BusinessPlan, Philosophy } from "pages";
@@ -23,6 +24,8 @@ const App = () => {
     color: "black",
     background: "white",
   });
+  const [returningUser, setReturningUser] = useState(true)
+
   const windowSize = useWindowSize();
   // to figure out if the black background ref is on screen
   const useWhiteFontColor = navColors.background !== "white";
@@ -46,6 +49,18 @@ const App = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // useeffect for showing intro video only for non-returning visitors
+  useEffect(() => {
+    let session = Session.get();
+    if (session.isValid) {
+      setReturningUser(true)
+    } else {
+      Session.start({ expiration: 3600000 }) // starts user session, expires after an hour
+      setReturningUser(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl =
@@ -163,7 +178,7 @@ const App = () => {
             transition: "color 0.5s ease-in-out, background 0.5s ease-in-out",
           }}
         >
-          {!introComplete ? (
+          {!introComplete && !returningUser ? (
             <VideoIntro />
           ) : (
             <>
