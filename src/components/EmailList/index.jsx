@@ -60,10 +60,16 @@ const EmailList = () => {
   };
 
   return (
-    <Grid container className={classes.container} spacing={3} justify="center">
+    <Grid
+      container
+      className={classes.container}
+      spacing={3}
+      justify="center"
+      id="content"
+    >
       {responseMessage === "" && errorMessage === "" ? (
         <>
-          <Grid item xs={12} style={{ width: "100%" }}>
+          <Grid item xs={12} style={{ width: "100%" }} id="content--inner">
             <Button
               variant={!error && email !== "" ? "contained" : "text"}
               color={!error && email !== "" ? "secondary" : "inherit"}
@@ -78,7 +84,7 @@ const EmailList = () => {
               </Typography>
             </Button>
           </Grid>
-          <Grid item>
+          <Grid item id="content--inner">
             <form autoComplete="off">
               <TextField
                 id="outlined-basic"
