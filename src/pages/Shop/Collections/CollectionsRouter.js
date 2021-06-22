@@ -13,6 +13,7 @@ const CollectionsRouter = ({ collectionsData, onAddToCart, match }) => {
         </Route>
         <Route path={`${match.path}`}>
         <Collections
+            url={match.path}
             collectionsData={collectionsData}
           />
         </Route>
