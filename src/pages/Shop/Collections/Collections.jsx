@@ -1,14 +1,11 @@
 import React from "react";
 import { Typography, Grid } from "@material-ui/core";
-// import { Link, useRouteMatch } from 'react-router-dom'
 
-// import OldCollection from './OldCollection';
 import useStyles from "./styles";
 import EmailList from "components/EmailList";
 import HenryVid from "components/HenryVid";
 
 const Collections = ({ collectionsData }) => {
-  // const { url } = useRouteMatch()
   const classes = useStyles();
   // const newestCollectionName = 'Sartorial Spring 2021's
 

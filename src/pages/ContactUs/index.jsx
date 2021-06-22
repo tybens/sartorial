@@ -31,9 +31,9 @@ const ContactUs = () => {
         <Grid item xs={3}><MyTypography align="left" content="Tel:" /></Grid>
         <Grid item xs={9}><MyTypography align="right" content="+1 (317) 469-8797" /></Grid>
         <Grid item xs={3}><MyTypography align="left" content="email:" /></Grid>
-        <Grid item xs={9}><MyTypography align="right" content="admin@habitatsartorial.org" /></Grid>
+        <Grid item xs={9}><MyTypography align="right" content="payne@habitatsartorial.org" /></Grid>
         <Grid item xs={3}><MyTypography align="left" content="address:" /></Grid>
-        <Grid item xs={9}><MyTypography align="right"><p className={classes.noMargin}>address: 3250A w 86th st</p>
+        <Grid item xs={9}><MyTypography align="right"><p className={classes.noMargin}>3250A w 86th st #1005</p>
           <p className={classes.noMargin}>Indianapolis, IN 46268</p></MyTypography></Grid>
   
       </Grid>
