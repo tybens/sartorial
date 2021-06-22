@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Typography, TextField, Grid, Button } from "@material-ui/core";
-// import { Link, useRouteMatch } from 'react-router-dom'
 import emailRegex from "regex/emailRegex";
 import useStyles from "./styles";
 import axios from "axios";
 
 const EmailList = () => {
-  // const { url } = useRouteMatch()
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
