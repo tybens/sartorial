@@ -6,14 +6,17 @@ import Products from "../Products/Products";
 const CollectionsRouter = ({ collectionsData, onAddToCart, match }) => {
   return (
     <Switch>
-      <Route path={`/shop/collections/:collectionId`}>
-        <Products collectionsData={collectionsData} onAddToCart={onAddToCart} />
-      </Route>
-      <Route exact path={`/shop/collections`}>
-        <Collections collectionsData={collectionsData} />
-      </Route>
+        <Route path={`${match.path}/:collectionId`}>
+          <Products collectionsData={collectionsData} onAddToCart={onAddToCart} />
+        </Route>
+        <Route path={`${match.path}`}>
+        <Collections
+            url={match.path}
+            collectionsData={collectionsData}
+          />
+        </Route>
     </Switch>
   );
 };
 
-export default CollectionsRouter;
+export default withRouter(CollectionsRouter);
