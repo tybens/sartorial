@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import Checkout from "./CheckoutForm/Checkout/Checkout";
@@ -19,6 +19,15 @@ const Shop = ({
   handleAddToCart,
   match,
 }) => {
+
+  // title logic
+  useEffect(() => {
+    document.title = "Habitat Sartorial | Shop for a cause"
+    return () => {
+      document.title = "Habitat Sartorial | Fashion for a cause"
+    }
+  }, [])
+
 
   return (
     <div>

@@ -8,6 +8,7 @@ import useStyles from "./styles";
 const routes = [
   { to: "/", label: "Home" },
   { to: "/sponsors", label: "Sponsors" },
+  { to: "/blog", label: "Blog" },
   { to: "/shop/collections", label: "Shop" },
 ];
 
@@ -16,7 +17,19 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
 
   const links = routes.map(({ to, label }) => {
     return (
-      <NavLink strict exact to={to} style={{ zIndex: 2 }} key={to}>
+      <NavLink
+        strict
+        exact
+        to={to}
+        style={{ zIndex: 2 }}
+        key={to}
+        onClick={() => {
+          if (label == "Blog")
+            setTimeout(() => {
+              window.location.reload();
+            }, 250);
+        }}
+      >
         {label}
       </NavLink>
     );
@@ -37,7 +50,7 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
               src={habitatLogo}
               alt="Ha317at Sartorial Banner"
             />
-          </Link>{" "}
+          </Link>
         </div>
         <nav>
           {links}

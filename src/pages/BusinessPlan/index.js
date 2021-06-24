@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import businessPlan from "assets/businessplan.pdf";
 import { Typography } from '@material-ui/core'
 
 const BusinessPlan = () => {
+
   return (
     <div style={{ minHeight: "60vh", display: "flex", justifyContent: "center" }}>
       <a href={businessPlan}>
