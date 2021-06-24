@@ -6,7 +6,15 @@ import { omit } from "lodash";
 import { Session } from "bc-react-session";
 import axios from "axios";
 
-import { Shop, Home, Sponsors, BusinessPlan, Philosophy, ContactUs } from "pages";
+import {
+  Shop,
+  Home,
+  Sponsors,
+  BusinessPlan,
+  Philosophy,
+  ContactUs,
+  Blog,
+} from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
 import VideoIntro from "components/VideoIntro";
@@ -14,6 +22,7 @@ import products from "data/products";
 import useWindowSize from "hooks/useWindowSize";
 import theme from "./theme.js";
 import Footer from "components/Footer";
+import PageWrapper from "components/PageWrapper/index.jsx";
 
 const App = () => {
   const [order, setOrder] = useState({});
@@ -24,7 +33,7 @@ const App = () => {
     color: "black",
     background: "white",
   });
-  const [returningUser, setReturningUser] = useState(true)
+  const [returningUser, setReturningUser] = useState(true);
 
   const windowSize = useWindowSize();
   // to figure out if the black background ref is on screen
@@ -54,13 +63,13 @@ const App = () => {
   useEffect(() => {
     let session = Session.get();
     if (session.isValid) {
-      setReturningUser(true)
+      setReturningUser(true);
     } else {
-      Session.start({ expiration: 3600000 }) // starts user session, expires after an hour
-      setReturningUser(false)
+      Session.start({ expiration: 3600000 }); // starts user session, expires after an hour
+      setReturningUser(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   // const functionUrl = 'http://localhost:5001/sartorial-indy/us-central1/recordOrder' // change to production
   const functionUrl =
@@ -202,40 +211,57 @@ const App = () => {
                         <div>
                           <Switch location={location}>
                             <Route exact path="/">
-                              <Home
-                                navColors={navColors}
-                                onSetNavColors={(colors) =>
-                                  setNavColors(colors)
-                                }
-                              />
+                              <PageWrapper title="Fashion">
+                                <Home
+                                  navColors={navColors}
+                                  onSetNavColors={(colors) =>
+                                    setNavColors(colors)
+                                  }
+                                />
+                              </PageWrapper>
                             </Route>
                             <Route path="/shop">
-                              <Shop
-                                thisProduct={thisProduct}
-                                handleCaptureCheckout={handleCaptureCheckout}
-                                handleEmptyCart={handleEmptyCart}
-                                order={order}
-                                cart={cart}
-                                errorMessage={errorMessage}
-                                totalItems={totalItems}
-                                totalPrice={totalPrice}
-                                handleAddToCart={handleAddToCart}
-                                handleRemoveFromCart={handleRemoveFromCart}
-                                handleUpdateCartQty={handleUpdateCartQty}
-                              />
+                              <PageWrapper title="Shop">
+                                <Shop
+                                  thisProduct={thisProduct}
+                                  handleCaptureCheckout={handleCaptureCheckout}
+                                  handleEmptyCart={handleEmptyCart}
+                                  order={order}
+                                  cart={cart}
+                                  errorMessage={errorMessage}
+                                  totalItems={totalItems}
+                                  totalPrice={totalPrice}
+                                  handleAddToCart={handleAddToCart}
+                                  handleRemoveFromCart={handleRemoveFromCart}
+                                  handleUpdateCartQty={handleUpdateCartQty}
+                                />
+                              </PageWrapper>
                             </Route>
                             <Route path="/sponsors">
-                              <Sponsors setNavColors={setNavColors} />
+                              <PageWrapper title="Sponsored">
+                                <Sponsors setNavColors={setNavColors} />
+                              </PageWrapper>
                             </Route>
                             <Route path="/philosophy">
-                              <Philosophy
-                                navColors={navColors}
-                                onSetNavColors={(colors) =>
-                                  setNavColors(colors)
-                                }
-                              />
+                              <PageWrapper title="Blog">
+                                <Philosophy
+                                  navColors={navColors}
+                                  onSetNavColors={(colors) =>
+                                    setNavColors(colors)
+                                  }
+                                />
+                              </PageWrapper>
                             </Route>
-                            <Route path="/contact" component={ContactUs} />
+                            <Route path="/blog">
+                              <PageWrapper title="Blog">
+                                <Blog />
+                              </PageWrapper>
+                            </Route>
+                            <Route path="/contact">
+                              <PageWrapper title="Contact">
+                                <ContactUs />
+                              </PageWrapper>
+                            </Route>
                             <Route
                               path="/linkedin"
                               component={() => {
@@ -249,10 +275,12 @@ const App = () => {
                               }}
                             />
                             <Route exact path="/businessplan">
-                              <BusinessPlan />
+                              <PageWrapper title="Business Plan">
+                                <BusinessPlan />
+                              </PageWrapper>
                             </Route>
                           </Switch>
-                          <Footer  />
+                          <Footer />
                         </div>
                       </Transition>
                     </TransitionGroup>

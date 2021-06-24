@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 const Sponsors = ({ setNavColors }) => {
+
   useEffect(() => {
     const navColorsSponsors = { background: "black", color: "white" };
     const navColors = { background: "white", color: "black" };
