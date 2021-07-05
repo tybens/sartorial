@@ -1,7 +1,10 @@
-import React from "react";
-import { Typography, Button, Grid } from "@material-ui/core";
+import React, { useState } from "react";
+import { Typography, Button, Grid, Collapse } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
+import classNames from "classnames";
+import PriceGuidelines from "assets/price_guidelines.png";
+import HoverImage from "components/HoverImage";
 import CartItem from "./CartItem/CartItem";
 import useStyles from "./styles";
 
@@ -13,13 +16,14 @@ const Cart = ({
   onRemoveFromCart,
   onEmptyCart,
 }) => {
+  const [showModal, setShowModal] = useState(false);
   const classes = useStyles();
   const handleEmptyCart = () => onEmptyCart();
 
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
       You have no items in your shopping cart,{" "}
-      <Link className={classes.link} to="/shop">
+      <Link className={classes.link} to="/shop/collections">
         start adding some
       </Link>
       !
@@ -27,7 +31,7 @@ const Cart = ({
   );
 
   const renderCart = () => (
-    <>
+    <div id="content" className={classes.cartWrapper}>
       <h6 style={{ margin: "-20px 0 10px 0", color: "grey" }}>
         hover product name for preview
       </h6>
@@ -45,15 +49,34 @@ const Cart = ({
           );
         })}
       </Grid>
-      <div className={classes.cardDetails}>
-        <Typography variant="h4">Total: ${totalPrice(cart)}</Typography>
-        <div>
+      <Grid
+        item
+        xs={12}
+        container
+        justify="space-between"
+        className={classes.cardDetails}
+      >
+        <Grid item>
+          <Typography variant="h4" align="left" className={classes.noPadding}>
+            Total: ${totalPrice(cart)}
+          </Typography>
+          <div
+          className={classes.underline}
+            onMouseEnter={() => setShowModal(true)}
+            onMouseLeave={() => setShowModal(false)}
+          >
+            <Typography variant="subtitle1" color="secondary" align="left">
+              Where does this price come from?
+            </Typography>
+          </div>
+        </Grid>
+        <Grid item>
           <Button
             className={classes.emptyButton}
             size="large"
             type="button"
             variant="contained"
-            color="secondary"
+            color="primary"
             onClick={handleEmptyCart}
           >
             Empty cart
@@ -65,13 +88,19 @@ const Cart = ({
             size="large"
             type="button"
             variant="contained"
-            color="primary"
+            color="secondary"
           >
             Checkout
           </Button>
-        </div>
-      </div>
-    </>
+        </Grid>
+      </Grid>
+      <Collapse in={showModal}>
+        <img
+          src={PriceGuidelines}
+          className={classNames(classes.modal, showModal && classes.opaque)}
+        />
+      </Collapse>
+    </div>
   );
 
   return (

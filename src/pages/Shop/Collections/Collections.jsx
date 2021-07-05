@@ -45,7 +45,7 @@ const Collections = ({ collectionsData, url }) => {
             {collectionsData.map(({ id, name, img }, index) => {
               if (name === newestCollectionName) {
                 return (
-                  <div className={classes.landing} key={id}>
+                  <div className={classes.landing} key={id} id="content">
                     <Link
                       className={classes.landingImage}
                       style={{ backgroundImage: `url(${img})` }}
@@ -58,7 +58,14 @@ const Collections = ({ collectionsData, url }) => {
                       alignItems="flex-end"
                       className={classes.landingContent}
                     >
-                      <Typography variant="h2" color="inherit" className={classes.landingName}>{name}</Typography>
+                      <Typography
+                        variant="h2"
+                        color="inherit"
+                        className={classes.landingName}
+                        id="content--inner"
+                      >
+                        {name}
+                      </Typography>
                       <Link
                         to={`${url}/${id}`}
                         className={classes.landingSubName}

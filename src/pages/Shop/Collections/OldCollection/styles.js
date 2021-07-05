@@ -19,7 +19,9 @@ export default makeStyles((theme) => ({
 
   landingImage: {
     backgroundPosition: "50% 50%",
-    // height: "100%",
+    height: "calc(20vw + 10rem)",
+    backgroundSize: "cover",
+    display: "block",
     width: "100%",
   },
 }));

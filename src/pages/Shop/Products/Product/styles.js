@@ -4,6 +4,10 @@ export default makeStyles(() => ({
   root: {
     maxWidth: "100%",
   },
+  description: {
+    height: 45,
+  },
+
   media: {
     height: 0,
     paddingTop: "56.25%", // 16:9
