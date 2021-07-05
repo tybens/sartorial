@@ -27,11 +27,12 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
 
-  const test = (data) => {
+  const onSubmit = (data) => {
     setShippingData(data);
 
     nextStep();
   };
+
 
   let Confirmation = () =>
     order.customer ? (
@@ -76,7 +77,7 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
       <AddressForm
         nextStep={nextStep}
         setShippingData={setShippingData}
-        test={test}
+        onSubmit={onSubmit}
       />
     ) : (
         <PaymentForm

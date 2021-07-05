@@ -9,6 +9,7 @@ const collectionData = [{
     products: [{
         id: 0,
         price: 25,
+        type: "T-Shirt",
         img: baguette,
         description: 'Test description number 1, this is a cool picture',
         name: 'baguette',
@@ -17,6 +18,7 @@ const collectionData = [{
     {
         id: 1,
         price: 25,
+        type: "Hoodie",
         img: payne_tyler,
         description: 'Test description number 2, this is a lame description',
         name: 'a party time',
@@ -30,6 +32,7 @@ const collectionData = [{
     products: [{
         id: 2,
         price: 25,
+        type: "Cropped Hoodie",
         img: cropped_ty,
         description: 'Teagan is silly dumb dumb hehe',
         name: 'cropped',
@@ -43,6 +46,7 @@ const collectionData = [{
     products: [{
         id: 3,
         price: 25,
+        type: "Sweatpants",
         img: steelyeyed,
         description: "Tyler is so hot omg",
         name: "mwah"

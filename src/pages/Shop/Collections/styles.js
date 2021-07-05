@@ -7,6 +7,8 @@ export default makeStyles((theme) => ({
 
   parentWrap: {
     minHeight: "100vh",
+    maxWidth: "2000px",
+    margin: "auto",
     padding: "30px",
     zIndex: 3,
     position: "relative",

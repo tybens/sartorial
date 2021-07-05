@@ -13,6 +13,7 @@ const Collections = ({ collectionsData }) => {
     <>
       <Grid
         container
+        item
         className={classes.parentWrap}
         justify="space-between"
         alignItems="flex-start"
@@ -20,12 +21,12 @@ const Collections = ({ collectionsData }) => {
         id="content"
       >
         <HenryVid />
-        <Grid item>
+        <Grid item xs={12}>
           <Typography variant="h2" align="center" className={classes.header} id="content--inner">
             Collections coming soon...
           </Typography>
         </Grid>
-        <Grid item container justify="flex-end" xs={12}>
+        <Grid item container xs={12} justify="flex-end">
           <EmailList />
         </Grid>
         {/* {collectionsData.map(({ id, name, img }, index) => {
