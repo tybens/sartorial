@@ -6,11 +6,12 @@ import SelectUSState from "react-select-us-states";
 import makeStyles from "./styles";
 import FormInput from "./FormInput";
 
-const AddressForm = ({ test }) => {
+const AddressForm = ({ onSubmit }) => {
   const [stateCode, setStateCode] = useState(null);
 
   const classes = makeStyles();
   const methods = useForm();
+
 
   return (
     <>
@@ -20,7 +21,7 @@ const AddressForm = ({ test }) => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit((data) =>
-            test({
+            onSubmit({
               ...data,
               stateCode,
             })
