@@ -1,22 +1,20 @@
-import React from 'react'
-import useStyles from './styles'
-import { Link } from 'react-router-dom'
+import React from "react";
+import useStyles from "./styles";
+import { Link } from "react-router-dom";
 
 const OldCollection = ({ index, name, img, url, id }) => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <div className={classes.collection} key={name}>
-            <div>
-                {name}
-            </div>
-            <Link
-                className={classes.otherCollectionImage}
-                style={{ backgroundImage: `url(${img})` }}
-                to={`${url}/${id}`}
-            />
-        </div>
-    )
-}
+  return (
+    <Link
+      className={classes.collection}
+      style={{ backgroundImage: `url(${img})` }}
+      to={`${url}/${id}`}
+      key={name}
+    >
+      {name}
+    </Link>
+  );
+};
 
-export default OldCollection
+export default OldCollection;
