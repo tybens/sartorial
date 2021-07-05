@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import classNames from "classnames";
 import PriceGuidelines from "assets/price_guidelines.png";
-import HoverImage from "components/HoverImage";
 import CartItem from "./CartItem/CartItem";
 import useStyles from "./styles";
 
@@ -98,6 +97,7 @@ const Cart = ({
         <img
           src={PriceGuidelines}
           className={classNames(classes.modal, showModal && classes.opaque)}
+          alt="Price Guidelines"
         />
       </Collapse>
     </div>

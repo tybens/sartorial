@@ -6,11 +6,6 @@ import { Fade } from "react-reveal";
 
 const OldCollection = ({ index, name, img, url, id }) => {
   const classes = useStyles();
-  // const history = useHistory();
-
-  const handleClick = () => {
-    // history.push(`${url}/${id}`);
-  };
 
   return (
     <Grid
