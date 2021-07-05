@@ -1,10 +1,10 @@
-import React, { useEffect }  from "react";
+import React  from "react";
 import { Grid } from "@material-ui/core";
 
-import makeStyles from "./styles.js";
+// import useStyles from "./styles.js";
 
 const Blog = () => {
-
+  // const classes = useStyles();
   return (
     <Grid container justify-content="flex-start" direction="column">
       <div id="dib-posts" ></div>
