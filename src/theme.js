@@ -327,7 +327,7 @@ const theme = createMuiTheme({
 
     MuiPaper: {
       root: {
-        color: "#ccc",
+        color: "black",
         background: "#f2f3f5",
       },
       elevation4: {

@@ -5,7 +5,7 @@ import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import DeleteIcon from "@material-ui/icons/Delete";
 import useStyles from "./styles";
 
-import HoverImage from "../../../../components/HoverImage";
+import HoverImage from "components/HoverImage";
 
 // props: position and isActive from the react cursor position wrapper
 const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
@@ -23,7 +23,7 @@ const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <HoverImage item={item}>
+                <HoverImage img={item.img}>
                   <Typography gutterBottom variant="h6">
                     {item.name}
                   </Typography>

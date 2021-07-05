@@ -25,7 +25,7 @@ const Product = ({ product, onAddToCart }) => {
       />
       <CardContent>
         <div className={classes.cardContent}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" align="left">
             {product.name}
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
@@ -36,6 +36,8 @@ const Product = ({ product, onAddToCart }) => {
           variant="body2"
           color="textSecondary"
           component="p"
+          align="left"
+          className={classes.description}
         >
           {product.description}
         </Typography>

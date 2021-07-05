@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
     maxWidth: "2000px",
     margin: "auto",
     padding: "30px",
+    paddingBottom: 20,
     zIndex: 3,
     position: "relative",
   },
@@ -58,7 +59,6 @@ export default makeStyles((theme) => ({
 
   landingName: {
     fontWeight: "bold",
-    fontSize: "1.5rem",
   },
 
   otherCollectionsImage: {
