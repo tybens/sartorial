@@ -1,4 +1,4 @@
-import React, { useEffect }  from "react";
+import React  from "react";
 import useStyles from "./styles";
 import EmailList from "components/EmailList";
 import { Grid, Typography } from "@material-ui/core";

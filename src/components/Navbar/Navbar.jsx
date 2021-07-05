@@ -24,7 +24,7 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
         style={{ zIndex: 2 }}
         key={to}
         onClick={() => {
-          if (label == "Blog")
+          if (label === "Blog")
             setTimeout(() => {
               window.location.reload();
             }, 250);
