@@ -1,7 +1,7 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect , useState }  from 'react';
 import useWindowSize from "hooks/useWindowSize"
-
-import "./style.css";
+import { Link } from "react-router-dom";
+import "./styles.css";
 
 const defaultPost = {
   imgSrc: "https://i.ibb.co/YLmzhgp/construction-4445367-1920-2.jpg",
@@ -18,7 +18,7 @@ const defaultPost = {
   date: "14 Jan 2021",
   title: "TOP 5 Ways to Choose Bricks made from manufactured stone",
   text: "Brampton Brick® Select Series is a cost-effective clay brick product series...",
-  url: "/someblog"
+  id: "0"
 }
 
 const BlogCard = ({
@@ -39,7 +39,7 @@ const BlogCard = ({
     <div className={`blog-item${dynamicClassName}__container`}>
       <div className={`blog-item${dynamicClassName}__inner`}>
          <div className={`blog-item${dynamicClassName}__image-container`}>
-            <img src={data.imgSrc}/>
+            <img src={data.imgSrc} alt="placeholder" />
          </div>
          <div className={`blog-item${dynamicClassName}__content`}>
             <div className={`blog-item${dynamicClassName}__type-container`}>
@@ -63,9 +63,9 @@ const BlogCard = ({
               {data.text}
             </p>
             <div className={`blog-item${dynamicClassName}__read-more__container`}>
-                <a href={data.url} className="read-more">
+                <Link to={`/blog/${data.id}`} className="read-more">
                   READ MORE
-                </a>
+                </Link>
             </div>
          </div>
       </div>
