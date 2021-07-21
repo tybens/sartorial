@@ -16,6 +16,10 @@ const styles = makeStyles((theme) => ({
     paddingTop: theme.spacing(3),
   },
 
+  followUs: {
+    marginLeft: "-13px",
+  },
+
   linkStyle: {
     textDecoration: "none",
     color: "black",
