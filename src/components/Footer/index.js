@@ -1,4 +1,11 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, IconButton, Typography } from "@material-ui/core";
+import {
+  Instagram,
+  LinkedIn,
+  Pinterest,
+  Twitter,
+  YouTube,
+} from "@material-ui/icons";
 import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -7,6 +14,40 @@ import useStyles from "./styles";
 
 const Footer = (props) => {
   const classes = useStyles();
+
+  const followButtons = [
+    {
+      icon: <LinkedIn />,
+      ariaLabel: "LinkedIn",
+      url: "https://www.linkedin.com/company/habitatsartorial",
+      color: "lightblue",
+    },
+    {
+      icon: <Pinterest />,
+      ariaLabel: "Pinterest",
+      url: "https://www.pinterest.com/habitatsartorial",
+      color: "red",
+    },
+    {
+      icon: <YouTube />,
+      ariaLabel: "Youtube",
+      url: "https://www.youtube.com/channel/UCZPuIrntJktPnG2OAA1pr8A?sub_confirmation=1",
+      color: "red",
+    },
+    {
+      icon: <Twitter />,
+      ariaLabel: "Twitter",
+      url: "https://www.twitter.com/ha317at",
+      color: "lighterblue",
+    },
+    {
+      icon: <Instagram />,
+      ariaLabel: "Instagram",
+      url: "https://www.instagram.com/habitatsartorialllc",
+      color: "magenta",
+    },
+  ];
+
   return (
     <Grid
       container
@@ -118,12 +159,32 @@ const Footer = (props) => {
             <Grid
               item
               component={Link}
-              to="/linkedin"
+              onClick={() =>
+                window.open(
+                  followButtons.find(({ ariaLabel }) => ariaLabel === "LinkedIn")
+                    .url,
+                  "_blank"
+                )
+              }
               className={classes.linkStyle}
             >
               <Typography variant={"h5"} className={classes.footerLinkText}>
                 Follow us
               </Typography>
+            </Grid>
+            <Grid item container>
+              {followButtons.map(({ icon, ariaLabel, url, color }, id) => (
+                <Grid item xs={6} key={id} style={{ color: "" }}>
+                  <IconButton
+                    color="inherit"
+                    edge="start"
+                    aria-label={ariaLabel}
+                    onClick={() => window.open(url, "_blank")}
+                  >
+                    {icon}
+                  </IconButton>
+                </Grid>
+              ))}
             </Grid>
           </Grid>
           <Grid
@@ -134,7 +195,7 @@ const Footer = (props) => {
             className={classes.titleDiv2}
           >
             <Grid item>
-              <Link to="/technology" className={classes.linkStyle}>
+              <Link to="/philosophy" className={classes.linkStyle}>
                 <Typography variant={"h5"} className={classes.titleLinkText}>
                   Habitat Sartorial
                 </Typography>

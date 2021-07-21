@@ -19,7 +19,7 @@ const Cart = ({
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
       You have no items in your shopping cart,{" "}
-      <Link className={classes.link} to="/shop">
+      <Link className={classes.link} to="/shop/collections">
         start adding some
       </Link>
       !
