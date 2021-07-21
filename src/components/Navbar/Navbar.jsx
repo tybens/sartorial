@@ -23,12 +23,6 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
         to={to}
         style={{ zIndex: 2 }}
         key={to}
-        onClick={() => {
-          if (label === "Blog")
-            setTimeout(() => {
-              window.location.reload();
-            }, 250);
-        }}
       >
         {label}
       </NavLink>
