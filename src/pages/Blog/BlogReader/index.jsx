@@ -1,9 +1,10 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography, Grid, Divider, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
 import VideoEmbed from "../VideoEmbed";
-import henryVid from "assets/vids/henryvid.mp4"
+import henryVid from "assets/vids/henryvid.mp4";
+import ShareComponent from "components/Share";
 
 const BlogReader = ({ postsData, match }) => {
   const classes = useStyles();
@@ -17,20 +18,68 @@ const BlogReader = ({ postsData, match }) => {
         justify="center"
         direction="row"
         className={classes.container}
+        spacing={3}
       >
         <Grid item xs={12}>
-          <Typography variant="h1" color="primary">
+          <Typography variant="h2" color="primary" align="left">
             {blog?.title}
           </Typography>
         </Grid>
+        <Grid
+          item
+          xs={6}
+          container
+          direction="row"
+          alignItems="center"
+          spacing={1}
+        >
+          <Grid item>
+            <Avatar className={classes.orange}>T</Avatar>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle1" color="inherit" align="left">
+              {blog?.author}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              color="primary"
+              align="left"
+              className={classes.colorGray}
+            >
+              {blog?.date}
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item xs={6}>
+          <ShareComponent exampleImage={blog?.imgSrc} />
+        </Grid>
         <Grid item xs={12}>
-          <Typography variant="body1" color="primary" align="left" className={classes.paragraph}>
+          <Divider className={classes.thickDivider} />
+        </Grid>
+
+        <Grid item xs={12}>
+          <Typography
+            variant="body1"
+            color="primary"
+            align="left"
+            className={classes.paragraph}
+          >
             {blog?.text}
           </Typography>
-          <Typography variant="body1" color="primary" align="left" className={classes.paragraph}>
+          <Typography
+            variant="body1"
+            color="primary"
+            align="left"
+            className={classes.paragraph}
+          >
             {blog?.text}
           </Typography>
-          <Typography variant="body1" color="primary" align="left" className={classes.paragraph}>
+          <Typography
+            variant="body1"
+            color="primary"
+            align="left"
+            className={classes.paragraph}
+          >
             {blog?.text}
           </Typography>
           <VideoEmbed src={henryVid} caption="Example video placeholder" />
