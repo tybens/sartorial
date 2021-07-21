@@ -12,6 +12,7 @@ const defaultPost = {
       },
     ],
     date: "14 Jan 2021",
+    author: "Tyler Benson",
     title: "TOP 5 Ways to Choose Bricks made from manufactured stone",
     text: "Brampton Brick® Select Series is a cost-effective clay brick product series...",
     id: "0",
