@@ -158,7 +158,6 @@ const Footer = (props) => {
           >
             <Grid
               item
-              component={Link}
               onClick={() =>
                 window.open(
                   followButtons.find(({ ariaLabel }) => ariaLabel === "LinkedIn")

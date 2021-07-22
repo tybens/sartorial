@@ -22,6 +22,7 @@ const styles = makeStyles((theme) => ({
 
   linkStyle: {
     textDecoration: "none",
+    cursor: "pointer",
     color: "black",
     "&:hover": {
       textDecoration: "underline",

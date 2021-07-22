@@ -9,8 +9,8 @@ const Blog = ({ postsData }) => {
   const classes = useStyles();
 
   const posts = postsData.map((data, index) => (
-    <Grid item xs={12} sm={6} container justify="center" id="content--inner">
-      <BlogCard key={index} data={data} />
+    <Grid key={index} item xs={12} sm={6} container justify="center" id="content--inner">
+      <BlogCard data={data} />
     </Grid>
   ));
 

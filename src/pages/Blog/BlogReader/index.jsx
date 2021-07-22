@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { Typography, Grid, Divider, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
@@ -10,6 +10,12 @@ const BlogReader = ({ postsData, match }) => {
   const classes = useStyles();
   const blogId = match.params.blogId;
   const blog = postsData.find(({ id }) => id === blogId);
+
+  // useeffect to change og:image to the blog's image
+  useEffect(() => {
+    document.getElementsByTagName("META").namedItem("image").content = blog?.imgSrc
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Grid container justify="center">

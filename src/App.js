@@ -61,7 +61,7 @@ const App = () => {
 
   // useeffect for showing intro video only for non-returning visitors
   useEffect(() => {
-    let session = Session.get();
+    let session = Session.get("name");
     if (session.isValid) {
       setReturningUser(true);
     } else {
