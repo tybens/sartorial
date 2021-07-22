@@ -30,7 +30,7 @@ const ShareComponent = ({ exampleImage }) => {
     <TwitterShareButton
       url={shareUrl}
       title={title}
-      via={"@ha317at"}
+      via={"ha317at"}
       hashtags={hashtags}
       related={["@ha317at"]}
     >
