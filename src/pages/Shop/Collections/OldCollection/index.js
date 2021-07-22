@@ -12,7 +12,7 @@ const OldCollection = ({ index, name, img, url, id }) => {
 
   return (
     <Grid item xs={12} md={6} lg={4} className={classes.landing} key={id} style={{marginTop: id*50}}>
-      <img src={img} className={classes.landingImage} onClick={handleClick} />
+      <img src={img} alt={name} className={classes.landingImage} onClick={handleClick} />
       <Typography variant="h3" color="primary" className={classes.title} align="right">{name}</Typography>
     </Grid>
   );
