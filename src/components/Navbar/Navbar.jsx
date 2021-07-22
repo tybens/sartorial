@@ -8,7 +8,7 @@ import useStyles from "./styles";
 const routes = [
   { to: "/", label: "Home" },
   { to: "/sponsors", label: "Sponsors" },
-  { to: "/blog", label: "Blog" },
+  { to: "/blog", label: "Mission" },
   { to: "/shop/collections", label: "Shop" },
 ];
 

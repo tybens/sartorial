@@ -16,7 +16,7 @@ import { Grid } from "@material-ui/core";
 
 const ShareComponent = ({ exampleImage }) => {
   const shareUrl = String(window.location);
-  const title = "Habitat Sartorial's New Blog Post!";
+  const title = "Habitat Sartorial's new Mission post!";
   const description = "Todo";
   const hashtags = [
     "habitatsartorial",
