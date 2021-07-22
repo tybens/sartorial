@@ -1,19 +1,25 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-
-
 export default makeStyles((theme) => ({
-  collection: {
-    fontSize: "20px",
+  landing: {
+    display: "block",
+    margin: 20,
+    position: "relative",
+    fontSize: 20,
+    [theme.breakpoints.down("md")]: {
+      // margin: 0,
+    },
   },
 
-  otherCollectionsImage: {
-    backgroundPosition: "50% 50%",
-    height: "30vw",
-    width: "50%",
+  title: {
     position: "relative",
-    display: "block",
-    zIndex: "2",
-    backgroundSize: "cover",
-  }
+    fontWeight: "bold",
+    marginTop: 0,
+  },
+
+  landingImage: {
+    backgroundPosition: "50% 50%",
+    // height: "100%",
+    width: "100%",
+  },
 }));
