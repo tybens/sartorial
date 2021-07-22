@@ -19,7 +19,7 @@ const Blog = ({ postsData }) => {
     <>
       <Grid item xs={12}>
         <Typography variant="h1" color="primary" id="content">
-          Blog
+          Mission
         </Typography>
       </Grid>
       {posts}
@@ -28,7 +28,7 @@ const Blog = ({ postsData }) => {
     <>
       <Grid item xs={12}>
         <Typography variant="h1" align="center" id="content" color="primary">
-          Blog coming soon...
+          Posts about our mission are coming soon...
         </Typography>
       </Grid>
 
