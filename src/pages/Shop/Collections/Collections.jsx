@@ -9,8 +9,6 @@ import OldCollection from "./OldCollection";
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
   const newestCollectionName = "Sartorial Spring 2021";
-  // variable for testing collection page
-  const showCollections = true;
 
   return (
     <>
@@ -23,7 +21,7 @@ const Collections = ({ collectionsData, url }) => {
         direction="column"
         id="content"
       >
-        {!showCollections ? (
+        {window.location.href.includes("localhost") ? (
           <>
             <HenryVid />
             <Grid item xs={12}>
