@@ -1,22 +1,21 @@
-import React from 'react'
-import useStyles from './styles'
-import { Link } from 'react-router-dom'
+import React from "react";
+import useStyles from "./styles";
+import { Grid, Typography } from "@material-ui/core";
 
 const OldCollection = ({ index, name, img, url, id }) => {
-    const classes = useStyles();
+  const classes = useStyles();
+  // const history = useHistory();
 
-    return (
-        <div className={classes.collection} key={name}>
-            <div>
-                {name}
-            </div>
-            <Link
-                className={classes.otherCollectionImage}
-                style={{ backgroundImage: `url(${img})` }}
-                to={`${url}/${id}`}
-            />
-        </div>
-    )
-}
+  const handleClick = () => {
+    // history.push(`${url}/${id}`);
+  };
 
-export default OldCollection
+  return (
+    <Grid item xs={12} md={6} lg={4} className={classes.landing} key={id} style={{marginTop: id*50}}>
+      <img src={img} alt={name} className={classes.landingImage} onClick={handleClick} />
+      <Typography variant="h3" color="primary" className={classes.title} align="right">{name}</Typography>
+    </Grid>
+  );
+};
+
+export default OldCollection;

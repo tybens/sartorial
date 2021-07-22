@@ -2,11 +2,11 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Product from "./Product/Product";
 import useStyles from "./styles";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { withRouter } from "react-router-dom";
 
-const Products = ({ collectionsData, onAddToCart }) => {
+const Products = ({ collectionsData, onAddToCart, match }) => {
   const classes = useStyles();
-  const { collectionId } = useParams();
+  const { collectionId } = match.params;
   const collection = collectionsData.find(
     ({ id }) => id === parseInt(collectionId)
   );
@@ -26,4 +26,4 @@ const Products = ({ collectionsData, onAddToCart }) => {
   );
 };
 
-export default Products;
+export default withRouter(Products);

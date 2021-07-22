@@ -58,7 +58,6 @@ export default makeStyles((theme) => ({
 
   landingName: {
     fontWeight: "bold",
-    fontSize: "1.5rem",
   },
 
   otherCollectionsImage: {
