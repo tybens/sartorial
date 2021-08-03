@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import { Typography, Grid, Divider, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
 import VideoEmbed from "../VideoEmbed";
-import henryVid from "assets/vids/henryvid.mp4";
 import ShareComponent from "components/Share";
 
 const BlogReader = ({ postsData, match }) => {
@@ -88,7 +87,8 @@ const BlogReader = ({ postsData, match }) => {
           >
             {blog?.text}
           </Typography>
-          <VideoEmbed src={henryVid} caption="Example video placeholder" />
+          <VideoEmbed src={blog?.vidSrc} caption={blog?.vidDesc} />
+          <img src={blog?.imgSrc} alt={blog?.imgDesc} width="100%" />
         </Grid>
       </Grid>
     </Grid>
