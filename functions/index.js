@@ -6,7 +6,8 @@ const cors = require("cors");
 
 // The Firebase Admin SDK to access Firestore.
 const admin = require("firebase-admin");
-var serviceAccount = require("/home/tybens/Downloads/sartorial-indy-firebase-adminsdk-meyuc-7e358b5bf9.json");
+// I had to run this for admin.credential.applicationDefault() to work
+// export GOOGLE_APPLICATION_CREDENTIALS="/home/tybens/Downloads/sartorial-indy-firebase-adminsdk-meyuc-7e358b5bf9.json"
 var firebaseConfig = {
   apiKey: functions.config().fb.api_key,
   authDomain: functions.config().fb.auth_domain,
@@ -15,7 +16,8 @@ var firebaseConfig = {
   messagingSenderId: "544958783784",
   appId: functions.config().fb.app_id,
   measurementId: "G-C95602L8L0",
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.applicationDefault(),
+  // databaseURL: 
 };
 
 admin.initializeApp(firebaseConfig);
