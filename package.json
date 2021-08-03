@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "bc-react-session": "^1.5.16",
     "classnames": "^2.3.1",
+    "coupon-code": "^0.4.5",
     "gooey-react": "^1.1.0",
     "gsap": "^3.6.1",
     "react": "^17.0.1",

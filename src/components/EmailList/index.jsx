@@ -12,8 +12,10 @@ const EmailList = () => {
   const classes = useStyles();
   // window.location.href.includes("localhost")
   // ? "http://localhost:5001/sartorial-indy/us-central1/emailListJoin"
-  const functionUrl =
-    "https://us-central1-sartorial-indy.cloudfunctions.net/emailListJoin";
+  const localFunction = false;
+  const functionUrl = localFunction
+    ? "http://localhost:5001/sartorial-indy/us-central1/emailListJoin"
+    : "https://us-central1-sartorial-indy.cloudfunctions.net/emailListJoin";
 
   // this lets us dynamically disable / allow the button
   useEffect(() => {
