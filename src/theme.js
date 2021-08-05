@@ -272,7 +272,7 @@ const theme = createMuiTheme({
         border: "none",
         padding: "5px",
         background: "#f2f3f5",
-        color: "#111",
+        color: "#000",
         boxShadow:
           "0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)",
       },
@@ -327,7 +327,7 @@ const theme = createMuiTheme({
 
     MuiPaper: {
       root: {
-        color: "#ccc",
+        color: "#000",
         background: "#f2f3f5",
       },
       elevation4: {

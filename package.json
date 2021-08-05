@@ -20,6 +20,7 @@
     "react-cursor-position": "^3.0.3",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.14.2",
+    "react-material-ui-carousel": "^2.2.7",
     "react-pdf": "^5.2.0",
     "react-reveal": "^1.2.2",
     "react-rotating-text": "^1.4.1",

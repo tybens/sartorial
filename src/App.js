@@ -102,28 +102,33 @@ const App = () => {
   }
 
   // add an item to the cart
-  const handleAddToCart = async (productId, quantity) => {
+  const handleAddToCart = async (productId, size, quantity) => {
+    let thisId = `${productId}${size}`
     setCart((prev) => ({
       ...prev,
-      [productId]: {
+      [thisId]: {
         quantity:
-          cart[productId] && cart[productId].quantity
-            ? parseInt(cart[productId].quantity) + 1
+          cart[thisId] && cart[thisId].quantity
+            ? parseInt(cart[thisId].quantity) + 1
             : parseInt(quantity),
+        size: size,
         product: thisProduct(productId),
       },
     }));
   };
 
+  
   // update the quantity of an item in the cart
-  const handleUpdateCartQty = async (productId, quantity) => {
+  const handleUpdateCartQty = async (productId, size, quantity) => {
+    let thisId = `${productId}${size}`
     if (parseInt(quantity) < 1) {
-      handleRemoveFromCart(productId);
+      handleRemoveFromCart(thisId);
     } else {
       setCart((prev) => ({
         ...prev,
-        [productId]: {
+        [thisId]: {
           quantity: parseInt(quantity),
+          size: size,
           product: thisProduct(productId),
         },
       }));

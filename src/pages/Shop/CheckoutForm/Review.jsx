@@ -3,7 +3,7 @@ import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
 
 const Review = ({ cart, totalItems }) => {
 
-
+  console.log(cart)
   return (
     <>
       <Typography variant="h6" gutterBottom>
@@ -13,7 +13,7 @@ const Review = ({ cart, totalItems }) => {
         {Object.entries(cart).map(([productId, item]) => (
           <ListItem style={{ padding: "10px 0" }} key={productId}>
             <ListItemText
-              primary={item.product.name}
+              primary={`${item.product.name} | ${item.size}`}
               secondary={`Quantity: ${item.quantity}`}
             />
             <Typography variant="body2">

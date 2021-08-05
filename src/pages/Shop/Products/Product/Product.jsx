@@ -3,50 +3,44 @@ import {
   Card,
   CardMedia,
   CardContent,
-  CardActions,
   Typography,
-  IconButton,
+  CardActionArea,
 } from "@material-ui/core";
-import { AddShoppingCart } from "@material-ui/icons";
+import { withRouter } from "react-router-dom";
 
 import useStyles from "./styles";
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ history, product }) => {
   const classes = useStyles();
 
-  const handleAddToCart = () => onAddToCart(product.id, 1);
-
+  const handleClick = () => {
+    history.push(`${history.location.pathname}/${product.id}`)
+  }
+  
   return (
     <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={product.img}
-        title={product.name}
-      />
-      <CardContent>
-        <div className={classes.cardContent}>
-          <Typography gutterBottom variant="h5" component="h2">
-            {product.name}
+      <CardActionArea onClick={handleClick}>
+        <CardMedia
+          className={classes.media}
+          image={product.img}
+          title={product.name}
+        />
+        <CardContent>
+          <div className={classes.cardContent}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {product.name}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="h2">
+              ${product.price}
+            </Typography>
+          </div>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {product.description}
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-            ${product.price}
-          </Typography>
-        </div>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="p"
-        >
-          {product.description}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
-          <AddShoppingCart />
-        </IconButton>
-      </CardActions>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 };
 
-export default Product;
+export default withRouter(Product);
