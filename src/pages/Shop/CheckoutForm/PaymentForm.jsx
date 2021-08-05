@@ -170,7 +170,7 @@ const StripePayment = ({
       />
       <br /> <br />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Button variant="outlined" onClick={backStep}>
+        <Button variant="outlined" color="secondary" onClick={backStep}>
           Back
         </Button>
         <Button

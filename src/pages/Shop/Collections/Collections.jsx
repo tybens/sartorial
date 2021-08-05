@@ -21,7 +21,7 @@ const Collections = ({ collectionsData, url }) => {
         direction="column"
         id="content"
       >
-        {!window.location.href.includes("localhost") ? (
+        {window.location.href.includes("localhost") ? (
           <>
             <HenryVid />
             <Grid item xs={12}>

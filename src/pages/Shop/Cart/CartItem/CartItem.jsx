@@ -8,10 +8,10 @@ import useStyles from "./styles";
 import HoverImage from "../../../../components/HoverImage";
 
 // props: position and isActive from the react cursor position wrapper
-const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
+const CartItem = ({ item, size, onUpdateCartQty, quantity, onRemoveFromCart }) => {
   const classes = useStyles();
-  const handleUpdateCartQty = (lineItemId, newQuantity) =>
-    onUpdateCartQty(lineItemId, newQuantity);
+  const handleUpdateCartQty = (lineItemId, size, newQuantity) =>
+    onUpdateCartQty(lineItemId, size, newQuantity);
 
   const handleRemoveFromCart = (lineItemId) => onRemoveFromCart(lineItemId);
 
@@ -25,7 +25,7 @@ const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
               <Grid item xs>
                 <HoverImage item={item}>
                   <Typography gutterBottom variant="h6">
-                    {item.name}
+                    {item.name} | {size}
                   </Typography>
                 </HoverImage>
                 <span className={classes.description}>{item.description}</span>
@@ -35,7 +35,7 @@ const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
                   type="button"
                   size="small"
                   color="inherit"
-                  onClick={() => handleUpdateCartQty(item.id, quantity - 1)}
+                  onClick={() => handleUpdateCartQty(item.id, size, quantity - 1)}
                 >
                   <RemoveCircleOutlineIcon />
                 </IconButton>
@@ -46,7 +46,7 @@ const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
                   type="button"
                   size="small"
                   color="inherit"
-                  onClick={() => handleUpdateCartQty(item.id, quantity + 1)}
+                  onClick={() => handleUpdateCartQty(item.id, size, quantity + 1)}
                 >
                   <AddCircleOutlineIcon />
                 </IconButton>
@@ -66,7 +66,7 @@ const CartItem = ({ item, onUpdateCartQty, quantity, onRemoveFromCart }) => {
                 variant="contained"
                 type="button"
                 color="secondary"
-                onClick={() => handleRemoveFromCart(item.id)}
+                onClick={() => handleRemoveFromCart(`${item.id}${size}`)}
               >
                 <DeleteIcon />
               </IconButton>
