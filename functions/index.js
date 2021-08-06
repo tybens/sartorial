@@ -23,7 +23,7 @@ var firebaseConfig = {
 admin.initializeApp(firebaseConfig);
 const db = admin.firestore();
 // connect to the stripe server
-const stripe = require("stripe")(functions.config().stripe.test_secret_key);
+const stripe = require("stripe")(functions.config().stripe.secret_key);
 
 exports.recordOrder = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {

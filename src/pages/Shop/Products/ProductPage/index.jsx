@@ -24,7 +24,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
 
   return (
     <Grid container justify="space-around" className={classes.wrapper}>
-      <Grid item xs={5}>
+      <Grid item xs={12} sm={5}>
         <Carousel interval={10000} animation="fade">
           {product.images.map((item, i) => (
             <img src={item} alt={`carousel ${i}`} key={i} width="100%" />
@@ -33,8 +33,10 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
       </Grid>
       <Grid
         item
-        xs={5}
+        xs={12}
+        sm={5}
         container
+        spacing={3}
         direction="row"
         justify="flex-start"
         alignItems="flex-start"
@@ -55,7 +57,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
             className={classes.type}
             gutterBottom
           >
-            {product.type}
+            {product.type}, ${product.price}
           </Typography>
           <Typography variant="h3" color="initial" align="left">
             {product.description}
@@ -67,7 +69,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
             item
             xs={12}
             container
-            spacing={3}
+            direction="row"
             justify="space-between"
             className={classes.sizeWrap}
           >
@@ -93,7 +95,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
               aria-label="Add to Cart"
               onClick={handleAddToCart}
               variant="contained"
-              color="primary"
+              color="secondary"
               size="large"
               startIcon={<AddShoppingCart />}
             >

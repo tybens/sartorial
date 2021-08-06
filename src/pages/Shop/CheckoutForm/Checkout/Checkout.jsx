@@ -32,8 +32,6 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
 
     nextStep();
   };
-
-
   let Confirmation = () =>
     order.customer ? (
       <>
@@ -44,12 +42,12 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
           </Typography>
           <Divider className={classes.divider} />
           <Typography variant="subtitle2">
-            Order ref: {order.customer_reference}
+            Order ref: {order.payment.stripe.payment_intent_id}
           </Typography>
         </div>
-        <div style={{display: "flex", justifyContent: "center"}}>
+        <div style={{display: "flex", justifyContent: "center", marginTop: "2rem"}}>
           <br />
-          <Button component={Link} variant="outlined" type="button" to="/shop">
+          <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop">
             Back to shopping
         </Button>
         </div>
@@ -65,7 +63,7 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
       <>
         <Typography variant="h5">Error: {error}</Typography>
         <br />
-        <Button component={Link} variant="outlined" type="button" to="/shop">
+        <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop">
           Back to shopping
         </Button>
       </>
