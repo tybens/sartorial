@@ -3,7 +3,6 @@ import { Typography, List, ListItem, ListItemText } from "@material-ui/core";
 
 const Review = ({ cart, totalItems }) => {
 
-  console.log(cart)
   return (
     <>
       <Typography variant="h6" gutterBottom>

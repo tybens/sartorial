@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
   sizeBox: {
     display: "flex",
     padding: "0.5rem",
-    width: "2.5rem",
+    width: "5rem",
     height: "2.5rem",
     border: "2px solid",
     justifyContent: "center",
@@ -36,6 +36,9 @@ export default makeStyles((theme) => ({
     "&:active": {
       background: "grey",
     },
+    [theme.breakpoints.down("md")]: {
+      width: "2.5rem",
+    }
   },
   title: {
     fontStyle: "normal",
