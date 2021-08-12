@@ -43,7 +43,7 @@ const Footer = (props) => {
     {
       icon: <Instagram />,
       ariaLabel: "Instagram",
-      url: "https://www.instagram.com/habitatsartorialllc",
+      url: "https://www.instagram.com/habitatsartorial",
       color: "magenta",
     },
   ];
