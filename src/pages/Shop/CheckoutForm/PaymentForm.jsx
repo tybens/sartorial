@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Button,
@@ -27,9 +27,16 @@ const PaymentForm = ({
   onCaptureCheckout,
   totalItems,
 }) => {
+  const [discount, setDiscount] = useState(0);
+
   return (
     <>
-      <Review cart={cart} totalItems={totalItems} />
+      <Review
+        cart={cart}
+        totalItems={totalItems}
+        discount={discount}
+        setDiscount={setDiscount}
+      />
       <Divider />
       <Typography variant="h6" gutterBottom style={{ margin: "20px 0" }}>
         Payment method
@@ -41,6 +48,7 @@ const PaymentForm = ({
           nextStep={nextStep}
           backStep={backStep}
           shippingData={shippingData}
+          discount={discount}
         />
       </Elements>
     </>
@@ -53,39 +61,41 @@ const StripePayment = ({
   nextStep,
   backStep,
   shippingData,
+  discount,
 }) => {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
-  const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
 
   // const functionSecretUrl = 'http://localhost:5001/sartorial-indy/us-central1/paymentSecret'
   const functionSecretUrl =
     "https://us-central1-sartorial-indy.cloudfunctions.net/paymentSecret";
+
   const classes = useStyles();
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
+  const generatePaymentIntent = async () => {
+    let ret = "";
     axios
-      .post(functionSecretUrl, cart, {
+      .post(functionSecretUrl, {cart: cart, discount: discount}, {
         headers: {
           "Content-Type": "application/json",
         },
       })
       .then(function (response) {
         // handle success
-        setClientSecret(response.data.clientSecret);
+        ret = response.data.clientSecret;
       })
       .catch(function (error) {
         // handle error
         console.log(error);
         setError(error);
       });
-    // eslint-disable-next-line
-  }, []);
+
+    return ret;
+  };
 
   const cardStyle = {
     style: {
@@ -115,52 +125,58 @@ const StripePayment = ({
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
-    const payload = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-      },
-    });
-    if (payload.error) {
-      setError(`Payment failed ${payload.error.message}`);
-      setProcessing(false);
-    } else {
-      setError(null);
-      setProcessing(false);
-      setSucceeded(true);
+    const clientSecret = await generatePaymentIntent();
 
-      // if payment succeed, log order to database for payne to fulfill
-      // TODO: confirm: true
-      let orderData = {
-        cart: cart,
-        customer: {
-          firstname: shippingData.firstName,
-          lastname: shippingData.lastName,
-          email: shippingData.email,
+    if (clientSecret !== "") {
+      const payload = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
         },
-        shipping: {
-          name: `${shippingData.firstName} ${shippingData.lastName}`,
-          address1: shippingData.address1,
-          city: shippingData.city,
-          state_code: shippingData.stateCode,
-          country_code: "US",
-          zip: shippingData.zip,
-          email: shippingData.email,
-        },
-        fulfillment: { shipping_method: shippingData.shippingOption },
-        payment: {
-          gateway: "stripe",
-          stripe: {
-            payment_intent_id: payload.paymentIntent.id,
+      });
+      if (payload.error) {
+        setError(`Payment failed ${payload.error.message}`);
+        setProcessing(false);
+      } else {
+        setError(null);
+        setProcessing(false);
+        setSucceeded(true);
+
+        // if payment succeed, log order to database for payne to fulfill
+        // TODO: confirm: true
+        let orderData = {
+          cart: cart,
+          customer: {
+            firstname: shippingData.firstName,
+            lastname: shippingData.lastName,
+            email: shippingData.email,
           },
-        },
-      };
+          shipping: {
+            name: `${shippingData.firstName} ${shippingData.lastName}`,
+            address1: shippingData.address1,
+            city: shippingData.city,
+            state_code: shippingData.stateCode,
+            country_code: "US",
+            zip: shippingData.zip,
+            email: shippingData.email,
+          },
+          fulfillment: { shipping_method: shippingData.shippingOption },
+          payment: {
+            gateway: "stripe",
+            stripe: {
+              payment_intent_id: payload.paymentIntent.id,
+            },
+            discount: discount,
+          },
+        };
 
-      // log order to database
-      onCaptureCheckout(orderData);
+        // log order to database
+        onCaptureCheckout(orderData);
 
-      nextStep();
+        nextStep();
+      }
     }
   };
+
   return (
     <form className={classes.paymentForm} onSubmit={handleSubmit}>
       <CardElement

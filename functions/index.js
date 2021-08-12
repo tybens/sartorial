@@ -17,7 +17,7 @@ var firebaseConfig = {
   appId: functions.config().fb.app_id,
   measurementId: "G-C95602L8L0",
   credential: admin.credential.applicationDefault(),
-  // databaseURL: 
+  // databaseURL:
 };
 
 admin.initializeApp(firebaseConfig);
@@ -58,8 +58,11 @@ exports.paymentSecret = functions.https.onRequest(async (req, res) => {
       return sum * 100; // stripe units are cents
     }
 
+    const taxes = 1.07;
+
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: calculateOrderAmount(req.body),
+      amount:
+        calculateOrderAmount(req.body.cart) * (1 - req.body.discount) * taxes,
       currency: "usd",
     });
 
@@ -105,6 +108,38 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
     const writeResponse = await data.forEach((code) => {
       db.collection("coupon").add({ codeData: code });
     });
+
+    // Send back a message that we've successfully written the message
+    res.json({ result: `success` });
+  });
+});
+
+// add coupon codes data to firestore
+exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
+  return cors()(req, res, async () => {
+    var docRef = db.collection("coupon").doc("earlybird");
+
+    docRef
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          docRef.set({
+            uses: parseInt(doc.data().uses) + 1,
+          });
+        } else {
+          docRef.set({
+            uses: 0,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
+
+    // TODO:
+    // const writeResponse = await data.forEach((code) => {
+    //   db.collection("coupon").add({ codeData: code });
+    // });
 
     // Send back a message that we've successfully written the message
     res.json({ result: `success` });

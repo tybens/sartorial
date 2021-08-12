@@ -34,7 +34,7 @@ const Product = ({ history, product }) => {
               ${product.price}
             </Typography>
           </div>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" align="left" component="p">
             {product.description}
           </Typography>
         </CardContent>

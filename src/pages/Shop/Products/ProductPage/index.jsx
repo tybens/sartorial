@@ -64,7 +64,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
           </Typography>
         </Grid>
 
-        <Grid item container xs={10} spacing={4} justify="center">
+        <Grid item container xs={12} md={10} spacing={4} justify="center">
           <Grid
             item
             xs={12}
