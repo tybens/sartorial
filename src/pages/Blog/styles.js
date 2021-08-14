@@ -5,5 +5,9 @@ export default makeStyles((theme) => ({
         padding: "0 5%",
         minHeight: "60vh",
     },
+
+    blogCard: {
+        height: "100%",
+    },
  
 }));
