@@ -3,11 +3,26 @@ import { deepOrange, deepPurple } from "@material-ui/core/colors";
 
 export default makeStyles((theme) => ({
   container: {
-    padding: "5%",
-    maxWidth: 1000,
+    padding: " 0 5% 5% 5%",
+    // maxWidth: 1000,
     [theme.breakpoints.down("md")]: {
       padding: "5% 25px",
     },
+  },
+
+  authorBox: {
+    [theme.breakpoints.down("md")]: {
+      justifyContent: "flex-start"
+    },
+  },
+
+  authorShareBox: {
+    marginTop: "2.5%",
+  },
+  
+  contentBox: {
+    // marginTop: "2.5%",
+
   },
 
   orange: {
@@ -30,5 +45,6 @@ export default makeStyles((theme) => ({
 
   thickDivider: {
     height: 3,
+    margin: "2rem 0"
   },
 }));

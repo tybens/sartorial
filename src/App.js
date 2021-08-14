@@ -98,7 +98,7 @@ const App = () => {
         sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].product.price);
       }
     }
-    return sum; // returns price in dolars
+    return sum; // returns price in dollars
   }
 
   // add an item to the cart

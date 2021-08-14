@@ -259,6 +259,11 @@ const theme = createMuiTheme({
         fontSize: "1.4em",
         fontFamily: "inherit",
       },
+
+      body1: {
+        fontFamily: "'Nunito', sans-serif",
+        fontSize: "1.25rem",
+      }
     },
 
     MuiListItemIcon: {
