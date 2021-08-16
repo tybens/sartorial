@@ -161,7 +161,7 @@ const Home = ({ navColors, onSetNavColors }) => {
           style={{ position: "relative", minHeight: "60vh" }}
         >
           <Grid item style={{marginBottom: 30}}>
-            <Typography variant="h2">Collections coming soon...</Typography>
+            <Typography variant="h2">Collections releasing Friday, August 20!</Typography>
           </Grid>
           <EmailList />
         </Grid>
