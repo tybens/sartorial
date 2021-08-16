@@ -71,7 +71,11 @@ const homelessness = {
       <Typography align="left" variant="body1" style={paragraphStyles}>
         That’s where we come in. Habitat Sartorial makes it easy for you to
         support these charities - just by updating your wardrobe.&nbsp;
-        <ReactLink target="_blank" style={{ fontWeight: 700 }} to="/blog/how-hsllc-works">
+        <ReactLink
+          target="_blank"
+          style={{ fontWeight: 700 }}
+          to="/blog/how-hsllc-works"
+        >
           Let us show you how that works.
         </ReactLink>
         &nbsp; With the combined effort of these charities, and of people like
@@ -92,7 +96,7 @@ const homelessness = {
       Thank you for reading. To learn more about the homeless population in
       Indianapolis, read the&nbsp;
       <Link
-      target="_blank" 
+        target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
         href="https://www.chipindy.org/uploads/1/3/3/1/133118768/2021_pit_report.pdf"
@@ -101,7 +105,7 @@ const homelessness = {
       </Link>
       report by IU’s Public Policy Institute. Annual Reports from&nbsp;
       <Link
-      target="_blank" 
+        target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
         href="https://www.horizonhouse.cc/annualreport/"
@@ -110,7 +114,7 @@ const homelessness = {
       </Link>
       ,&nbsp;
       <Link
-      target="_blank" 
+        target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
         href="https://wheelermission.org/wp-content/uploads/2021/02/WM-Annual-Report-2020-Final.pdf"
@@ -119,7 +123,7 @@ const homelessness = {
       </Link>
       , and&nbsp;
       <Link
-      target="_blank" 
+        target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
         href="https://indyhabitat.org/wp-content/uploads/2020/07/2019-Community-Report-Interactive.pdf"
@@ -152,7 +156,11 @@ const howhsllcworks = {
       <Typography align="left" variant="body1" style={paragraphStyles}>
         Habitat Sartorial exists to help the homeless population in
         Indianapolis.&nbsp;
-        <ReactLink to="/blog/homelessness" style={{ fontWeight: 700 }} target="_blank" >
+        <ReactLink
+          to="/blog/homelessness"
+          style={{ fontWeight: 700 }}
+          target="_blank"
+        >
           You can read more about the folks we work with here.
         </ReactLink>
         &nbsp;So what exactly do we do, and where do you fit in?
@@ -185,6 +193,12 @@ const howhsllcworks = {
           </ListItemText>
         </ListItem>
       </List>
+      <Typography align="left" variant="body1" style={paragraphStyles}>
+        More importantly, we know that what you wear tells the world who and
+        what you care about. When you buy from us, we pay all the expenses
+        required to get your apparel to your door, and donate all the remaining
+        money to our selected charity (Horizon House for 2021).
+      </Typography>
     </>
   ),
   text2: (
@@ -202,11 +216,11 @@ const howhsllcworks = {
         <span style={{ fontWeight: 700 }}>
           That’s what we do: we make it simple and easy for people who care to
           take action towards solving a very complex problem.
-        </span>&nbsp;
-        We won’t send you a letter asking for more donations - we’ll drop a new
-        collection for you to update your style. We won’t send a free gift that
-        you didn’t ask for - we’ll send you a piece of apparel that you’ll be
-        proud to wear for years to come.
+        </span>
+        &nbsp; We won’t send you a letter asking for more donations - we’ll drop
+        a new collection for you to update your style. We won’t send a free gift
+        that you didn’t ask for - we’ll send you a piece of apparel that you’ll
+        be proud to wear for years to come.
       </Typography>
       <Typography align="left" variant="body1" style={paragraphStyles}>
         The next time you need a comfy hoodie, or a new outfit for a party, or a

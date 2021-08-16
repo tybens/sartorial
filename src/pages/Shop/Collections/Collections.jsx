@@ -31,7 +31,7 @@ const Collections = ({ collectionsData, url }) => {
                 className={classes.header}
                 id="content--inner"
               >
-                Collections coming soon...
+                Collections releasing Friday, August 20!
               </Typography>
             </Grid>
             <Grid item container xs={12} justify="flex-end">
