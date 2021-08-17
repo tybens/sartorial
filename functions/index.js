@@ -97,7 +97,7 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
     // Grab the order data (may be in req.query...)
     let data = [...Array(35)].map((i) => ({
       code: cc.generate(),
-      discount: 0.05,
+      discount: 0.1,
       used: false,
     }));
 
@@ -135,11 +135,6 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
       .catch((error) => {
         console.log("Error getting document:", error);
       });
-
-    // TODO:
-    // const writeResponse = await data.forEach((code) => {
-    //   db.collection("coupon").add({ codeData: code });
-    // });
 
     // Send back a message that we've successfully written the message
     res.json({ result: `success` });

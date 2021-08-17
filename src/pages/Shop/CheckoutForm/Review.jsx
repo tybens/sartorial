@@ -8,6 +8,7 @@ import {
   TextField,
   Grid,
   Button,
+  CircularProgress,
 } from "@material-ui/core";
 import axios from "axios";
 import useStyles from "./styles";
@@ -31,6 +32,9 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
     return sum;
   }
 
+  function round(num) {
+    return Math.round(num * 100) / 100;
+  }
 
   return (
     <>
@@ -44,27 +48,52 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
               primary={`${item.product.name} | ${item.size}`}
               secondary={`Quantity: ${item.quantity}`}
             />
-            <Typography variant="body2">${item.quantity * 25}</Typography>
+            <Typography
+              variant="subtitle1"
+              className={classes.listItem}
+              color="inherit"
+            >
+              ${item.product.price * item.quantity}
+            </Typography>
           </ListItem>
         ))}
         <Divider />
         <DiscountForm discount={discount} setDiscount={setDiscount} />
         <Divider style={{ margin: "0 0 10px 0" }} />
         <ListItem className={classes.listItem}>
-          <ListItemText primary="Subtotal" />
+          <ListItemText
+            primary="Subtotal"
+            primaryTypographyProps={{ variant: "inherit" }}
+          />
           <Typography variant="subtitle1">
-            ${calculateOrderAmount(cart)} {/* assuming every item is $25 */}
+            ${calculateOrderAmount(cart)} 
           </Typography>
         </ListItem>
         <ListItem className={classes.listItem}>
-          <ListItemText primary="Shipping" />
+          <ListItemText
+            primary="Shipping"
+            primaryTypographyProps={{ variant: "inherit" }}
+          />
           <Typography variant="subtitle1">Free!</Typography>
         </ListItem>
+        {discount !== 0 && (
+          <ListItem className={classes.listItem} style={{ color: "green" }}>
+            <ListItemText
+              primary="Discount!"
+              primaryTypographyProps={{ variant: "inherit" }}
+            />
+            <Typography variant="subtitle1" color="inherit">
+              - ${round(discount * calculateOrderAmount(cart))}
+            </Typography>
+          </ListItem>
+        )}
         <ListItem className={classes.listItem}>
-          <ListItemText primary="Taxes" />
+          <ListItemText
+            primary="Taxes"
+            primaryTypographyProps={{ variant: "inherit" }}
+          />
           <Typography variant="subtitle1">
-            ${Math.round((taxes - 1) * calculateOrderAmount(cart) * 100) / 100}{" "}
-            {/* assuming every item is $25 */}
+            ${round((taxes - 1) * (1 - discount) * calculateOrderAmount(cart))}
           </Typography>
         </ListItem>
         <ListItem style={{ padding: "10px 0", fontWeight: 700 }}>
@@ -76,8 +105,7 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
             }}
           />
           <Typography variant="subtitle1">
-            ${calculateOrderAmount(cart) * taxes}{" "}
-            {/* assuming every item is $25 */}
+            ${round(calculateOrderAmount(cart) * taxes * (1 - discount))}
           </Typography>
         </ListItem>
       </List>
@@ -88,12 +116,15 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
 const DiscountForm = ({ setDiscount }) => {
   const [couponCode, setCouponCode] = useState("");
   const [couponError, setCouponError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const classes = useStyles();
-  const functionCouponUrl =
-    "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
+  const functionCouponUrl = !window.location.href.includes("localhost")
+    ? "http://localhost:5001/sartorial-indy/us-central1/checkEarlyBirdCoupon"
+    : "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
 
   const handleSubmit = () => {
     if (couponCode === "EARLYBIRD") {
+      setLoading(true);
       setCouponError(false);
       axios
         .post(
@@ -107,7 +138,9 @@ const DiscountForm = ({ setDiscount }) => {
         )
         .then(function (response) {
           // handle success
-          if (response) setDiscount(0.05);
+          setLoading(false);
+          if (response) setDiscount(0.1);
+          console.log(response)
         })
         .catch(function (error) {
           // handle error
@@ -145,7 +178,7 @@ const DiscountForm = ({ setDiscount }) => {
             className={classes.couponButton}
             onClick={handleSubmit}
           >
-            Apply
+            {loading ? <CircularProgress /> : "Apply"}
           </Button>
         </Grid>
         {couponError && (
