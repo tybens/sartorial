@@ -72,6 +72,10 @@ const styles = makeStyles((theme) => ({
     fontSize: "1.1em",
   },
 
+  subLinks: {
+    fontSize: "1em",
+  }
+
 }));
 
 export default styles;
