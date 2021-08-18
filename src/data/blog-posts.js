@@ -6,12 +6,12 @@ import {
   Link,
 } from "@material-ui/core";
 import { Link as ReactLink } from "react-router-dom";
-import henryVid from "assets/vids/henryvid.mp4";
+// import henryVid from "assets/vids/henryvid.mp4";
 
 const paragraphStyles = { padding: "2.5% 0" };
-const thumbnailImageManip = "w_500,h_500,q_auto,c_fill,g_auto";
-const articleImageManip = "w_1500,h_1100,q_auto,c_fill,g_auto";
-const lookbookImageManip = "w_1200,h_1600,q_auto,c_fill,g_auto";
+const thumbnailImageManip = "w_1000,h_1000,q_auto:best,c_fill";
+const articleImageManip = "w_1500,h_1100,q_auto:best,c_fill,g_auto";
+const lookbookImageManip = "q_auto:best,c_fill,g_auto";
 
 const homelessness = {
   type: "article",
@@ -288,7 +288,7 @@ const musicVideo = {
   type: "video",
   types: [
     {
-      name: "Video Content",
+      name: "Promotional",
       bgColor: "#93c572",
     },
     {
@@ -298,17 +298,16 @@ const musicVideo = {
   ],
   date: "18 Aug 2021",
   author: "Habitat Sartorial",
-  title: "Music Collection Promotional Video",
+  title: "Promo: Summer 2021 Collection",
   text: "...",
-  id: "music-promo-video",
-  video: henryVid,
+  id: "summer21-promo-video",
+  video: "https://vimeo.com/588980823",
   thumbnail: `https://res.cloudinary.com/do8jxdvtx/image/upload/${thumbnailImageManip}/v1629234885/hsllc/thumb_notext-min_iuz3bb.png`,
   suffix: "",
 };
 
 // took out musicVideo for now
-musicVideo.type="temp"
 
-const postsData = [musicLookbook, howhsllcworks, homelessness];
+const postsData = [musicVideo, musicLookbook, howhsllcworks, homelessness];
 
 export default postsData;
