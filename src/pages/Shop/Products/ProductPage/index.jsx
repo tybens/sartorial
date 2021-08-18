@@ -20,7 +20,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
     ({ id }) => id === parseInt(productId)
   );
 
-  const sizes = ["XS", "S", "M", "L", "XL"];
+  const sizes = ["S", "M", "L", "XL"];
 
   return (
     <Grid container justify="space-around" className={classes.wrapper}>

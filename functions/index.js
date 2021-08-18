@@ -123,6 +123,12 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
       .get()
       .then((doc) => {
         if (doc.exists) {
+          let uses = doc.data().uses;
+          if (uses >= 30) {
+            res.json({ result: `too slow` });
+          } else {
+            res.json({ result: `success` });
+          }
           docRef.set({
             uses: parseInt(doc.data().uses) + 1,
           });
@@ -137,6 +143,5 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
       });
 
     // Send back a message that we've successfully written the message
-    res.json({ result: `success` });
   });
 });

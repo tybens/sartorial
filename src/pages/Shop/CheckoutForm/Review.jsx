@@ -66,7 +66,7 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
             primaryTypographyProps={{ variant: "inherit" }}
           />
           <Typography variant="subtitle1">
-            ${calculateOrderAmount(cart)} 
+            ${calculateOrderAmount(cart)}
           </Typography>
         </ListItem>
         <ListItem className={classes.listItem}>
@@ -113,9 +113,9 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
   );
 };
 
-const DiscountForm = ({ setDiscount }) => {
+const DiscountForm = ({ setDiscount, discount }) => {
   const [couponCode, setCouponCode] = useState("");
-  const [couponError, setCouponError] = useState(false);
+  const [couponError, setCouponError] = useState("");
   const [loading, setLoading] = useState(false);
   const classes = useStyles();
   const functionCouponUrl = !window.location.href.includes("localhost")
@@ -125,7 +125,7 @@ const DiscountForm = ({ setDiscount }) => {
   const handleSubmit = () => {
     if (couponCode === "EARLYBIRD") {
       setLoading(true);
-      setCouponError(false);
+      setCouponError("");
       axios
         .post(
           functionCouponUrl,
@@ -139,15 +139,18 @@ const DiscountForm = ({ setDiscount }) => {
         .then(function (response) {
           // handle success
           setLoading(false);
-          if (response) setDiscount(0.1);
-          console.log(response)
+          if (response.data.result === "success") {
+            setDiscount(0.1);
+          } else {
+            setCouponError("EARLYBIRD has been used more than 30 times already, sorry :(");
+          }
         })
         .catch(function (error) {
           // handle error
           console.log(error);
         });
     } else {
-      setCouponError(true);
+      setCouponError("Enter a valid discount code or gift card");
     }
   };
 
@@ -160,6 +163,7 @@ const DiscountForm = ({ setDiscount }) => {
             variant="outlined"
             label="Gift card or discount code"
             value={couponCode}
+            disabled={couponError || discount}
             onKeyPress={(ev) => {
               if (ev.key === "Enter") {
                 ev.preventDefault();
@@ -174,7 +178,7 @@ const DiscountForm = ({ setDiscount }) => {
             variant="outlined"
             color="secondary"
             size="large"
-            disabled={!couponCode}
+            disabled={!couponCode || couponError || discount}
             className={classes.couponButton}
             onClick={handleSubmit}
           >
@@ -184,7 +188,7 @@ const DiscountForm = ({ setDiscount }) => {
         {couponError && (
           <Grid item xs={12} container justify="flex-start">
             <Typography color="inherit" className={classes.couponError}>
-              Enter a valid discount code or gift card
+              {couponError}
             </Typography>
           </Grid>
         )}
