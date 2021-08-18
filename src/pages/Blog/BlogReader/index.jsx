@@ -7,6 +7,7 @@ import ShareComponent from "components/Share";
 import { PayneImg, EdemImg, JackImg, TylerImg } from "assets/blog/people";
 import HabitatImg from "assets/icons/rswhite.png";
 import BlogHead from "../BlogHead";
+import ReactPlayer from "react-player/lazy";
 
 const BlogReader = ({ postsData, match }) => {
   const classes = useStyles();
@@ -186,7 +187,9 @@ const Video = ({ blog }) => {
 
   return (
     <Grid container className={classes.contentBox}>
-      <VideoEmbed src={blog?.video} caption="" />
+      <Grid item xs={12} className={classes.videoContainer}>
+        <ReactPlayer url={blog?.video} autoplay width="100%" height="100%" />
+      </Grid>
     </Grid>
   );
 };

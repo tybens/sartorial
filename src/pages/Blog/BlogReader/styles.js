@@ -58,4 +58,8 @@ export default makeStyles((theme) => ({
       transform: "scale(1.1)",
     },
   },
+
+  videoContainer: {
+    minHeight: "50vw",
+  },
 }));
