@@ -19,7 +19,7 @@ const BlogCard = ({ data }) => {
     <div className={`blog-item${dynamicClassName}__container`}>
       <div className={`blog-item${dynamicClassName}__inner`}>
         <div className={`blog-item${dynamicClassName}__image-container`}>
-          <img src={data.img1Src} alt="placeholder" width="100%" height="100%"/>
+          <img src={data?.thumbnail} alt="thumbnail" width="100%" height="100%"/>
         </div>
         <div className={`blog-item${dynamicClassName}__content`}>
           <div className={`blog-item${dynamicClassName}__type-container`}>
@@ -45,7 +45,7 @@ const BlogCard = ({ data }) => {
           <p className={`blog-item${dynamicClassName}__text`}>{data.text}</p>
           <div className={`blog-item${dynamicClassName}__read-more__container`}>
             <Link to={`/blog/${data.id}`} className="read-more">
-              READ MORE
+              {data.type === "article" ? "READ MORE" : "VIEW MORE"}
             </Link>
           </div>
         </div>

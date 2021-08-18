@@ -12,17 +12,16 @@ export default makeStyles((theme) => ({
 
   authorBox: {
     [theme.breakpoints.down("md")]: {
-      justifyContent: "flex-start"
+      justifyContent: "flex-start",
     },
   },
 
   authorShareBox: {
     marginTop: "2.5%",
   },
-  
+
   contentBox: {
     // marginTop: "2.5%",
-
   },
 
   orange: {
@@ -45,6 +44,18 @@ export default makeStyles((theme) => ({
 
   thickDivider: {
     height: 3,
-    margin: "2rem 0"
+    margin: "2rem 0",
+  },
+
+  lookbookImageDiv: {
+    overflow: "hidden",
+  },
+
+  lookbookImage: {
+    transition: "transform 0.2s",
+
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
   },
 }));

@@ -12,11 +12,19 @@ const VideoEmbed = ({ src, caption }) => {
         width="100%"
         height="100%"
         controls
+        autoPlay="autoplay"
         playsInline
       >
         <source src={src} type="video/mp4" />
       </video>
-      <Grid item container alignItems="center" justify="center" xs={12} className={classes.caption}>
+      <Grid
+        item
+        container
+        alignItems="center"
+        justify="center"
+        xs={12}
+        className={classes.caption}
+      >
         <Typography variant="body2" color="inherit">
           {caption}
         </Typography>
