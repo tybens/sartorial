@@ -300,7 +300,7 @@ const musicVideo = {
   type: "video",
   types: [
     {
-      name: "Promotional",
+      name: "Promotional Content",
       bgColor: "#93c572",
     },
     {
@@ -310,7 +310,7 @@ const musicVideo = {
   ],
   date: "18 Aug 2021",
   author: "Habitat Sartorial",
-  title: "Promo: Summer 2021 Collection",
+  title: "Promo: Summer 2021 Music Collection",
   text: "...",
   id: "summer21-promo-video",
   video: "https://vimeo.com/588980823",

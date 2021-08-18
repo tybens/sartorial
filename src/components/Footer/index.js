@@ -108,17 +108,17 @@ const Footer = (props) => {
             </Grid>
             <Grid item>
               <Link to="/shop/collections" className={classes.linkStyle}>
-                <Typography variant={"body1"}>Collections</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>Collections</Typography>
               </Link>
             </Grid>
             <Grid item>
               <Link to="/philosophy" className={classes.linkStyle}>
-                <Typography variant={"body1"}>Philosophy</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>Philosophy</Typography>
               </Link>
             </Grid>
             <Grid item>
               <Link to="/sponsors" className={classes.linkStyle}>
-                <Typography variant={"body1"}>Sponsors</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>Sponsors</Typography>
               </Link>
             </Grid>
           </Grid>
@@ -138,12 +138,12 @@ const Footer = (props) => {
             </Grid>
             <Grid item>
               <Link to="/philosophy" className={classes.linkStyle}>
-                <Typography variant={"body1"}>About</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>About</Typography>
               </Link>
             </Grid>
             <Grid item>
               <Link to="/contact" className={classes.linkStyle}>
-                <Typography variant={"body1"}>Contact</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>Contact</Typography>
               </Link>
             </Grid>
           </Grid>
