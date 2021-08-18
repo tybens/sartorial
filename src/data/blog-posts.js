@@ -6,13 +6,15 @@ import {
   Link,
 } from "@material-ui/core";
 import { Link as ReactLink } from "react-router-dom";
-// import henryVid from "assets/vids/henryvid.mp4";
-import howhsllcworksImg1 from "assets/blog/IMG_1064.png";
-import howhsllcworksImg2 from "assets/blog/marketing.png";
+import henryVid from "assets/vids/henryvid.mp4";
 
 const paragraphStyles = { padding: "2.5% 0" };
+const thumbnailImageManip = "w_500,h_500,q_auto,c_fill,g_auto";
+const articleImageManip = "w_1500,h_1100,q_auto,c_fill,g_auto";
+const lookbookImageManip = "w_1200,h_1600,q_auto,c_fill,g_auto";
 
 const homelessness = {
+  type: "article",
   types: [
     {
       name: "Homelessness",
@@ -28,6 +30,7 @@ const homelessness = {
   title: "Homelessness in Indianapolis - and How we ALL can help",
   text: "In 2019, the temperature in Indianapolis fell to -11°F. That night...",
   id: "homelessness",
+  thumbnail: `https://res.cloudinary.com/do8jxdvtx/image/upload/${thumbnailImageManip}/v1629298251/hsllc/indy_ydmxzl.jpg`,
   text1: [
     "In 2019, the temperature in Indianapolis fell to -11°F. That night, 105 people slept outside, on the concrete, with no shelter from the spitting frost and chilling wind. ",
     "This year, that number has increased to 263 people - and those are only the fraction of Indy’s homeless who live without shelter.",
@@ -85,11 +88,9 @@ const homelessness = {
   ),
   vid1Src: "",
   vid1Desc: "",
-  img1Src:
-    "https://indianapublicradio.org/wp-content/uploads/2019/11/indianapolis-wikimedia_commons-1560x900.jpg",
+  img1Src: `https://res.cloudinary.com/do8jxdvtx/image/upload/${articleImageManip}/v1629298251/hsllc/indy_ydmxzl.jpg`,
   img1Desc: "",
-  img2Src:
-    "https://www.gannett-cdn.com/presto/2018/10/15/PIND/52db2f02-06d4-4ad5-bfae-2e4cf6a3bdd7-IMG_5850.JPG?crop=4031,2267,x0,y0&width=3200&height=1800&format=pjpg&auto=webp",
+  img2Src: `https://res.cloudinary.com/do8jxdvtx/image/upload/${articleImageManip}/v1629298294/hsllc/wheeler_qt139y.webp`,
   img2Desc: "",
   suffix: (
     <Typography align="left" variant="body2">
@@ -136,6 +137,7 @@ const homelessness = {
 };
 
 const howhsllcworks = {
+  type: "article",
   types: [
     {
       name: "Habitat Sartorial",
@@ -151,6 +153,7 @@ const howhsllcworks = {
   title: "How Your Next Shopping Spree could Build a Home in Indy",
   text: "Habitat Sartorial exists to help the homeless population in Indianapolis...",
   id: "how-hsllc-works",
+  thumbnail: `https://res.cloudinary.com/do8jxdvtx/image/upload/${thumbnailImageManip}/v1629298603/hsllc/IMG_1064_xbmgon.png`,
   text1: (
     <>
       <Typography align="left" variant="body1" style={paragraphStyles}>
@@ -232,13 +235,80 @@ const howhsllcworks = {
   ),
   vid1Src: "",
   vid1Desc: "",
-  img1Src: howhsllcworksImg1,
+  img1Src: `https://res.cloudinary.com/do8jxdvtx/image/upload/${articleImageManip}/v1629298603/hsllc/IMG_1064_xbmgon.png`,
   img1Desc: "",
-  img2Src: howhsllcworksImg2,
+  img2Src: `https://res.cloudinary.com/do8jxdvtx/image/upload/${articleImageManip}/v1629298588/hsllc/marketing_n6eflc.png`,
   img2Desc: "",
   suffix: "",
 };
 
-const postsData = [howhsllcworks, homelessness];
+const musicLookbook = {
+  type: "lookbook",
+  types: [
+    {
+      name: "Lookbook",
+      bgColor: "#66cccc",
+    },
+    {
+      name: "Habitat Sartorial",
+      bgColor: "#334AC0",
+    },
+  ],
+  date: "18 Aug 2021",
+  author: "Habitat Sartorial",
+  title: "Lookbook: Fall/Winter 2021 Classics",
+  text: "...",
+  id: "fw21-classics-lookbook",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1629236884/Summer%202021%20Photos/DSC08620_is6dwa.jpg`,
+  images: [
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236904/Summer%202021%20Photos/DSC08828_tn7imm.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236902/Summer%202021%20Photos/DSC08691_tngumi.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236901/Summer%202021%20Photos/DSC08800_pvudup.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236900/Summer%202021%20Photos/DSC08892_shqmir.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236897/Summer%202021%20Photos/DSC08757_amlp7n.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236897/Summer%202021%20Photos/DSC08807_ngqdil.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236896/Summer%202021%20Photos/DSC08791_idhsko.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236892/Summer%202021%20Photos/DSC08570_zkglne.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236889/Summer%202021%20Photos/DSC08521_azuupr.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236888/Summer%202021%20Photos/DSC08719_elfxar.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236888/Summer%202021%20Photos/DSC08732_xzmy5f.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1629236887/Summer%202021%20Photos/DSC08628_enfr5u.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1629236904/Summer%202021%20Photos/DSC08912_ntgker.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1629236884/Summer%202021%20Photos/DSC08620_is6dwa.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1629236884/Summer%202021%20Photos/DSC08576_vyvcf0.jpg`,
+  ],
+  img1Src:
+    "https://res.cloudinary.com/habitatsartorial/image/upload/w_1000,h_1000,c_fill/v1629236884/Summer%202021%20Photos/DSC08620_is6dwa.jpg",
+  suffix: "",
+};
+
+// ar_5:6,c_fill,g_auto this works to make correct aspect ratio
+
+const musicVideo = {
+  type: "video",
+  types: [
+    {
+      name: "Video Content",
+      bgColor: "#93c572",
+    },
+    {
+      name: "Habitat Sartorial",
+      bgColor: "#334AC0",
+    },
+  ],
+  date: "18 Aug 2021",
+  author: "Habitat Sartorial",
+  title: "Music Collection Promotional Video",
+  text: "...",
+  id: "music-promo-video",
+  video: henryVid,
+  thumbnail: `https://res.cloudinary.com/do8jxdvtx/image/upload/${thumbnailImageManip}/v1629234885/hsllc/thumb_notext-min_iuz3bb.png`,
+  suffix: "",
+};
+
+// took out musicVideo for now
+musicVideo.type="temp"
+
+const postsData = [musicLookbook, howhsllcworks, homelessness];
 
 export default postsData;

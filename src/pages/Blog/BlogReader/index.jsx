@@ -5,6 +5,7 @@ import useStyles from "./styles";
 import VideoEmbed from "../VideoEmbed";
 import ShareComponent from "components/Share";
 import { PayneImg, EdemImg, JackImg, TylerImg } from "assets/blog/people";
+import HabitatImg from "assets/icons/rswhite.png";
 import BlogHead from "../BlogHead";
 
 const BlogReader = ({ postsData, match }) => {
@@ -17,12 +18,22 @@ const BlogReader = ({ postsData, match }) => {
     "Tyler Benson": TylerImg,
     "Edem Kabasa": EdemImg,
     "Jack Hidde": JackImg,
+    "Habitat Sartorial": HabitatImg,
   };
 
+  const contentMapper = {
+    article: <Article blog={blog} />,
+    lookbook: <Lookbook blog={blog} />,
+    video: <Video blog={blog} />,
+  };
 
   return (
     <>
-      <BlogHead description={blog?.title} image={blog?.img1Src} blogId={blogId} />
+      <BlogHead
+        description={blog?.title}
+        image={blog?.img1Src}
+        blogId={blogId}
+      />
       <Grid container className={classes.container}>
         <Grid item container xs={12}>
           <Grid item xs={12} md={9}>
@@ -75,61 +86,7 @@ const BlogReader = ({ postsData, match }) => {
             <Divider className={classes.thickDivider} />
           </Grid>
         </Grid>
-
-        <Grid container spacing={3} className={classes.contentBox}>
-          <Grid item xs={12} md={6}>
-            {Array.isArray(blog?.text1)
-              ? blog?.text1.map((text) => (
-                  <Typography
-                    variant="body1"
-                    color="primary"
-                    align="left"
-                    className={classes.paragraph}
-                  >
-                    {text}
-                  </Typography>
-                ))
-              : blog?.text1}
-          </Grid>
-          <Grid item xs={12} md={6}>
-            {blog?.vid1Src ? (
-              <VideoEmbed src={blog?.vid1Src} caption={blog?.vid1Desc} />
-            ) : (
-              <img
-                src={blog?.img1Src}
-                alt={blog?.img1Desc}
-                width="100%"
-                height="100%"
-              />
-            )}
-          </Grid>
-          <Grid item xs={12} md={6}>
-            {blog?.vid2Src ? (
-              <VideoEmbed src={blog?.vid2Src} caption={blog?.vid2Desc} />
-            ) : (
-              <img
-                src={blog?.img2Src}
-                alt={blog?.img2Desc}
-                width="100%"
-                height="100%"
-              />
-            )}
-          </Grid>
-          <Grid item xs={12} md={6}>
-            {Array.isArray(blog?.text2)
-              ? blog?.text2.map((text) => (
-                  <Typography
-                    variant="body1"
-                    color="primary"
-                    align="left"
-                    className={classes.paragraph}
-                  >
-                    {text}
-                  </Typography>
-                ))
-              : blog?.text2}
-          </Grid>
-        </Grid>
+        {contentMapper[blog?.type]}
         <Grid item xs={12}>
           <Divider className={classes.thickDivider} />
         </Grid>
@@ -138,6 +95,99 @@ const BlogReader = ({ postsData, match }) => {
         </Grid>
       </Grid>
     </>
+  );
+};
+
+const Article = ({ blog }) => {
+  const classes = useStyles();
+
+  return (
+    <>
+      <Grid container spacing={3} className={classes.contentBox}>
+        <Grid item xs={12} md={6}>
+          {Array.isArray(blog?.text1)
+            ? blog?.text1.map((text) => (
+                <Typography
+                  variant="body1"
+                  color="primary"
+                  align="left"
+                  className={classes.paragraph}
+                >
+                  {text}
+                </Typography>
+              ))
+            : blog?.text1}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {blog?.vid1Src ? (
+            <VideoEmbed src={blog?.vid1Src} caption={blog?.vid1Desc} />
+          ) : (
+            <img
+              src={blog?.img1Src}
+              alt={blog?.img1Desc}
+              width="100%"
+              height="100%"
+            />
+          )}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {blog?.vid2Src ? (
+            <VideoEmbed src={blog?.vid2Src} caption={blog?.vid2Desc} />
+          ) : (
+            <img
+              src={blog?.img2Src}
+              alt={blog?.img2Desc}
+              width="100%"
+              height="100%"
+            />
+          )}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {Array.isArray(blog?.text2)
+            ? blog?.text2.map((text) => (
+                <Typography
+                  variant="body1"
+                  color="primary"
+                  align="left"
+                  className={classes.paragraph}
+                >
+                  {text}
+                </Typography>
+              ))
+            : blog?.text2}
+        </Grid>
+      </Grid>
+    </>
+  );
+};
+
+const Lookbook = ({ blog }) => {
+  const classes = useStyles();
+
+  return (
+    <Grid container className={classes.contentBox}>
+      {blog?.images?.map((image, id) => (
+        <Grid item xs={12} sm={6} key={id} className={classes.lookbookImageDiv}>
+          <img
+            className={classes.lookbookImage}
+            alt={`lookbook ${id}`}
+            width="100%"
+            height="100%"
+            src={image}
+          />
+        </Grid>
+      ))}
+    </Grid>
+  );
+};
+
+const Video = ({ blog }) => {
+  const classes = useStyles();
+
+  return (
+    <Grid container className={classes.contentBox}>
+      <VideoEmbed src={blog?.video} caption="" />
+    </Grid>
   );
 };
 
