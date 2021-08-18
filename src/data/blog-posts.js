@@ -279,7 +279,19 @@ const musicLookbook = {
   ],
   img1Src:
     "https://res.cloudinary.com/habitatsartorial/image/upload/w_1000,h_1000,c_fill/v1629236884/Summer%202021%20Photos/DSC08620_is6dwa.jpg",
-  suffix: "",
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Photography by KJ Bail. Find his instagram at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://instagram.com/kj_bail_photography?utm_medium=copy_link"
+      >
+        @kj_bail_photography
+      </Link>.
+    </Typography>
+  ),
 };
 
 // ar_5:6,c_fill,g_auto this works to make correct aspect ratio
@@ -303,7 +315,19 @@ const musicVideo = {
   id: "summer21-promo-video",
   video: "https://vimeo.com/588980823",
   thumbnail: `https://res.cloudinary.com/do8jxdvtx/image/upload/${thumbnailImageManip}/v1629234885/hsllc/thumb_notext-min_iuz3bb.png`,
-  suffix: "",
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Videography by Henry Bobeck. Find his socials at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://henrybobeck.com/"
+      >
+        henrybobeck.com
+      </Link>.
+    </Typography>
+  ),
 };
 
 // took out musicVideo for now
