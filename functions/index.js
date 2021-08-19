@@ -145,3 +145,20 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
     // Send back a message that we've successfully written the message
   });
 });
+
+exports.listData = functions.https.onRequest(async (req, res) => {
+  return cors()(req, res, async () => {
+    var dbQuery = req.body.db;
+    
+    db.collection(dbQuery)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+        });
+      });
+
+    res.json({ result: "success" });
+  });
+});

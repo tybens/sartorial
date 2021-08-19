@@ -14,9 +14,9 @@ const Product = ({ history, product }) => {
   const classes = useStyles();
 
   const handleClick = () => {
-    history.push(`${history.location.pathname}/${product.id}`)
-  }
-  
+    history.push(`${history.location.pathname}/${product.id}`);
+  };
+
   return (
     <Card className={classes.root}>
       <CardActionArea onClick={handleClick}>
@@ -34,9 +34,17 @@ const Product = ({ history, product }) => {
               ${product.price}
             </Typography>
           </div>
-          <Typography variant="body2" color="textSecondary" align="left" component="p">
-            {product.description}
-          </Typography>
+          {/* {product.description.map((text, id) => (
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              align="left"
+              component="p"
+              key={id}
+            >
+              {text}
+            </Typography>
+          ))} */}
         </CardContent>
       </CardActionArea>
     </Card>

@@ -12,6 +12,9 @@ export default makeStyles((theme) => ({
     padding: "30px",
     zIndex: 3,
     position: "relative",
+    [theme.breakpoints.down("md")]: {
+      padding: 0,
+    },
   },
 
   header: {
