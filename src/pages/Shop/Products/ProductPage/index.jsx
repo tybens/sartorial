@@ -9,16 +9,12 @@ import useStyles from "./styles";
 
 const ProductPage = ({ collectionsData, onAddToCart, match }) => {
   const classes = useStyles();
-    const handleAddToCart = () => onAddToCart(product.id, selectedSize, 1);
+  const handleAddToCart = () => onAddToCart(product.id, selectedSize, 1);
   const [selectedSize, setSelectedSize] = useState("M");
 
   const { collectionId, productId } = match.params;
-  const collection = collectionsData.find(
-    ({ id }) => id === parseInt(collectionId)
-  );
-  const product = collection.products.find(
-    ({ id }) => id === parseInt(productId)
-  );
+  const collection = collectionsData.find(({ id }) => id === collectionId);
+  const product = collection.products.find(({ id }) => id === productId);
 
   const sizes = ["S", "M", "L", "XL"];
 
@@ -59,9 +55,30 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
           >
             {product.type}, ${product.price}
           </Typography>
-          <Typography variant="h3" color="initial" align="left">
-            {product.description}
+        </Grid>
+        <Grid item xs={12}>
+          <Typography
+            variant="h3"
+            color="primary"
+            align="left"
+            gutterBottom
+            component="div"
+          >
+            Details
           </Typography>
+          <br />
+          {product.description.map((text, id) => (
+            <Typography
+              variant="h3"
+              color="primary"
+              align="left"
+              component="div"
+              gutterBottom
+              key={id}
+            >
+              {text}
+            </Typography>
+          ))}
         </Grid>
 
         <Grid item container xs={12} md={10} spacing={4} justify="center">

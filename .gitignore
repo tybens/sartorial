@@ -29,4 +29,5 @@ yarn-error.log*
 **/*.xcf
 src/assets/sartorial1.png
 src/assets/sartorial2.png
+src/assets/vids/
 **/*.log

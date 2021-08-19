@@ -250,8 +250,8 @@ const musicLookbook = {
       bgColor: "#66cccc",
     },
     {
-      name: "Habitat Sartorial",
-      bgColor: "#334AC0",
+      name: "Promotional",
+      bgColor: "#93c572",
     },
   ],
   date: "18 Aug 2021",
@@ -300,12 +300,12 @@ const musicVideo = {
   type: "video",
   types: [
     {
-      name: "Promotional Content",
+      name: "Promotional",
       bgColor: "#93c572",
     },
     {
-      name: "Habitat Sartorial",
-      bgColor: "#334AC0",
+      name: "Music",
+      bgColor: "#d597ce",
     },
   ],
   date: "18 Aug 2021",
