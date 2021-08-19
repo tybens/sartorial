@@ -48,6 +48,31 @@ const Footer = (props) => {
     },
   ];
 
+  const TitleDiv = ({titleDiv1}) => (
+    <Grid
+      item
+      xs={titleDiv1 ? 4 : 12}
+      container
+      direction="column"
+      className={titleDiv1 ? classes.titleDiv1 : classes.titleDiv2}
+    >
+      <Grid item>
+        <Link to="/philosophy" className={classes.linkStyle}>
+          <Typography variant={"h5"} className={classes.titleLinkText}>
+            Habitat Sartorial
+          </Typography>
+        </Link>
+      </Grid>
+      <Grid item className={classes.copyrightText}>
+        <Typography variant={"body2"}>
+          <span className={classes.copyrightText}>
+            © Copyright 2021 Habitat Sartorial LLC. All rights reserved.
+          </span>
+        </Typography>
+      </Grid>
+    </Grid>
+  );
+
   return (
     <Grid
       container
@@ -65,28 +90,7 @@ const Footer = (props) => {
         justify="space-evenly"
       >
         <Grid item container justify={"space-between"} spacing={2}>
-          <Grid
-            item
-            xs={4}
-            container
-            direction="column"
-            className={classes.titleDiv1}
-          >
-            <Grid item>
-              <Link to="/technology" className={classes.linkStyle}>
-                <Typography variant={"h5"} className={classes.titleLinkText}>
-                  Habitat Sartorial
-                </Typography>
-              </Link>
-            </Grid>
-            <Grid item className={classes.copyrightText}>
-              <Typography variant={"body2"}>
-                <span className={classes.copyrightText}>
-                  © Copyright 2021 Habitat Sartorial LLC. All rights reserved.
-                </span>
-              </Typography>
-            </Grid>
-          </Grid>
+          {<TitleDiv titleDiv1={true} />}
           <Grid
             item
             xs={6}
@@ -108,17 +112,23 @@ const Footer = (props) => {
             </Grid>
             <Grid item>
               <Link to="/shop/collections" className={classes.linkStyle}>
-                <Typography variant={"body2"} className={classes.subLinks}>Collections</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>
+                  Collections
+                </Typography>
               </Link>
             </Grid>
             <Grid item>
               <Link to="/philosophy" className={classes.linkStyle}>
-                <Typography variant={"body2"} className={classes.subLinks}>Philosophy</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>
+                  Philosophy
+                </Typography>
               </Link>
             </Grid>
             <Grid item>
               <Link to="/sponsors" className={classes.linkStyle}>
-                <Typography variant={"body2"} className={classes.subLinks}>Sponsors</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>
+                  Sponsors
+                </Typography>
               </Link>
             </Grid>
           </Grid>
@@ -138,12 +148,16 @@ const Footer = (props) => {
             </Grid>
             <Grid item>
               <Link to="/philosophy" className={classes.linkStyle}>
-                <Typography variant={"body2"} className={classes.subLinks}>About</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>
+                  About
+                </Typography>
               </Link>
             </Grid>
             <Grid item>
               <Link to="/contact" className={classes.linkStyle}>
-                <Typography variant={"body2"} className={classes.subLinks}>Contact</Typography>
+                <Typography variant={"body2"} className={classes.subLinks}>
+                  Contact
+                </Typography>
               </Link>
             </Grid>
           </Grid>
@@ -160,8 +174,9 @@ const Footer = (props) => {
               item
               onClick={() =>
                 window.open(
-                  followButtons.find(({ ariaLabel }) => ariaLabel === "LinkedIn")
-                    .url,
+                  followButtons.find(
+                    ({ ariaLabel }) => ariaLabel === "LinkedIn"
+                  ).url,
                   "_blank"
                 )
               }
@@ -186,28 +201,7 @@ const Footer = (props) => {
               ))}
             </Grid>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            container
-            direction="column"
-            className={classes.titleDiv2}
-          >
-            <Grid item>
-              <Link to="/philosophy" className={classes.linkStyle}>
-                <Typography variant={"h5"} className={classes.titleLinkText}>
-                  Habitat Sartorial
-                </Typography>
-              </Link>
-            </Grid>
-            <Grid item className={classes.copyrightText}>
-              <Typography variant={"body2"}>
-                <span className={classes.copyrightText}>
-                  © Copyright 2021 Habitat Sartorial LLC. All rights reserved.
-                </span>
-              </Typography>
-            </Grid>
-          </Grid>
+          {<TitleDiv titleDiv1={false} />}
         </Grid>
       </Grid>
     </Grid>

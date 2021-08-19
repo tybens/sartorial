@@ -1,6 +1,6 @@
 import React from "react";
 import makeStyles from "./styles";
-import Henry from "assets/vids/henryvid.mp4";
+import Henry from "assets/vids/henryvid.mov";
 
 const HenryVid = () => {
   const classes = makeStyles();

@@ -91,7 +91,7 @@ const Philosophy = ({ navColors, onSetNavColors }) => {
               We've replaced the 'free gift' often exchanged for a donation with
               clothing, a basic need for everyone, and instead of trying to save
               money and sending something cheap, we've spent almost all our time
-              finding thebestprinting method, fabrics, and sourcing/shipping
+              finding the best printing method, fabrics, and sourcing/shipping
               process.
             </Typography>
           </Grid>
