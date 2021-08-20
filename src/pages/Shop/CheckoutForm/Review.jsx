@@ -60,7 +60,7 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
               className={classes.listItem}
               color="inherit"
             >
-              ${item.data.product.price * item.quantity}
+              ${item.price * item.quantity}
             </Typography>
           </ListItem>
         ))}

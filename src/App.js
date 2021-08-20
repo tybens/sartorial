@@ -131,6 +131,7 @@ const App = () => {
     }));
   };
 
+
   // update the quantity of an item in the cart
   const handleUpdateCartQty = async (
     productId,
