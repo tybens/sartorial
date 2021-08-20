@@ -15,20 +15,20 @@ const MusicProducts = ({ collection, onAddToCart }) => {
       data: [
         {
           name: "Rhythm for the Restless",
-          img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629416157/Summer%202021%20Music%20Collection/317habitat.003_c5fcmb.jpg",
+          img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629433467/Summer%202021%20Music%20Collection/317habitat.002_rhxwmh.jpg",
         },
         {
           name: "Hip Hop for the Homeless",
-          img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629416161/Summer%202021%20Music%20Collection/317habitat.002_dd7nuh.jpg",
+          img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629433470/Summer%202021%20Music%20Collection/317habitat.001_hqw9fl.jpg",
         },
         {
           name: "Music for Mothers",
-          img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629416157/Summer%202021%20Music%20Collection/317habitat.001_fempgp.jpg",
+          img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629433470/Summer%202021%20Music%20Collection/317habitat.003_ycjj1y.jpg",
         },
       ],
     },
     {
-      name: "color",
+      name: "text color",
       data: [
         {
           name: "Blue",
@@ -95,7 +95,7 @@ const MusicProducts = ({ collection, onAddToCart }) => {
   const defaultVariables = {
     type: "",
     piece: "",
-    color: "",
+    "text color": "",
     size: "",
   };
 
@@ -135,12 +135,6 @@ const MusicProducts = ({ collection, onAddToCart }) => {
           >
             {stepData.name}
           </Typography>
-          {/* {stepData.name === "color" && (
-            <img
-              src="https://res.cloudinary.com/habitatsartorial/image/upload/v1629403088/Summer%202021%20Music%20Collection/DSC08998_wyiaug.jpg"
-              alt="colors"
-            />
-          )} */}
         </Grid>
         {stepData.data.map(({ name, img }, id) => (
           <Grid
@@ -211,13 +205,13 @@ const MusicProducts = ({ collection, onAddToCart }) => {
           className={classes.button}
           onClick={() =>
             onAddToCart(
-              `${variables.piece}${variables.color}${variables.type}${variables.size}`,
+              `${variables.piece}${variables["text color"]}${variables.type}${variables.size}`,
               1,
               {
                 collection: "s21-music",
                 size: variables.size,
                 product: {
-                  name: `${variables.piece}, ${variables.type}, ${variables.color}, ${variables.size}`,
+                  name: `${variables.piece}, ${variables.type}, ${variables["text color"]}, ${variables.size}`,
                   ...variables,
                 },
               }

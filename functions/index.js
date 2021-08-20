@@ -36,6 +36,16 @@ exports.recordOrder = functions.https.onRequest(async (req, res) => {
         created: admin.firestore.Timestamp.now(),
       },
     });
+
+    // record their email to the email list
+    const emailListResult = db.collection("emails").add({
+      email: {
+        email: orderData.customer.email,
+        joined: admin.firestore.Timestamp.now(),
+        how: "ordered",
+      },
+    });
+
     // Send back a message that we've successfully written the message
     res.json({ result: `Order with ID: ${writeResult} added.` });
   });
@@ -49,10 +59,9 @@ exports.paymentSecret = functions.https.onRequest(async (req, res) => {
         if (
           obj.hasOwnProperty(el) &&
           obj[el].hasOwnProperty("quantity") &&
-          obj[el].hasOwnProperty("product")
+          obj[el].hasOwnProperty("price")
         ) {
-          sum +=
-            parseFloat(obj[el].quantity) * parseFloat(obj[el].product.price);
+          sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
         }
       }
       return sum * 100; // stripe units are cents
@@ -81,6 +90,7 @@ exports.emailListJoin = functions.https.onRequest(async (req, res) => {
       email: {
         email,
         joined: admin.firestore.Timestamp.now(),
+        how: "email list box",
       },
     });
     // Send back a message that we've successfully written the message
@@ -149,7 +159,7 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
 exports.listData = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
     var dbQuery = req.body.db;
-    
+
     db.collection(dbQuery)
       .get()
       .then((querySnapshot) => {

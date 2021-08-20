@@ -18,9 +18,9 @@ const Products = ({ collectionsData, onAddToCart, match }) => {
     <>
       <main className={classes.content}>
         <Grid container justify="center" spacing={4}>
-          {collection.products.map((product) => (
-            <Grid item key={product.id} xs={12} sm={6} ld={4}>
-              <Product product={product} onAddToCart={onAddToCart} />
+          {collection.products.map((product, id) => (
+            <Grid item container justify="center" key={id} xs={12} sm={6} md={4}>
+              <Product product={product} onAddToCart={onAddToCart} id={id} />
             </Grid>
           ))}
         </Grid>

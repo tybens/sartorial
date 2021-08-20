@@ -23,10 +23,9 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
       if (
         cart.hasOwnProperty(el) &&
         cart[el].hasOwnProperty("quantity") &&
-        cart[el].hasOwnProperty("product")
+        cart[el].hasOwnProperty("price")
       ) {
-        sum +=
-          parseFloat(cart[el].quantity) * parseFloat(cart[el].product.price);
+        sum += parseFloat(cart[el].quantity) * parseFloat(cart[el].price);
       }
     }
     return sum;
@@ -45,7 +44,9 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
         {Object.entries(cart).map(([productId, item]) => (
           <ListItem style={{ padding: "10px 0" }} key={productId}>
             <ListItemText
-              primary={`${item.product.name} | ${item.size}`}
+              primary={`${item.data.product.name} ${
+                item.data.collection !== "s21-music" && `| ${item.data.size}`
+              }`}
               secondary={`Quantity: ${item.quantity}`}
             />
             <Typography
@@ -53,7 +54,7 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
               className={classes.listItem}
               color="inherit"
             >
-              ${item.product.price * item.quantity}
+              ${item.data.product.price * item.quantity}
             </Typography>
           </ListItem>
         ))}
@@ -142,7 +143,9 @@ const DiscountForm = ({ setDiscount, discount }) => {
           if (response.data.result === "success") {
             setDiscount(0.1);
           } else {
-            setCouponError("EARLYBIRD has been used more than 30 times already, sorry :(");
+            setCouponError(
+              "EARLYBIRD has been used more than 30 times already, sorry :("
+            );
           }
         })
         .catch(function (error) {
