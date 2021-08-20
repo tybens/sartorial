@@ -45,10 +45,13 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
           <ListItem style={{ padding: "10px 0" }} key={productId}>
             <ListItemText
               primary={`${item.data.product.name} ${
-                item.data.collection !== "s21-music" && `| ${item.data.size}`
+                item.data.collection !== "s21-music"
+                  ? `| ${item.data.size}`
+                  : ""
               } ${
-                item.data.product.name === '"HA317AT" Sweatshorts' &&
-                ` | ${item.data.customInseam}"`
+                item.data.product.name === '"HA317AT" Sweatshorts'
+                  ? ` | ${item.data.customInseam}"`
+                  : ""
               }`}
               secondary={`Quantity: ${item.quantity}`}
             />
@@ -122,7 +125,8 @@ const DiscountForm = ({ setDiscount, discount }) => {
   const [couponError, setCouponError] = useState("");
   const [loading, setLoading] = useState(false);
   const classes = useStyles();
-  const functionCouponUrl = "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
+  const functionCouponUrl =
+    "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
 
   const handleSubmit = () => {
     if (couponCode === "EARLYBIRD") {
