@@ -160,9 +160,9 @@ const Home = ({ navColors, onSetNavColors }) => {
           direction="column"
           style={{ position: "relative", minHeight: "60vh" }}
         >
-          <Grid item style={{marginBottom: 30}}>
+          {/* <Grid item style={{marginBottom: 30}}>
             <Typography variant="h2">Collections releasing Friday, August 20!</Typography>
-          </Grid>
+          </Grid> */}
           <EmailList />
         </Grid>
       </Grid>
