@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActionArea,
-} from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
+import { Fade } from "react-reveal";
 
 import useStyles from "./styles";
 
-const Product = ({ history, product }) => {
+const Product = ({ history, product, id }) => {
   const classes = useStyles();
 
   const handleClick = () => {
@@ -18,36 +13,39 @@ const Product = ({ history, product }) => {
   };
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea onClick={handleClick}>
-        <CardMedia
-          className={classes.media}
-          image={product.img}
-          title={product.name}
+    <Grid
+      item
+      xs={10}
+      className={classes.landing}
+      container
+      justify="center"
+      onClick={handleClick}
+      style={{ marginTop: Math.random() * 100}}
+    >
+      <Fade bottom>
+        <img
+          src={product.img}
+          alt={product.name}
+          className={classes.landingImage}
         />
-        <CardContent>
-          <div className={classes.cardContent}>
-            <Typography gutterBottom variant="h5" component="h2">
-              {product.name}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="h2">
-              ${product.price}
-            </Typography>
-          </div>
-          {/* {product.description.map((text, id) => (
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              align="left"
-              component="p"
-              key={id}
-            >
-              {text}
-            </Typography>
-          ))} */}
-        </CardContent>
-      </CardActionArea>
-    </Card>
+        <Typography
+          variant="h3"
+          color="primary"
+          className={classes.title}
+          align="right"
+        >
+          {product.name}
+        </Typography>
+        <Typography
+          variant="h3"
+          color="primary"
+          className={classes.price}
+          align="right"
+        >
+          <span style={{fontSize: "0.8em", verticalAlign: "3px"}}>$</span>{product.price}
+        </Typography>
+      </Fade>
+    </Grid>
   );
 };
 

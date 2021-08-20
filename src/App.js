@@ -93,13 +93,14 @@ const App = () => {
       if (
         obj.hasOwnProperty(el) &&
         obj[el].hasOwnProperty("quantity") &&
-        obj[el].hasOwnProperty("product")
+        obj[el].hasOwnProperty("price")
       ) {
-        sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].product.price);
+        sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
       }
     }
     return sum; // returns price in dollars
   }
+  console.log(cart)
 
   const priceMapper = {
     Sweatpants: 31,

@@ -22,4 +22,9 @@ export default makeStyles((theme) => ({
     // height: "100%",
     width: "100%",
   },
+
+  price: {
+    opacity: 0.3,
+  },
+  
 }));

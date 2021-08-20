@@ -3,31 +3,21 @@ import useStyles from "./styles";
 import { Grid, Typography } from "@material-ui/core";
 import { Fade } from "react-reveal";
 
-const OldCollection = ({ index, name, img, url, id }) => {
+const OldCollection = ({ onClick, name, img, price, id }) => {
   const classes = useStyles();
-  // const history = useHistory();
-
-  const handleClick = () => {
-    // history.push(`${url}/${id}`);
-  };
 
   return (
     <Grid
       item
-      xs={12}
-      md={6}
-      lg={4}
+      xs={10}
       className={classes.landing}
-      key={id}
+      container
+      justify="center"
+      onClick={onClick}
       style={{ marginTop: id * 50 }}
     >
       <Fade bottom>
-        <img
-          src={img}
-          alt={name}
-          className={classes.landingImage}
-          onClick={handleClick}
-        />
+        <img src={img} alt={name} className={classes.landingImage} />
         <Typography
           variant="h3"
           color="primary"
@@ -35,6 +25,14 @@ const OldCollection = ({ index, name, img, url, id }) => {
           align="right"
         >
           {name}
+        </Typography>
+        <Typography
+          variant="h3"
+          color="primary"
+          className={classes.price}
+          align="right"
+        >
+          {price}
         </Typography>
       </Fade>
     </Grid>
