@@ -5,6 +5,7 @@ import {
   Pinterest,
   Twitter,
   YouTube,
+  Facebook,
 } from "@material-ui/icons";
 import classNames from "classnames";
 import React from "react";
@@ -46,6 +47,12 @@ const Footer = (props) => {
       url: "https://www.instagram.com/habitatsartorial",
       color: "magenta",
     },
+    {
+      icon: <Facebook />,
+      ariaLabel: "Facebook",
+      url: "https://www.facebook.com/habitatsartorial",
+      color: "magenta",
+    }
   ];
 
   const TitleDiv = ({titleDiv1}) => (
