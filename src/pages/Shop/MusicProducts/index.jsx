@@ -3,6 +3,34 @@ import StepTracker from "components/StepTracker";
 import React, { useState } from "react";
 import useStyles from "./styles";
 import { ArrowBack } from "@material-ui/icons";
+
+const imagePermutations = {
+  "Rhythm for the Restless": {
+    Blue: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436452/Summer%202021%20Music%20Collection/Color%20Renders/DSC08981_2_2_nji9go.jpg",
+    Green:
+      "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436451/Summer%202021%20Music%20Collection/Color%20Renders/DSC08981_2_u0axrz.jpg",
+    Yellow:
+      "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436452/Summer%202021%20Music%20Collection/Color%20Renders/DSC08981_cwvirl.jpg",
+    Red: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436449/Summer%202021%20Music%20Collection/Color%20Renders/DSC08981_1_thqyyx.jpg",
+  },
+  "Music for Mothers": {
+    Blue: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436447/Summer%202021%20Music%20Collection/Color%20Renders/DSC08873_2_2_hnozjh.jpg",
+    Green:
+      "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436443/Summer%202021%20Music%20Collection/Color%20Renders/DSC08873_2_ysr7go.jpg",
+    Yellow:
+      "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436449/Summer%202021%20Music%20Collection/Color%20Renders/DSC08873_th172i.jpg",
+    Red: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436443/Summer%202021%20Music%20Collection/Color%20Renders/DSC08873_1_pz6lad.jpg",
+  },
+  "Hip Hop for the Homeless": {
+    Blue: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436439/Summer%202021%20Music%20Collection/Color%20Renders/DSC08969_kwtqot.jpg",
+    Green:
+      "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436438/Summer%202021%20Music%20Collection/Color%20Renders/DSC08969_2_axpmny.jpg",
+    Yellow:
+      "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436439/Summer%202021%20Music%20Collection/Color%20Renders/DSC08969_2_ywiwp1.jpg",
+    Red: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629436438/Summer%202021%20Music%20Collection/Color%20Renders/DSC08969_1_urewcy.jpg",
+  },
+};
+
 const MusicProducts = ({ collection, onAddToCart }) => {
   const classes = useStyles();
   const [step, setStep] = useState(0);
@@ -171,13 +199,17 @@ const MusicProducts = ({ collection, onAddToCart }) => {
     <>
       <Grid item container xs={12} justify="center">
         <Grid item container justify="center" xs={12}>
-          <Typography
-            variant="h2"
-            color="primary"
-            style={{ textTransform: "capitalize" }}
-          >
+          <Typography variant="h2" color="primary">
             Review {"&"} Add
           </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <img
+            width="300px"
+            height="auto"
+            src={imagePermutations[variables.piece][variables["text color"]]}
+            alt="specific permutation"
+          />
         </Grid>
 
         <Grid item xs={12} className={classes.containerInner} container>
@@ -212,6 +244,7 @@ const MusicProducts = ({ collection, onAddToCart }) => {
                 size: variables.size,
                 product: {
                   name: `${variables.piece}, ${variables.type}, ${variables["text color"]}, ${variables.size}`,
+                  img: imagePermutations[variables.piece][variables["text color"]],
                   ...variables,
                 },
               }
