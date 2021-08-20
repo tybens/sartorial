@@ -9,6 +9,7 @@ import HenryVid from "components/HenryVid";
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
   // const newestCollectionName = "Sartorial Spring 2021";
+  const showCollections = false;
 
   return (
     <>
@@ -21,7 +22,7 @@ const Collections = ({ collectionsData, url }) => {
         direction="column"
         id="content"
       >
-        {!window.location.href.includes("localhost") ? (
+        {showCollections ? (
           <>
             <HenryVid />
             <Grid item xs={12}>
