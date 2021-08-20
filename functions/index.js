@@ -46,8 +46,43 @@ exports.recordOrder = functions.https.onRequest(async (req, res) => {
       },
     });
 
+    // send email
+    db.collection("mail")
+      .add({
+        to: "admin@habitatsartorial.org",
+        message: {
+          subject: `Order with ID: ${writeResult}`,
+          html: JSON.stringify(orderData),
+        },
+      })
+      .then(() => console.log("Queued email for delivery!"));
+
     // Send back a message that we've successfully written the message
     res.json({ result: `Order with ID: ${writeResult} added.` });
+  });
+});
+
+//export the cloud function called `sendEmail`
+exports.sendEmail = functions.https.onRequest(async (req, res) => {
+  return cors()(req, res, async () => {
+    //get contact form data from the req and then assigned it to variables
+    // const email = req.body.data.email;
+    // const name = req.body.data.name;
+    // const message = req.body.data.message;
+    //config the email message
+    const mailOptions = {
+      to: `admin@habitatsartorial.org`,
+      message: {
+        subject: "New message from the app",
+        text: `says:`,
+      },
+    };
+
+    db.collection("mail")
+      .add(mailOptions)
+      .then(() => console.log("Queued email for delivery!"));
+
+    return res.json({ result: "success, hopefully" });
   });
 });
 
