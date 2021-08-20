@@ -8,12 +8,19 @@ import useStyles from "./styles";
 import HoverImage from "../../../../components/HoverImage";
 
 // props: position and isActive from the react cursor position wrapper
-const CartItem = ({ item, size, onUpdateCartQty, quantity, onRemoveFromCart }) => {
+const CartItem = ({
+  item,
+  productData,
+  productId,
+  size,
+  onUpdateCartQty,
+  quantity,
+  onRemoveFromCart,
+}) => {
   const classes = useStyles();
-  const handleUpdateCartQty = (lineItemId, size, newQuantity) =>
-    onUpdateCartQty(lineItemId, size, newQuantity);
 
-  const handleRemoveFromCart = (lineItemId) => onRemoveFromCart(lineItemId);
+  const handleUpdateCartQty = (newQuantity) =>
+    onUpdateCartQty(productId, newQuantity, productData);
 
   return (
     <div className={classes.root}>
@@ -23,19 +30,20 @@ const CartItem = ({ item, size, onUpdateCartQty, quantity, onRemoveFromCart }) =
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <HoverImage item={item}>
+                <HoverImage img={item.data.product.img}>
                   <Typography gutterBottom variant="h6">
-                    {item.name} | {size}
+                    {item.data.product.name}
+                    {item.data.collection !== "s21-music" && ` | ${item.data.size}`}
                   </Typography>
                 </HoverImage>
-                <span className={classes.description}>{item.description}</span>
+                {/* <span className={classes.description}>{item.data.product.description}</span> */}
               </Grid>
               <Grid item container direction="row" alignItems="center" xs>
                 <IconButton
                   type="button"
                   size="small"
                   color="inherit"
-                  onClick={() => handleUpdateCartQty(item.id, size, quantity - 1)}
+                  onClick={() => handleUpdateCartQty(quantity - 1)}
                 >
                   <RemoveCircleOutlineIcon />
                 </IconButton>
@@ -46,7 +54,7 @@ const CartItem = ({ item, size, onUpdateCartQty, quantity, onRemoveFromCart }) =
                   type="button"
                   size="small"
                   color="inherit"
-                  onClick={() => handleUpdateCartQty(item.id, size, quantity + 1)}
+                  onClick={() => handleUpdateCartQty(quantity + 1)}
                 >
                   <AddCircleOutlineIcon />
                 </IconButton>
@@ -66,7 +74,7 @@ const CartItem = ({ item, size, onUpdateCartQty, quantity, onRemoveFromCart }) =
                 variant="contained"
                 type="button"
                 color="secondary"
-                onClick={() => handleRemoveFromCart(`${item.id}${size}`)}
+                onClick={() => onRemoveFromCart(productId)}
               >
                 <DeleteIcon />
               </IconButton>

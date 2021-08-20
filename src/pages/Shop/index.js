@@ -10,7 +10,6 @@ const Shop = ({
   cart,
   order,
   totalItems,
-  thisProduct,
   totalPrice,
   handleCaptureCheckout,
   handleUpdateCartQty,
@@ -36,7 +35,6 @@ const Shop = ({
         <Route exact path={`${match.path}/checkout`}>
           <Checkout
             cart={cart}
-            thisProduct={thisProduct}
             order={order}
             totalItems={totalItems}
             onCaptureCheckout={handleCaptureCheckout}

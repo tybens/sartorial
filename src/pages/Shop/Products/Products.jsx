@@ -13,6 +13,7 @@ const Products = ({ collectionsData, onAddToCart, match }) => {
     return <MusicProducts collection={collection} onAddToCart={onAddToCart}/>;
   }
 
+
   return (
     <>
       <main className={classes.content}>
