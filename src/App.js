@@ -18,7 +18,7 @@ import {
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
 import VideoIntro from "components/VideoIntro";
-import products from "data/products";
+// import products from "data/products";
 import useWindowSize from "hooks/useWindowSize";
 import theme from "./theme.js";
 import Footer from "components/Footer";
@@ -101,35 +101,51 @@ const App = () => {
     return sum; // returns price in dollars
   }
 
+  const priceMapper = {
+    Sweatpants: 31,
+    Sweatshorts: 36,
+    Hoodie: 36,
+    "Cropped Hoodie": 36,
+    "Mockneck Tee": 26,
+    "LS Tee": 24,
+    Tee: 19,
+  };
+
   // add an item to the cart
-  const handleAddToCart = async (productId, size, quantity) => {
-    let thisId = `${productId}${size}`
+  const handleAddToCart = async (
+    productId,
+    quantity,
+    productData = { size: "", type: "" }
+  ) => {
     setCart((prev) => ({
       ...prev,
-      [thisId]: {
+      [productId]: {
         quantity:
-          cart[thisId] && cart[thisId].quantity
-            ? parseInt(cart[thisId].quantity) + 1
+          cart[productId] && cart[productId].quantity
+            ? parseInt(cart[productId].quantity) + 1
             : parseInt(quantity),
-        size: size,
-        product: thisProduct(productId),
+        data: productData,
+        price: priceMapper[productData.product.type],
       },
     }));
   };
 
-  
+
   // update the quantity of an item in the cart
-  const handleUpdateCartQty = async (productId, size, quantity) => {
-    let thisId = `${productId}${size}`
+  const handleUpdateCartQty = async (
+    productId,
+    quantity,
+    productData = { size: "", type: "" }
+  ) => {
     if (parseInt(quantity) < 1) {
-      handleRemoveFromCart(thisId);
+      handleRemoveFromCart(productId);
     } else {
       setCart((prev) => ({
         ...prev,
-        [thisId]: {
+        [productId]: {
           quantity: parseInt(quantity),
-          size: size,
-          product: thisProduct(productId),
+          data: productData,
+          price: priceMapper[productData.product.type],
         },
       }));
     }
@@ -169,15 +185,15 @@ const App = () => {
     }
   };
 
-  function thisProduct(productId) {
-    var thisProd;
-    products.forEach((prod) => {
-      if (parseInt(prod.id) === parseInt(productId)) {
-        thisProd = prod;
-      }
-    });
-    return thisProd;
-  }
+  // function thisProduct(productId) {
+  //   var thisProd;
+  //   products.forEach((prod) => {
+  //     if (parseInt(prod.id) === parseInt(productId)) {
+  //       thisProd = prod;
+  //     }
+  //   });
+  //   return thisProd;
+  // }
 
   // when doing nested routing, don't make the <Route /> "exact"
   return (
@@ -228,7 +244,6 @@ const App = () => {
                             <Route path="/shop">
                               <PageWrapper title="Shop">
                                 <Shop
-                                  thisProduct={thisProduct}
                                   handleCaptureCheckout={handleCaptureCheckout}
                                   handleEmptyCart={handleEmptyCart}
                                   order={order}

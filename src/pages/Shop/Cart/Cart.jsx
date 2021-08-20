@@ -19,7 +19,7 @@ const Cart = ({
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">
       You have no items in your shopping cart,{" "}
-      <Link className={classes.link} to="/shop/collections/fw21-classics">
+      <Link className={classes.link} to="/shop/collections/">
         start adding some
       </Link>
       !
@@ -32,12 +32,13 @@ const Cart = ({
         hover product name for preview
       </h6>
       <Grid container direction="column" alignItems="center" spacing={3}>
-        {Object.entries(cart).map(([productId, item]) => {
+        {Object.entries(cart).map(([productId, item], id) => {
           return (
-            <Grid item xs={12} key={productId}>
+            <Grid item xs={12} key={id}>
               <CartItem
-                item={item.product}
-                size={item.size}
+                productData={item.data}
+                productId={productId}
+                item={item}
                 quantity={parseInt(item.quantity)}
                 onUpdateCartQty={onUpdateCartQty}
                 onRemoveFromCart={onRemoveFromCart}

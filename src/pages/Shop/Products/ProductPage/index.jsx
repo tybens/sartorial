@@ -9,12 +9,18 @@ import useStyles from "./styles";
 
 const ProductPage = ({ collectionsData, onAddToCart, match }) => {
   const classes = useStyles();
-  const handleAddToCart = () => onAddToCart(product.id, selectedSize, 1);
+  const handleAddToCart = () =>
+    onAddToCart(`${product.id}${selectedSize}`, 1, {
+      size: selectedSize,
+      collection: collection.name,
+      product: product,
+    });
+
   const [selectedSize, setSelectedSize] = useState("M");
 
   const { collectionId, productId } = match.params;
   const collection = collectionsData.find(({ id }) => id === collectionId);
-  const product = collection.products.find(({ id }) => id === productId);
+  const product = collection.products.find(({ id }) => id === parseInt(productId));
 
   const sizes = ["S", "M", "L", "XL"];
 
@@ -39,7 +45,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
       >
         <Grid item xs={12}>
           <Typography
-            variant="h1"
+            variant="h2"
             align="left"
             color="initial"
             className={classes.title}
@@ -69,7 +75,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
           <br />
           {product.description.map((text, id) => (
             <Typography
-              variant="h3"
+              variant="body2"
               color="primary"
               align="left"
               component="div"

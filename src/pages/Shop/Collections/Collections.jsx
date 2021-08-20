@@ -42,7 +42,7 @@ const Collections = ({ collectionsData, url }) => {
           <Grid item container justify="space-around">
             {collectionsData.map(({ id, name, img }, index) => {
               return (
-                <Grid item xs={12} md={6} className={classes.landing} key={id}>
+                <Grid item xs={12} lg={6} className={classes.landing} key={id}>
                   <Link
                     className={classes.landingImage}
                     style={{ backgroundImage: `url(${img})` }}

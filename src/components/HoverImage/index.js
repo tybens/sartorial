@@ -2,12 +2,12 @@ import React, { useState, useRef } from 'react'
 import ReactCursorPosition, { INTERACTIONS } from 'react-cursor-position'
 import useStyles from './styles'
 
-const HoverImage = ({ item, children }) => {
+const HoverImage = ({ img, children }) => {
     
     return (
         <ReactCursorPosition activationInteractionTouch={INTERACTIONS.TOUCH}>
             <HoverImageChildren
-                item={item}
+                img={img}
                 children={children}
             />
         </ReactCursorPosition>
@@ -15,7 +15,7 @@ const HoverImage = ({ item, children }) => {
 }
 
 
-const HoverImageChildren = ({ isActive, position, item, children }) => {
+const HoverImageChildren = ({ isActive, position, img, children }) => {
     const hoverRef = useRef(null);
     const [offSetInfo, setOffSetInfo] = useState({ top: 0, left: 0, width: 200, height: 300 });
     const [hideImage, setHideImage] = useState(false)
@@ -48,7 +48,7 @@ const HoverImageChildren = ({ isActive, position, item, children }) => {
                         : classes.hoverImage
                 }
                 style={{
-                    background: `rgba(0,0,0,0) url(${item.img}) no-repeat scroll center center`,
+                    background: `rgba(0,0,0,0) url(${img}) no-repeat scroll center center`,
                     top: offSetInfo.top + position.y,
                     left: offSetInfo.left + position.x,
                 }}
