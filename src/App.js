@@ -14,6 +14,7 @@ import {
   Philosophy,
   ContactUs,
   Blog,
+  Support
 } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
@@ -279,6 +280,11 @@ const App = () => {
                             <Route path="/contact">
                               <PageWrapper title="Contact">
                                 <ContactUs />
+                              </PageWrapper>
+                            </Route>
+                            <Route path="/support">
+                              <PageWrapper title="Support">
+                                <Support />
                               </PageWrapper>
                             </Route>
                             <Route
