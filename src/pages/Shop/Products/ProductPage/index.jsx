@@ -10,15 +10,21 @@ import useStyles from "./styles";
 const ProductPage = ({ collectionsData, onAddToCart, match }) => {
   const classes = useStyles();
   const handleAddToCart = () =>
-    onAddToCart(`${product.id}${selectedSize}${customInseam}`, 1, {
-      size: selectedSize,
-      collection: collection.name,
-      product: product,
-      ...(product.name === '"HA317AT" Sweatshorts' && {
-        customInseam:
-          customInseam > 8 ? 8 : customInseam < 1.5 ? 1.5 : customInseam,
-      }),
-    });
+    onAddToCart(
+      `${product.id}${selectedSize}${
+        product.name === '"HA317AT" Sweatshorts' ? customInseam : ""
+      }`,
+      1,
+      {
+        size: selectedSize,
+        collection: collection.name,
+        product: product,
+        ...(product.name === '"HA317AT" Sweatshorts' && {
+          customInseam:
+            customInseam > 8 ? 8 : customInseam < 1.5 ? 1.5 : customInseam,
+        }),
+      }
+    );
 
   // custom inseam logic only for sweatshorts of summer21 so far
   const [customInseam, setCustomInseam] = useState(5.5);
