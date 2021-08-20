@@ -17,7 +17,7 @@ import axios from "axios";
 import useStyles from "./styles";
 import Review from "./Review";
 
-const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC_KEY}`);
+const stripePromise = loadStripe("pk_live_51IBADsLCfTcKYCUjbICBBDL4ix1PYw36eqqQtagck0wc5mqXaNqVy02xeeRjESwb2cBvc1vSBN8PNkXQ3P8IcZ4V004Iznuds0");
 
 const PaymentForm = ({
   cart,
