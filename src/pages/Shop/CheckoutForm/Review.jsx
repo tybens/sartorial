@@ -122,9 +122,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
   const [couponError, setCouponError] = useState("");
   const [loading, setLoading] = useState(false);
   const classes = useStyles();
-  const functionCouponUrl = !window.location.href.includes("localhost")
-    ? "http://localhost:5001/sartorial-indy/us-central1/checkEarlyBirdCoupon"
-    : "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
+  const functionCouponUrl = "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
 
   const handleSubmit = () => {
     if (couponCode === "EARLYBIRD") {
