@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Typography,
   Button,
@@ -67,35 +67,38 @@ const StripePayment = ({
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
+  const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-
   // const functionSecretUrl = 'http://localhost:5001/sartorial-indy/us-central1/paymentSecret'
   const functionSecretUrl =
     "https://us-central1-sartorial-indy.cloudfunctions.net/paymentSecret";
 
   const classes = useStyles();
 
-  const generatePaymentIntent = async () => {
-    let ret = "";
+  useEffect(() => {
+    // generate payment intent as soon as page loads or discount is applied
     axios
-      .post(functionSecretUrl, {cart: cart, discount: discount}, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        functionSecretUrl,
+        { cart: cart, discount: discount },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then(function (response) {
         // handle success
-        ret = response.data.clientSecret;
+        setClientSecret(response.data.clientSecret);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
-        setError(error);
+        setError(`Internal payment error ${error.message}`);
       });
-
-    return ret;
-  };
+    // eslint-disable-next-line
+  }, [discount]);
 
   const cardStyle = {
     style: {
@@ -125,55 +128,51 @@ const StripePayment = ({
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
-    const clientSecret = await generatePaymentIntent();
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+      },
+    });
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`);
+      setProcessing(false);
+    } else {
+      setError(null);
+      setProcessing(false);
+      setSucceeded(true);
 
-    if (clientSecret !== "") {
-      const payload = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: elements.getElement(CardElement),
+      // if payment succeed, log order to database for payne to fulfill
+      // TODO: confirm: true
+      let orderData = {
+        cart: cart,
+        customer: {
+          firstname: shippingData.firstName,
+          lastname: shippingData.lastName,
+          email: shippingData.email,
         },
-      });
-      if (payload.error) {
-        setError(`Payment failed ${payload.error.message}`);
-        setProcessing(false);
-      } else {
-        setError(null);
-        setProcessing(false);
-        setSucceeded(true);
-
-        // if payment succeed, log order to database for payne to fulfill
-        // TODO: confirm: true
-        let orderData = {
-          cart: cart,
-          customer: {
-            firstname: shippingData.firstName,
-            lastname: shippingData.lastName,
-            email: shippingData.email,
+        shipping: {
+          name: `${shippingData.firstName} ${shippingData.lastName}`,
+          address1: shippingData.address1,
+          city: shippingData.city,
+          state_code: shippingData.stateCode,
+          country_code: "US",
+          zip: shippingData.zip,
+          email: shippingData.email,
+        },
+        fulfillment: { shipping_method: shippingData.shippingOption },
+        payment: {
+          gateway: "stripe",
+          stripe: {
+            payment_intent_id: payload.paymentIntent.id,
           },
-          shipping: {
-            name: `${shippingData.firstName} ${shippingData.lastName}`,
-            address1: shippingData.address1,
-            city: shippingData.city,
-            state_code: shippingData.stateCode,
-            country_code: "US",
-            zip: shippingData.zip,
-            email: shippingData.email,
-          },
-          fulfillment: { shipping_method: shippingData.shippingOption },
-          payment: {
-            gateway: "stripe",
-            stripe: {
-              payment_intent_id: payload.paymentIntent.id,
-            },
-            discount: discount,
-          },
-        };
+          discount: discount,
+        },
+      };
 
-        // log order to database
-        onCaptureCheckout(orderData);
+      // log order to database
+      onCaptureCheckout(orderData);
 
-        nextStep();
-      }
+      nextStep();
     }
   };
 

@@ -47,7 +47,7 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
         </div>
         <div style={{display: "flex", justifyContent: "center", marginTop: "2rem"}}>
           <br />
-          <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop">
+          <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop/collections">
             Back to shopping
         </Button>
         </div>
@@ -63,7 +63,7 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
       <>
         <Typography variant="h5">Error: {error}</Typography>
         <br />
-        <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop">
+        <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop/collections">
           Back to shopping
         </Button>
       </>

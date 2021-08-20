@@ -46,6 +46,9 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
             <ListItemText
               primary={`${item.data.product.name} ${
                 item.data.collection !== "s21-music" && `| ${item.data.size}`
+              } ${
+                item.data.product.name === '"HA317AT" Sweatshorts' &&
+                ` | ${item.data.customInseam}"`
               }`}
               secondary={`Quantity: ${item.quantity}`}
             />

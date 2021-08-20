@@ -100,11 +100,10 @@ const App = () => {
     }
     return sum; // returns price in dollars
   }
-  console.log(cart)
 
   const priceMapper = {
-    Sweatpants: 31,
-    Sweatshorts: 36,
+    Sweatshorts: 31,
+    Sweatpants: 36,
     Hoodie: 36,
     "Cropped Hoodie": 36,
     "Mockneck Tee": 26,
@@ -130,7 +129,6 @@ const App = () => {
       },
     }));
   };
-
 
   // update the quantity of an item in the cart
   const handleUpdateCartQty = async (
