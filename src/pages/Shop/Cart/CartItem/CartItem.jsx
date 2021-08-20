@@ -34,6 +34,7 @@ const CartItem = ({
                   <Typography gutterBottom variant="h6">
                     {item.data.product.name}
                     {item.data.collection !== "s21-music" && ` | ${item.data.size}`}
+                    {item.data.product.name === "\"HA317AT\" Sweatshorts" && ` | ${item.data.customInseam}"`}
                   </Typography>
                 </HoverImage>
                 {/* <span className={classes.description}>{item.data.product.description}</span> */}

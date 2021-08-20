@@ -70,8 +70,9 @@ exports.paymentSecret = functions.https.onRequest(async (req, res) => {
     const taxes = 1.07;
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount:
-        calculateOrderAmount(req.body.cart) * (1 - req.body.discount) * taxes,
+      amount: Math.round(
+        calculateOrderAmount(req.body.cart) * (1 - req.body.discount) * taxes
+      ),
       currency: "usd",
     });
 

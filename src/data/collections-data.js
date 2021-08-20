@@ -1,8 +1,8 @@
 import {
-  steelyeyed,
+  // steelyeyed,
   // payne_tyler,
-  baguette,
-  cropped_ty,
+  // baguette,
+  // cropped_ty,
 } from "../assets/products";
 
 const productsImageManip = "q_auto:best";
@@ -167,17 +167,7 @@ const collectionData = [
     name: "Summer 2021 Music Collection",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629430012/Summer%202021%20Music%20Collection/thumb_notext_2_wc7zfz.png",
     description: "Description 2",
-    products: [
-      {
-        id: "Cropped Hoodie",
-        price: 36,
-        type: "Cropped Hoodie",
-        img: cropped_ty,
-        images: [baguette, steelyeyed],
-        description: "Teagan is silly dumb dumb hehe",
-        name: "cropped",
-      },
-    ],
+    products: [],
   },
   // {
   //   id: 2,
