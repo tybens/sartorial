@@ -25,6 +25,61 @@ const db = admin.firestore();
 // connect to the stripe server
 const stripe = require("stripe")(functions.config().stripe.secret_key);
 
+function calculateOrderAmount(obj) {
+  var sum = 0;
+  for (var el in obj) {
+    if (
+      obj.hasOwnProperty(el) &&
+      obj[el].hasOwnProperty("quantity") &&
+      obj[el].hasOwnProperty("price")
+    ) {
+      sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
+    }
+  }
+  return sum;
+}
+
+function round(num) {
+  return Math.round(num * 100) / 100;
+}
+
+function sendReceipt(orderData) {
+  let productDescriptions = [];
+  let productImages = [];
+  let taxes = 1.07;
+  let rawPrice = calculateOrderAmount(orderData.cart);
+  let discountPrice = rawPrice * orderData.payment.discount;
+
+  Object.values(orderData.cart).forEach((item) => {
+    productDescriptions.push(
+      `${item.data.product.name}${
+        item.data.collection === "s21-music" ? "" : `, ${item.data.size}`
+      } | Quantity: ${item.quantity}`
+    );
+    // "HA317AT" Tee, S | Quantity: 1
+    productImages.push(item.data.product.img);
+  });
+
+  // send email
+  db.collection("mail")
+    .add({
+      to: orderData.customer.email,
+      bcc: ["admin@habitatsartorial.org", "tylersmilerb@gmail.com"],
+      template: {
+        name: "receipt",
+        data: {
+          productDescriptions: productDescriptions,
+          apparelPrice: rawPrice,
+          discountString: discountPrice ? `-$${discountPrice} - EARLYBIRD` : "",
+          taxes: String(round(rawPrice * (taxes - 1))),
+          totalPrice: String(round((rawPrice - discountPrice) * taxes)),
+          images: productImages,
+        },
+      },
+    })
+    .then(() => console.log("Queued email for delivery!"));
+}
+
 exports.recordOrder = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
     // Grab the order data (may be in req.query...)
@@ -38,24 +93,17 @@ exports.recordOrder = functions.https.onRequest(async (req, res) => {
     });
 
     // record their email to the email list
-    const emailListResult = db.collection("emails").add({
-      email: {
-        email: orderData.customer.email,
-        joined: admin.firestore.Timestamp.now(),
-        how: "ordered",
-      },
-    });
-
-    // send email
-    db.collection("mail")
+    db.collection("emails")
       .add({
-        to: "admin@habitatsartorial.org",
-        message: {
-          subject: `Order with ID: ${writeResult}`,
-          html: JSON.stringify(orderData),
+        email: {
+          email: orderData.customer.email,
+          joined: admin.firestore.Timestamp.now(),
+          how: "ordered",
         },
       })
-      .then(() => console.log("Queued email for delivery!"));
+      .then(() => console.log("Email added to email list db"));
+
+    sendReceipt(orderData);
 
     // Send back a message that we've successfully written the message
     res.json({ result: `Order with ID: ${writeResult} added.` });
@@ -88,25 +136,14 @@ exports.sendEmail = functions.https.onRequest(async (req, res) => {
 
 exports.paymentSecret = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
-    function calculateOrderAmount(obj) {
-      var sum = 0;
-      for (var el in obj) {
-        if (
-          obj.hasOwnProperty(el) &&
-          obj[el].hasOwnProperty("quantity") &&
-          obj[el].hasOwnProperty("price")
-        ) {
-          sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
-        }
-      }
-      return sum * 100; // stripe units are cents
-    }
-
     const taxes = 1.07;
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round(
-        calculateOrderAmount(req.body.cart) * (1 - req.body.discount) * taxes
+        calculateOrderAmount(req.body.cart) *
+          100 * // stripe units are in cents
+          (1 - req.body.discount) *
+          taxes
       ),
       currency: "usd",
     });
