@@ -6,7 +6,6 @@ import {
   Link,
 } from "@material-ui/core";
 import { Link as ReactLink } from "react-router-dom";
-// import henryVid from "assets/vids/henryvid.mp4";
 
 const paragraphStyles = { padding: "2.5% 0" };
 const thumbnailImageManip = "w_1000,h_1000,q_auto:best,c_fill";
