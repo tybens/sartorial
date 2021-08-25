@@ -103,6 +103,17 @@ exports.recordOrder = functions.https.onRequest(async (req, res) => {
       })
       .then(() => console.log("Email added to email list db"));
 
+    // send json to admin
+    db.collection("mail")
+      .add({
+        to: "admin@habitatsartorial.org",
+        message: {
+          subject: `Order with ID: ${writeResult}`,
+          html: JSON.stringify(orderData),
+        },
+      })
+      .then(() => console.log("Queued email for delivery!"));
+
     sendReceipt(orderData);
 
     // Send back a message that we've successfully written the message

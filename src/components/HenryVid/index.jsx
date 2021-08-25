@@ -1,6 +1,5 @@
 import React from "react";
 import makeStyles from "./styles";
-import Henry from "assets/vids/henryvid.mp4";
 
 const HenryVid = () => {
   const classes = makeStyles();
@@ -15,7 +14,10 @@ const HenryVid = () => {
       loop
       playsInline
     >
-      <source src={Henry} type="video/mp4" />
+      <source
+        src="https://res.cloudinary.com/habitatsartorial/video/upload/v1629926472/misc/intro_rqmr7m.mp4"
+        type="video/mp4"
+      />
     </video>
   );
 };
