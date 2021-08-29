@@ -20,7 +20,7 @@ const homelessness = {
       bgColor: "#fcb941",
     },
     {
-      name: "Indianapolis",
+      name: "Mission Statement",
       bgColor: "#FC6042",
     },
   ],
@@ -143,7 +143,7 @@ const howhsllcworks = {
       bgColor: "#334AC0",
     },
     {
-      name: "Indianapolis",
+      name: "Mission Statement",
       bgColor: "#FC6042",
     },
   ],
@@ -241,16 +241,51 @@ const howhsllcworks = {
   suffix: "",
 };
 
+const edemHorizon = {
+  type: "article",
+  types: [
+    {
+      name: "Philanthropy",
+      bgColor: "#413c49",
+    },
+    {
+      name: "Mission Statement",
+      bgColor: "#FC6042",
+    },
+  ],
+  date: "28 Aug 2021",
+  author: "Edem Kabasa",
+  title: "How We Plan to Help",
+  text: "For the Habitat Sartorial brand, we have sought a charitable organization in the Greater Indianapolis area...",
+  id: "horizonhouse",
+  thumbnail: `https://res.cloudinary.com/do8jxdvtx/image/upload/${thumbnailImageManip}/v1630198192/hsllc/indy-shrm-008_nhusjb.jpg`,
+  text1: [
+    "For the Habitat Sartorial brand, we have sought a charitable organization in the Greater Indianapolis area to which we will donate our revenue from merchandise sales. The criteria for compatibility Habitat Sartorial has prioritized in selection are, roughly speaking: a size which is conducive to personal connection with the organization’s team members, a reputable history of financial management and transparent accounting, multiple years of experience in community service, and an openness to receiving donations and manual assistance. Naturally, the charitable organization Habitat Sartorial donates to will have a focus on helping those struggling with homelessness or otherwise displaced or destitute individuals and families.",
+    "For these reasons, we have selected the Indianapolis HORIZON HOUSE charity to receive our donations. ",
+  ],
+  text2: [
+    "Horizon House Indianapolis prides itself on being a transparent and accountable nonprofit with several years of experience and an equal amount of time establishing rapport within the Greater Indianapolis community. Although in-person visits have been limited or restricted over the past year, a day of service and volunteer work is planned for the entire Habitat Sartorial board of directors.",
+    "We look forward to continuing and advancing our partnership with Horizon House.",
+  ],
+  vid1Src: "",
+  vid1Desc: "",
+  img1Src: `https://res.cloudinary.com/do8jxdvtx/image/upload/${articleImageManip}/v1630198192/hsllc/indy-shrm-008_nhusjb.jpg`,
+  img1Desc: "",
+  img2Src: `https://res.cloudinary.com/do8jxdvtx/image/upload/${articleImageManip}/v1630198192/hsllc/BO_p6chit.jpg`,
+  img2Desc: "",
+  suffix: "",
+};
+
 const musicLookbook = {
   type: "lookbook",
   types: [
     {
-      name: "Lookbook",
-      bgColor: "#66cccc",
-    },
-    {
       name: "Promotional",
       bgColor: "#93c572",
+    },
+    {
+      name: "Lookbook",
+      bgColor: "#66cccc",
     },
   ],
   date: "18 Aug 2021",
@@ -288,7 +323,8 @@ const musicLookbook = {
         href="https://instagram.com/kj_bail_photography?utm_medium=copy_link"
       >
         @kj_bail_photography
-      </Link>.
+      </Link>
+      .
     </Typography>
   ),
 };
@@ -324,13 +360,20 @@ const musicVideo = {
         href="https://henrybobeck.com/"
       >
         henrybobeck.com
-      </Link>.
+      </Link>
+      .
     </Typography>
   ),
 };
 
 // took out musicVideo for now
 
-const postsData = [musicVideo, musicLookbook, howhsllcworks, homelessness];
+const postsData = [
+  edemHorizon,
+  musicVideo,
+  musicLookbook,
+  howhsllcworks,
+  homelessness,
+];
 
 export default postsData;
