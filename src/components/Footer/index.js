@@ -138,6 +138,13 @@ const Footer = (props) => {
                 </Typography>
               </Link>
             </Grid>
+            <Grid item>
+              <Link to="/measurements" className={classes.linkStyle}>
+                <Typography variant={"body2"} className={classes.subLinks}>
+                  Measurements
+                </Typography>
+              </Link>
+            </Grid>
           </Grid>
           <Grid
             item
