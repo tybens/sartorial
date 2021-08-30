@@ -288,7 +288,8 @@ const musicLookbook = {
         href="https://instagram.com/kj_bail_photography?utm_medium=copy_link"
       >
         @kj_bail_photography
-      </Link>.
+      </Link>
+      .
     </Typography>
   ),
 };
@@ -324,13 +325,52 @@ const musicVideo = {
         href="https://henrybobeck.com/"
       >
         henrybobeck.com
-      </Link>.
+      </Link>
+      .
     </Typography>
   ),
 };
 
-// took out musicVideo for now
+const conradInterview = {
+  type: "video",
+  types: [
+    {
+      name: "Interview",
+      bgColor: "#660000",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "30 Aug 2021",
+  author: "Habitat Sartorial",
+  title: "Alex Conrad: Summer 2021 Musician Interview",
+  text: "...",
+  id: "interview-conrad",
+  video: "https://youtu.be/YR6ODtFG6_A",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1630288884/Summer%202021%20Music%20Collection/Screen_Shot_2021-08-29_at_22.00.32_jazcg5.png`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Find Alex’s music on Instagram&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.instagram.com/mckenzietaylormusic/"
+      >
+        @mckenzietaylormusic
+      </Link>
+      .
+    </Typography>
+  ),
+};
 
-const postsData = [musicVideo, musicLookbook, howhsllcworks, homelessness];
-
+const postsData = [
+  conradInterview,
+  musicVideo,
+  musicLookbook,
+  howhsllcworks,
+  homelessness,
+];
 export default postsData;
