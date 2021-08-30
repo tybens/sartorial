@@ -14,7 +14,8 @@ import {
   Philosophy,
   ContactUs,
   Blog,
-  Support
+  Support,
+  Measurements,
 } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
@@ -130,7 +131,6 @@ const App = () => {
       },
     }));
   };
-
 
   // update the quantity of an item in the cart
   const handleUpdateCartQty = async (
@@ -286,6 +286,11 @@ const App = () => {
                             <Route path="/support">
                               <PageWrapper title="Support">
                                 <Support />
+                              </PageWrapper>
+                            </Route>
+                            <Route path="/measurements">
+                              <PageWrapper title="Measurements">
+                                <Measurements />
                               </PageWrapper>
                             </Route>
                             <Route
