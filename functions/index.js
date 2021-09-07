@@ -211,25 +211,27 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
 // add coupon codes data to firestore
 exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
-    var docRef = db.collection("coupon").doc("earlybird");
+    var docRef = db.collection("coupon").doc(req.body.couponCode == "EARLYBIRD" ? "earlybird" : req.body.couponCode);
+
+    let maxUses = req.body.couponCode == "EARLYBIRD" ? 30 : 1;
 
     docRef
       .get()
       .then((doc) => {
         if (doc.exists) {
           let uses = doc.data().uses;
-          if (uses >= 30) {
+          if (uses >= maxUses) {
             res.json({ result: `too slow` });
           } else {
-            res.json({ result: `success` });
+            res.json({ result: `success`, discount: doc.data().discount });
+            // increment coupon uses because it worked
+            docRef.set({
+              uses: parseInt(doc.data().uses) + 1,
+            });
           }
-          docRef.set({
-            uses: parseInt(doc.data().uses) + 1,
-          });
         } else {
-          docRef.set({
-            uses: 0,
-          });
+          // coupon doesn't exist...
+          res.json({ result: `na` });
         }
       })
       .catch((error) => {
