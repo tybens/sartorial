@@ -101,7 +101,7 @@ const Measurements = () => {
             <MyTypography key={id}>{text}</MyTypography>
           ))}
           {img && (
-            <img src={img} alt="sizing layout" width="auto" height="auto" />
+            <img src={img} alt="sizing layout" width="100%" height="100%" />
           )}
         </Grid>
       ))}
