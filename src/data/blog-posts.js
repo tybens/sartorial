@@ -254,19 +254,21 @@ const edemHorizon = {
       bgColor: "#FC6042",
     },
   ],
-  date: "28 Aug 2021",
+  date: "07 Sep 2021",
   author: "Edem Kabasa",
   title: "How We Plan to Help",
-  text: "For the Habitat Sartorial brand, we have sought a charitable organization in the Greater Indianapolis area...",
+  text: "How does buying a T-shirt help the homeless? Habitat Sartorial donates 100%...",
   id: "horizonhouse",
   thumbnail: `https://res.cloudinary.com/do8jxdvtx/image/upload/${thumbnailImageManip}/v1630198192/hsllc/indy-shrm-008_nhusjb.jpg`,
   text1: [
-    "For the Habitat Sartorial brand, we have sought a charitable organization in the Greater Indianapolis area to which we will donate our revenue from merchandise sales. The criteria for compatibility Habitat Sartorial has prioritized in selection are, roughly speaking: a size which is conducive to personal connection with the organization’s team members, a reputable history of financial management and transparent accounting, multiple years of experience in community service, and an openness to receiving donations and manual assistance. Naturally, the charitable organization Habitat Sartorial donates to will have a focus on helping those struggling with homelessness or otherwise displaced or destitute individuals and families.",
-    "For these reasons, we have selected the Indianapolis HORIZON HOUSE charity to receive our donations. ",
+    "How does buying a T-shirt help the homeless? Habitat Sartorial donates 100% of all revenue to the Horizon House of Indianapolis.",
+    "Horizon is a well-known nonprofit in downtown Indianapolis. It has a shelter, clothing distribution center, and many other services to help the local impoverished community.",
+    "When you buy an item of Habitat apparel, a pre-determined amount goes back to Habitat to keep the lights on and paint flowing, and the rest is donated to Horizon House.",
   ],
   text2: [
-    "Horizon House Indianapolis prides itself on being a transparent and accountable nonprofit with several years of experience and an equal amount of time establishing rapport within the Greater Indianapolis community. Although in-person visits have been limited or restricted over the past year, a day of service and volunteer work is planned for the entire Habitat Sartorial board of directors.",
-    "We look forward to continuing and advancing our partnership with Horizon House.",
+    "As a 501(c)3 nonprofit, Horizon House has a breakdown of exactly how all their money is spent available to the public on their website. You can see exactly how much of your Rotary Logo tee went to feeding a child in need or giving hot water to the shelter!",
+    "We selected Horizon House because of their openness and transparency. Horizon House allows individuals and groups to go and volunteer at their main location, which is a perfect opportunity to speak with members of the organization and share our humanitarian vision.",
+    "Horizon House Indianapolis is a time-tested and reliable benefactor of the local metropolis, so they were naturally the best choice to receive our donations. ",
   ],
   vid1Src: "",
   vid1Desc: "",
@@ -402,8 +404,8 @@ const conradInterview = {
   ),
 };
 
-
 const postsData = [
+  edemHorizon,
   conradInterview,
   musicVideo,
   musicLookbook,

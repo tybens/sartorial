@@ -36,6 +36,7 @@ export default makeStyles((theme) => ({
 
   paragraph: {
     padding: "2.5% 0",
+    fontSize: "calc(0.35vw + 1.1rem)",
   },
 
   colorGray: {
