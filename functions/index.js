@@ -112,7 +112,7 @@ exports.recordOrder = functions.https.onRequest(async (req, res) => {
           html: JSON.stringify(orderData),
         },
       })
-      .then(() => console.log("Queued email for delivery!"));
+      .then(() => console.log("JSON data sent!"));
 
     sendReceipt(orderData);
 
