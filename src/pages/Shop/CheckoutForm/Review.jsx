@@ -129,37 +129,42 @@ const DiscountForm = ({ setDiscount, discount }) => {
     "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
 
   const handleSubmit = () => {
-    if (couponCode === "EARLYBIRD") {
-      setLoading(true);
-      setCouponError("");
-      axios
-        .post(
-          functionCouponUrl,
-          { body: "" },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then(function (response) {
-          // handle success
-          setLoading(false);
-          if (response.data.result === "success") {
-            setDiscount(0.1);
-          } else {
-            setCouponError(
-              "EARLYBIRD has been used more than 30 times already, sorry :("
-            );
-          }
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        });
-    } else {
-      setCouponError("Enter a valid discount code or gift card");
-    }
+    setLoading(true);
+    setCouponError("");
+    axios
+      .post(
+        functionCouponUrl,
+        {
+          body: {
+            couponCode: couponCode,
+          },
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(function (response) {
+        // handle success
+        setLoading(false);
+        if (response.data.result === "success") {
+          setDiscount(0.1);
+        } else if (response.data.result === "na") {
+          setCouponError("Please enter a valid discount code or gift card");
+        } else {
+          setCouponError(
+            couponCode === "EARLYBIRD"
+              ? "EARLYBIRD has been used more than 30 times already, sorry :("
+              : "That coupon has already been used... sorry :("
+          );
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        setCouponError("Some error has occurred, feel free to contact support.");
+        console.log(error);
+      });
   };
 
   return (
