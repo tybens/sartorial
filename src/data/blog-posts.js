@@ -404,7 +404,44 @@ const conradInterview = {
   ),
 };
 
+const davidsonInterview = {
+  type: "video",
+  types: [
+    {
+      name: "Interview",
+      bgColor: "#660000",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "16 Sep 2021",
+  author: "Habitat Sartorial",
+  title: "Henry Davidson: Summer 2021 Musician Interview",
+  text: "...",
+  id: "interview-davidson",
+  video: "https://www.youtube.com/watch?v=BE2PsNqYnVI",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/
+Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Find Henry on Instagram&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.instagram.com/henrymdavidson/"
+      >
+        @henrymdavidson
+      </Link>
+      .
+    </Typography>
+  ),
+};
+
 const postsData = [
+  davidsonInterview,
   edemHorizon,
   conradInterview,
   musicVideo,
