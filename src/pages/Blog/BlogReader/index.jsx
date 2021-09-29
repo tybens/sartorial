@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { Typography, Grid, Divider, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
@@ -8,6 +8,7 @@ import { PayneImg, EdemImg, JackImg, TylerImg } from "assets/blog/people";
 import HabitatImg from "assets/icons/rswhite.png";
 import BlogHead from "../BlogHead";
 import ReactPlayer from "react-player/lazy";
+import Carousel from "react-material-ui-carousel";
 
 const BlogReader = ({ postsData, match }) => {
   const classes = useStyles();
@@ -26,6 +27,7 @@ const BlogReader = ({ postsData, match }) => {
     article: <Article blog={blog} />,
     lookbook: <Lookbook blog={blog} />,
     video: <Video blog={blog} />,
+    carousel: <MyCarousel blog={blog} />,
   };
 
   return (
@@ -189,6 +191,41 @@ const Video = ({ blog }) => {
     <Grid container className={classes.contentBox}>
       <Grid item xs={12} className={classes.videoContainer}>
         <ReactPlayer url={blog?.video} autoplay width="100%" height="100%" />
+      </Grid>
+    </Grid>
+  );
+};
+
+const MyCarousel = ({ blog }) => {
+  const classes = useStyles();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scroll({ top: 500, behavior: "smooth" });
+    }, 1000);
+  }, []);
+
+  return (
+    <Grid container className={classes.contentBox}>
+      <Grid item xs={12} className={classes.videoContainer}>
+        <Carousel
+          interval={5000}
+          animation="fade"
+          next={(next, active) => setIndex(next)}
+        >
+          {blog?.carousel.map((item, i) => (
+            <img src={item.image} alt={`carousel ${i}`} key={i} width="100%" />
+          ))}
+        </Carousel>
+      </Grid>
+      <Grid item container direction="column">
+        <Typography variant="h2" color="initial" style={{ maxWidth: "" }}>
+          {blog?.carousel[index].text}
+        </Typography>
+        <Typography variant="h3" color="initial">
+          {blog?.carousel[index].textSecondary}
+        </Typography>
       </Grid>
     </Grid>
   );
