@@ -440,7 +440,70 @@ Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
   ),
 };
 
+const logoHistory = {
+  type: "carousel",
+  types: [
+    {
+      name: "Interview",
+      bgColor: "#660000",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "29 Sep 2021",
+  author: "Habitat Sartorial",
+  title: "A History of Habitat Sartorial Logos",
+  text: "...",
+  id: "logo-history",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/
+Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
+  carousel: [
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
+      text: "example title",
+      textSecondary: "example secondary text1"
+    },
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
+      text: "example title2",
+      textSecondary: "example secondary text2"
+    },
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
+      text: "example title3",
+      textSecondary: "example secondary text3"
+    },
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
+      text: "example title4",
+      textSecondary: "example secondary text4"
+    },
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
+      text: "example title5",
+      textSecondary: "example secondary text5 "
+    },
+  ],
+  suffix: (
+    <Typography align="left" variant="body2" style={{ fontSize: "1rem" }}>
+      Find Logos on Instagram&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.instagram.com/habitatsartorial"
+      >
+        @habitatsartorial
+      </Link>
+      .
+    </Typography>
+  ),
+};
+
 const postsData = [
+  logoHistory,
   davidsonInterview,
   edemHorizon,
   conradInterview,
