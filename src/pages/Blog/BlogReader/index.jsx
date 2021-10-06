@@ -210,7 +210,7 @@ const MyCarousel = ({ blog }) => {
     <Grid container className={classes.contentBox}>
       <Grid item xs={12} className={classes.videoContainer}>
         <Carousel
-          interval={5000}
+          interval={20000}
           animation="fade"
           next={(next, active) => setIndex(next)}
         >
@@ -219,13 +219,18 @@ const MyCarousel = ({ blog }) => {
           ))}
         </Carousel>
       </Grid>
-      <Grid item container direction="column">
-        <Typography variant="h2" color="initial" style={{ maxWidth: "" }}>
-          {blog?.carousel[index].text}
-        </Typography>
-        <Typography variant="h3" color="initial">
-          {blog?.carousel[index].textSecondary}
-        </Typography>
+      <Grid item container justify="center">
+        <Grid item xs={12} md={8} container direction="column" style={{maxWidth: 1000}}>
+          <Typography variant="h1" color="initial" style={{ maxWidth: "" }}>
+            {blog?.carousel[index].text.heading}
+          </Typography>
+          <Typography variant="h3" color="initial" gutterBottom>
+            {blog?.carousel[index].text.caption}
+          </Typography>
+          <Typography variant="h5" color="initial">
+            {blog?.carousel[index].text.closing}
+          </Typography>
+        </Grid>
       </Grid>
     </Grid>
   );

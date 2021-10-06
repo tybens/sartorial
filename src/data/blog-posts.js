@@ -81,7 +81,7 @@ const homelessness = {
           Let us show you how that works.
         </ReactLink>
         &nbsp; With the combined effort of these charities, and of people like
-        you, we will make the “317” a better place for all.
+        you, we will make the "317” a better place for all.
       </Typography>
     </>
   ),
@@ -444,6 +444,68 @@ const logoHistory = {
   type: "carousel",
   types: [
     {
+      name: "Mission Statement",
+      bgColor: "#FC6042",
+    },
+    {
+      name: "Design",
+      bgColor: "#F5F5DC",
+    },
+  ],
+  date: "05 Oct 2021",
+  author: "Habitat Sartorial",
+  title: "Logos: Our Promise to You",
+  text: "...",
+  id: "logo-history",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/
+image/upload/v1632938794/misc/Untitled.001_ptxuzp.jpg`,
+  carousel: [
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1632938794/misc/Untitled.001_ptxuzp.jpg`,
+      text: {
+        heading: "The ROTARY logo",
+        caption:
+          "Seals originated as promises. Our seal is just that - a promise to remain diligent, focused, and productive as we work and grow. The Rotary logo bears the skyline of our city, Indianapolis, with stars forming a roof over our home. These stars shine over the third, first, and seventh buildings, as a message to everyone in the 317: we have the talent, time, and treasure to help our fellow citizens, and build our community together.",
+        closing:
+          "One day, we’ll have stars from, within, and around your city, too. Apparel for charity - it’s the easiest way to make a difference in your home, wherever home may be.",
+      },
+    },
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1632938794/
+misc/Untitled.002_itr1az.jpg`,
+      text: {
+        heading: "The 100 Logo",
+        caption:
+          "We give our all towards many things - careful design, comfortable and durable fabrics, and sustainable, recyclable packaging and shipping - and this logo certainly represents that effort. But most of all, the 100 is our guarantee to you: 100% of our profit, every day, now and forever, will go towards helping the homeless in our communities. And we’ll be 100% transparent with you, reporting who that money feeds, the beds it buys in shelters, and the gifts it buys for children.",
+        closing:
+          "YOU are what makes this idea work, so WE make that promise to you, today and every single day.",
+      },
+    },
+    {
+      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1632938794/
+misc/Untitled.003_vqhucn.jpg`,
+      text: {
+        heading: "The HA317AT Logo",
+        caption:
+          'The word "habitat" means so many things - the climate, the relationships, and the activities that define a location. The challenges that some folks face are the most important part of a "habitat" - the place where we all feel most at home. HA317AT puts our focus front and center - ensuring those folks have a reason to love their city. And we’ve put 317 right in the middle, as our promise never to forget where we began, and never to stop helping individuals on a personal level.',
+        closing:
+          'At the end of the day, that’s what we do. For those who have gone through it all, we make "habitat" feel like "home".',
+      },
+    },
+  ],
+  suffix: (
+    <Typography
+      align="left"
+      variant="body2"
+      style={{ fontSize: "1rem" }}
+    ></Typography>
+  ),
+};
+
+const brownInterview = {
+  type: "video",
+  types: [
+    {
       name: "Interview",
       bgColor: "#660000",
     },
@@ -452,55 +514,30 @@ const logoHistory = {
       bgColor: "#d597ce",
     },
   ],
-  date: "29 Sep 2021",
+  date: "05 Oct 2021",
   author: "Habitat Sartorial",
-  title: "A History of Habitat Sartorial Logos",
+  title: "Griffin Brown: Summer 2021 Musician Interview",
   text: "...",
-  id: "logo-history",
-  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/
-Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
-  carousel: [
-    {
-      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
-      text: "example title",
-      textSecondary: "example secondary text1"
-    },
-    {
-      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
-      text: "example title2",
-      textSecondary: "example secondary text2"
-    },
-    {
-      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
-      text: "example title3",
-      textSecondary: "example secondary text3"
-    },
-    {
-      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
-      text: "example title4",
-      textSecondary: "example secondary text4"
-    },
-    {
-      image: `https://res.cloudinary.com/habitatsartorial/image/upload/v1631796838/Summer%202021%20Music%20Collection/pressrelease_henrydavidson_vmaf9v.png`,
-      text: "example title5",
-      textSecondary: "example secondary text5 "
-    },
-  ],
+  id: "interview-brown",
+  video: "https://youtu.be/FK3RXcu2BPA",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1633411035/Summer%202021%20Music%20Collection/Screen_Shot_2021-10-05_at_01.16.04_kvql3i.png`,
   suffix: (
-    <Typography align="left" variant="body2" style={{ fontSize: "1rem" }}>
-      Find Logos on Instagram&nbsp;
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Find Griffin on Instagram&nbsp;
       <Link
         target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
-        href="https://www.instagram.com/habitatsartorial"
+        href="https://www.instagram.com/griffinmbrown/"
       >
-        @habitatsartorial
+        @griffinmbrown
       </Link>
       .
     </Typography>
   ),
 };
+
+console.log(brownInterview.text);
 
 const postsData = [
   logoHistory,
