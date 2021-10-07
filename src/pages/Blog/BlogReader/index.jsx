@@ -210,9 +210,9 @@ const MyCarousel = ({ blog }) => {
     <Grid container className={classes.contentBox}>
       <Grid item xs={12} className={classes.videoContainer}>
         <Carousel
-          interval={20000}
+          autoPlay={false}
           animation="fade"
-          next={(next, active) => setIndex(next)}
+          onChange={(ind, active) => setIndex(ind)}
         >
           {blog?.carousel.map((item, i) => (
             <img src={item.image} alt={`carousel ${i}`} key={i} width="100%" />
@@ -220,7 +220,14 @@ const MyCarousel = ({ blog }) => {
         </Carousel>
       </Grid>
       <Grid item container justify="center">
-        <Grid item xs={12} md={8} container direction="column" style={{maxWidth: 1000}}>
+        <Grid
+          item
+          xs={12}
+          md={8}
+          container
+          direction="column"
+          style={{ maxWidth: 1000 }}
+        >
           <Typography variant="h1" color="initial" style={{ maxWidth: "" }}>
             {blog?.carousel[index].text.heading}
           </Typography>
