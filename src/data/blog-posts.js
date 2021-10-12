@@ -537,9 +537,9 @@ const brownInterview = {
   ),
 };
 
-console.log(brownInterview.text);
 
 const postsData = [
+  brownInterview,
   logoHistory,
   davidsonInterview,
   edemHorizon,
