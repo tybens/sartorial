@@ -6,7 +6,7 @@ import {
 } from "../assets/products";
 
 const productsImageManip = "q_auto:best";
-const collectionData = [
+const collectionRelease1 = [
   {
     id: "fw21-classics",
     name: "Fall/Winter 2021 Classics",
@@ -137,71 +137,40 @@ const collectionData = [
         name: '"HA317AT" Sweatshorts',
       },
 
-      {
-        id: 6,
-        price: 36,
-        type: "Sweatpants",
-        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg`,
-        images: [
-          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg",
-          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08807_il98z4.jpg",
-          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08628_f0qj42.jpg",
-          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326306/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08533_2_jrkogu.jpg",
-          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326311/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08732_t9huw2.jpg",
-        ],
-        description: [
-          '"100%" logo on left of back',
-          "Tapered fit, ankle cuffs",
-          "8.5 oz. fabric: 52% ringspun cotton, 48% poly fleece",
-          "Elastic waistband with drawcord",
-          "Back and side pockets",
-          "Sewn eyelets",
-          "Color: Grey",
-        ],
-        name: '"100%" Sweatpants',
-      },
+      // {
+      //   id: 6,
+      //   price: 36,
+      //   type: "Sweatpants",
+      //   img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg`,
+      //   images: [
+      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg",
+      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08807_il98z4.jpg",
+      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08628_f0qj42.jpg",
+      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326306/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08533_2_jrkogu.jpg",
+      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326311/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08732_t9huw2.jpg",
+      //   ],
+      //   description: [
+      //     '"100%" logo on left of back',
+      //     "Tapered fit, ankle cuffs",
+      //     "8.5 oz. fabric: 52% ringspun cotton, 48% poly fleece",
+      //     "Elastic waistband with drawcord",
+      //     "Back and side pockets",
+      //     "Sewn eyelets",
+      //     "Color: Grey",
+      //   ],
+      //   name: '"100%" Sweatpants',
+      // },
     ],
   },
-  {
-    id: "s21-music",
-    name: "Summer 2021 Music Collection",
-    img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629430012/Summer%202021%20Music%20Collection/thumb_notext_2_wc7zfz.png",
-    description: "Description 2",
-    products: [],
-  },
   // {
-  //   id: 2,
-  //   name: "Another",
-  //   img: baguette,
-  //   description: "Description 3",
-  //   products: [
-  //     {
-  //       id: 3,
-  //       price: 25,
-  //       type: "Sweatpants",
-  //       img: steelyeyed,
-  //       images: [baguette, steelyeyed],
-  //       description: "Tyler is so hot omg",
-  //       name: "mwah",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 3,
-  //   name: "Third",
-  //   img: payne_tyler,
-  //   description: "Description 4",
-  //   products: [
-  //     {
-  //       id: 3,
-  //       price: 25,
-  //       img: steelyeyed,
-  //       images: [baguette, steelyeyed],
-  //       description: "Woah",
-  //       name: "yessir",
-  //     },
-  //   ],
+  //   id: "s21-music",
+  //   name: "Summer 2021 Music Collection",
+  //   img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629430012/Summer%202021%20Music%20Collection/thumb_notext_2_wc7zfz.png",
+  //   description: "Description 2",
+  //   products: [],
   // },
 ];
+
+const collectionData = collectionRelease1;
 
 export default collectionData;
