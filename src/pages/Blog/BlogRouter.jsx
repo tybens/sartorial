@@ -5,14 +5,14 @@ import Blog from "./index";
 
 import postsData from "data/blog-posts";
 
-const BlogRouter = ({ match }) => {
+const BlogRouter = ({ match, type="blog" }) => {
   return (
     <Switch>
-      <Route path="/blog/:blogId">
+      <Route path={`/${type}/:blogId`}>
         <BlogReader postsData={postsData} />
       </Route>
-      <Route path="/blog">
-        <Blog postsData={postsData} />
+      <Route path={`/${type}`}>
+        <Blog type={type} postsData={postsData} />
       </Route>
     </Switch>
   );
