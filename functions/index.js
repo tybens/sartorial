@@ -211,7 +211,11 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
 // add coupon codes data to firestore
 exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
-    var docRef = db.collection("coupon").doc(req.body.couponCode == "EARLYBIRD" ? "earlybird" : req.body.couponCode);
+    var docRef = db
+      .collection("coupon")
+      .doc(
+        req.body.couponCode == "EARLYBIRD" ? "earlybird" : req.body.couponCode
+      );
 
     let maxUses = req.body.couponCode == "EARLYBIRD" ? 30 : 1;
 
@@ -243,18 +247,16 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
 });
 
 exports.listData = functions.https.onRequest(async (req, res) => {
-  return cors()(req, res, async () => {
-    var dbQuery = req.body.db;
+  var dbQuery = req.body.db;
 
-    db.collection(dbQuery)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-        });
+  db.collection(dbQuery)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
       });
+    });
 
-    res.json({ result: "success" });
-  });
+  res.json({ result: "success" });
 });
