@@ -27,7 +27,7 @@ const ContactUs = () => {
       className={classes.container}
       direction="column"
     >
-      <Grid item xs={12} className={classes.containerInner} id="content" container>
+      <Grid item xs={12} className={classes.containerInner} id="media" container>
         <Grid item xs={3}><MyTypography align="left" content="Tel:" /></Grid>
         <Grid item xs={9}><MyTypography align="right" content="+1 (317) 469-8797" /></Grid>
         <Grid item xs={3}><MyTypography align="left" content="email:" /></Grid>

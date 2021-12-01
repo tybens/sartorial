@@ -3,7 +3,7 @@ import useWindowSize from "hooks/useWindowSize";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-const BlogCard = ({ data }) => {
+const BlogCard = ({ data, type}) => {
   const { width } = useWindowSize();
   const [dynamicClassName, setDynamicClassName] = useState("-large");
 
@@ -44,7 +44,7 @@ const BlogCard = ({ data }) => {
           </h2>
           <p className={`blog-item${dynamicClassName}__text`}>{data.text}</p>
           <div className={`blog-item${dynamicClassName}__read-more__container`}>
-            <Link to={`/blog/${data.id}`} className="read-more">
+            <Link to={`/${type}/${data.id}`} className="read-more">
               {data.type === "article" ? "READ MORE" : "VIEW MORE"}
             </Link>
           </div>
