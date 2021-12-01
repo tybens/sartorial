@@ -18,7 +18,7 @@ const Sponsors = ({ setNavColors }) => {
   return (
     <div className="view">
       <h1>Sponsors</h1>
-      <div className="content" id="content">
+      <div className="media" id="media">
         <div className="content--inner" id="content--inner">
           <p className="content--excerpt" id="content--excerpt">
             Your business here:

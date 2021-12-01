@@ -278,9 +278,9 @@ const App = () => {
                                 <Blog type="blog"/>
                               </PageWrapper>
                             </Route>
-                            <Route path="/content">
-                              <PageWrapper title="Content">
-                                <Blog type="content"/>
+                            <Route path="/media">
+                              <PageWrapper title="Media">
+                                <Blog type="media"/>
                               </PageWrapper>
                             </Route>
                             <Route path="/contact">

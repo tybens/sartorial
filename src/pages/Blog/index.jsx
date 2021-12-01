@@ -18,7 +18,7 @@ const Blog = ({ postsData, type = "blog" }) => {
       id="content--inner"
       className={classes.blogCard}
     >
-      <BlogCard data={data} />
+      <BlogCard data={data} type={type}/>
     </Grid>
   ));
 
@@ -31,8 +31,8 @@ const Blog = ({ postsData, type = "blog" }) => {
       className={classes.wrapper}
     >
       <Grid item xs={12}>
-        <Typography variant="h1" color="primary" id="content">
-          {type === "blog" ? "Mission" : "Content"}
+        <Typography variant="h1" color="primary" id="media">
+          {type === "blog" ? "Mission" : "Media"}
         </Typography>
       </Grid>
       {posts}
