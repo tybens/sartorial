@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 const getDefaultTimeline = (node, delay) => {
   const timeline = gsap.timeline({ paused: true });
-  const content = node.querySelectorAll("#content");
+  const content = node.querySelectorAll("#media");
   const contentInner = node.querySelectorAll("#content--inner");
   const footer = node.querySelector("#footer");
 

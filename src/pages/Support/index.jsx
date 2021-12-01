@@ -67,7 +67,7 @@ const Support = () => {
           key={id}
           xs={12}
           className={classes.containerInner}
-          id="content"
+          id="media"
           container
         >
           <MyTypography bold={true} header={true}>{header}</MyTypography>

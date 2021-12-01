@@ -65,7 +65,7 @@ const EmailList = () => {
       className={classes.container}
       spacing={3}
       justify="center"
-      id="content"
+      id="media"
     >
       {responseMessage === "" && errorMessage === "" ? (
         <>

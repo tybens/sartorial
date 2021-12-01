@@ -275,7 +275,12 @@ const App = () => {
                             </Route>
                             <Route path="/blog">
                               <PageWrapper title="Mission">
-                                <Blog />
+                                <Blog type="blog"/>
+                              </PageWrapper>
+                            </Route>
+                            <Route path="/media">
+                              <PageWrapper title="Media">
+                                <Blog type="media"/>
                               </PageWrapper>
                             </Route>
                             <Route path="/contact">
