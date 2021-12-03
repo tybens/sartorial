@@ -73,6 +73,39 @@ export default makeStyles((theme) => ({
     backgroundSize: "cover",
   },
 
+  oldLanding: {
+    display: "block",
+    margin: 20,
+    position: "relative",
+    fontSize: 20,
+    cursor: "pointer",
+    [theme.breakpoints.down("md")]: {
+      // margin: 0,
+    },
+    transition: "transform 0.2s ease",
+    "&:hover": {
+      transform: "scale(1.025)",
+    },
+  },
+
+  oldLandingName: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "black",
+  },
+
+  oldTitle: {
+    position: "relative",
+    fontWeight: "bold",
+    marginTop: 0,
+  },
+
+  oldLandingImage: {
+    backgroundPosition: "50% 50%",
+    // height: "100%",
+    width: "100%",
+  },
+
   form: {
 
   }

@@ -6,12 +6,14 @@ import {
 } from "../assets/products";
 
 const productsImageManip = "q_auto:best";
+const soldOut = ",e_grayscale";
 const collectionRelease1 = [
   {
     id: "fw21-classics",
     name: "Fall/Winter 2021 Classics",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629236884/Summer%202021%20Photos/DSC08620_is6dwa.jpg",
     description: "Description 1",
+    altLink: "fw21-classics-lookbook",
     products: [
       {
         id: 0,
@@ -31,6 +33,7 @@ const collectionRelease1 = [
           "Color: Faded khaki green",
         ],
         name: '"HA317AT" Tee',
+        disabled: false,
       },
 
       {
@@ -49,6 +52,7 @@ const collectionRelease1 = [
           "Color: Faded khaki green",
         ],
         name: '"HA317AT" Longsleeve Tee',
+        disabled: false,
       },
 
       {
@@ -68,6 +72,7 @@ const collectionRelease1 = [
           "Color: White",
         ],
         name: '"HA317AT" Mockneck Tee',
+        disabled: true,
       },
 
       {
@@ -89,6 +94,7 @@ const collectionRelease1 = [
           "Color: Black",
         ],
         name: '"100%" Cropped Hooded Sweatshirt',
+        disabled: false,
       },
 
       {
@@ -109,6 +115,7 @@ const collectionRelease1 = [
           "Color: Black",
         ],
         name: '"100%" Hooded Sweatshirt',
+        disabled: false,
       },
 
       {
@@ -135,40 +142,43 @@ const collectionRelease1 = [
           "Color: Grey",
         ],
         name: '"HA317AT" Sweatshorts',
+        disabled: false,
       },
 
-      // {
-      //   id: 6,
-      //   price: 36,
-      //   type: "Sweatpants",
-      //   img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg`,
-      //   images: [
-      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg",
-      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08807_il98z4.jpg",
-      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08628_f0qj42.jpg",
-      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326306/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08533_2_jrkogu.jpg",
-      //     "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326311/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08732_t9huw2.jpg",
-      //   ],
-      //   description: [
-      //     '"100%" logo on left of back',
-      //     "Tapered fit, ankle cuffs",
-      //     "8.5 oz. fabric: 52% ringspun cotton, 48% poly fleece",
-      //     "Elastic waistband with drawcord",
-      //     "Back and side pockets",
-      //     "Sewn eyelets",
-      //     "Color: Grey",
-      //   ],
-      //   name: '"100%" Sweatpants',
-      // },
+      {
+        id: 6,
+        price: 36,
+        type: "Sweatpants",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08807_il98z4.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326310/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08628_f0qj42.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326306/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08533_2_jrkogu.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1629326311/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08732_t9huw2.jpg",
+        ],
+        description: [
+          '"100%" logo on left of back',
+          "Tapered fit, ankle cuffs",
+          "8.5 oz. fabric: 52% ringspun cotton, 48% poly fleece",
+          "Elastic waistband with drawcord",
+          "Back and side pockets",
+          "Sewn eyelets",
+          "Color: Grey",
+        ],
+        name: '"100%" Sweatpants',
+        disabled: true,
+      },
     ],
   },
-  // {
-  //   id: "s21-music",
-  //   name: "Summer 2021 Music Collection",
-  //   img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629430012/Summer%202021%20Music%20Collection/thumb_notext_2_wc7zfz.png",
-  //   description: "Description 2",
-  //   products: [],
-  // },
+  {
+    id: "s21-music",
+    altLink: "summer21-promo-video",
+    name: "Summer 2021 Music Collection",
+    img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629430012/Summer%202021%20Music%20Collection/thumb_notext_2_wc7zfz.png",
+    description: "Description 2",
+    products: [],
+  },
 ];
 
 const collectionData = collectionRelease1;

@@ -8,7 +8,7 @@ import HenryVid from "components/HenryVid";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  // const newestCollectionName = "Sartorial Spring 2021";
+  const newestCollectionName = ["Fall/Winter 2021 Classics"];
   const showCollections = false;
 
   return (
@@ -43,35 +43,77 @@ const Collections = ({ collectionsData, url }) => {
           <Grid item container justify="space-around">
             {collectionsData.map(({ id, name, img }, index) => {
               return (
-                <Grid item xs={12} lg={6} className={classes.landing} key={id}>
-                  <Link
-                    className={classes.landingImage}
-                    style={{ backgroundImage: `url(${img})` }}
-                    to={`${url}/${id}`}
-                  />
+                newestCollectionName.includes(name) && (
                   <Grid
-                    container
-                    direction="column"
-                    justify="flex-start"
-                    alignItems="flex-end"
-                    className={classes.landingContent}
+                    item
+                    xs={12}
+                    lg={6}
+                    className={classes.landing}
+                    key={id}
                   >
-                    <Typography
-                      variant="h2"
-                      color="inherit"
-                      className={classes.landingName}
-                    >
-                      {name}
-                    </Typography>
                     <Link
+                      className={classes.landingImage}
+                      style={{ backgroundImage: `url(${img})` }}
                       to={`${url}/${id}`}
-                      className={classes.landingSubName}
-                      // TODO: onHover={scale(1.5)}
+                    />
+                    <Grid
+                      container
+                      direction="column"
+                      justify="flex-start"
+                      alignItems="flex-end"
+                      className={classes.landingContent}
                     >
-                      browse
-                    </Link>
+                      <Typography
+                        variant="h2"
+                        color="inherit"
+                        className={classes.landingName}
+                      >
+                        {name}
+                      </Typography>
+                      <Link
+                        to={`${url}/${id}`}
+                        className={classes.landingSubName}
+                        // TODO: onHover={scale(1.5)}
+                      >
+                        browse
+                      </Link>
+                    </Grid>
                   </Grid>
-                </Grid>
+                )
+              );
+            })}
+            <Grid item xs={12} style={{marginTop: "5vw"}}>
+              <Typography gutterBottom variant="h2" color="initial" style={{width: "100%"}}>
+                past collections:
+              </Typography>
+            </Grid>
+            {collectionsData.map(({ id, altLink, name, img }, index) => {
+              return (
+                !newestCollectionName.includes(name) && (
+                  <Grid item xs={5} className={classes.oldLanding} key={id}>
+                    <Link
+                      className={classes.landingImage}
+                      style={{ backgroundImage: `url(${img})` }}
+                      to={`/media/${altLink}`}
+                    />
+                    <Grid
+                      container
+                      direction="column"
+                      justify="flex-start"
+                      alignItems="flex-end"
+                      className={classes.landingContent}
+                    >
+                      <Typography
+                        variant="h2"
+                        color="inherit"
+                        className={classes.oldLandingName}
+                        noWrap
+                      >
+                        {name}
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                )
               );
             })}
           </Grid>

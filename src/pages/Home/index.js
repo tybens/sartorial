@@ -5,6 +5,7 @@ import "./ReactRotatingText.css";
 import classNames from "classnames";
 import Wave from "react-wavify";
 import Blobs from "./blobs";
+import HenryVid from "components/HenryVid";
 
 import makeStyles from "./styles.js";
 import EmailList from "components/EmailList";
@@ -52,6 +53,9 @@ const Home = ({ navColors, onSetNavColors }) => {
 
   return (
     <>
+      <video width="100%" height="100%" autoPlay loop playsInline>
+        <source src="/videos/temp_intro.mp4" type="video/mp4" />
+      </video>
       <h1 className={classes.firstBlock}>
         <Grid
           container

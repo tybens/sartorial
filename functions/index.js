@@ -70,7 +70,7 @@ function sendReceipt(orderData) {
         data: {
           productDescriptions: productDescriptions,
           apparelPrice: rawPrice,
-          discountString: discountPrice ? `-$${discountPrice} - EARLYBIRD` : "",
+          discountString: discountPrice ? `-$${discountPrice} - discount` : "",
           taxes: String(round(rawPrice * (taxes - 1))),
           totalPrice: String(round((rawPrice - discountPrice) * taxes)),
           images: productImages,
@@ -211,13 +211,15 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
 // add coupon codes data to firestore
 exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
+    const multiUseCodes = ["EARLYBIRD", "AGIFTFORINDY21"];
+
     var docRef = db
       .collection("coupon")
       .doc(
         req.body.couponCode == "EARLYBIRD" ? "earlybird" : req.body.couponCode
       );
 
-    let maxUses = req.body.couponCode == "EARLYBIRD" ? 30 : 1;
+    let maxUses = multiUseCodes.includes(req.body.couponCode) ? 30 : 1;
 
     docRef
       .get()
