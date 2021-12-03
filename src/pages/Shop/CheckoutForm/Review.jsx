@@ -149,7 +149,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
         // handle success
         setLoading(false);
         if (response.data.result === "success") {
-          setDiscount(0.1);
+          setDiscount(response.data.discount);
         } else if (response.data.result === "na") {
           setCouponError("Please enter a valid discount code or gift card");
         } else {

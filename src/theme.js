@@ -232,7 +232,6 @@ const theme = createMuiTheme({
           lineHeight: "40px",
           fontSize: "2em",
         },
-        maxWidth: 1150,
         position: "relative",
         zIndex: 1,
         fontStyle: "normal",
