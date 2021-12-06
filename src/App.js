@@ -103,15 +103,15 @@ const App = () => {
     return sum; // returns price in dollars
   }
 
-  const priceMapper = {
-    Sweatshorts: 31,
-    Sweatpants: 36,
-    Hoodie: 36,
-    "Cropped Hoodie": 36,
-    "Mockneck Tee": 26,
-    "LS Tee": 24,
-    Tee: 19,
-  };
+  // const priceMapper = {
+  //   Sweatshorts: 31,
+  //   Sweatpants: 36,
+  //   Hoodie: 36,
+  //   "Cropped Hoodie": 36,
+  //   "Mockneck Tee": 26,
+  //   "LS Tee": 24,
+  //   Tee: 19,
+  // };
 
   // add an item to the cart
   const handleAddToCart = async (
@@ -127,7 +127,7 @@ const App = () => {
             ? parseInt(cart[productId].quantity) + 1
             : parseInt(quantity),
         data: productData,
-        price: priceMapper[productData.product.type],
+        price: productData.product.price,
       },
     }));
   };
@@ -146,7 +146,7 @@ const App = () => {
         [productId]: {
           quantity: parseInt(quantity),
           data: productData,
-          price: priceMapper[productData.product.type],
+          price: productData.product.price,
         },
       }));
     }

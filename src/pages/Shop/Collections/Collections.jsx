@@ -8,7 +8,7 @@ import HenryVid from "components/HenryVid";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = ["Fall/Winter 2021 Classics"];
+  const newestCollectionName = ["Fall/Winter 2021 Classics 2"];
   const showCollections = false;
 
   return (
@@ -94,7 +94,7 @@ const Collections = ({ collectionsData, url }) => {
                     <Link
                       className={classes.landingImage}
                       style={{ backgroundImage: `url(${img})` }}
-                      to={`/media/${altLink}`}
+                      to={`${altLink}`}
                     />
                     <Grid
                       container
