@@ -36,6 +36,20 @@ export default makeStyles((theme) => ({
     width: "100%",
   },
 
+  disabled: {
+    cursor: "default !important",
+    WebkitFilter: "grayscale(100%)",
+    filter: "grayscale(100%)",
+    "&:hover": {
+      transform: "none",
+    },
+  },
+
+  soldOutText: {
+    position: "relative",
+    padding: 0,
+  },
+
   price: {
     marginTop: 0,
     opacity: 0.3,

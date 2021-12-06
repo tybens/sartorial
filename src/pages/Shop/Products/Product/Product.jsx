@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-
+import classNames from "classnames";
 import useStyles from "./styles";
 
 const Product = ({ history, product, id }) => {
@@ -16,12 +16,16 @@ const Product = ({ history, product, id }) => {
     <Grid
       item
       xs={10}
-      className={classes.landing}
+      className={classNames(
+        classes.landing,
+        product.disabled && classes.disabled
+      )}
       container
       justify="center"
-      onClick={handleClick}
-      style={{ marginTop: Math.random() * 100}}
+      onClick={!product.disabled ? handleClick : null}
+      style={{ marginTop: Math.random() * 100 }}
     >
+
       <Fade bottom>
         <img
           src={product.img}
@@ -42,8 +46,10 @@ const Product = ({ history, product, id }) => {
           className={classes.price}
           align="right"
         >
-          <span style={{fontSize: "0.8em", verticalAlign: "3px"}}>$</span>{product.price}
+          <span style={{ fontSize: "0.8em", verticalAlign: "3px" }}>$</span>
+          {product.price}
         </Typography>
+        <Typography variant="h4" color="primary" noWrap className={classes.soldOutText}>{product.disabled && "sold out"}</Typography>
       </Fade>
     </Grid>
   );
