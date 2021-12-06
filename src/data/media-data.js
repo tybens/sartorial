@@ -8,6 +8,41 @@ const thumbnailImageManip = "w_1000,h_1000,q_auto:best,c_fill";
 // const articleImageManip = "w_1500,h_1100,q_auto:best,c_fill,g_auto";
 const lookbookImageManip = "q_auto:best,c_fill,g_auto";
 
+const fw21classics2Promo = {
+  type: "video",
+types: [
+  {
+    name: "Pinned",
+    bgColor: "#ffd300",
+  },
+  {
+    name: "Promotional",
+    bgColor: "#8db600",
+  },
+],
+date: "06 Dec 2021",
+author: "Habitat Sartorial",
+title: "BTS: Fall/Winter 2021 Classics 2",
+text: "...",
+id: "fw21-classics-2-bts",
+video: "https://youtu.be/YXOenpCgpnQ",
+thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1638771720/misc/Screen_Shot_2021-12-06_at_01.16.23_ayilk2.jpg`,
+suffix: (
+  <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+    Videography by Henry Bobeck. Find his socials at&nbsp;
+    <Link
+      target="_blank"
+      color="secondary"
+      style={{ fontWeight: 700 }}
+      href="https://henrybobeck.com/"
+    >
+      henrybobeck.com
+    </Link>
+    .
+  </Typography>
+),
+};
+
 const fw21classics2Lookbook = {
   type: "lookbook",
   types: [
@@ -247,6 +282,7 @@ const brownInterview = {
 
 
 const postsData = [
+  fw21classics2Promo,
   fw21classics2Lookbook,
   brownInterview,
   davidsonInterview,

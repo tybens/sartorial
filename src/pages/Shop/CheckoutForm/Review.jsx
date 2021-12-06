@@ -127,6 +127,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
   const classes = useStyles();
   const functionCouponUrl =
     "https://us-central1-sartorial-indy.cloudfunctions.net/checkEarlyBirdCoupon";
+  // "http://localhost:5001/sartorial-indy/us-central1/checkEarlyBirdCoupon";
 
   const handleSubmit = () => {
     setLoading(true);
@@ -135,9 +136,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
       .post(
         functionCouponUrl,
         {
-          body: {
-            couponCode: couponCode,
-          },
+          couponCode: couponCode,
         },
         {
           headers: {
@@ -162,7 +161,9 @@ const DiscountForm = ({ setDiscount, discount }) => {
       })
       .catch(function (error) {
         // handle error
-        setCouponError("Some error has occurred, feel free to contact support.");
+        setCouponError(
+          "Some error has occurred, feel free to contact support."
+        );
         console.log(error);
       });
   };
