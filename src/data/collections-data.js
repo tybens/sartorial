@@ -281,7 +281,7 @@ const collectionRelease2 = [
           "",
           "All profits from sales of this tee will be donated to Horizon House Indy.",
         ],
-        name: '"100%" Cropped Hooded Sweatshirt',
+        name: 'Cropped "Homegrown" LS Tee',
         disabled: false,
       },
 
@@ -377,13 +377,13 @@ const collectionRelease2 = [
           "",
           "All profits from sales of these sweatpants will be donated to Horizon House Indy.",
         ],
-        name: '"HA317AT" Sweatpants',
+        name: 'Rotary Sweatpants',
         disabled: false,
       },
     ],
   }
 ];
 
-collectionRelease1.push(...collectionRelease2)
+collectionRelease2.push(...collectionRelease1)
 
-export default collectionRelease1;
+export default collectionRelease2;

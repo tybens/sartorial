@@ -8,7 +8,7 @@ import HenryVid from "components/HenryVid";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = ["Fall/Winter 2021 Classics 2"];
+  const newestCollectionName = ["Fall/Winter 2021 Classics 2", "Fall/Winter 2021 Classics"];
   const showCollections = false;
 
   return (
