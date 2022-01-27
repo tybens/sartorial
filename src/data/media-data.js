@@ -3,59 +3,57 @@ import {
   Link,
 } from "@material-ui/core";
 
-// const paragraphStyles = { padding: "2.5% 0" };
 const thumbnailImageManip = "w_1000,h_1000,q_auto:best,c_fill";
-// const articleImageManip = "w_1500,h_1100,q_auto:best,c_fill,g_auto";
 const lookbookImageManip = "q_auto:best,c_fill,g_auto";
 
 const fw21classics2Promo = {
-  type: "video",
-types: [
-  {
-    name: "Pinned",
-    bgColor: "#ffd300",
-  },
-  {
-    name: "Promotional",
-    bgColor: "#8db600",
-  },
-],
-date: "06 Dec 2021",
-author: "Habitat Sartorial",
-title: "BTS: Fall/Winter 2021 Classics 2",
-text: "...",
-id: "fw21-classics-2-bts",
-video: "https://youtu.be/YXOenpCgpnQ",
-thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1638771720/misc/Screen_Shot_2021-12-06_at_01.16.23_ayilk2.jpg`,
-suffix: (
-  <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
-    Videography by Henry Bobeck. Find his socials at&nbsp;
-    <Link
-      target="_blank"
-      color="secondary"
-      style={{ fontWeight: 700 }}
-      href="https://henrybobeck.com/"
-    >
-      henrybobeck.com
-    </Link>
-    .
-  </Typography>
-),
-};
-
+    type: "video",
+  types: [
+    {
+      name: "Classics",
+      bgColor: "#0000ff",
+    },
+    {
+      name: "Promotional",
+      bgColor: "#8db600",
+    },
+  ],
+  date: "06 Dec 2021",
+  author: "Habitat Sartorial",
+  title: "BTS: Fall/Winter 2021 Classics 2",
+  text: "...",
+  id: "fw21-classics-2-bts",
+  video: "https://youtu.be/YXOenpCgpnQ",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1638771720/misc/Screen_Shot_2021-12-06_at_01.16.23_ayilk2.jpg`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Videography by Henry Bobeck. Find his socials at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://henrybobeck.com/"
+      >
+        henrybobeck.com
+      </Link>
+      .
+    </Typography>
+  ),
+}; 
+    
 const fw21classics2Lookbook = {
   type: "lookbook",
   types: [
     {
-      name: "Pinned",
-      bgColor: "#ffd300",
+      name: "Classics",
+      bgColor: "#0000ff",
     },
     {
       name: "Lookbook",
       bgColor: "#66cccc",
     },
   ],
-  date: "1 Dec 2021",
+  date: "01 Dec 2021",
   author: "Habitat Sartorial",
   title: "Lookbook: Fall/Winter 2021 Classics 2",
   text: "...",
@@ -280,8 +278,52 @@ const brownInterview = {
   ),
 };
 
+const inmanInterview = {
+  type: "video",
+  types: [
+    {
+      name: "Interview",
+      bgColor: "#660000",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "27 Jan 2022",
+  author: "Habitat Sartorial",
+  title: "Rosie Inman: Winter 2021 Musician Interview",
+  text: "...",
+  id: "interview-inman",
+  video: "https://youtu.be/k_0tspJhUoI",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1643218621/Summer%202021%20Music%20Collection/inman_interviewthumbnail_dztpwi.jpg`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Find Rosie performing around the Indianapolis area, and both on Instagram&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.instagram.com/musicbyroz/"
+      >
+        @musicbyroz
+      </Link>
+      &nbsp;and at her website&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.rosieinman.com"
+      >
+      rosieinman.com
+      </Link>
+      .
+    </Typography>
+  ),
+};
 
 const postsData = [
+  inmanInterview,
   fw21classics2Promo,
   fw21classics2Lookbook,
   brownInterview,
