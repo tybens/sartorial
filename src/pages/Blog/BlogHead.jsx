@@ -9,7 +9,7 @@ const BlogHead = ({ description, blogId, image }) => {
       <meta property="og:type" content="website" />
       <meta
         property="og:url"
-        content={`https://habitatsartorial.org/blog/${blogId}`}
+        content={`https://habitatsartorial.org/mission/${blogId}`}
       />
       <meta
         property="og:title"
@@ -21,7 +21,7 @@ const BlogHead = ({ description, blogId, image }) => {
       <meta property="twitter:card" content="summary_large_image" />
       <meta
         property="twitter:url"
-        content={`https://habitatsartorial.org/blog/${blogId}`}
+        content={`https://habitatsartorial.org/mission/${blogId}`}
       />
       <meta
         property="twitter:title"

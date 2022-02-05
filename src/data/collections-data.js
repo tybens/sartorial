@@ -173,7 +173,7 @@ const collectionRelease1 = [
   },
   {
     id: "s21-music",
-    altLink: "/media/summer21-promo-video",
+    altLink: "/content/summer21-promo-video",
     name: "Summer 2021 Music Collection",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629430012/Summer%202021%20Music%20Collection/thumb_notext_2_wc7zfz.png",
     description: "Description 2",
@@ -187,7 +187,7 @@ const collectionRelease2 = [
     name: "Fall/Winter 2021 Classics 2",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/c_fit,g_auto:faces/v1638227214/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3383_ztfzbc.jpg",
     description: "Description 1",
-    altLink: "/media/fw21-classics-2-lookbook",
+    altLink: "/content/fw21-classics-2-lookbook",
     products: [
       {
         id: 7,

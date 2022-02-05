@@ -20,7 +20,7 @@ const Collections = ({ collectionsData, url }) => {
         justify="space-between"
         alignItems="flex-start"
         direction="column"
-        id="media"
+        id="content"
       >
         {showCollections ? (
           <>

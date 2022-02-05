@@ -3,8 +3,8 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import Checkout from "./CheckoutForm/Checkout/Checkout";
 import CollectionsRouter from "./Collections/CollectionsRouter";
-
 import collectionsData from "data/collections-data";
+import ArtistSample from "./ArtistSample";
 
 const Shop = ({
   cart,
@@ -56,6 +56,9 @@ const Shop = ({
             collectionsData={collectionsData}
             onAddToCart={handleAddToCart}
           />
+        </Route>
+        <Route path={`${match.path}/artist-collection-sample`}>
+            <ArtistSample />
         </Route>
       </Switch>
     </div>

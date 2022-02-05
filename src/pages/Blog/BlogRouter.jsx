@@ -6,8 +6,8 @@ import Blog from "./index";
 import missionData from "data/mission-data";
 import mediaData from "data/media-data"
 
-const BlogRouter = ({ match, type="blog" }) => {
-  var postsData = (type === "blog") ? missionData : mediaData;
+const BlogRouter = ({ match, type="mission" }) => {
+  var postsData = (type === "mission") ? missionData : mediaData;
 
   return (
     <Switch>
