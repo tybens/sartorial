@@ -4,9 +4,9 @@ import Product from "./Product/Product";
 import useStyles from "./styles";
 import { withRouter } from "react-router-dom";
 import MusicProducts from "../MusicProducts"
-const Products = ({ collectionsData, onAddToCart, match }) => {
+const Products = ({ collectionsData, onAddToCart, match, collectionId= null }) => {
   const classes = useStyles();
-  const { collectionId } = match.params;
+  collectionId = !collectionId ? match.params.collectionId : collectionId;
   const collection = collectionsData.find(({ id }) => id === collectionId);
 
   if (collectionId === "s21-music") {

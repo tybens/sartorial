@@ -52,7 +52,6 @@ const Home = ({ navColors, onSetNavColors }) => {
 
   return (
     <>  
-      <Typography variant="h4" color="initial" gutterBottom>new collection, see shop</Typography>
       <video width="100%" height="100%" autoPlay muted loop playsInline>
         <source src="https://storage.googleapis.com/henry_vid_fw21_2/fwclassics2-16by9.mov" type="video/mp4" />
       </video>

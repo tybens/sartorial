@@ -4,7 +4,7 @@ import { Grid, Typography } from "@material-ui/core";
 import BlogCard from "./BlogCard";
 import useStyles from "./styles.js";
 
-const Blog = ({ postsData, type = "blog" }) => {
+const Blog = ({ postsData, type = "mission" }) => {
   const classes = useStyles();
 
   const posts = postsData.map((data, index) => (
@@ -31,8 +31,8 @@ const Blog = ({ postsData, type = "blog" }) => {
       className={classes.wrapper}
     >
       <Grid item xs={12}>
-        <Typography variant="h1" color="primary" id="media">
-          {type === "blog" ? "Mission" : "Media"}
+        <Typography variant="h1" color="primary" id="content">
+          {type === "mission" ? "Mission" : "Content"}
         </Typography>
       </Grid>
       {posts}

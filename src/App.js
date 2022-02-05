@@ -264,7 +264,7 @@ const App = () => {
                               </PageWrapper>
                             </Route>
                             <Route path="/philosophy">
-                              <PageWrapper title="Blog">
+                              <PageWrapper title="Mission">
                                 <Philosophy
                                   navColors={navColors}
                                   onSetNavColors={(colors) =>
@@ -273,14 +273,14 @@ const App = () => {
                                 />
                               </PageWrapper>
                             </Route>
-                            <Route path="/blog">
+                            <Route path="/mission">
                               <PageWrapper title="Mission">
-                                <Blog type="blog"/>
+                                <Blog type="mission"/>
                               </PageWrapper>
                             </Route>
-                            <Route path="/media">
-                              <PageWrapper title="Media">
-                                <Blog type="media"/>
+                            <Route path="/content">
+                              <PageWrapper title="Content">
+                                <Blog type="content"/>
                               </PageWrapper>
                             </Route>
                             <Route path="/contact">

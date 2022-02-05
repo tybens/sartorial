@@ -76,7 +76,7 @@ const homelessness = {
         <ReactLink
           target="_blank"
           style={{ fontWeight: 700 }}
-          to="/blog/how-hsllc-works"
+          to="/mission/how-hsllc-works"
         >
           Let us show you how that works.
         </ReactLink>
@@ -159,7 +159,7 @@ const howhsllcworks = {
         Habitat Sartorial exists to help the homeless population in
         Indianapolis.&nbsp;
         <ReactLink
-          to="/blog/homelessness"
+          to="/mission/homelessness"
           style={{ fontWeight: 700 }}
           target="_blank"
         >

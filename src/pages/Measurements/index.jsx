@@ -91,7 +91,7 @@ const Measurements = () => {
           key={id}
           xs={12}
           className={classes.containerInner}
-          id="media"
+          id="content"
           container
         >
           <MyTypography bold={true} header={true}>
