@@ -322,7 +322,56 @@ const inmanInterview = {
   ),
 };
 
+
+const arboretumInterview = {
+  type: "video",
+  types: [
+    {
+      name: "Spring 2022",
+      bgColor: "#BADAEF",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "23 Feb 2022",
+  author: "Habitat Sartorial",
+  title: "Arboretum Collective: Spring 2021 Musician Interview",
+  text: "...",
+  id: "interview-arboretum",
+  video: "https://youtu.be/me-kcyWjZe0",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1645535436/2022/Interviews/Arboretum/arboretum_thumbnail_w7ihhy.png`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Find Arboretum on&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://l.instagram.com/?u=https%3A%2F%2Fdistrokid.com%2Fhyperfollow%2Farboretum1%2Farboretum-2&e=ATOSL-CDRy7RV1yO9jHOWJLdnDXLCLXzyJvqmMF8xiUnweXEljN1Q-bnYUPzIYKnWquIa2XkkxFA0wxu3YNDIME1Zx_F1k8B8rTT_g&s=1"
+      >
+        all platforms
+      </Link>
+      &nbsp;and on instagram&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.instagram.com/arboretumcollective/"
+      >
+      @arboretumcollective
+      </Link>
+      .
+    </Typography>
+  ),
+};
+
+
+
+
 const postsData = [
+  arboretumInterview,
   inmanInterview,
   fw21classics2Promo,
   fw21classics2Lookbook,

@@ -349,8 +349,37 @@ misc/Untitled.003_vqhucn.jpg`,
 
 
 
+const results2021 = {
+  type: "video",
+  types: [
+    {
+      name: "Pinned",
+      bgColor: "#fcb941",
+    },
+    {
+      name: "Results",
+      bgColor: "#006600",
+    },
+  ],
+  date: "23 Feb 2022",
+  author: "Habitat Sartorial",
+  title: "2021 Results - Thank you!",
+  text: "...",
+  id: "2021-results",
+  video: "https://youtu.be/ZaSu5F7mFag",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1645535939/misc/Screen_Shot_2022-02-22_at_08.12.14_r9b78b.png`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+     Thank you to every member of the Habitat Sartorial community. We already have working projects ready to bring you in 2022 - we consider 2021 a good start. Now we continue to build!
+    </Typography>
+  ),
+};
+
+
+
 const postsData = [
 
+  results2021,
   homelessness,
   howhsllcworks,
   edemHorizon,
