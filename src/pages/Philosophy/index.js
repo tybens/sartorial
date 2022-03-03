@@ -67,14 +67,7 @@ const Philosophy = ({ navColors, onSetNavColors }) => {
             className={classes.rotaryImg}
           />
         </Grid>
-        <Grid
-          item
-          xs={11}
-          md={5}
-          container
-          justify="center"
-          direction="row"
-        >
+        <Grid item xs={11} md={5} container justify="center" direction="row">
           <Grid item xs={12}>
             <Typography variant="h1" color="inherit" className={classes.header}>
               Free Gift With Donation?
@@ -89,10 +82,10 @@ const Philosophy = ({ navColors, onSetNavColors }) => {
               color="inherit"
             >
               We've replaced the 'free gift' often exchanged for a donation with
-              clothing, a basic need for everyone, and instead of trying to save
-              money and sending something cheap, we've spent almost all our time
-              finding the best printing method, fabrics, and sourcing/shipping
-              process.
+              durable, attractive clothing, a basic need for everyone, and
+              instead of trying to save money and selling something cheap, we
+              dedicated over a year to finding the softest, strongest fabrics,
+              and practicing the most precise printing methods available.
             </Typography>
           </Grid>
         </Grid>
@@ -126,12 +119,12 @@ const Philosophy = ({ navColors, onSetNavColors }) => {
         >
           <Grid item md={5} xs={11} justify="center" direction="row">
             <Typography variant="h6" color="inherit">
-              People often donate to a good cause, but don't get to interact
-              with the effect. Most of the time, individuals only donate once,
-              and donations feel like a subtraction from savings, not an
-              investment in the community. Donors need a tangible reminder of
-              their contribution to show them itspositive outcome, and to
-              encourage them to donate again.
+              Individuals often donate to a good cause, but don't get to
+              interact with the effect. Most of the time, people only donate
+              once, and end up feeling like their gift hasn't actually helped
+              anyone. We give you a tangible reminder of the good you've done
+              and show you the effects of your purchase right here on our
+              website.
             </Typography>
           </Grid>
           <Grid item xs={11} md={5} className={classes.imgWrapper}>
@@ -184,11 +177,12 @@ const Philosophy = ({ navColors, onSetNavColors }) => {
                 variant="h6"
                 color="inherit"
               >
-                We offer new styles and new releases of apparel to serve as our
-                request for more donations - allowing the customer's desire to
-                look and feel good to incentivize further donation. Every time
-                our customer makes a purchase with us, they know they’ve put
-                their money towards their own community.
+                Instead of sending letters to ask for money, we offer new styles
+                and new releases of apparel to serve as our request for more
+                donations - allowing your desire to look and feel good
+                incentivize further donation. Every time a customer makes a
+                purchase with us, they know they’ve put their money towards
+                their own community.
               </Typography>
             </Grid>
           </Grid>

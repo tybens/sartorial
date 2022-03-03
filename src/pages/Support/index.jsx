@@ -35,7 +35,7 @@ const Support = () => {
       header: "Shipping",
       text: [
         "All shipping is free.",
-        "Orders are printed on weekends and shipped via USPS First Class each Monday.",
+        "Orders are printed on weekends and shipped the first Monday of each month.",
       ],
     },
     {
