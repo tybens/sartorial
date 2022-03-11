@@ -17,10 +17,19 @@ const ArtistSample = ({ match }) => {
           alignItems="center"
           direction="column"
         >
+          <Grid item className={classes.intro}>
+            <Typography variant="body2" align="center">
+              Your future home - use this page to show Indianapolis your music
+              AND tell them who you are. Send an email to
+              payne@habitatsartorial.org with your social profiles and logo,
+              and we'll work with you to design, promote, and sell merch to your
+              listeners.
+            </Typography>
+          </Grid>
           <Grid item container className={classes.titleContainer}>
             <Grid item xs={12}>
               <Typography variant="h2" align="center">
-                Your Artist Name Here
+                Your Stage Name Here
               </Typography>
 
               <Typography variant="body1" align="center">

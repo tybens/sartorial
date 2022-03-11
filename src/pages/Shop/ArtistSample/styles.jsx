@@ -57,6 +57,10 @@ export default makeStyles((theme) => ({
     },
   },
 
+  intro: {
+    padding: "0 10vw",
+  },
+
   image: {
     position: "absolute",
     zIndex: "0",
