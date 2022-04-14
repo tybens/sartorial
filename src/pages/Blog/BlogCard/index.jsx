@@ -3,7 +3,7 @@ import useWindowSize from "hooks/useWindowSize";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-const BlogCard = ({ data, type}) => {
+const BlogCard = ({ data, type }) => {
   const { width } = useWindowSize();
   const [dynamicClassName, setDynamicClassName] = useState("-large");
 
@@ -19,7 +19,12 @@ const BlogCard = ({ data, type}) => {
     <div className={`blog-item${dynamicClassName}__container`}>
       <div className={`blog-item${dynamicClassName}__inner`}>
         <div className={`blog-item${dynamicClassName}__image-container`}>
-          <img src={data?.thumbnail} alt="thumbnail" width="100%" height="100%"/>
+          <img
+            src={data?.thumbnail}
+            alt="thumbnail"
+            width="100%"
+            height="100%"
+          />
         </div>
         <div className={`blog-item${dynamicClassName}__content`}>
           <div className={`blog-item${dynamicClassName}__type-container`}>
@@ -44,9 +49,20 @@ const BlogCard = ({ data, type}) => {
           </h2>
           <p className={`blog-item${dynamicClassName}__text`}>{data.text}</p>
           <div className={`blog-item${dynamicClassName}__read-more__container`}>
-            <Link to={`/${type}/${data.id}`} className="read-more">
-              {data.type === "article" ? "READ MORE" : "VIEW MORE"}
-            </Link>
+            {data.type === "link" ? (
+              <a
+                target="_blank"
+                href={data.link}
+                rel="noopener noreferrer"
+                className="read-more" 
+              >
+                READ MORE
+              </a>
+            ) : (
+              <Link to={`/${type}/${data.id}`} className="read-more">
+                {data.type === "article" ? "READ MORE" : "VIEW MORE"}
+              </Link>
+            )}
           </div>
         </div>
       </div>

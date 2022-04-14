@@ -279,11 +279,7 @@ const edemHorizon = {
   suffix: "",
 };
 
-
-
 // ar_5:6,c_fill,g_auto this works to make correct aspect ratio
-
-
 
 const logoHistory = {
   type: "carousel",
@@ -347,18 +343,12 @@ misc/Untitled.003_vqhucn.jpg`,
   ),
 };
 
-
-
 const results2021 = {
   type: "video",
   types: [
     {
-      name: "Pinned",
-      bgColor: "#fcb941",
-    },
-    {
       name: "Results",
-      bgColor: "#006600",
+      bgColor: "#ff3fff",
     },
   ],
   date: "23 Feb 2022",
@@ -370,20 +360,40 @@ const results2021 = {
   thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1645535939/misc/Screen_Shot_2022-02-22_at_08.12.14_r9b78b.png`,
   suffix: (
     <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
-     Thank you to every member of the Habitat Sartorial community. We already have working projects ready to bring you in 2022 - we consider 2021 a good start. Now we continue to build!
+      Thank you to every member of the Habitat Sartorial community. We already
+      have working projects ready to bring you in 2022 - we consider 2021 a good
+      start. Now we continue to build!
     </Typography>
   ),
 };
 
-
+const earthDay22 = {
+  type: "link",
+  types: [
+    {
+      name: "Pinned",
+      bgColor: "#fcb941",
+    },
+    {
+      name: "Earth Day",
+      bgColor: "#006600",
+    },
+  ],
+  link: "https://www.linkedin.com/pulse/ethics-commerce-habitatsartorial/?trackingId=COeIlmLApfkbO6agImO8tg%3D%3D",
+  date: "14 Apr 2022",
+  author: "Edem Kabasa",
+  title: "For our City, for our Planet: Earth Day 2022 at Habitat Sartorial",
+  text: "It is estimated that over eighty percent of clothing sold globally is produced in “sweatshops” with overworked...",
+  id: "",
+  thumbnail: "https://media-exp1.licdn.com/dms/image/C4D12AQGBZLD3j_7WWQ/article-cover_image-shrink_600_2000/0/1649938847720?e=2147483647&v=beta&t=9d8efBap6kW67jCItP8auBBCD4NheNlQsmXO4a9bTu0",
+};
 
 const postsData = [
-
-  results2021,
+  earthDay22,
   homelessness,
+  results2021,
   howhsllcworks,
   edemHorizon,
   logoHistory,
-  
 ];
 export default postsData;
