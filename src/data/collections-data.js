@@ -217,12 +217,13 @@ const collectionRelease2 = [
         id: 8,
         price: 25,
         type: "LS Tee",
-        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767813/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3684_nxc4wf.jpg`,
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3351_uvt1ya.jpg`,
         images: [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767813/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3684_nxc4wf.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767812/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3687_vpytm4.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770459/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1712_ipi80l.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770463/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1714_gbmwu7.jpg",
+            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3351_uvt1ya.jpg",
         ],
         description: [
           '"HA317AT" Logo at top of chest',
@@ -241,11 +242,12 @@ const collectionRelease2 = [
         id: 9,
         price: 23,
         type: "Cropped Tee",
-        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767814/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3714_ux6t2t.jpg`,
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638227215/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3338_wv2ild.jpg`,
         images: [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767814/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3714_2_pgysw7.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767816/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3716_euxfhm.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770462/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1715_fxesg1.jpg",
+            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227215/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3338_wv2ild.jpg",
         ],
         description: [
           '"HA317AT" Logo at top of chest',
@@ -265,11 +267,12 @@ const collectionRelease2 = [
         id: 10,
         price: 25,
         type: "Cropped LS Tee",
-        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767817/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3718_ok66qe.jpg`,
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3465_egi2be.jpg`,
         images: [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767817/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3718_ok66qe.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3720_ab6e0p.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770462/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1715_fxesg1.jpg",
+            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3465_egi2be.jpg",
         ],
         description: [
           '"HA317AT" Logo at top of chest',
@@ -291,7 +294,9 @@ const collectionRelease2 = [
         type: "Hoodie",
         img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3728_e6vnbf.jpg`,
         images: [
-          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3728_e6vnbf.jpg",
+         
+           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3536_w2b0qs.jpg",
+            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3728_e6vnbf.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767812/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3707_lalcsb.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770461/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1702_peae5v.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770463/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1701_uqxg3n.jpg",
@@ -312,12 +317,13 @@ const collectionRelease2 = [
         id: 12,
         price: 42,
         type: "Crewneck",
-        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767812/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3710_rniwzr.jpg`,
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3336_psoxgq.jpg`,
         images: [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767812/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3710_rniwzr.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3730_mo1v6v.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770460/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1704_mnsstz.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770460/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1700_ozgchc.jpg",
+            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3336_psoxgq.jpg",
         ],
         description: [
           'Combo "100" and "HA317AT" Logo at center of chest',
@@ -334,12 +340,13 @@ const collectionRelease2 = [
         id: 13,
         price: 37,
         type: "Sweatshorts",
-        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767815/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3698_twul1x.jpg`,
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3536_w2b0qs.jpg`,
         images: [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767815/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3698_twul1x.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767817/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3726_d9ms5e.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770464/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1705_fwzjic.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770462/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1708_qhcr79.jpg",
+            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3536_w2b0qs.jpg",
         ],
         description: [
           "Back by popular demand, with new colors",
@@ -360,12 +367,14 @@ const collectionRelease2 = [
         id: 14,
         price:42,
         type: "Sweatpants",
-        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767816/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3688_kj1jza.jpg`,
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638227218/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3363_sgf1uu.jpg`,
         images: [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3722_g2b6ld.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767816/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3688_kj1jza.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770456/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1709_x61qzs.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770459/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1710_ltzrmk.jpg",
+            
+            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227218/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3363_sgf1uu.jpg",
         ],
         description: [
           'Rotary logo on outside of left leg',
