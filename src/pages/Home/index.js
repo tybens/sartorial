@@ -53,7 +53,7 @@ const Home = ({ navColors, onSetNavColors }) => {
   return (
     <>  
       <video width="100%" height="100%" autoPlay muted loop playsInline>
-        <source src="https://storage.googleapis.com/henry_vid_fw21_2/fwclassics2-16by9.mov" type="video/mp4" />
+        <source src="https://storage.googleapis.com/resultsvid2021/hsllc-2021-recap.mov" type="video/mp4" />
       </video>
       <h1 className={classes.firstBlock}>
         <Grid
