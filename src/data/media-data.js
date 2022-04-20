@@ -6,6 +6,68 @@ import {
 const thumbnailImageManip = "w_1000,h_1000,q_auto:best,c_fill";
 const lookbookImageManip = "q_auto:best,c_fill,g_auto";
 
+const earthday22Lookbook = {
+  type: "lookbook",
+  types: [
+    {
+      name: "Earth Day",
+      bgColor: "#daa520",
+    },
+    {
+      name: "Lookbook",
+      bgColor: "#66cccc",
+    },
+  ],
+  date: "20 Apr 2022",
+  author: "Habitat Sartorial",
+  title: "Lookbook: Earth Day 2022",
+  text: "...",
+  id: "earthday-22-lookbook",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1650418843/2022/Earth%20Day/Lookbook/DSC09921_bh7spy.jpg`,
+  images: [
+   
+       `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1650418843/2022/Earth%20Day/Lookbook/DSC09921_bh7spy.jpg`,
+      `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1650418831/2022/Earth%20Day/Lookbook/DSC00254_ihzjjh.jpg`,
+      `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1650418849/2022/Earth%20Day/Lookbook/DSC00301_xqptwh.jpg`,
+      `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1650418828/2022/Earth%20Day/Lookbook/DSC00018_flzpq5.jpg`,
+       `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1650418836/2022/Earth%20Day/Lookbook/DSC00555_pmn7x0.jpg`,
+      `https://res.cloudinary.com/habitatsartorial/image/upload/${lookbookImageManip}/v1650418832/2022/Earth%20Day/Lookbook/DSC00498_e1tadb.jpg`,
+       `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418843/2022/Earth%20Day/Lookbook/DSC00126_n6t7db.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418829/2022/Earth%20Day/Lookbook/DSC00058_i6xtci.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418849/2022/Earth%20Day/Lookbook/DSC00039_gcmgxq.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418842/2022/Earth%20Day/Lookbook/DSC09970_vtjhqo.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418831/2022/Earth%20Day/Lookbook/DSC00243_xi9eyp.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418833/2022/Earth%20Day/Lookbook/DSC00486_rawc86.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418847/2022/Earth%20Day/Lookbook/DSC00538_r1pv22.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418832/2022/Earth%20Day/Lookbook/DSC00198_zgmdv4.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1650418845/2022/Earth%20Day/Lookbook/DSC09944_yj8ztl.jpg`,
+    
+  ],
+  img1Src:
+    "https://res.cloudinary.com/habitatsartorial/image/upload/v1650418843/2022/Earth%20Day/Lookbook/DSC09921_bh7spy.jpg",
+    
+   suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Taylor Serbin, Stephen C. Smith, and Daniel Toluhi for Habitat Sartorial. Photography by KJ Bail. Find his instagram at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://instagram.com/kj_bail_photography?utm_medium=copy_link"
+      >
+        @kj_bail_photography
+      </Link>
+      .
+    </Typography>
+  ),
+};
+
+
+
+
+
+
+
 const fw21classics2Promo = {
     type: "video",
   types: [
@@ -371,6 +433,7 @@ const arboretumInterview = {
 
 
 const postsData = [
+  earthday22Lookbook,
   arboretumInterview,
   inmanInterview,
   fw21classics2Promo,
@@ -380,6 +443,5 @@ const postsData = [
   conradInterview,
   musicVideo,
   musicLookbook,
-    
 ];
 export default postsData;
