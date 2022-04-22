@@ -104,7 +104,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
               gutterBottom
               key={id}
             >
-              {text}
+              {text !== "" ? text : <br />}
             </Typography>
           ))}
         </Grid>

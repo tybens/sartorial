@@ -1,10 +1,3 @@
-import {
-  // steelyeyed,
-  // payne_tyler,
-  // baguette,
-  // cropped_ty,
-} from "../assets/products";
-
 const productsImageManip = "q_auto:best";
 
 const collectionRelease1 = [
@@ -183,6 +176,96 @@ const collectionRelease1 = [
 
 const collectionRelease2 = [
   {
+    id: "earth-day-22",
+    name: "Earth Day 2022",
+    img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1650418843/2022/Earth%20Day/Lookbook/DSC09921_bh7spy.jpg",
+    description: "Description 1",
+    altLink: "/content/earthday-22-lookbook",
+    products: [
+      {
+        id: 15,
+        price: 33,
+        type: "Tee",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1650418831/2022/Earth%20Day/Lookbook/DSC00243_xi9eyp.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650418831/2022/Earth%20Day/Lookbook/DSC00243_xi9eyp.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422875/2022/Earth%20Day/Product%20Shots/DSC00268_pbfzth.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422875/2022/Earth%20Day/Product%20Shots/DSC00267_sux8y4.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422876/2022/Earth%20Day/Product%20Shots/DSC00283_t6i7wx.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422875/2022/Earth%20Day/Product%20Shots/DSC00286_y41hmi.jpg",
+        ],
+        description: [
+          'Mixed Paint "HA317AT" Logo at center of chest',
+          'Watercolor "For our city, for our Planet" Logo across back',
+          "100% 6 oz American grown SUPIMA cotton",
+          "Preshrunk, order to size",
+          "Color: Natural",
+          "",
+          "This product is painted in watercolor by hand, and each piece is one-of-one with slight variations.",
+          "This product is certified 100% organic by the Global Organic Textile Standard, license no. USB TEX 4248.",
+          "",
+          "Profits from sales of this tee will be donated to Horizon House Indy.",
+        ],
+        name: "Earth Day Tee",
+        disabled: false,
+      },
+
+      {
+        id: 16,
+        price: 37,
+        type: "LS Tee",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1650418849/2022/Earth%20Day/Lookbook/DSC00301_xqptwh.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650418849/2022/Earth%20Day/Lookbook/DSC00301_xqptwh.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422880/2022/Earth%20Day/Product%20Shots/DSC00275_gtgd3a.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422875/2022/Earth%20Day/Product%20Shots/DSC00276_ou12mu.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422880/2022/Earth%20Day/Product%20Shots/DSC00272_imbkcj.jpg",
+        ],
+        description: [
+          'Mixed Paint "HA317AT" Logo at center of chest',
+          'Watercolor "For our city, for our Planet" Logo across back',
+          "100% 6 oz American grown SUPIMA cotton",
+          "Preshrunk, order to size",
+          "Color: Natural",
+          "",
+          "This product is painted in watercolor by hand, and each piece is one-of-one with slight variations.",
+          "This product is certified 100% organic by the Global Organic Textile Standard, license no. USB TEX 4248.",
+          "",
+          "Profits from sales of this tee will be donated to Horizon House Indy.",
+        ],
+        name: "Earth Day LS Tee",
+        disabled: false,
+      },
+
+      {
+        id: 17,
+        price: 47,
+        type: "Crewneck Sweatshirt",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1650418836/2022/Earth%20Day/Lookbook/DSC00555_pmn7x0.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650418836/2022/Earth%20Day/Lookbook/DSC00555_pmn7x0.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422880/2022/Earth%20Day/Product%20Shots/DSC00296_ndmos2.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422875/2022/Earth%20Day/Product%20Shots/DSC00290_xw9pje.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1650422880/2022/Earth%20Day/Product%20Shots/DSC00298_os4ebo.jpg",
+        ],
+        description: [
+          'Mixed Paint "HA317AT" Logo at center of chest',
+          'Watercolor "For our city, for our Planet" Logo across back',
+          "100% 400gsm heavyweight cotton",
+          "Preshrunk, order to size",
+          "Color: Natural",
+          "",
+          "This product is painted in watercolor by hand, and each piece is one-of-one with slight variations.",
+          "This product is certified 100% organic by the Global Organic Textile Standard, license no. USB TEX 4248.",
+          "",
+          "Profits from sales of this sweatshirt will be donated to Horizon House Indy.",
+        ],
+        name: "Earth Day Sweatshirt",
+        disabled: false,
+      },
+    ],
+  },
+  {
     id: "fw21-classics-2",
     name: "Fall/Winter 2021 Classics 2",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/c_fit,g_auto:faces/v1638227214/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3383_ztfzbc.jpg",
@@ -223,7 +306,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767812/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3687_vpytm4.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770459/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1712_ipi80l.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770463/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1714_gbmwu7.jpg",
-            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3351_uvt1ya.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3351_uvt1ya.jpg",
         ],
         description: [
           '"HA317AT" Logo at top of chest',
@@ -247,7 +330,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767814/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3714_2_pgysw7.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767816/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3716_euxfhm.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770462/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1715_fxesg1.jpg",
-            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227215/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3338_wv2ild.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227215/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3338_wv2ild.jpg",
         ],
         description: [
           '"HA317AT" Logo at top of chest',
@@ -272,7 +355,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767817/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3718_ok66qe.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3720_ab6e0p.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770462/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1715_fxesg1.jpg",
-            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3465_egi2be.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3465_egi2be.jpg",
         ],
         description: [
           '"HA317AT" Logo at top of chest',
@@ -294,15 +377,14 @@ const collectionRelease2 = [
         type: "Hoodie",
         img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3728_e6vnbf.jpg`,
         images: [
-         
-           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3536_w2b0qs.jpg",
-            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3728_e6vnbf.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3536_w2b0qs.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3728_e6vnbf.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767812/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3707_lalcsb.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770461/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1702_peae5v.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770463/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1701_uqxg3n.jpg",
         ],
         description: [
-         '"HA317AT" Logo at center of chest',
+          '"HA317AT" Logo at center of chest',
           "8.5 oz. 80/20 cotton poly blend",
           "Metal Eyelets, Drawstring, Front Pocket",
           "Color: Camel",
@@ -323,7 +405,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767818/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3730_mo1v6v.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770460/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1704_mnsstz.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770460/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1700_ozgchc.jpg",
-            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3336_psoxgq.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227216/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3336_psoxgq.jpg",
         ],
         description: [
           'Combo "100" and "HA317AT" Logo at center of chest',
@@ -332,7 +414,7 @@ const collectionRelease2 = [
           "",
           "All profits from sales of this sweatshirt will be donated to Horizon House Indy.",
         ],
-        name: 'Combo Crewneck Sweatshirt',
+        name: "Combo Crewneck Sweatshirt",
         disabled: false,
       },
 
@@ -346,7 +428,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767817/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3726_d9ms5e.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770464/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1705_fwzjic.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770462/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1708_qhcr79.jpg",
-            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3536_w2b0qs.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227219/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3536_w2b0qs.jpg",
         ],
         description: [
           "Back by popular demand, with new colors",
@@ -361,11 +443,11 @@ const collectionRelease2 = [
         ],
         name: '"HA317AT" Sweatshorts',
         disabled: false,
-       },
-        
+      },
+
       {
         id: 14,
-        price:42,
+        price: 42,
         type: "Sweatpants",
         img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1638227218/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3363_sgf1uu.jpg`,
         images: [
@@ -373,11 +455,11 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638767816/Fall%20Winter%202020%20Classics%202%20Product%20Photos/IMG_3688_kj1jza.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770456/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1709_x61qzs.jpg",
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1638770459/Fall%20Winter%202020%20Classics%202%20Product%20Photos/Closeups/IMG_1710_ltzrmk.jpg",
-            
-            "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227218/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3363_sgf1uu.jpg",
+
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1638227218/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3363_sgf1uu.jpg",
         ],
         description: [
-          'Rotary logo on outside of left leg',
+          "Rotary logo on outside of left leg",
           "8.5 oz. 80/20 cotton poly blend",
           "Elastic waistband with drawcord",
           "Tapered fit with cuffed ankles",
@@ -386,13 +468,13 @@ const collectionRelease2 = [
           "",
           "All profits from sales of these sweatpants will be donated to Horizon House Indy.",
         ],
-        name: 'Rotary Sweatpants',
+        name: "Rotary Sweatpants",
         disabled: false,
       },
     ],
-  }
+  },
 ];
 
-collectionRelease2.push(...collectionRelease1)
+collectionRelease2.push(...collectionRelease1);
 
 export default collectionRelease2;
