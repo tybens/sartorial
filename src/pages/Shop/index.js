@@ -4,7 +4,7 @@ import Cart from "./Cart/Cart";
 import Checkout from "./CheckoutForm/Checkout/Checkout";
 import CollectionsRouter from "./Collections/CollectionsRouter";
 import collectionsData from "data/collections-data";
-import ArtistSample from "./ArtistSample";
+import ArtistMerch from "./ArtistMerch";
 
 const Shop = ({
   cart,
@@ -57,8 +57,8 @@ const Shop = ({
             onAddToCart={handleAddToCart}
           />
         </Route>
-        <Route path={`${match.path}/artist-collection-sample`}>
-            <ArtistSample />
+        <Route path={`${match.path}/artist/:artistId`}>
+            <ArtistMerch onAddToCart={handleAddToCart} />
         </Route>
       </Switch>
     </div>

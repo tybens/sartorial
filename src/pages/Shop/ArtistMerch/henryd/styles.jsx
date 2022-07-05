@@ -28,6 +28,11 @@ export default makeStyles((theme) => ({
 
   subTitle: {
     fontWeight: "bold",
+    marginBottom: "20px"
+  },
+
+  description: {
+    margin: "calc(10% + 20px)",
   },
 
   artistPhoto: {
@@ -35,6 +40,7 @@ export default makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundImage: "url('https://res.cloudinary.com/habitatsartorial/image/upload/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg')",
     backgroundSize: "contain",
+    minHeight: "calc(20vh + 8rem)",
   },
 
   productsLink: {
@@ -68,6 +74,7 @@ export default makeStyles((theme) => ({
 
   trioContainer: {
     minHeight: "25vh",
+    marginTop: "calc(2vw + 20px)"
   },
 
   productsContainer: {
