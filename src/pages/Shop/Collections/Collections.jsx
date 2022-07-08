@@ -8,7 +8,7 @@ import HenryVid from "components/HenryVid";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = ["Earth Day 2022", "Fall/Winter 2021 Classics 2"];
+  const newestCollectionName = ["Earth Day 2022", "Fall/Winter 2021 Classics 2", "Henryd"];
   const showCollections = false;
 
   return (
@@ -68,12 +68,14 @@ const Collections = ({ collectionsData, url }) => {
                         color="inherit"
                         className={classes.landingName}
                       >
-                        {name}
+                        <span style={{ "-webkit-text-stroke": name === "Henryd" ? "1px black" : "" }}>
+                          {name}
+                        </span>
                       </Typography>
                       <Link
                         to={`${url}/${id}`}
                         className={classes.landingSubName}
-                        // TODO: onHover={scale(1.5)}
+                      // TODO: onHover={scale(1.5)}
                       >
                         browse
                       </Link>
@@ -82,11 +84,13 @@ const Collections = ({ collectionsData, url }) => {
                 )
               );
             })}
-            <Grid item xs={12} style={{marginTop: "5vw"}}>
-              <Typography gutterBottom variant="h2" color="initial" style={{width: "100%"}}>
-                past collections:
-              </Typography>
-            </Grid>
+            {(collectionsData.length > 2) && (
+              <Grid item xs={12} style={{ marginTop: "5vw" }}>
+                <Typography gutterBottom variant="h2" color="initial" style={{ width: "100%" }}>
+                  past collections:
+                </Typography>
+              </Grid>
+            )}
             {collectionsData.map(({ id, altLink, name, img }, index) => {
               return (
                 !newestCollectionName.includes(name) && (

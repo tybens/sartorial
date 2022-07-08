@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import Checkout from "./CheckoutForm/Checkout/Checkout";
+import Collections from "./Collections/Collections";
 import CollectionsRouter from "./Collections/CollectionsRouter";
 import collectionsData from "data/collections-data";
+import artistCollectionData from "data/artist-collection-data";
 import ArtistMerch from "./ArtistMerch";
 
 const Shop = ({
@@ -58,7 +60,10 @@ const Shop = ({
           />
         </Route>
         <Route path={`${match.path}/artist/:artistId`}>
-            <ArtistMerch onAddToCart={handleAddToCart} />
+          <ArtistMerch onAddToCart={handleAddToCart} />
+        </Route>
+        <Route path={`${match.path}/artist`}>
+          <Collections url={`${match.path}/artist`} collectionsData={artistCollectionData} />
         </Route>
       </Switch>
     </div>
