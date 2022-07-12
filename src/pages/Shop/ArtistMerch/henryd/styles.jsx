@@ -38,7 +38,7 @@ export default makeStyles((theme) => ({
   artistPhoto: {
     padding: "10px",
     backgroundPosition: "center",
-    backgroundImage: "url('https://res.cloudinary.com/habitatsartorial/image/upload/v1629326307/Fall%20Winter%202021%20Classics%20Product%20Shots/6%20-%20SP/DSC08706_2_qngolt.jpg')",
+    backgroundImage: "url('https://res.cloudinary.com/habitatsartorial/image/upload/v1657591105/2022/Contracts/Henryd/Screen_Shot_2022-07-11_at_18.57.54_afvfik.png')",
     backgroundSize: "contain",
     minHeight: "calc(20vh + 8rem)",
   },
@@ -54,7 +54,7 @@ export default makeStyles((theme) => ({
     margin: "10vh 0",
     minWidth: "100px",
     backgroundImage:
-      "url('https://res.cloudinary.com/habitatsartorial/image/upload/v1629430012/Summer%202021%20Music%20Collection/thumb_notext_2_wc7zfz.png')",
+      "url('https://res.cloudinary.com/habitatsartorial/image/upload/v1657588036/2022/Contracts/Henryd/Screen_Shot_2022-07-11_at_18.06.07_ytuwnq.png')",
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",

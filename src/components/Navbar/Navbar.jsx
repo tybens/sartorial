@@ -6,7 +6,6 @@ import { Link, NavLink } from "react-router-dom";
 import useStyles from "./styles";
 
 const routes = [
-  { to: "/", label: "Home" },
   { to: "/content", label: "Content" },
   { to: "/mission", label: "Mission" },
   { to: "/shop/artist", label: "Artists"},

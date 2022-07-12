@@ -85,7 +85,7 @@ const HenryD = ({ match, onAddToCart }) => {
                   color="inherit"
                   className={classes.description}
                 >
-                  Hi I'm Henry and I'm a 21 year old musician from Zionsville. <br />I've been making music since early middle school and I recently started working as a data analyst for White Lodging. I love writing songs, listening to music, and going on late night drives with friends. Zionsville is a huge part of who I am, so I'm always looking for ways to give back to the area I'm from. Shoutout to the guys at habitat sartorial for shining some light on the 317 and making a difference in the community.
+                  Hi I'm Henry and I'm a 21 year old musician from Zionsville. <br />I've been making music since early middle school and I recently started working as a data analyst for White Lodging. I love writing songs, listening to music, and going on late night drives with friends. Zionsville is a huge part of who I am, so I'm always looking for ways to give back to the area I'm from. Shoutout to the guys at Habitat Sartorial for shining some light on the 317 and making a difference in the community.
                 </Typography>
               </Grid>
               <Grid
