@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Typography, TextField, Grid, Button } from "@material-ui/core";
 import emailRegex from "regex/emailRegex";
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import useStyles from "./styles";
 
 const DonationForm = () => {
@@ -34,8 +34,6 @@ const DonationForm = () => {
     }
 
   }, [email, amount]);
-
-  const methods = useForm();
 
   const handleBlur = () => {
     if (amount && amount <= 0) {
