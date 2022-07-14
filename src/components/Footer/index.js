@@ -15,6 +15,7 @@ import useStyles from "./styles";
 
 const Footer = (props) => {
   const classes = useStyles();
+  let year = new Date().getFullYear();
 
   const followButtons = [
     {
@@ -73,7 +74,7 @@ const Footer = (props) => {
       <Grid item className={classes.copyrightText}>
         <Typography variant={"body2"}>
           <span className={classes.copyrightText}>
-            © Copyright 2021 Habitat Sartorial LLC. All rights reserved.
+            © Copyright {year} Habitat Sartorial Inc. All rights reserved.
           </span>
         </Typography>
       </Grid>
