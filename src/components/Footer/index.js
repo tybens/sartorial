@@ -169,6 +169,13 @@ const Footer = (props) => {
               </Link>
             </Grid>
             <Grid item>
+              <Link to="/donate" className={classes.linkStyle}>
+                <Typography variant={"body2"} className={classes.subLinks}>
+                  Donate
+                </Typography>
+              </Link>
+            </Grid>
+            <Grid item>
               <Link to="/contact" className={classes.linkStyle}>
                 <Typography variant={"body2"} className={classes.subLinks}>
                   Contact

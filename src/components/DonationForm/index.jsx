@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Typography, TextField, Grid, Button } from "@material-ui/core";
 import emailRegex from "regex/emailRegex";
-import { useForm } from "react-hook-form";
 import useStyles from "./styles";
 
 const DonationForm = () => {
