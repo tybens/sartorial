@@ -13,6 +13,7 @@ import {
   BusinessPlan,
   Philosophy,
   ContactUs,
+  Donate,
   Blog,
   Support,
   Measurements,
@@ -273,6 +274,16 @@ const App = () => {
                                 />
                               </PageWrapper>
                             </Route>
+                            <Route path="/donate">
+                              <PageWrapper title="Mission">
+                                <Donate
+                                  navColors={navColors}
+                                  onSetNavColors={(colors) =>
+                                    setNavColors(colors)
+                                  }
+                                />
+                              </PageWrapper>
+                            </Route>
                             <Route path="/mission">
                               <PageWrapper title="Mission">
                                 <Blog type="mission"/>
@@ -298,6 +309,18 @@ const App = () => {
                                 <Measurements />
                               </PageWrapper>
                             </Route>
+                            <Route
+                              path="/tickets"
+                              component={() => {
+                                var link = document.createElement("a");
+                                link.href =
+                                  "https://hifiindy.com/";
+                                document.body.appendChild(link);
+
+                                link.click();
+                                return null;
+                              }}
+                            />
                             <Route
                               path="/linkedin"
                               component={() => {
