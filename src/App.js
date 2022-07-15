@@ -282,17 +282,21 @@ const App = () => {
                                     setNavColors(colors)
                                   }
                                   handleAddToCart={handleAddToCart}
+                                  cart={cart}
+                                  order={order}
+                                  handleCaptureCheckout={handleCaptureCheckout}
+                                  totalItems={totalItems}
                                 />
                               </PageWrapper>
                             </Route>
                             <Route path="/mission">
                               <PageWrapper title="Mission">
-                                <Blog type="mission"/>
+                                <Blog type="mission" />
                               </PageWrapper>
                             </Route>
                             <Route path="/content">
                               <PageWrapper title="Content">
-                                <Blog type="content"/>
+                                <Blog type="content" />
                               </PageWrapper>
                             </Route>
                             <Route path="/contact">

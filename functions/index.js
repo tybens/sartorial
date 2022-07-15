@@ -25,15 +25,39 @@ const db = admin.firestore();
 // connect to the stripe server
 const stripe = require("stripe")(functions.config().stripe.secret_key);
 
-function calculateOrderAmount(obj) {
+function calculateOrderAmountWithTax(obj) {
   var sum = 0;
+  const taxes = 1.07;
   for (var el in obj) {
     if (
       obj.hasOwnProperty(el) &&
       obj[el].hasOwnProperty("quantity") &&
       obj[el].hasOwnProperty("price")
     ) {
-      sum += parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
+      let thisSum = parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
+      if (
+        obj[el].hasOwnProperty("data") &&
+        obj[el].data.hasOwnProperty("collection") &&
+        obj[el].data.collection !== "donation"
+      ) {
+        sum += thisSum * taxes;
+      } else {
+        sum += thisSum;
+      }
+    }
+  }
+  return sum;
+}
+
+function calculateOrderAmountNoTax(cart) {
+  var sum = 0;
+  for (var el in cart) {
+    if (
+      cart.hasOwnProperty(el) &&
+      cart[el].hasOwnProperty("quantity") &&
+      cart[el].hasOwnProperty("price")
+    ) {
+      sum += parseFloat(cart[el].quantity) * parseFloat(cart[el].price);
     }
   }
   return sum;
@@ -47,7 +71,8 @@ function sendReceipt(orderData) {
   let productDescriptions = [];
   let productImages = [];
   let taxes = 1.07;
-  let rawPrice = calculateOrderAmount(orderData.cart);
+  let rawPrice = calculateOrderAmountNoTax(orderData.cart);
+  let total = calculateOrderAmountWithTax(orderData.cart);
   let discountPrice = rawPrice * orderData.payment.discount;
 
   Object.values(orderData.cart).forEach((item) => {
@@ -71,8 +96,8 @@ function sendReceipt(orderData) {
           productDescriptions: productDescriptions,
           apparelPrice: rawPrice,
           discountString: discountPrice ? `-$${discountPrice} - discount` : "",
-          taxes: String(round(rawPrice * (taxes - 1))),
-          totalPrice: String(round((rawPrice - discountPrice) * taxes)),
+          taxes: String(round(total - rawPrice)),
+          totalPrice: String(round(totalPrice - discountPrice)),
           images: productImages,
         },
       },
@@ -147,14 +172,11 @@ exports.sendEmail = functions.https.onRequest(async (req, res) => {
 
 exports.paymentSecret = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
-    const taxes = 1.07;
-
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round(
-        calculateOrderAmount(req.body.cart) *
+        calculateOrderAmountWithTax(req.body.cart) *
           100 * // stripe units are in cents
-          (1 - req.body.discount) *
-          taxes
+          (1 - req.body.discount)
       ),
       currency: "usd",
     });
