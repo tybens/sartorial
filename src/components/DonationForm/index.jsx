@@ -103,7 +103,7 @@ const DonationForm = ({
       <>
         <div>
           <Typography variant="h5">
-            Thank you for your purchase, {order.customer.firstname}{" "}
+            Thank you for your donation, {order.customer.firstname}{" "}
             {order.customer.lastname}!
           </Typography>
           <Divider className={classes.divider} />
