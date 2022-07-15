@@ -13,11 +13,34 @@ import {
 import axios from "axios";
 import useStyles from "./styles";
 
-const Review = ({ cart, totalItems, discount, setDiscount }) => {
+const Review = ({ cart, totalItems, discount, setDiscount, donation }) => {
   const classes = useStyles();
-  const taxes = 1.07;
 
-  function calculateOrderAmount(cart) {
+  function calculateOrderAmountWithTax(obj) {
+    var sum = 0;
+    const taxes = 1.07;
+    for (var el in obj) {
+      if (
+        obj.hasOwnProperty(el) &&
+        obj[el].hasOwnProperty("quantity") &&
+        obj[el].hasOwnProperty("price")
+      ) {
+        let thisSum = parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
+        if (
+          obj[el].hasOwnProperty("data") &&
+          obj[el].data.hasOwnProperty("collection") &&
+          obj[el].data.collection !== "donation"
+        ) {
+          sum += thisSum * taxes;
+        } else {
+          sum += thisSum;
+        }
+      }
+    }
+    return sum;
+  }
+
+  function calculateOrderAmountNoTax(cart) {
     var sum = 0;
     for (var el in cart) {
       if (
@@ -64,25 +87,31 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
             </Typography>
           </ListItem>
         ))}
-        <Divider />
-        <DiscountForm discount={discount} setDiscount={setDiscount} />
-        <Divider style={{ margin: "0 0 10px 0" }} />
+        {!donation && (
+          <>
+            <Divider />
+            <DiscountForm discount={discount} setDiscount={setDiscount} />
+            <Divider style={{ margin: "0 0 10px 0" }} />
+          </>
+        )}
         <ListItem className={classes.listItem}>
           <ListItemText
             primary="Subtotal"
             primaryTypographyProps={{ variant: "inherit" }}
           />
           <Typography variant="subtitle1">
-            ${calculateOrderAmount(cart)}
+            ${round(calculateOrderAmountNoTax(cart))}
           </Typography>
         </ListItem>
-        <ListItem className={classes.listItem}>
-          <ListItemText
-            primary="Shipping"
-            primaryTypographyProps={{ variant: "inherit" }}
-          />
-          <Typography variant="subtitle1">Free!</Typography>
-        </ListItem>
+        {!donation && (
+          <ListItem className={classes.listItem}>
+            <ListItemText
+              primary="Shipping"
+              primaryTypographyProps={{ variant: "inherit" }}
+            />
+            <Typography variant="subtitle1">Free!</Typography>
+          </ListItem>
+        )}
         {discount !== 0 && (
           <ListItem className={classes.listItem} style={{ color: "green" }}>
             <ListItemText
@@ -90,19 +119,26 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
               primaryTypographyProps={{ variant: "inherit" }}
             />
             <Typography variant="subtitle1" color="inherit">
-              - ${round(discount * calculateOrderAmount(cart))}
+              - ${round(discount * calculateOrderAmountNoTax(cart))}
             </Typography>
           </ListItem>
         )}
-        <ListItem className={classes.listItem}>
-          <ListItemText
-            primary="Taxes"
-            primaryTypographyProps={{ variant: "inherit" }}
-          />
-          <Typography variant="subtitle1">
-            ${round((taxes - 1) * (1 - discount) * calculateOrderAmount(cart))}
-          </Typography>
-        </ListItem>
+        {!donation && (
+          <ListItem className={classes.listItem}>
+            <ListItemText
+              primary="Taxes"
+              primaryTypographyProps={{ variant: "inherit" }}
+            />
+            <Typography variant="subtitle1">
+              $
+              {round(
+                (1 - discount) *
+                  (calculateOrderAmountWithTax(cart) -
+                    calculateOrderAmountNoTax(cart))
+              )}
+            </Typography>
+          </ListItem>
+        )}
         <ListItem style={{ padding: "10px 0", fontWeight: 700 }}>
           <ListItemText
             primary="Total"
@@ -112,7 +148,7 @@ const Review = ({ cart, totalItems, discount, setDiscount }) => {
             }}
           />
           <Typography variant="subtitle1">
-            ${round(calculateOrderAmount(cart) * taxes * (1 - discount))}
+            ${round(calculateOrderAmountWithTax(cart) * (1 - discount))}
           </Typography>
         </ListItem>
       </List>
@@ -178,6 +214,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
             label="Gift card or discount code"
             value={couponCode}
             disabled={couponError || discount}
+            fullWidth
             onKeyPress={(ev) => {
               if (ev.key === "Enter") {
                 ev.preventDefault();

@@ -35,7 +35,7 @@ export default makeStyles((theme) => ({
 
   paragraph: {
     fontSize: "1.2rem",
-  }, 
+  },
 
   waveDown: {
     background: "#000",

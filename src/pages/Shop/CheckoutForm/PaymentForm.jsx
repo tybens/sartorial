@@ -26,6 +26,7 @@ const PaymentForm = ({
   shippingData,
   onCaptureCheckout,
   totalItems,
+  donation=false
 }) => {
   const [discount, setDiscount] = useState(0);
 
@@ -36,6 +37,7 @@ const PaymentForm = ({
         totalItems={totalItems}
         discount={discount}
         setDiscount={setDiscount}
+        donation={donation}
       />
       <Divider />
       <Typography variant="h6" gutterBottom style={{ margin: "20px 0" }}>
@@ -141,8 +143,6 @@ const StripePayment = ({
       setProcessing(false);
       setSucceeded(true);
 
-      // if payment succeed, log order to database for payne to fulfill
-      // TODO: confirm: true
       let orderData = {
         cart: cart,
         customer: {

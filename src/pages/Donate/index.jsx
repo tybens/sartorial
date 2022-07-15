@@ -7,7 +7,15 @@ import DonationForm from "components/DonationForm";
 import makeStyles from "./styles.js";
 import SunshineSvg from "components/SunshineSvg";
 
-const Donate = ({ navColors, onSetNavColors }) => {
+const Donate = ({
+  navColors,
+  onSetNavColors,
+  handleAddToCart,
+  cart,
+  totalItems,
+  order,
+  handleCaptureCheckout,
+}) => {
   const classes = makeStyles();
   const donateFormRef = useRef(null);
   const blackBgRef = useRef(null);
@@ -25,9 +33,9 @@ const Donate = ({ navColors, onSetNavColors }) => {
       blackBgRef.current &&
       window.scrollY > blackBgRef.current.offsetTop - 110 &&
       window.scrollY <
-      blackBgRef.current.getBoundingClientRect().height -
-      110 +
-      blackBgRef.current.offsetTop;
+        blackBgRef.current.getBoundingClientRect().height -
+          110 +
+          blackBgRef.current.offsetTop;
 
     const isBlackBg = "white" !== navColors.background;
     if (isScrolled && !isBlackBg) {
@@ -71,8 +79,13 @@ const Donate = ({ navColors, onSetNavColors }) => {
           />
         </Grid>
         <Grid item xs={11} md={6} container justify="center" direction="row">
-        <DonationForm />
-          
+          <DonationForm
+            onAddToCart={handleAddToCart}
+            cart={cart}
+            onCaptureCheckout={handleCaptureCheckout}
+            totalItems={totalItems}
+            order={order}
+          />
         </Grid>
         <Typography
           className={classNames(
@@ -102,9 +115,12 @@ const Donate = ({ navColors, onSetNavColors }) => {
           justify="space-around"
           direction="row"
         >
-          <Grid item md={5} xs={11} justify="center" direction="row">
+          <Grid item container md={5} xs={11} justify="center" direction="row">
             <Typography variant="h6" color="inherit">
-              We're officially 501(c)(3) certified. But what does that mean? It means that our founding documents, operations, and financial statements have been examined carefully and proven to be true to our mission: helping Indy's homeless, one garment at a time.
+              We're officially 501(c)(3) certified. But what does that mean? It
+              means that our founding documents, operations, and financial
+              statements have been examined carefully and proven to be true to
+              our mission: helping Indy's homeless, one garment at a time.
             </Typography>
           </Grid>
           <Grid item xs={11} md={5} className={classes.imgWrapper}>
@@ -157,7 +173,13 @@ const Donate = ({ navColors, onSetNavColors }) => {
                 variant="h6"
                 color="inherit"
               >
-                The people who believe in Habitat Sartorial have donated over 500 hours ($10,000 in wages) to bring this mission to life. We will also use contributions to compensate their future work coding, drawing, designing, writing, printing, and running the business. Every dollar contributed brings us closer to our goal: tangible, substantial donations to many Indianapolis charities every December. Thank you!
+                The people who believe in Habitat Sartorial have donated over
+                500 hours ($10,000 in wages) to bring this mission to life. We
+                will also use contributions to compensate their future work
+                coding, drawing, designing, writing, printing, and running the
+                business. Every dollar contributed brings us closer to our goal:
+                tangible, substantial donations to many Indianapolis charities
+                every December. Thank you!
               </Typography>
             </Grid>
           </Grid>
