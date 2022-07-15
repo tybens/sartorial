@@ -281,6 +281,7 @@ const App = () => {
                                   onSetNavColors={(colors) =>
                                     setNavColors(colors)
                                   }
+                                  handleAddToCart={handleAddToCart}
                                 />
                               </PageWrapper>
                             </Route>
@@ -314,7 +315,7 @@ const App = () => {
                               component={() => {
                                 var link = document.createElement("a");
                                 link.href =
-                                  "https://hifiindy.com/";
+                                  "https://www.seetickets.us/event/By-IndyForIndyConcertwHuckleberryFunkHI-FIAnnex/494377";
                                 document.body.appendChild(link);
 
                                 link.click();
