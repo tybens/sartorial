@@ -72,7 +72,7 @@ function sendReceipt(orderData) {
   let productImages = [];
   let taxes = 1.07;
   let rawPrice = calculateOrderAmountNoTax(orderData.cart);
-  let total = calculateOrderAmountWithTax(orderData.cart);
+  let totalPrice = calculateOrderAmountWithTax(orderData.cart);
   let discountPrice = rawPrice * orderData.payment.discount;
 
   Object.values(orderData.cart).forEach((item) => {
