@@ -16,14 +16,35 @@ export default makeStyles((theme) => ({
   contentWrap: {
     minHeight: "50vh",
   },
+  flyerText: {
+    fontSize: "1.1em",
+    marginBottom: "50px",
+    maxWidth: "625px",
+    margin: "0 10% 0 10%"
+  },
+  
+  concertText: {
+    margin: "50px 0 0 0 ",
+    fontStyle: "normal",
+  },
 
   gutterBottom: {
     paddingBottom: "70px",
+    fontWeight: "400px",
   },
   img: {
     marginBottom: "-10px",
     [theme.breakpoints.down("sm")]: {
       display: "none",
+    },
+  },
+  flyer: {
+    minWidth: 300,
+    maxWidth: 600,
+    transition: "transform 0.2s",
+    "&:hover": {
+      transform: "scale(1.05)",
+      cursor: "pointer",
     },
   },
   imgWrapper: {
