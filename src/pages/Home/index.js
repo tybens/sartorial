@@ -57,9 +57,6 @@ const Home = ({ history, navColors, onSetNavColors }) => {
 
   return (
     <>
-      {/* <video width="100%" height="100%" autoPlay muted loop playsInline>
-        <source src="/videos/recap.mp4" type="video/mp4" />
-      </video> */}
       <Grid item xs={12} className={classes.gutterBottom} container direction="column" alignItems="center">
         <h1 className={classes.concertText}>We're hosting a concert!</h1>
         <Typography variant="h6" color="inherit" className={classes.flyerText}>
@@ -75,6 +72,53 @@ const Home = ({ history, navColors, onSetNavColors }) => {
           onClick={handleClickFlyer}
         />
       </Grid>
+      <video width="100%" height="100%" autoPlay muted loop playsInline>
+        <source src="/videos/recap.mp4" type="video/mp4" />
+      </video>
+      <h1 className={classes.firstBlock}>
+          <Grid
+            container
+            direction="row"
+            justify="space-around"
+            className={classes.firstRow}
+          >
+            <Grid item sm xs={12}>
+              Handcrafted
+            </Grid>
+            <Grid item sm={5} xs={12}>
+              <span className="with--accent">
+                <ReactRotatingText
+                  items={[
+                    "clothing",
+                    "threads",
+                    "apparel",
+                    "dress",
+                    "fashion",
+                    "finery",
+                  ]}
+                  pause={2500}
+                />
+              </span>
+            </Grid>
+          </Grid>
+          <div>
+            to build <span className="with--accent">habitats</span>
+          </div>
+          <div>for those who</div>
+          <div className="with--accent">need it most</div>
+          <Typography
+            className={classNames(
+              "scroll-to",
+              "scroll-to-arrow",
+              "home-scroll-to"
+            )}
+            onClick={handleScrollClick}
+          >
+            <span className="scroll-arrow" />
+            <span className="scroll-line" />
+            Scroll
+          </Typography>
+        </h1>
       <Grid container justify="flex-start" direction="column">
         <Grid
           item
@@ -128,50 +172,6 @@ const Home = ({ history, navColors, onSetNavColors }) => {
           />
           <Grid item className={classes.waveDownColorCorrect} />
         </Grid>
-        <h1 className={classes.firstBlock}>
-          <Grid
-            container
-            direction="row"
-            justify="space-around"
-            className={classes.firstRow}
-          >
-            <Grid item sm xs={12}>
-              Handcrafted
-            </Grid>
-            <Grid item sm={5} xs={12}>
-              <span className="with--accent">
-                <ReactRotatingText
-                  items={[
-                    "clothing",
-                    "threads",
-                    "apparel",
-                    "dress",
-                    "fashion",
-                    "finery",
-                  ]}
-                  pause={2500}
-                />
-              </span>
-            </Grid>
-          </Grid>
-          <div>
-            to build <span className="with--accent">habitats</span>
-          </div>
-          <div>for those who</div>
-          <div className="with--accent">need it most</div>
-          <Typography
-            className={classNames(
-              "scroll-to",
-              "scroll-to-arrow",
-              "home-scroll-to"
-            )}
-            onClick={handleScrollClick}
-          >
-            <span className="scroll-arrow" />
-            <span className="scroll-line" />
-            Scroll
-          </Typography>
-        </h1>
         <Grid
           item
           xs={12}
