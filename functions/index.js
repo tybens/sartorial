@@ -233,7 +233,7 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
 // add coupon codes data to firestore
 exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
-    const multiUseCodes = ["EARLYBIRD", "AGIFTFORINDY", "IUPUIEXPO"];
+    const multiUseCodes = ["EARLYBIRD", "AGIFTFORINDY", "IUPUIEXPO", "followerdiscount"];
 
     console.log(req.body);
     var docRef = db
@@ -242,7 +242,8 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
         req.body.couponCode == "EARLYBIRD" ? "earlybird" : req.body.couponCode
       );
 
-    let maxUses = multiUseCodes.includes(req.body.couponCode) ? 30 : 1;
+    let maxUses = req.body.couponCode == "followerdiscount" ? 1000 : multiUseCodes.includes(req.body.couponCode) ? 30 : 1;
+
 
     docRef
       .get()
