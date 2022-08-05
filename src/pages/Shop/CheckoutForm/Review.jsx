@@ -213,7 +213,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
             variant="outlined"
             label="Gift card or discount code"
             value={couponCode}
-            disabled={couponError || discount}
+            disabled={discount}
             fullWidth
             onKeyPress={(ev) => {
               if (ev.key === "Enter") {
@@ -221,7 +221,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
               }
             }}
             inputProps={{ maxLength: 50 }}
-            onChange={(e) => setCouponCode(e.target.value)}
+            onChange={(e) => setCouponCode(e.target.value.replace(/\s+/g, ''))}
           />
         </Grid>
         <Grid item xs={3}>
@@ -229,7 +229,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
             variant="outlined"
             color="secondary"
             size="large"
-            disabled={!couponCode || couponError || discount}
+            disabled={!couponCode || discount}
             className={classes.couponButton}
             onClick={handleSubmit}
           >
