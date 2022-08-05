@@ -255,7 +255,7 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
           } else {
             res.json({ result: `success`, discount: doc.data().discount });
             // increment coupon uses because it worked
-            docRef.set({
+            docRef.update({
               uses: parseInt(doc.data().uses) + 1,
             });
           }
