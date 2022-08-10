@@ -1,4 +1,4 @@
-const productsImageManip = "q_auto:best";
+const productsImageManip = "f_auto,q_auto";
 
 const collectionRelease1 = [
   {

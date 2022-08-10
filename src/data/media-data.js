@@ -3,8 +3,8 @@ import {
   Link,
 } from "@material-ui/core";
 
-const thumbnailImageManip = "w_1000,h_1000,q_auto:best,c_fill";
-const lookbookImageManip = "q_auto:best,c_fill,g_auto";
+const thumbnailImageManip = "w_1000,h_1000,q_auto,c_fill";
+const lookbookImageManip = "q_auto,c_fill,g_auto";
 
 const earthday22Lookbook = {
   type: "lookbook",
