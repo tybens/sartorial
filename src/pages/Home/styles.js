@@ -20,12 +20,20 @@ export default makeStyles((theme) => ({
     fontSize: "1.1em",
     marginBottom: "50px",
     maxWidth: "625px",
-    margin: "0 10% 0 10%"
+    margin: "0 10% 0 10%",
   },
-  
+
   concertText: {
-    margin: "50px 0 0 0 ",
+    background: "#addbe6",
+    borderRadius: "10px",
+    padding: "10px",
+    margin: "50px 10% 0 10%",
     fontStyle: "normal",
+    transition: "transform 0.2s",
+    "&:hover": {
+      transform: "scale(1.05)",
+      cursor: "pointer",
+    },
   },
 
   gutterBottom: {
@@ -36,15 +44,6 @@ export default makeStyles((theme) => ({
     marginBottom: "-10px",
     [theme.breakpoints.down("sm")]: {
       display: "none",
-    },
-  },
-  flyer: {
-    minWidth: 300,
-    maxWidth: 600,
-    transition: "transform 0.2s",
-    "&:hover": {
-      transform: "scale(1.05)",
-      cursor: "pointer",
     },
   },
   imgWrapper: {

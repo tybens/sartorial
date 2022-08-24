@@ -44,8 +44,8 @@ const Home = ({ history, navColors, onSetNavColors }) => {
     }
   }
 
-  const handleClickFlyer = () => {
-    history.push(`/tickets`);
+  const handleClickHeader = () => {
+    history.push(`/content/bifi22-photos`);
   };
 
   const waveOptions = {
@@ -58,22 +58,10 @@ const Home = ({ history, navColors, onSetNavColors }) => {
   return (
     <>
       <Grid item xs={12} className={classes.gutterBottom} container direction="column" alignItems="center">
-        <h1 className={classes.concertText}>We're hosting a concert!</h1>
-        <Typography variant="h6" color="inherit" className={classes.flyerText}>
-          By Indy, For Indy; a summer concert brought to you by Habitat Sartorial comes this
-          August 4th. Tickets are available now. Click the flyer to purchase!
-        </Typography>
-        <img
-          className={classes.flyer}
-          src="https://res.cloudinary.com/do8jxdvtx/image/upload/v1658156249/hsllc/IMG_6722_jxuaj3.jpg"
-          width="50%"
-          alt="flyer"
-          height="100%"
-          onClick={handleClickFlyer}
-        />
+        <h2 onClick={handleClickHeader} className={classes.concertText}>Thanks for the support at the By Indy, For Indy 2022 concert!</h2>
       </Grid>
       <video width="100%" height="100%" autoPlay muted loop playsInline>
-        <source src="/videos/recap.mp4" type="video/mp4" />
+        <source src="/videos/hifi.m4v" type="video/mp4" />
       </video>
       <h1 className={classes.firstBlock}>
           <Grid

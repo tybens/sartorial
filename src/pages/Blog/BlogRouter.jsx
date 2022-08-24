@@ -4,10 +4,10 @@ import BlogReader from "./BlogReader";
 import Blog from "./index";
 
 import missionData from "data/mission-data";
-import mediaData from "data/media-data"
+import contentData from "data/content-data"
 
 const BlogRouter = ({ match, type="mission" }) => {
-  var postsData = (type === "mission") ? missionData : mediaData;
+  var postsData = (type === "mission") ? missionData : contentData;
 
   return (
     <Switch>
