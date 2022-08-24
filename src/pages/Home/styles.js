@@ -46,6 +46,15 @@ export default makeStyles((theme) => ({
       display: "none",
     },
   },
+  flyer: {
+    minWidth: 300,
+    maxWidth: 600,
+    transition: "transform 0.2s",
+    "&:hover": {
+      transform: "scale(1.05)",
+      cursor: "pointer",
+    },
+  },
   imgWrapper: {
     [theme.breakpoints.down("sm")]: {
       display: "none",
