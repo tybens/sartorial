@@ -61,7 +61,7 @@ const Home = ({ history, navColors, onSetNavColors }) => {
         <h2 onClick={handleClickHeader} className={classes.concertText}>Thanks for the support at the By Indy, For Indy 2022 concert!</h2>
       </Grid>
       <video width="100%" height="100%" autoPlay muted loop playsInline>
-        <source src="/videos/hifi.m4v" type="video/mp4" />
+        <source src="/videos/hifi.mp4" type="video/mp4" />
       </video>
       <h1 className={classes.firstBlock}>
           <Grid
