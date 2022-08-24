@@ -96,7 +96,7 @@ function sendReceipt(orderData) {
           productDescriptions: productDescriptions,
           apparelPrice: rawPrice,
           discountString: discountPrice ? `-$${discountPrice} - discount` : "",
-          taxes: String(round(total - rawPrice)),
+          taxes: String(round(totalPrice - rawPrice)),
           totalPrice: String(round(totalPrice - discountPrice)),
           images: productImages,
         },
@@ -233,7 +233,7 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
 // add coupon codes data to firestore
 exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
-    const multiUseCodes = ["EARLYBIRD", "AGIFTFORINDY", "IUPUIEXPO"];
+    const multiUseCodes = ["EARLYBIRD", "AGIFTFORINDY", "IUPUIEXPO", "followerdiscount", "customerservicehelp"];
 
     console.log(req.body);
     var docRef = db
@@ -242,19 +242,20 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
         req.body.couponCode == "EARLYBIRD" ? "earlybird" : req.body.couponCode
       );
 
-    let maxUses = multiUseCodes.includes(req.body.couponCode) ? 30 : 1;
+    let maxUses = req.body.couponCode == "followerdiscount" ? 1000 : multiUseCodes.includes(req.body.couponCode) ? 30 : 1;
+
 
     docRef
       .get()
       .then((doc) => {
         if (doc.exists) {
-          let uses = doc.data().uses;
+          let uses = doc.data().uses ? doc.data().uses : 0;
           if (uses >= maxUses) {
             res.json({ result: `too slow` });
           } else {
-            res.json({ result: `success`, discount: doc.data().discount });
+            res.json({ result: `success`, discount: doc.data().discount ? doc.data().discount : 0.1 });
             // increment coupon uses because it worked
-            docRef.set({
+            docRef.update({
               uses: parseInt(doc.data().uses) + 1,
             });
           }

@@ -1,8 +1,5 @@
 import { Grid, Typography } from "@material-ui/core";
-import artistCollectionData from "data/artist-collection-data";
-import Products from "../../Products/Products";
-import ProductPage from "../../Products/ProductPage";
-import { Switch, Route, withRouter, NavLink } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import Spotify from "components/Spotify";
 import useStyles from "./styles";
 
@@ -12,7 +9,6 @@ const HenryD = ({ match, onAddToCart }) => {
 
   return (
     <div>
-      <Switch>
         <Grid
           className={classes.container}
           container
@@ -30,19 +26,6 @@ const HenryD = ({ match, onAddToCart }) => {
               </Typography>
             </Grid>
           </Grid>
-          <Route path={`/shop/artist/:collectionId/products/:productId`}>
-            <ProductPage
-              onAddToCart={onAddToCart}
-              collectionsData={artistCollectionData}
-            />
-          </Route>
-          <Route exact path={`/shop/artist/henryd/products`}>
-            <Products
-              collectionsData={artistCollectionData}
-              collectionId="henryd"
-            />
-          </Route>
-          <Route exact path={`${match.path}`}>
             <Grid
               item
               container
@@ -101,9 +84,7 @@ const HenryD = ({ match, onAddToCart }) => {
                 <Spotify link="https://open.spotify.com/album/5zgjlEk9KEw43rdUhSg541?si=Kch6Oni5RfmCqiOv8yEqug" />
               </Grid>
             </Grid>
-          </Route>
         </Grid>
-      </Switch>
     </div>
   );
 };

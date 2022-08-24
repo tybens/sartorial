@@ -8,8 +8,8 @@ import {
 import { Link as ReactLink } from "react-router-dom";
 
 const paragraphStyles = { padding: "2.5% 0" };
-const thumbnailImageManip = "w_1000,h_1000,q_auto:best,c_fill";
-const articleImageManip = "w_1500,h_1100,q_auto:best,c_fill,g_auto";
+const thumbnailImageManip = "w_1000,h_1000,q_auto,f_auto,c_fill";
+const articleImageManip = "w_1500,h_1100,q_auto,f_auto,c_fill,g_auto";
 // const lookbookImageManip = "q_auto:best,c_fill,g_auto";
 
 const homelessness = {
