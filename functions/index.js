@@ -233,7 +233,13 @@ exports.addDataToFirestore = functions.https.onRequest(async (req, res) => {
 // add coupon codes data to firestore
 exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
-    const multiUseCodes = ["EARLYBIRD", "AGIFTFORINDY", "IUPUIEXPO", "followerdiscount", "customerservicehelp"];
+    const multiUseCodes = [
+      "EARLYBIRD",
+      "AGIFTFORINDY",
+      "IUPUIEXPO",
+      "followerdiscount",
+      "customerservicehelp",
+    ];
 
     console.log(req.body);
     var docRef = db
@@ -242,8 +248,12 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
         req.body.couponCode == "EARLYBIRD" ? "earlybird" : req.body.couponCode
       );
 
-    let maxUses = req.body.couponCode == "followerdiscount" ? 1000 : multiUseCodes.includes(req.body.couponCode) ? 30 : 1;
-
+    let maxUses =
+      req.body.couponCode == "followerdiscount"
+        ? 1000
+        : multiUseCodes.includes(req.body.couponCode)
+        ? 30
+        : 1;
 
     docRef
       .get()
@@ -253,7 +263,10 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
           if (uses >= maxUses) {
             res.json({ result: `too slow` });
           } else {
-            res.json({ result: `success`, discount: doc.data().discount ? doc.data().discount : 0.1 });
+            res.json({
+              result: `success`,
+              discount: doc.data().discount ? doc.data().discount : 0.1,
+            });
             // increment coupon uses because it worked
             docRef.update({
               uses: parseInt(doc.data().uses) + 1,
