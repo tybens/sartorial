@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import ReactRotatingText from "react-rotating-text";
+import { withRouter } from "react-router-dom";
 import "./ReactRotatingText.css";
 import classNames from "classnames";
 import Wave from "react-wavify";
@@ -9,7 +10,7 @@ import Blobs from "./blobs";
 import makeStyles from "./styles.js";
 import EmailList from "components/EmailList";
 
-const Home = ({ navColors, onSetNavColors }) => {
+const Home = ({ history, navColors, onSetNavColors }) => {
   const classes = makeStyles();
   const blackBgRef = useRef(null);
   // logic for changing header color
@@ -43,6 +44,10 @@ const Home = ({ navColors, onSetNavColors }) => {
     }
   }
 
+  const handleClickFlyer = () => {
+    history.push(`/tickets`);
+  };
+
   const waveOptions = {
     height: 60,
     amplitude: 40,
@@ -51,54 +56,69 @@ const Home = ({ navColors, onSetNavColors }) => {
   };
 
   return (
-    <>  
+    <>
+      <Grid item xs={12} className={classes.gutterBottom} container direction="column" alignItems="center">
+        <h1 className={classes.concertText}>We're hosting a concert!</h1>
+        <Typography variant="h6" color="inherit" className={classes.flyerText}>
+          By Indy, For Indy; a summer concert brought to you by Habitat Sartorial comes this
+          August 4th. Tickets are available now. Click the flyer to purchase!
+        </Typography>
+        <img
+          className={classes.flyer}
+          src="https://res.cloudinary.com/do8jxdvtx/image/upload/v1658156249/hsllc/IMG_6722_jxuaj3.jpg"
+          width="50%"
+          alt="flyer"
+          height="100%"
+          onClick={handleClickFlyer}
+        />
+      </Grid>
       <video width="100%" height="100%" autoPlay muted loop playsInline>
         <source src="/videos/recap.mp4" type="video/mp4" />
       </video>
       <h1 className={classes.firstBlock}>
-        <Grid
-          container
-          direction="row"
-          justify="space-around"
-          className={classes.firstRow}
-        >
-          <Grid item sm xs={12}>
-            Handcrafted
+          <Grid
+            container
+            direction="row"
+            justify="space-around"
+            className={classes.firstRow}
+          >
+            <Grid item sm xs={12}>
+              Handcrafted
+            </Grid>
+            <Grid item sm={5} xs={12}>
+              <span className="with--accent">
+                <ReactRotatingText
+                  items={[
+                    "clothing",
+                    "threads",
+                    "apparel",
+                    "dress",
+                    "fashion",
+                    "finery",
+                  ]}
+                  pause={2500}
+                />
+              </span>
+            </Grid>
           </Grid>
-          <Grid item sm={5} xs={12}>
-            <span className="with--accent">
-              <ReactRotatingText
-                items={[
-                  "clothing",
-                  "threads",
-                  "apparel",
-                  "dress",
-                  "fashion",
-                  "finery",
-                ]}
-                pause={2500}
-              />
-            </span>
-          </Grid>
-        </Grid>
-        <div>
-          to build <span className="with--accent">habitats</span>
-        </div>
-        <div>for those who</div>
-        <div className="with--accent">need it most</div>
-        <Typography
-          className={classNames(
-            "scroll-to",
-            "scroll-to-arrow",
-            "home-scroll-to"
-          )}
-          onClick={handleScrollClick}
-        >
-          <span className="scroll-arrow" />
-          <span className="scroll-line" />
-          Scroll
-        </Typography>
-      </h1>
+          <div>
+            to build <span className="with--accent">habitats</span>
+          </div>
+          <div>for those who</div>
+          <div className="with--accent">need it most</div>
+          <Typography
+            className={classNames(
+              "scroll-to",
+              "scroll-to-arrow",
+              "home-scroll-to"
+            )}
+            onClick={handleScrollClick}
+          >
+            <span className="scroll-arrow" />
+            <span className="scroll-line" />
+            Scroll
+          </Typography>
+        </h1>
       <Grid container justify="flex-start" direction="column">
         <Grid
           item
@@ -152,7 +172,6 @@ const Home = ({ navColors, onSetNavColors }) => {
           />
           <Grid item className={classes.waveDownColorCorrect} />
         </Grid>
-
         <Grid
           item
           xs={12}
@@ -173,4 +192,4 @@ const Home = ({ navColors, onSetNavColors }) => {
   );
 };
 
-export default Home;
+export default withRouter(Home);
