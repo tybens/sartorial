@@ -502,7 +502,43 @@ const arboretumInterview = {
   ),
 };
 
+const bifi22Video = {
+  type: "video",
+  types: [
+    {
+      name: "Live Show",
+      bgColor: "#01DF01",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "30 Aug 2021",
+  author: "Habitat Sartorial",
+  title: "Recap: By Indy, For Indy 2022 at Hi-Fi Annex",
+  text: "...",
+  id: "bifi22-video",
+  video: "https://youtu.be/qgBe1teMyik",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1660228671/2022/bifi22/Photos/8-4-22HabSatconcert-073_vrtnom.jpg`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Videography by JLyn Smith, an Indy talent who has done work for Chris Brown, Post Malone, Megan Thee Stallion, and more. Find his information at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.jlynsmith.com/"
+      >
+        jlynsmith.com
+      </Link>
+      .
+    </Typography>
+  ),
+};
+
 const postsData = [
+  bifi22Video,
   bifi22Photos,
   earthday22Lookbook,
   arboretumInterview,
