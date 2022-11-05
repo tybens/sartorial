@@ -16,8 +16,8 @@ const homelessness = {
   type: "article",
   types: [
     {
-      name: "Habitat Sartorial",
-      bgColor: "#000000",
+      name: "Pinned",
+      bgColor: "#fcb941",
     },
     {
       name: "Mission Statement",
@@ -139,8 +139,8 @@ const howhsllcworks = {
   type: "article",
   types: [
     {
-      name: "Pinned",
-      bgColor: "#fcb941",
+      name: "Habitat Sartorial",
+      bgColor: "#334AC0",
     },
     {
       name: "Mission Statement",
@@ -371,8 +371,8 @@ const earthDay22 = {
   type: "link",
   types: [
     {
-      name: "Design",
-      bgColor: "#F5F5DC",
+      name: "Pinned",
+      bgColor: "#fcb941",
     },
     {
       name: "Earth Day",
@@ -388,34 +388,12 @@ const earthDay22 = {
   thumbnail: "https://media-exp1.licdn.com/dms/image/C4D12AQGBZLD3j_7WWQ/article-cover_image-shrink_600_2000/0/1649938847720?e=2147483647&v=beta&t=9d8efBap6kW67jCItP8auBBCD4NheNlQsmXO4a9bTu0",
 };
 
-const announce501c3 = {
-  type: "link",
-  types: [
-    {
-      name: "Pinned",
-      bgColor: "#fcb941",
-    },
-    {
-      name: "Habitat Sartorial",
-      bgColor: "#000000",
-    },
-  ],
-  link: "https://www.linkedin.com/pulse/habitat-sartorial-now-indiana-nonprofit-habitatsartorial/?trackingId=%2Bq%2B2xoW%2FVp%2FLTE%2BaNX7rOg%3D%3D",
-  date: "21 Jul 2022",
-  author: "Payne Vogtman",
-  title: "Habitat Sartorial: now an Indiana 501(c)(3) Nonprofit",
-  text: "Find out more about what 501(c)(3) status means for the Company, for our customers, and for our partners in Indiana.",
-  id: "",
-  thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1663172476/misc/Screen_Shot_2022-09-14_at_12.20.51_delp0l.png",
-};
-
 const postsData = [
-  howhsllcworks,
-  announce501c3,
   earthDay22,
+  homelessness,
   results2021,
+  howhsllcworks,
   edemHorizon,
   logoHistory,
-  homelessness,
 ];
 export default postsData;

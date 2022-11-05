@@ -8,7 +8,6 @@ import useStyles from "./styles";
 const routes = [
   { to: "/content", label: "Content" },
   { to: "/mission", label: "Mission" },
-  { to: "/shop/artist", label: "Artists"},
   { to: "/shop/collections", label: "Shop" },
 ];
 
