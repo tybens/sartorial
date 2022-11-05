@@ -162,7 +162,7 @@ const Footer = (props) => {
               </Typography>
             </Grid>
             <Grid item>
-              <Link to="/philosophy" className={classes.linkStyle}>
+              <Link to="/about-us" className={classes.linkStyle}>
                 <Typography variant={"body2"} className={classes.subLinks}>
                   About
                 </Typography>

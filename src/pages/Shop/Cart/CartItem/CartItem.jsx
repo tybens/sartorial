@@ -5,7 +5,7 @@ import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import DeleteIcon from "@material-ui/icons/Delete";
 import useStyles from "./styles";
 
-import HoverImage from "../../../../components/HoverImage";
+import HoverImage from "components/HoverImage";
 
 // props: position and isActive from the react cursor position wrapper
 const CartItem = ({
