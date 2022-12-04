@@ -2,12 +2,22 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
 
-
 const useStyles = makeStyles((theme) => ({
   contentBlock: {},
 
+  profileBlock: {
+    margin: "0 15%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 5%"
+    }
+  },
+
   content: {
     margin: "0 15%",
+  },
+  
+  textBlock: {
+    padding: "15px",
   },
 
   title: {
@@ -26,10 +36,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   img: {
-    minHeight: "75vh",
-    height: "100%",
+    height: "35vh",
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: "top",
   },
 }));
 
@@ -76,10 +85,23 @@ const AboutUs = () => {
             HS to succeed.
           </Typography>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid
+          item
+          xs={12}
+          container
+          className={classes.profileBlock}
+          spacing={4}
+        >
           {profiles.map((data, id) => {
+            let even = id % 2 === 0;
             return (
-              <Grid item container xs={12} key={id}>
+              <Grid
+                item
+                container
+                xs={12}
+                key={id}
+                direction={even ? "row-reverse" : "row"}
+              >
                 <Grid
                   item
                   xs={12}
@@ -87,14 +109,17 @@ const AboutUs = () => {
                   className={classes.img}
                   style={{ backgroundImage: `url(${data.img})` }}
                 />
-                <Grid item container direction="column" xs={12} sm={6}>
-                  <Typography variant="h5" align="right">
+                <Grid item container className={classes.textBlock} direction="column" xs={12} sm={6}>
+                  <Typography variant="h5" align={even ? "right" : "left"}>
                     {data.name}
                   </Typography>
-                  <Typography variant="subtitle1" align="right">
+                  <Typography
+                    variant="subtitle1"
+                    align={even ? "right" : "left"}
+                  >
                     {data.title}
                   </Typography>
-                  <Typography variant="body2" align="right">
+                  <Typography variant="body2" align={even ? "right" : "left"}>
                     {data.blurb}
                   </Typography>
                 </Grid>
