@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: "300",
   },
+  
+  blurb: {
+    fontSize: "calc(0.3vw + 13px)",
+
+  },
 
   margin: {
     margin: "5% 0",
@@ -30,7 +35,10 @@ const useStyles = makeStyles((theme) => ({
 
   caption: {
     fontSize: "calc(0.5vw + 10px)",
-    maxWidth: "500px",
+    margin: "0 20%",
+    [theme.breakpoints.up("md")]: {
+      margin: "0 30%"
+    },
     display: "inline-block",
     lineHeight: 1.3,
   },
@@ -61,7 +69,7 @@ const profiles = [
     name: "Edem Kabasa",
     blurb:
       "As a long time friend of the other three members, the opportunity to assist in a charitable business venture was a lucrative and exciting call. The combination of our strengths and skills, zeal for success, and unitive synergy have fostered an idea manifesting in excellence. I have always been concerned with the ethical side of business, especially in the fashion industry, and my philosophical experience and human connection bring a fresh take to the pragmatic nonprofit and industrial world of fashion development and design.",
-    img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1670179668/misc/edem_cxa5mb.heic",
+    img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1670187815/misc/A57B6DCB-D26F-4E22-A5CC-79F41AD4BF05_rwqa89.jpg",
     title: "Head of Philosophy",
   },
   {
@@ -130,7 +138,7 @@ const AboutUs = () => {
                   >
                     {data.title}
                   </Typography>
-                  <Typography variant="body2" align={even ? "right" : "left"}>
+                  <Typography variant="body1" align={even ? "right" : "left"} className={classes.blurb}>
                     {data.blurb}
                   </Typography>
                 </Grid>
