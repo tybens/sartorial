@@ -106,6 +106,10 @@ const DonationForm = ({
             Thank you for your donation, {order.customer.firstname}{" "}
             {order.customer.lastname}!
           </Typography>
+          <Typography variant="body2">
+            We will send a donation receipt for tax reporting purposes within 24
+            hours of the donation.
+          </Typography>
           <Divider className={classes.divider} />
           <Typography variant="subtitle2">
             Order ref: {order.payment.stripe.payment_intent_id}
@@ -135,7 +139,6 @@ const DonationForm = ({
         <CircularProgress />
       </div>
     );
-
 
   const nextStep = () => setStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setStep((prevActiveStep) => prevActiveStep - 1);

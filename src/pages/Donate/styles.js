@@ -7,6 +7,16 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     minHeight: 500,
   },
+  container: {
+    zIndex: 3,
+    background: "white",
+    borderRadius: 10,
+    maxWidth: 500,
+    width: "calc(75% - 0.5em)",
+    margin: "0.25em",
+  },
+
+
   firstRow: {
     maxWidth: 700,
   },

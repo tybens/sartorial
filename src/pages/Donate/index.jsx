@@ -86,6 +86,18 @@ const Donate = ({
             totalItems={totalItems}
             order={order}
           />
+          <Grid item className={classes.container}>
+            <Typography variant="body2" color="secondary" gutterBottom>
+              Alternatively, you can donate by mailing a check to 3250A West
+              86th St, #1005 Indianapolis, IN 46268. Checks made out to Habitat
+              Sartorial.
+            </Typography>
+            <Typography variant="body2" color="primary">
+              If you'd like to know exactly what your possible donation is going
+              towards, reach out to payne@habitatsartorial.org to set up a
+              meeting.
+            </Typography>
+          </Grid>
         </Grid>
         <Typography
           className={classNames(
@@ -100,6 +112,7 @@ const Donate = ({
           More info
         </Typography>
       </Grid>
+
       <Grid item container className="content-block block-1" ref={blackBgRef}>
         <Wave
           fill="#000"
