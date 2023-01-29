@@ -9,4 +9,5 @@ export { default as ContactUs } from "./ContactUs";
 export { default as Support } from "./Support";
 export { default as Measurements } from "./Measurements";
 export { default as AboutUs } from "./AboutUs";
+export { default as Contracting } from "./Contracting";
 

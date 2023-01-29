@@ -126,9 +126,9 @@ const Footer = (props) => {
               </Link>
             </Grid>
             <Grid item>
-              <Link to="/philosophy" className={classes.linkStyle}>
+              <Link to="/contracting" className={classes.linkStyle}>
                 <Typography variant={"body2"} className={classes.subLinks}>
-                  Philosophy
+                  Contracting
                 </Typography>
               </Link>
             </Grid>

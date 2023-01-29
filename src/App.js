@@ -17,7 +17,8 @@ import {
   Blog,
   Support,
   Measurements,
-  AboutUs
+  AboutUs,
+  Contracting
 } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
@@ -339,6 +340,11 @@ const App = () => {
                                 return null;
                               }}
                             />
+                            <Route exact path="/contracting">
+                              <PageWrapper title="Contracting">
+                                <Contracting />
+                              </PageWrapper>
+                            </Route>
                             <Route exact path="/businessplan">
                               <PageWrapper title="Business Plan">
                                 <BusinessPlan />
