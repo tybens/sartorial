@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "predeploy": "yarn && yarn build",
+    "predeploy": "export NODE_OPTIONS=--openssl-legacy-provider && yarn && yarn build",
     "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
