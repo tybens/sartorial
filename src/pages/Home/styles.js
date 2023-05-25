@@ -24,16 +24,19 @@ export default makeStyles((theme) => ({
   },
 
   concertText: {
-    background: "#addbe6",
-    borderRadius: "10px",
-    padding: "10px",
-    margin: "50px 10% 0 10%",
+    margin: "50px 0 0 0 ",
     fontStyle: "normal",
-    transition: "transform 0.2s",
-    "&:hover": {
-      transform: "scale(1.05)",
-      cursor: "pointer",
-    },
+
+    // background: "#addbe6",
+    // borderRadius: "10px",
+    // padding: "10px",
+    // margin: "50px 10% 0 10%",
+    // fontStyle: "normal",
+    // transition: "transform 0.2s",
+    // "&:hover": {
+    //   transform: "scale(1.05)",
+    //   cursor: "pointer",
+    // },
   },
 
   gutterBottom: {

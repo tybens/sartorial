@@ -44,8 +44,8 @@ const Home = ({ history, navColors, onSetNavColors }) => {
     }
   }
 
-  const handleClickHeader = () => {
-    history.push(`/content/bifi22-photos`);
+  const handleClickFlyer = () => {
+    history.push(`/tickets`);
   };
 
   const waveOptions = {
@@ -57,12 +57,27 @@ const Home = ({ history, navColors, onSetNavColors }) => {
 
   return (
     <>
-      <Grid item xs={12} className={classes.gutterBottom} container direction="column" alignItems="center">
+      {/* <Grid item xs={12} className={classes.gutterBottom} container direction="column" alignItems="center">
         <h2 onClick={handleClickHeader} className={classes.concertText}>Thanks for the support at the By Indy, For Indy 2022 concert!</h2>
       </Grid>
       <video width="100%" height="100%" autoPlay muted loop playsInline>
         <source src="/videos/hifi.mp4" type="video/mp4" />
-      </video>
+      </video> */}
+      <Grid item xs={12} className={classes.gutterBottom} container direction="column" alignItems="center">
+        <h1 className={classes.concertText}>We're hosting another concert!</h1>
+        <Typography variant="h6" color="inherit" className={classes.flyerText}>
+          By Indy, For Indy; a summer concert brought to you by Habitat Sartorial comes this
+          August 10th. Tickets are available now. Click the flyer to purchase!
+      </Typography>
+        <img
+          className={classes.flyer}
+          src="https://res.cloudinary.com/chickennuggets/image/upload/v1685051513/sartorial/bifi23poster_cdksh5.jpg"
+          width="50%"
+          alt="flyer"
+          height="100%"
+          onClick={handleClickFlyer}
+        />
+      </Grid>
       <h1 className={classes.firstBlock}>
           <Grid
             container

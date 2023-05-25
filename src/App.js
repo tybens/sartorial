@@ -321,7 +321,7 @@ const App = () => {
                               component={() => {
                                 var link = document.createElement("a");
                                 link.href =
-                                  "https://www.seetickets.us/event/By-IndyForIndyConcertwHuckleberryFunkHI-FIAnnex/494377";
+                                  "https://wl.seetickets.us/event/By-IndyForIndy2023wmidwxstHI-FIAnnex/552190?afflky=HIFI";
                                 document.body.appendChild(link);
 
                                 link.click();
