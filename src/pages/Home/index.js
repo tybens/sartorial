@@ -170,8 +170,7 @@ const Home = ({ history, navColors, onSetNavColors }) => {
                 color="inherit"
                 className={classes.gutterBottom}
               >
-                We are a nonprofit fashion design studio, making fashion
-                valuable beyond the aesthetics.
+                We are a creative design studio, making fashion valuable beyond the aesthetics and art valuable beyond the experience.
               </Typography>
             </Grid>
           </Grid>
