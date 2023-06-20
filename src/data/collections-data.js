@@ -6,7 +6,7 @@ const collectionRelease1 = [
     name: "Fall/Winter 2021 Classics",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1629236884/Summer%202021%20Photos/DSC08620_is6dwa.jpg",
     description: "Description 1",
-    altLink: "/shop/collections/fw21-classics",
+    altLink: "/content/fw21-classics-lookbook",
     products: [
       {
         id: 0,
@@ -270,7 +270,7 @@ const collectionRelease2 = [
     name: "Fall/Winter 2021 Classics 2",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/c_fit,g_auto:faces/v1638227214/Fall%20Winter%202021%20Classics%202%20Lookbook/IMG_3383_ztfzbc.jpg",
     description: "Description 1",
-    altLink: "/content/fw21-classics-2-lookbook",
+    altLink: "/content/fw21-classics-2-bts",
     products: [
       {
         id: 7,

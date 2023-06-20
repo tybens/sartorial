@@ -8,7 +8,7 @@ import HenryVid from "components/HenryVid";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = ["Earth Day 2022", "Fall/Winter 2021 Classics 2", "Henryd", "By Indy, For Indy 2022"];
+  const newestCollectionName = [];
   const showCollections = false;
 
   return (
@@ -18,10 +18,20 @@ const Collections = ({ collectionsData, url }) => {
         item
         className={classes.parentWrap}
         justify="space-between"
-        alignItems="flex-start"
+        alignItems="center"
         direction="column"
         id="content"
       >
+        <Grid item xs={12} fullWidth style={{border: "solid black", padding: "40px"}}>
+              <Typography
+                variant="h4"
+                align="center"
+                className={classes.header}
+                id="content--inner"
+              >
+                Concert Merch Releasing Soon! 
+              </Typography>
+            </Grid>
         {showCollections ? (
           <>
             <HenryVid />
@@ -111,6 +121,7 @@ const Collections = ({ collectionsData, url }) => {
                         variant="h2"
                         color="inherit"
                         className={classes.oldLandingName}
+                        style={{ "color": id === "fw21-classics-2" ? "white" : "" }}
                         noWrap
                       >
                         {name}

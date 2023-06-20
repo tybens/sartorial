@@ -19,10 +19,10 @@ export default makeStyles((theme) => ({
 
   header: {
     zIndex: 3,
-    minWidth: "100%",
-    padding: 0,
+    minWidth: "100%",   
+    padding: "0",
     margin: "35px 0",
-    color: "white",
+    color: "black",
   },
 
   landing: {
