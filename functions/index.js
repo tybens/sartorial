@@ -74,6 +74,7 @@ function sendReceipt(orderData) {
   let rawPrice = calculateOrderAmountNoTax(orderData.cart);
   let totalPrice = calculateOrderAmountWithTax(orderData.cart);
   let discountPrice = rawPrice * orderData.payment.discount;
+  let pickup = orderData.pickup;
 
   Object.values(orderData.cart).forEach((item) => {
     productDescriptions.push(
@@ -86,23 +87,24 @@ function sendReceipt(orderData) {
   });
 
   // send email
-  db.collection("mail")
+    db.collection("mail")
     .add({
       to: orderData.customer.email,
       bcc: ["admin@habitatsartorial.org", "tylersmilerb@gmail.com"],
       template: {
-        name: "receipt",
+        name: pickup ? "pickup" : "receipt",
         data: {
           productDescriptions: productDescriptions,
           apparelPrice: rawPrice,
           discountString: discountPrice ? `-$${discountPrice} - discount` : "",
           taxes: String(round(totalPrice - rawPrice)),
-          totalPrice: String(round(totalPrice - discountPrice)),
+          totalPrice: String(round(totalPrice - discountPrice - (pickup && 5))),
           images: productImages,
         },
       },
     })
     .then(() => console.log("Queued email for delivery!"));
+  
 }
 
 exports.recordOrder = functions.https.onRequest(async (req, res) => {
@@ -172,12 +174,14 @@ exports.sendEmail = functions.https.onRequest(async (req, res) => {
 
 exports.paymentSecret = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
+    const charge = Math.round(
+      calculateOrderAmountWithTax(req.body.cart) *
+        100 * // stripe units are in cents
+        (1 - req.body.discount) - (req.body.pickup && 500)
+    );
+
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: Math.round(
-        calculateOrderAmountWithTax(req.body.cart) *
-          100 * // stripe units are in cents
-          (1 - req.body.discount)
-      ),
+      amount: charge,
       currency: "usd",
     });
 

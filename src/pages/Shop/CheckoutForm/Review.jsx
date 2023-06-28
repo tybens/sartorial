@@ -9,12 +9,14 @@ import {
   Grid,
   Button,
   CircularProgress,
+  Checkbox,
 } from "@material-ui/core";
 import axios from "axios";
 import useStyles from "./styles";
 
-const Review = ({ cart, totalItems, discount, setDiscount, donation }) => {
+const Review = ({ cart, totalItems, discount, setDiscount, donation, handleCheck, pickup }) => {
   const classes = useStyles();
+  const concert = true;
 
   function calculateOrderAmountWithTax(obj) {
     var sum = 0;
@@ -103,7 +105,7 @@ const Review = ({ cart, totalItems, discount, setDiscount, donation }) => {
             ${round(calculateOrderAmountNoTax(cart))}
           </Typography>
         </ListItem>
-        {!donation && (
+        {(!donation && !pickup) && (
           <ListItem className={classes.listItem}>
             <ListItemText
               primary="Shipping"
@@ -139,6 +141,15 @@ const Review = ({ cart, totalItems, discount, setDiscount, donation }) => {
             </Typography>
           </ListItem>
         )}
+        {(!donation && concert) && (
+          <ListItem className={classes.listItem}>
+            <ListItemText
+              primary="Pickup At The Concert ($5 off)"
+              primaryTypographyProps={{ variant: "inherit" }}
+            />
+            <Checkbox onChange={handleCheck} />
+          </ListItem>
+        )}
         <ListItem style={{ padding: "10px 0", fontWeight: 700 }}>
           <ListItemText
             primary="Total"
@@ -148,7 +159,7 @@ const Review = ({ cart, totalItems, discount, setDiscount, donation }) => {
             }}
           />
           <Typography variant="subtitle1">
-            ${round(calculateOrderAmountWithTax(cart) * (1 - discount))}
+            ${round(calculateOrderAmountWithTax(cart) * (1 - discount) - (pickup && 5))}
           </Typography>
         </ListItem>
       </List>

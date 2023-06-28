@@ -29,15 +29,22 @@ const PaymentForm = ({
   donation=false
 }) => {
   const [discount, setDiscount] = useState(0);
+  const [pickup, setPickup] = useState(false)
+
+  const handleCheck = () => {
+    setPickup((pickup) => !pickup)
+  }
 
   return (
     <>
       <Review
         cart={cart}
         totalItems={totalItems}
+        handleCheck={handleCheck}
         discount={discount}
         setDiscount={setDiscount}
         donation={donation}
+        pickup={pickup}
       />
       <Divider />
       <Typography variant="h6" gutterBottom style={{ margin: "20px 0" }}>
@@ -46,6 +53,7 @@ const PaymentForm = ({
       <Elements stripe={stripePromise}>
         <StripePayment
           cart={cart}
+          pickup={pickup}
           onCaptureCheckout={onCaptureCheckout}
           nextStep={nextStep}
           backStep={backStep}
@@ -64,6 +72,7 @@ const StripePayment = ({
   backStep,
   shippingData,
   discount,
+  pickup
 }) => {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -83,7 +92,7 @@ const StripePayment = ({
     axios
       .post(
         functionSecretUrl,
-        { cart: cart, discount: discount },
+        { cart: cart, discount: discount, pickup: pickup },
         {
           headers: {
             "Content-Type": "application/json",
@@ -126,7 +135,32 @@ const StripePayment = ({
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
-
+  let orderData = {
+    cart: cart,
+    pickup: pickup,
+    customer: {
+      firstname: shippingData.firstName,
+      lastname: shippingData.lastName,
+      email: shippingData.email,
+    },
+    shipping: {
+      name: `${shippingData.firstName} ${shippingData.lastName}`,
+      address1: shippingData.address1,
+      city: shippingData.city,
+      state_code: shippingData.stateCode,
+      country_code: "US",
+      zip: shippingData.zip,
+      email: shippingData.email,
+    },
+    fulfillment: { shipping_method: shippingData.shippingOption },
+    payment: {
+      gateway: "stripe",
+      stripe: {
+        payment_intent_id: "test",
+      },
+      discount: discount,
+    },}
+    console.log(orderData)
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
@@ -145,6 +179,7 @@ const StripePayment = ({
 
       let orderData = {
         cart: cart,
+        pickup: pickup,
         customer: {
           firstname: shippingData.firstName,
           lastname: shippingData.lastName,
