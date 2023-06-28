@@ -96,7 +96,7 @@ function sendReceipt(orderData) {
         data: {
           productDescriptions: productDescriptions,
           apparelPrice: rawPrice,
-          discountString: discountPrice ? `-$${discountPrice} - discount` : "",
+          discountString: discountPrice ? `-$${round(discountPrice)} - discount` : "",
           taxes: String(round(totalPrice - rawPrice)),
           totalPrice: String(round(totalPrice - discountPrice - (pickup && 5))),
           images: productImages,
