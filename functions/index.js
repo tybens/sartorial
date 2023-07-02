@@ -86,6 +86,16 @@ function sendReceipt(orderData) {
     productImages.push(item.data.product.img);
   });
 
+  // get the unused hifi concert discount code
+  if (pickup) {
+    let doc = db.collection('coupon')
+    .document('hifi-23-concert-discounts')
+    .collection('codes').orderBy('used').limit(1).get()[0].ref
+    let couponId = doc.id
+    doc.set({'used': 1})
+  }
+
+
   // send email
     db.collection("mail")
     .add({
@@ -100,6 +110,7 @@ function sendReceipt(orderData) {
           taxes: String(round(totalPrice - rawPrice)),
           totalPrice: String(round(totalPrice - discountPrice - (pickup && 5))),
           images: productImages,
+          ...(pickup && {discountCode: couponId})
         },
       },
     })
