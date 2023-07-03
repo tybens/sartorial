@@ -67,7 +67,7 @@ function round(num) {
   return Math.round(num * 100) / 100;
 }
 
-function sendReceipt(orderData) {
+async function sendReceipt(orderData) {
   let productDescriptions = [];
   let productImages = [];
   let taxes = 1.07;
@@ -87,36 +87,43 @@ function sendReceipt(orderData) {
   });
 
   // get the unused hifi concert discount code
-  if (pickup) {
-    let doc = db.collection('coupon')
-    .document('hifi-23-concert-discounts')
-    .collection('codes').orderBy('used').limit(1).get()[0].ref
-    let couponId = doc.id
-    doc.set({'used': 1})
+  let couponId = await db
+      .collection("coupon")
+      .doc("hifi-23-concert-discounts")
+      .collection("codes")
+      .orderBy("used")
+      .limit(1)
+      .get()
+      .then((snapshot) => {
+        let doc = snapshot.docs[0].ref;
+        doc.set({ used: 1 });
+        return doc.id;
+      });
   }
-
-
   // send email
-    db.collection("mail")
+  db.collection("mail")
     .add({
       to: orderData.customer.email,
       bcc: ["admin@habitatsartorial.org", "tylersmilerb@gmail.com"],
       template: {
         name: pickup ? "pickup" : "receipt",
+        subject: "Thanks for Ordering with Habitat Sartorial",
         data: {
           productDescriptions: productDescriptions,
           apparelPrice: rawPrice,
-          discountString: discountPrice ? `-$${round(discountPrice)} - discount` : "",
+          discountString: discountPrice
+            ? `-$${round(discountPrice)} - discount`
+            : "",
           taxes: String(round(totalPrice - rawPrice)),
           totalPrice: String(round(totalPrice - discountPrice - (pickup && 5))),
           images: productImages,
-          ...(pickup && {discountCode: couponId})
+          discountCode: couponId,
         },
       },
     })
     .then(() => console.log("Queued email for delivery!"));
-  
 }
+
 
 exports.recordOrder = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
@@ -188,7 +195,8 @@ exports.paymentSecret = functions.https.onRequest(async (req, res) => {
     const charge = Math.round(
       calculateOrderAmountWithTax(req.body.cart) *
         100 * // stripe units are in cents
-        (1 - req.body.discount) - (req.body.pickup && 500)
+        (1 - req.body.discount) -
+        (req.body.pickup && 500)
     );
 
     const paymentIntent = await stripe.paymentIntents.create({
