@@ -9,6 +9,7 @@ import HabitatImg from "assets/icons/rswhite.png";
 import BlogHead from "../BlogHead";
 import ReactPlayer from "react-player/lazy";
 import Carousel from "react-material-ui-carousel";
+import BifiArtistApparel from "./bifi23-artist";
 
 const BlogReader = ({ postsData, match }) => {
   const classes = useStyles();
@@ -28,6 +29,7 @@ const BlogReader = ({ postsData, match }) => {
     lookbook: <Lookbook blog={blog} />,
     video: <Video blog={blog} />,
     carousel: <MyCarousel blog={blog} />,
+    concert: <BifiArtistApparel />
   };
 
   return (

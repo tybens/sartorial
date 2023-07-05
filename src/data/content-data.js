@@ -1,8 +1,67 @@
-import { Typography, Link } from "@material-ui/core";
+import { Typography, Link, Grid } from "@material-ui/core";
 
 const thumbnailImageManip = "w_1000,h_1000,q_auto,c_fill";
 const lookbookImageManip = "q_auto,c_fill,g_auto";
 
+const bifi23ArtistApparel = {
+  type: "concert",
+  types: [
+    {
+      name: "Live Show",
+      bgColor: "#01DF01",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "5 Jul 2023",
+  author: "Habitat Sartorial",
+  title: "By Indy, For Indy 2023: Artist Apparel",
+  text: "...",
+  id: "bifi23-artist-apparel",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1688578611/bifi23/IMG_3960090DF490-1_hiwgwr.jpg`,
+  images: [],
+  img1Src:
+    "https://res.cloudinary.com/habitatsartorial/image/upload/v1660228646/2022/bifi22/Photos/8-4-22HabSatconcert-027_ewz3xh.jpg",
+
+  suffix: (
+    <Grid item>
+      <Typography
+        align="center"
+        variant="body2"
+        style={{ fontSize: "1rem" }}
+        gutterBottom
+      >
+        The By Indy, For Indy 2023 Apparel Collection will release this Friday,
+        July 7 at 9am EST. You can buy tickets to the show&nbsp;
+        <Link
+          target="_blank"
+          color="secondary"
+          style={{ fontWeight: 700 }}
+          href="/tickets"
+        >
+          here
+        </Link>
+        . Cover photography by&nbsp;
+        <Link
+          target="_blank"
+          color="secondary"
+          style={{ fontWeight: 700 }}
+          href="https://www.instagram.com/zoedolack/"
+        >
+          Zoe Dolack
+        </Link>
+      </Typography>
+      <img
+        alt="bifi-23-artist-apparel-cover"
+        src="https://res.cloudinary.com/habitatsartorial/image/upload/v1688497873/bifi23/317habitat._005_xvv83l.jpg"
+        height="auto"
+        width="100%"
+      />
+    </Grid>
+  ),
+};
 const bifi22Photos = {
   type: "lookbook",
   types: [
@@ -523,7 +582,9 @@ const bifi22Video = {
   thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1660228671/2022/bifi22/Photos/8-4-22HabSatconcert-073_vrtnom.jpg`,
   suffix: (
     <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
-      Videography by JLyn Smith, an Indy talent who has done work for Chris Brown, Post Malone, Megan Thee Stallion, and more. Find his information at&nbsp;
+      Videography by JLyn Smith, an Indy talent who has done work for Chris
+      Brown, Post Malone, Megan Thee Stallion, and more. Find his information
+      at&nbsp;
       <Link
         target="_blank"
         color="secondary"
@@ -538,6 +599,7 @@ const bifi22Video = {
 };
 
 const postsData = [
+  bifi23ArtistApparel,
   bifi22Video,
   bifi22Photos,
   earthday22Lookbook,

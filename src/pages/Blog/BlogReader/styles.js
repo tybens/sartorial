@@ -63,4 +63,49 @@ export default makeStyles((theme) => ({
   videoContainer: {
     minHeight: "50vw",
   },
+
+
+  profileBlock: {
+    margin: "0 15%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 5%",
+    },
+  },
+
+  content: {
+    margin: "0 15%",
+  },
+
+  textBlock: {
+    padding: "15px",
+  },
+
+  title: {
+    fontWeight: "300",
+  },
+  
+  blurb: {
+    fontSize: "calc(0.3vw + 13px)",
+
+  },
+
+  margin: {
+    margin: "5% 0",
+  },
+
+  caption: {
+    fontSize: "calc(0.5vw + 10px)",
+    margin: "0 20%",
+    [theme.breakpoints.up("md")]: {
+      margin: "0 30%"
+    },
+    display: "inline-block",
+    lineHeight: 1.3,
+  },
+
+  img: {
+    height: "35vh",
+    backgroundSize: "cover",
+    backgroundPosition: "top",
+  },
 }));
