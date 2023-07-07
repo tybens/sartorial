@@ -7,8 +7,8 @@ const bifi23ArtistApparel = {
   type: "concert",
   types: [
     {
-      name: "Live Show",
-      bgColor: "#01DF01",
+      name: "Lookbook",
+      bgColor: "#66cccc",
     },
     {
       name: "Music",
@@ -33,8 +33,16 @@ const bifi23ArtistApparel = {
         style={{ fontSize: "1rem" }}
         gutterBottom
       >
-        The By Indy, For Indy 2023 Apparel Collection will release this Friday,
-        July 7 at 9am EST. You can buy tickets to the show&nbsp;
+        The By Indy, For Indy 2023 Apparel Collection is available for purchase&nbsp;
+        <Link
+          target="_blank"
+          color="secondary"
+          style={{ fontWeight: 700 }}
+          href="/shop/collections/bifi-23"
+        >
+          here
+        </Link>.
+        You can buy tickets to the show&nbsp;
         <Link
           target="_blank"
           color="secondary"
