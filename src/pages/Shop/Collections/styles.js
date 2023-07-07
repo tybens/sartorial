@@ -61,6 +61,8 @@ export default makeStyles((theme) => ({
 
   landingName: {
     fontWeight: "bold",
+    color: "#FFFFF2",
+    backdropFilter: "blur(5px)",
   },
 
   otherCollectionsImage: {
@@ -91,7 +93,9 @@ export default makeStyles((theme) => ({
   oldLandingName: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "black",
+    color: "#FFFFF2",
+    backdropFilter: "blur(5px)",
+    lineHeight: "1.5rem",
   },
 
   oldTitle: {

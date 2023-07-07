@@ -19,7 +19,7 @@ const Products = ({ collectionsData, onAddToCart, match, collectionId= null }) =
       <main className={classes.content}>
         <Grid container justify="center" spacing={4}>
           {collection.products.map((product, id) => (
-            <Grid item container justify="center" key={id} xs={12} sm={6} md={4}>
+            <Grid item container justify="center" key={id} xs={12} sm={6} lg={3}>
               <Product product={product} onAddToCart={onAddToCart} id={id} />
             </Grid>
           ))}
