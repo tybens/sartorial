@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   wrapper: {
-    padding: "0 5%",
+    padding: "5%",
     minHeight: "60vh",
   },
 
@@ -17,6 +17,10 @@ export default makeStyles((theme) => ({
     MozUserSelect: "none",
     MsUserSelect: "none",
     userSelect: "none ",
+  },
+
+  carousel: {
+    height: "80vh"
   },
 
   sizeBox: {

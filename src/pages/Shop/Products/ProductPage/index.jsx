@@ -47,18 +47,11 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
   const sizes = ["S", "M", "L", "XL"];
 
   return (
-    <Grid container justify="space-around" className={classes.wrapper}>
-      <Grid item xs={12} sm={5}>
-        <Carousel interval={5000} animation="fade">
-          {product.images.map((item, i) => (
-            <img src={item} alt={`carousel ${i}`} key={i} width="100%" />
-          ))}
-        </Carousel>
-      </Grid>
+    <Grid container justify="space-around" className={classes.wrapper} spacing={3}>
       <Grid
         item
         xs={12}
-        sm={5}
+        md={5}
         container
         spacing={3}
         direction="row"
@@ -172,6 +165,13 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
             </Button>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item xs={12} sm={5} className={classes.carousel}>
+        <Carousel interval={5000} animation="fade">
+          {product.images.map((item, i) => (
+            <img src={item} alt={`carousel ${i}`} key={i} width="100%" />
+          ))}
+        </Carousel>
       </Grid>
     </Grid>
   );
