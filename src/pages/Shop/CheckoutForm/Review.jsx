@@ -16,7 +16,7 @@ import useStyles from "./styles";
 
 const Review = ({ cart, totalItems, discount, setDiscount, donation, handleCheck, pickup }) => {
   const classes = useStyles();
-  const concert = true;
+  const concert = false;
 
   function calculateOrderAmountWithTax(obj) {
     var sum = 0;
