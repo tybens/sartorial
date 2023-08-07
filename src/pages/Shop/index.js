@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Cart from "./Cart/Cart";
 import Checkout from "./CheckoutForm/Checkout/Checkout";
 import Collections from "./Collections/Collections";
@@ -19,8 +19,8 @@ const Shop = ({
   handleEmptyCart,
   errorMessage,
   handleAddToCart,
-  match,
 }) => {
+  const location = useLocation();
 
   // title logic
   useEffect(() => {
@@ -33,8 +33,8 @@ const Shop = ({
 
   return (
     <div>
-      <Switch>
-        <Route exact path={`${match.path}/checkout`}>
+      <Routes>
+        <Route exact path={`${location.pathname}/checkout`}>
           <Checkout
             cart={cart}
             order={order}
@@ -43,7 +43,7 @@ const Shop = ({
             error={errorMessage}
           />
         </Route>
-        <Route exact path={`${match.path}/cart`}>
+        <Route exact path={`${location.pathname}/cart`}>
           <Cart
             cart={cart}
             totalItems={totalItems}
@@ -53,21 +53,21 @@ const Shop = ({
             onEmptyCart={handleEmptyCart}
           />
         </Route>
-        <Route path={`${match.path}/collections`}>
+        <Route path={`${location.pathname}/collections`}>
           <CollectionsRouter
             collectionsData={collectionsData}
             onAddToCart={handleAddToCart}
           />
         </Route>
-        <Route path={`${match.path}/artist/:artistId`}>
+        <Route path={`${location.pathname}/artist/:artistId`}>
           <ArtistMerch onAddToCart={handleAddToCart} />
         </Route>
-        <Route path={`${match.path}/artist`}>
-          <Collections url={`${match.path}/artist`} collectionsData={artistCollectionData} />
+        <Route path={`${location.pathname}/artist`}>
+          <Collections url={`${location.pathname}/artist`} collectionsData={artistCollectionData} />
         </Route>
-      </Switch>
+      </Routes>
     </div>
   );
 };
 
-export default withRouter(Shop);
+export default Shop;

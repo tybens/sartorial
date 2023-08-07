@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
 import { Session } from "bc-react-session";
@@ -18,7 +18,7 @@ import {
   Support,
   Measurements,
   AboutUs,
-  Contracting
+  Contracting,
 } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
@@ -218,151 +218,157 @@ const App = () => {
             <>
               <div className="fake-toolbar-div" />
               <Navbar habitatLogo={habitatLogo} totalItems={totalItems(cart)} />
-              <Route
-                render={({ location }) => {
-                  const { pathname, key } = location;
+              <Routes>
+                <Route
+                  render={({ location }) => {
+                    const { pathname, key } = location;
 
-                  return (
-                    <TransitionGroup component={null}>
-                      <Transition
-                        key={key}
-                        appear={true}
-                        onEnter={(node, appears) =>
-                          play(pathname, node, appears)
-                        }
-                        onExit={(node, appears) => exit(node, appears)}
-                        timeout={{ enter: 750, exit: 150 }}
-                      >
-                        <div>
-                          <Switch location={location}>
-                            <Route exact path="/">
-                              <PageWrapper title="Fashion">
-                                <Home
-                                  navColors={navColors}
-                                  onSetNavColors={(colors) =>
-                                    setNavColors(colors)
-                                  }
-                                />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/shop">
-                              <PageWrapper title="Shop">
-                                <Shop
-                                  handleCaptureCheckout={handleCaptureCheckout}
-                                  handleEmptyCart={handleEmptyCart}
-                                  order={order}
-                                  cart={cart}
-                                  errorMessage={errorMessage}
-                                  totalItems={totalItems}
-                                  totalPrice={totalPrice}
-                                  handleAddToCart={handleAddToCart}
-                                  handleRemoveFromCart={handleRemoveFromCart}
-                                  handleUpdateCartQty={handleUpdateCartQty}
-                                />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/sponsors">
-                              <PageWrapper title="Sponsored">
-                                <Sponsors setNavColors={setNavColors} />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/philosophy">
-                              <PageWrapper title="Mission">
-                                <Philosophy
-                                  navColors={navColors}
-                                  onSetNavColors={(colors) =>
-                                    setNavColors(colors)
-                                  }
-                                />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/donate">
-                              <PageWrapper title="Mission">
-                                <Donate
-                                  navColors={navColors}
-                                  onSetNavColors={(colors) =>
-                                    setNavColors(colors)
-                                  }
-                                  handleAddToCart={handleAddToCart}
-                                  cart={cart}
-                                  order={order}
-                                  handleCaptureCheckout={handleCaptureCheckout}
-                                  totalItems={totalItems}
-                                />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/mission">
-                              <PageWrapper title="Mission">
-                                <Blog type="mission" />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/content">
-                              <PageWrapper title="Content">
-                                <Blog type="content" />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/contact">
-                              <PageWrapper title="Contact">
-                                <ContactUs />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/support">
-                              <PageWrapper title="Support">
-                                <Support />
-                              </PageWrapper>
-                            </Route>
-                            <Route path="/measurements">
-                              <PageWrapper title="Measurements">
-                                <Measurements />
-                              </PageWrapper>
-                            </Route>
-                            <Route
-                              path="/tickets"
-                              component={() => {
-                                var link = document.createElement("a");
-                                link.href =
-                                  "https://wl.seetickets.us/event/By-IndyForIndy2023wmidwxstHI-FIAnnex/552190?afflky=HIFI";
-                                document.body.appendChild(link);
+                    return (
+                      <TransitionGroup component={null}>
+                        <Transition
+                          key={key}
+                          appear={true}
+                          onEnter={(node, appears) =>
+                            play(pathname, node, appears)
+                          }
+                          onExit={(node, appears) => exit(node, appears)}
+                          timeout={{ enter: 750, exit: 150 }}
+                        >
+                          <div>
+                            <Routes location={location}>
+                              <Route exact path="/">
+                                <PageWrapper title="Fashion">
+                                  <Home
+                                    navColors={navColors}
+                                    onSetNavColors={(colors) =>
+                                      setNavColors(colors)
+                                    }
+                                  />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/shop">
+                                <PageWrapper title="Shop">
+                                  <Shop
+                                    handleCaptureCheckout={
+                                      handleCaptureCheckout
+                                    }
+                                    handleEmptyCart={handleEmptyCart}
+                                    order={order}
+                                    cart={cart}
+                                    errorMessage={errorMessage}
+                                    totalItems={totalItems}
+                                    totalPrice={totalPrice}
+                                    handleAddToCart={handleAddToCart}
+                                    handleRemoveFromCart={handleRemoveFromCart}
+                                    handleUpdateCartQty={handleUpdateCartQty}
+                                  />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/sponsors">
+                                <PageWrapper title="Sponsored">
+                                  <Sponsors setNavColors={setNavColors} />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/philosophy">
+                                <PageWrapper title="Mission">
+                                  <Philosophy
+                                    navColors={navColors}
+                                    onSetNavColors={(colors) =>
+                                      setNavColors(colors)
+                                    }
+                                  />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/donate">
+                                <PageWrapper title="Mission">
+                                  <Donate
+                                    navColors={navColors}
+                                    onSetNavColors={(colors) =>
+                                      setNavColors(colors)
+                                    }
+                                    handleAddToCart={handleAddToCart}
+                                    cart={cart}
+                                    order={order}
+                                    handleCaptureCheckout={
+                                      handleCaptureCheckout
+                                    }
+                                    totalItems={totalItems}
+                                  />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/mission">
+                                <PageWrapper title="Mission">
+                                  <Blog type="mission" />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/content">
+                                <PageWrapper title="Content">
+                                  <Blog type="content" />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/contact">
+                                <PageWrapper title="Contact">
+                                  <ContactUs />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/support">
+                                <PageWrapper title="Support">
+                                  <Support />
+                                </PageWrapper>
+                              </Route>
+                              <Route path="/measurements">
+                                <PageWrapper title="Measurements">
+                                  <Measurements />
+                                </PageWrapper>
+                              </Route>
+                              <Route
+                                path="/tickets"
+                                component={() => {
+                                  var link = document.createElement("a");
+                                  link.href =
+                                    "https://wl.seetickets.us/event/By-IndyForIndy2023wmidwxstHI-FIAnnex/552190?afflky=HIFI";
+                                  document.body.appendChild(link);
 
-                                link.click();
-                                return null;
-                              }}
-                            />
-                            <Route
-                              path="/linkedin"
-                              component={() => {
-                                var link = document.createElement("a");
-                                link.href =
-                                  "https://www.linkedin.com/company/habitatsartorial/";
-                                document.body.appendChild(link);
+                                  link.click();
+                                  return null;
+                                }}
+                              />
+                              <Route
+                                path="/linkedin"
+                                component={() => {
+                                  var link = document.createElement("a");
+                                  link.href =
+                                    "https://www.linkedin.com/company/habitatsartorial/";
+                                  document.body.appendChild(link);
 
-                                link.click();
-                                return null;
-                              }}
-                            />
-                            <Route exact path="/contracting">
-                              <PageWrapper title="Contracting">
-                                <Contracting />
-                              </PageWrapper>
-                            </Route>
-                            <Route exact path="/businessplan">
-                              <PageWrapper title="Business Plan">
-                                <BusinessPlan />
-                              </PageWrapper>
-                            </Route>
-                            <Route exact path="/about-us">
-                              <PageWrapper title="About Us">
-                                <AboutUs />
-                              </PageWrapper>
-                            </Route>
-                          </Switch>
-                          <Footer />
-                        </div>
-                      </Transition>
-                    </TransitionGroup>
-                  );
-                }}
-              />
+                                  link.click();
+                                  return null;
+                                }}
+                              />
+                              <Route exact path="/contracting">
+                                <PageWrapper title="Contracting">
+                                  <Contracting />
+                                </PageWrapper>
+                              </Route>
+                              <Route exact path="/businessplan">
+                                <PageWrapper title="Business Plan">
+                                  <BusinessPlan />
+                                </PageWrapper>
+                              </Route>
+                              <Route exact path="/about-us">
+                                <PageWrapper title="About Us">
+                                  <AboutUs />
+                                </PageWrapper>
+                              </Route>
+                            </Routes>
+                            <Footer />
+                          </div>
+                        </Transition>
+                      </TransitionGroup>
+                    );
+                  }}
+                />
+              </Routes>
             </>
           )}
         </div>

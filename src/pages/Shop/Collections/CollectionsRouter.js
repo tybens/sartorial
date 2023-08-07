@@ -1,26 +1,28 @@
 import React from "react";
-import { withRouter, Switch, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Collections from "./Collections";
 import Products from "../Products/Products";
 import ProductPage from "../Products/ProductPage";
 
-const CollectionsRouter = ({ collectionsData, onAddToCart, match }) => {
+const CollectionsRouter = ({ collectionsData, onAddToCart }) => {
+  const location = useLocation();
+
   return (
-    <Switch>
-      <Route path={`${match.path}/:collectionId/:productId`}>
+    <Routes>
+      <Route path={`${location.pathname}/:collectionId/:productId`}>
         <ProductPage
           onAddToCart={onAddToCart}
           collectionsData={collectionsData}
         />
       </Route>
-      <Route path={`${match.path}/:collectionId`}>
+      <Route path={`${location.pathname}/:collectionId`}>
         <Products collectionsData={collectionsData} onAddToCart={onAddToCart} />
       </Route>
-      <Route path={`${match.path}`}>
-        <Collections url={match.path} collectionsData={collectionsData} />
+      <Route path={`${location.pathname}`}>
+        <Collections url={location.pathname} collectionsData={collectionsData} />
       </Route>
-    </Switch>
+    </Routes>
   );
 };
 
-export default withRouter(CollectionsRouter);
+export default CollectionsRouter;

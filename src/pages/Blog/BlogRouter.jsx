@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import BlogReader from "./BlogReader";
 import Blog from "./index";
 
@@ -10,14 +10,14 @@ const BlogRouter = ({ match, type="mission" }) => {
   var postsData = (type === "mission") ? missionData : contentData;
 
   return (
-    <Switch>
+    <Routes>
       <Route path={`/${type}/:blogId`}>
         <BlogReader postsData={postsData} />
       </Route>
       <Route path={`/${type}`}>
         <Blog type={type} postsData={postsData} />
       </Route>
-    </Switch>
+    </Routes>
   );
 };
 

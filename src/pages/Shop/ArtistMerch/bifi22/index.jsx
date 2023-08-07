@@ -1,13 +1,16 @@
 import { useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const BiFiRouter = ({ history }) => {
+const BiFiRouter = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    history.push(`${history.location.pathname}/products`)
+    navigate(`${location.pathname}/products`)
     // eslint-disable-next-line
   }, [])
   
   return null;  
 };
 
-export default withRouter(BiFiRouter);
+export default BiFiRouter;

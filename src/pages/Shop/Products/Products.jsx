@@ -2,11 +2,12 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Product from "./Product/Product";
 import useStyles from "./styles";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import MusicProducts from "../MusicProducts"
-const Products = ({ collectionsData, onAddToCart, match, collectionId= null }) => {
+const Products = ({ collectionsData, onAddToCart, collectionId= null }) => {
+  const params = useParams();
   const classes = useStyles();
-  collectionId = !collectionId ? match.params.collectionId : collectionId;
+  collectionId = !collectionId ? params.collectionId : collectionId;
   const collection = collectionsData.find(({ id }) => id === collectionId);
 
   if (collectionId === "s21-music") {
@@ -29,4 +30,4 @@ const Products = ({ collectionsData, onAddToCart, match, collectionId= null }) =
   );
 };
 
-export default withRouter(Products);
+export default Products;

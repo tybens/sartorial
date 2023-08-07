@@ -1,15 +1,17 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
-import { withRouter } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Fade } from "react-reveal";
 import classNames from "classnames";
 import useStyles from "./styles";
 
-const Product = ({ history, product, id }) => {
+const Product = ({ product, id }) => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = () => {
-    history.push(`${history.location.pathname}/${product.id}`);
+    navigate(`${location.pathname}/${product.id}`);
   };
 
   return (
@@ -55,4 +57,4 @@ const Product = ({ history, product, id }) => {
   );
 };
 
-export default withRouter(Product);
+export default Product;

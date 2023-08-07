@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Button, Grid, Typography, TextField } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
 import Carousel from "react-material-ui-carousel";
@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 import useStyles from "./styles";
 
-const ProductPage = ({ collectionsData, onAddToCart, match }) => {
+const ProductPage = ({ collectionsData, onAddToCart }) => {
   const classes = useStyles();
   const handleAddToCart = () =>
     onAddToCart(
@@ -38,7 +38,7 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
 
   const [selectedSize, setSelectedSize] = useState("M");
 
-  const { collectionId, productId } = match.params;
+  const { collectionId, productId } = useParams();
   const collection = collectionsData.find(({ id }) => id === collectionId);
   const product = collection.products.find(
     ({ id }) => id === parseInt(productId)
@@ -177,4 +177,4 @@ const ProductPage = ({ collectionsData, onAddToCart, match }) => {
   );
 };
 
-export default withRouter(ProductPage);
+export default ProductPage;

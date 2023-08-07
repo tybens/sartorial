@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import ReactRotatingText from "react-rotating-text";
-import { withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./ReactRotatingText.css";
 import classNames from "classnames";
 import Wave from "react-wavify";
@@ -10,7 +10,8 @@ import Blobs from "./blobs";
 import makeStyles from "./styles.js";
 import EmailList from "components/EmailList";
 
-const Home = ({ history, navColors, onSetNavColors }) => {
+const Home = ({ navColors, onSetNavColors }) => {
+  const navigate = useNavigate();
   const classes = makeStyles();
   const blackBgRef = useRef(null);
   // logic for changing header color
@@ -45,7 +46,7 @@ const Home = ({ history, navColors, onSetNavColors }) => {
   }
 
   const handleClickFlyer = () => {
-    history.push(`/tickets`);
+      navigate(`/tickets`);
   };
 
   const waveOptions = {
@@ -202,4 +203,4 @@ const Home = ({ history, navColors, onSetNavColors }) => {
   );
 };
 
-export default withRouter(Home);
+export default Home;

@@ -1,9 +1,9 @@
 import { Grid, Typography } from "@material-ui/core";
-import { withRouter, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Spotify from "components/Spotify";
 import useStyles from "./styles";
 
-const HenryD = ({ match, onAddToCart }) => {
+const HenryD = ({ onAddToCart }) => {
   const classes = useStyles();
 
 
@@ -89,4 +89,4 @@ const HenryD = ({ match, onAddToCart }) => {
   );
 };
 
-export default withRouter(HenryD);
+export default HenryD;

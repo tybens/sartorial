@@ -3,10 +3,11 @@ import BiFiRouter from "./bifi22";
 import artistCollectionData from "data/artist-collection-data";
 import Products from "../Products/Products";
 import ProductPage from "../Products/ProductPage";
-import { Route, withRouter } from "react-router-dom";
+import { Route, useLocation, useParams } from "react-router-dom";
 
-const ArtistMerchRouter = ({ match, onAddToCart }) => {
-  const { artistId } = match.params;
+const ArtistMerchRouter = ({ onAddToCart }) => {
+  const { artistId } = useParams();
+  const location = useLocation();
 
   const artistPageMapper = {
     henryd: <HenryD onAddToCart={onAddToCart} />,
@@ -26,11 +27,11 @@ const ArtistMerchRouter = ({ match, onAddToCart }) => {
           collectionsData={artistCollectionData}
         />
       </Route>
-      <Route exact path={`${match.path}`}>
+      <Route exact path={`${location.pathname}`}>
         {artistPageMapper[artistId]};
       </Route>
     </>
   );
 };
 
-export default withRouter(ArtistMerchRouter);
+export default ArtistMerchRouter;

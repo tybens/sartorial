@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
-    "@stripe/react-stripe-js": "^1.4.0",
+    "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.11.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -26,7 +26,7 @@
     "react-player": "^2.9.0",
     "react-reveal": "^1.2.2",
     "react-rotating-text": "^1.4.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.14.0",
     "react-scripts": "4.0.1",
     "react-select-us-states": "^0.1.2",
     "react-share": "^4.4.0",

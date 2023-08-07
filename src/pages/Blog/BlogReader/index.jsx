@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Typography, Grid, Divider, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
 import VideoEmbed from "../VideoEmbed";
@@ -11,9 +11,10 @@ import ReactPlayer from "react-player/lazy";
 import Carousel from "react-material-ui-carousel";
 import BifiArtistApparel from "./bifi23-artist";
 
-const BlogReader = ({ postsData, match }) => {
+const BlogReader = ({ postsData }) => {
   const classes = useStyles();
-  const blogId = match.params.blogId;
+  const params = useParams();
+  const blogId = params.blogId;
   const blog = postsData.find(({ id }) => id === blogId);
 
   const authorMapper = {
@@ -245,4 +246,4 @@ const MyCarousel = ({ blog }) => {
   );
 };
 
-export default withRouter(BlogReader);
+export default BlogReader;
