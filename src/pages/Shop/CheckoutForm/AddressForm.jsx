@@ -6,18 +6,26 @@ import SelectUSState from "react-select-us-states";
 import makeStyles from "./styles";
 import FormInput from "./FormInput";
 
-const AddressForm = ({ onSubmit }) => {
+const AddressForm = ({ onSubmit, nextStep }) => {
   const [stateCode, setStateCode] = useState(null);
 
   const classes = makeStyles();
   const methods = useForm();
 
-
   return (
     <>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={nextStep}
+        style={{ marginBottom: 10 }}
+      >
+        Picking up at the concert? Click to skip to Payment
+      </Button>
       <Typography variant="h6" gutterBottom>
         Shipping address (currently only within the US)
       </Typography>
+      <Typography variant="body"></Typography>
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit((data) =>
@@ -43,7 +51,12 @@ const AddressForm = ({ onSubmit }) => {
           </Grid>
           <br />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Button component={Link} variant="outlined" color="secondary" to="/shop/cart">
+            <Button
+              component={Link}
+              variant="outlined"
+              color="secondary"
+              to="/shop/cart"
+            >
               Back to Cart
             </Button>
             <Button type="submit" variant="contained" color="primary">

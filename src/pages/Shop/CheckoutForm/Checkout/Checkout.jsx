@@ -10,22 +10,30 @@ import {
   Divider,
   Button,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 import useStyles from "./styles";
+import Complete from "../Complete";
 
 const steps = ["Shipping address", "Payment details"];
 
-const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
+const Checkout = ({
+  location,
+  cart,
+  totalItems,
+  onCaptureCheckout,
+  order,
+  error,
+}) => {
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
+  const [discount, setDiscount] = useState(0);
   const classes = useStyles();
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
   const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
-
 
   const onSubmit = (data) => {
     setShippingData(data);
@@ -45,25 +53,43 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
             Order ref: {order.payment.stripe.payment_intent_id}
           </Typography>
         </div>
-        <div style={{display: "flex", justifyContent: "center", marginTop: "2rem"}}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "2rem",
+          }}
+        >
           <br />
-          <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop/collections">
+          <Button
+            component={Link}
+            variant="outlined"
+            color="inherit"
+            type="button"
+            to="/shop/collections"
+          >
             Back to shopping
-        </Button>
+          </Button>
         </div>
       </>
     ) : (
-        <div className={classes.spinner}>
-          <CircularProgress />
-        </div>
-      );
+      <div className={classes.spinner}>
+        <CircularProgress />
+      </div>
+    );
 
   if (error) {
     Confirmation = () => (
       <>
         <Typography variant="h5">Error: {error}</Typography>
         <br />
-        <Button component={Link} variant="outlined" color="inherit" type="button" to="/shop/collections">
+        <Button
+          component={Link}
+          variant="outlined"
+          color="inherit"
+          type="button"
+          to="/shop/collections"
+        >
           Back to shopping
         </Button>
       </>
@@ -78,17 +104,25 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
         onSubmit={onSubmit}
       />
     ) : (
-        <PaymentForm
-          cart={cart}
-          totalItems={totalItems}
-          nextStep={nextStep}
-          backStep={backStep}
-          shippingData={shippingData}
-          onCaptureCheckout={onCaptureCheckout}
-        />
-      );
-
-  return (
+      <PaymentForm
+        cart={cart}
+        totalItems={totalItems}
+        nextStep={nextStep}
+        backStep={backStep}
+        shippingData={shippingData}
+        onCaptureCheckout={onCaptureCheckout}
+        discount={discount}
+        setDiscount={setDiscount}
+      />
+    );
+  return location.pathname.includes("complete") ? (
+    <Complete
+      cart={cart}
+      shippingData={shippingData}
+      discount={discount}
+      onCaptureCheckout={onCaptureCheckout}
+    />
+  ) : (
     <>
       <CssBaseline />
       <main className={classes.layout}>
@@ -103,15 +137,10 @@ const Checkout = ({ cart, totalItems, onCaptureCheckout, order, error }) => {
               </Step>
             ))}
           </Stepper>
-          {activeStep === steps.length ? (
-            <Confirmation />
-          ) : (
-              <Form />
-            )}
+          {activeStep === steps.length ? <Confirmation /> : <Form />}
         </Paper>
       </main>
     </>
   );
 };
-
-export default Checkout;
+export default withRouter(Checkout);

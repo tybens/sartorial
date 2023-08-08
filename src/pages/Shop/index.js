@@ -21,20 +21,18 @@ const Shop = ({
   handleAddToCart,
   match,
 }) => {
-
   // title logic
   useEffect(() => {
-    document.title = "Habitat Sartorial | Shop for a cause"
+    document.title = "Habitat Sartorial | Shop for a cause";
     return () => {
-      document.title = "Habitat Sartorial | Fashion for a cause"
-    }
-  }, [])
-
+      document.title = "Habitat Sartorial | Fashion for a cause";
+    };
+  }, []);
 
   return (
     <div>
       <Switch>
-        <Route exact path={`${match.path}/checkout`}>
+        <Route path={`${match.path}/checkout`}>
           <Checkout
             cart={cart}
             order={order}
@@ -63,7 +61,10 @@ const Shop = ({
           <ArtistMerch onAddToCart={handleAddToCart} />
         </Route>
         <Route path={`${match.path}/artist`}>
-          <Collections url={`${match.path}/artist`} collectionsData={artistCollectionData} />
+          <Collections
+            url={`${match.path}/artist`}
+            collectionsData={artistCollectionData}
+          />
         </Route>
       </Switch>
     </div>

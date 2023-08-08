@@ -78,7 +78,8 @@ async function sendReceipt(orderData) {
 
   Object.values(orderData.cart).forEach((item) => {
     productDescriptions.push(
-      `${item.data.product.name}${item.data.collection === "s21-music" ? "" : `, ${item.data.size}`
+      `${item.data.product.name}${
+        item.data.collection === "s21-music" ? "" : `, ${item.data.size}`
       } | Quantity: ${item.quantity}`
     );
     // "HA317AT" Tee, S | Quantity: 1
@@ -98,31 +99,30 @@ async function sendReceipt(orderData) {
       doc.set({ used: 1 });
       return doc.id;
     });
-}
-// send email
-db.collection("mail")
-  .add({
-    to: orderData.customer.email,
-    bcc: ["admin@habitatsartorial.org", "tylersmilerb@gmail.com"],
-    template: {
-      name: pickup ? "pickup" : "receipt",
-      subject: "Thanks for Ordering with Habitat Sartorial",
-      data: {
-        productDescriptions: productDescriptions,
-        apparelPrice: rawPrice,
-        discountString: discountPrice
-          ? `-$${round(discountPrice)} - discount`
-          : "",
-        taxes: String(round(totalPrice - rawPrice)),
-        totalPrice: String(round(totalPrice - discountPrice - (pickup && 5))),
-        images: productImages,
-        discountCode: couponId,
-      },
-    },
-  })
-  .then(() => console.log("Queued email for delivery!"));
-}
 
+  // send email
+  db.collection("mail")
+    .add({
+      to: orderData.customer.email,
+      bcc: ["admin@habitatsartorial.org", "tylersmilerb@gmail.com"],
+      template: {
+        name: pickup ? "pickup" : "receipt",
+        subject: "Thanks for Ordering with Habitat Sartorial",
+        data: {
+          productDescriptions: productDescriptions,
+          apparelPrice: rawPrice,
+          discountString: discountPrice
+            ? `-$${round(discountPrice)} - discount`
+            : "",
+          taxes: String(round(totalPrice - rawPrice)),
+          totalPrice: String(round(totalPrice - discountPrice - (pickup && 5))),
+          images: productImages,
+          discountCode: couponId,
+        },
+      },
+    })
+    .then(() => console.log("Queued email for delivery!"));
+}
 
 exports.recordOrder = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
@@ -137,7 +137,8 @@ exports.recordOrder = functions.https.onRequest(async (req, res) => {
     });
 
     // record their email to the email list
-    db.collection("emails")
+    if (orderData.customer.email) {
+      db.collection("emails")
       .add({
         email: {
           email: orderData.customer.email,
@@ -147,18 +148,20 @@ exports.recordOrder = functions.https.onRequest(async (req, res) => {
       })
       .then(() => console.log("Email added to email list db"));
 
-    // send json to admin
-    db.collection("mail")
+      sendReceipt(orderData);
+    }
+      
+      // send json to admin
+      db.collection("mail")
       .add({
         to: "admin@habitatsartorial.org",
         message: {
-          subject: `Order with ID: ${writeResult}`,
+          subject: orderData.payment.stripe.payment_intent_id === "express-checkout" ? `Express Order (NEED TO VERIFY PAYMENT ON STRIPE)` : `Order with ID: ${writeResult}`,
           html: JSON.stringify(orderData),
         },
       })
       .then(() => console.log("JSON data sent!"));
 
-    sendReceipt(orderData);
 
     // Send back a message that we've successfully written the message
     res.json({ result: `Order with ID: ${writeResult} added.` });
@@ -193,9 +196,9 @@ exports.paymentSecret = functions.https.onRequest(async (req, res) => {
   return cors()(req, res, async () => {
     const charge = Math.round(
       calculateOrderAmountWithTax(req.body.cart) *
-      100 * // stripe units are in cents
-      (1 - req.body.discount) -
-      (req.body.pickup && 500)
+        100 * // stripe units are in cents
+        (1 - req.body.discount) -
+        (req.body.pickup && 500)
     );
 
     const paymentIntent = await stripe.paymentIntents.create({
@@ -277,8 +280,8 @@ exports.checkEarlyBirdCoupon = functions.https.onRequest(async (req, res) => {
       req.body.couponCode == "followerdiscount"
         ? 1000
         : multiUseCodes.includes(req.body.couponCode)
-          ? 30
-          : 1;
+        ? 30
+        : 1;
 
     docRef
       .get()

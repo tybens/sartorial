@@ -17,9 +17,10 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 import useStyles from "./styles";
 import Review from "./Review";
+import { calculateOrderAmountWithTax } from "utils";
 
 const stripePromise = loadStripe(
-  "pk_test_51IBADsLCfTcKYCUjY9VNuZhMaWbppZcYBrWtC31hmMADcFH8PfzP29k7wFYZnAC8D9kQTPKUEcbHMW9OCzSJq99W00Ypdf94EK"
+  "pk_live_51IBADsLCfTcKYCUjbICBBDL4ix1PYw36eqqQtagck0wc5mqXaNqVy02xeeRjESwb2cBvc1vSBN8PNkXQ3P8IcZ4V004Iznuds0"
 );
 
 const PaymentForm = ({
@@ -31,19 +32,31 @@ const PaymentForm = ({
   totalItems,
   donation = false,
   history,
+  discount,
+  setDiscount
 }) => {
-  const [discount, setDiscount] = useState(0);
   const [pickup, setPickup] = useState(false);
+  const [options, setOptions] = useState({
+    mode: "payment",
+    amount: Math.round(
+      calculateOrderAmountWithTax(cart) * (1 - discount) * 100
+    ),
+    currency: "usd",
+    // Customizable with appearance API.
+  });
+
+  useEffect(() => {
+    setOptions({
+      ...options,
+      amount: Math.round(
+        calculateOrderAmountWithTax(cart) * (1 - discount) * 100
+      ),
+    });
+    // eslint-disable-next-line
+  }, [discount, cart]);
 
   const handleCheck = () => {
     setPickup((pickup) => !pickup);
-  };
-
-  const options = {
-    mode: "payment",
-    amount: 1099,
-    currency: "usd",
-    // Customizable with appearance API.
   };
 
   return (
@@ -99,14 +112,6 @@ const StripePayment = ({
 
   const classes = useStyles();
 
-  useEffect(() => {
-    // empty cart, so navigate to home
-    if (Object.keys(cart).length === 0) {
-      history.push(`/`);
-    }
-    // eslint-disable-next-line
-  }, [cart]);
-
   const cardStyle = {
     style: {
       base: {
@@ -130,14 +135,45 @@ const StripePayment = ({
     // and display any errors as the customer types their card details
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
-
-    console.log(processing);
-    console.log(disabled);
-    console.log(error);
   };
 
+  const captureCheckout = (express, paymentIntentId) => {
+    let orderData = {
+      cart: cart,
+      pickup: pickup,
+      customer: {
+        firstname: shippingData.firstName,
+        lastname: shippingData.lastName,
+        email: shippingData.email,
+      },
+      shipping: {
+        name: `${shippingData.firstName} ${shippingData.lastName}`,
+        address1: shippingData.address1,
+        city: shippingData.city,
+        state_code: shippingData.stateCode,
+        country_code: "US",
+        zip: shippingData.zip,
+        email: shippingData.email,
+      },
+      fulfillment: { shipping_method: shippingData.shippingOption },
+      payment: {
+        gateway: "stripe",
+        stripe: {
+          payment_intent_id: paymentIntentId,
+        },
+        discount: discount,
+      },
+    };
+
+    // log order to database
+    // include tag for express? and if express than need to verify cart... or just keep unverified (and manually verify payment through stripe)
+    onCaptureCheckout(orderData);
+  }
+
   const onConfirm = async (event, express) => {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     setProcessing(true);
 
     if (!stripe) {
@@ -153,7 +189,7 @@ const StripePayment = ({
     }
 
     // Create the PaymentIntent and obtain clientSecret
-    const res = await axios
+    const clientSecret = await axios
       .post(
         functionSecretUrl,
         { cart: cart, discount: discount, pickup: pickup },
@@ -172,13 +208,14 @@ const StripePayment = ({
         // handle error
         console.log(error);
         setError(`Internal payment error ${error.message}`);
+        return false;
       });
-
-    const clientSecret = await res;
-
-    // Confirm the PaymentIntent using the details collected by the Express Checkout Element
+    if (!clientSecret) return;
+    // Confirm the PaymentIntent using the details collected by the chosen Checkout Element
     var payload = null;
     if (express) {
+
+      captureCheckout(express, "express-checkout");
       // if express call confirm Payment
       payload = await stripe.confirmPayment({
         // `elements` instance used to create the Express Checkout Element
@@ -186,9 +223,10 @@ const StripePayment = ({
         // `clientSecret` from the created PaymentIntent
         clientSecret,
         confirmParams: {
-          return_url: "https://example.com/order/123/complete",
+          return_url:
+            "https://habitatsartorial.org/shop/checkout/complete",
         },
-      }) 
+      });
     } else {
       // otherwise call stripe.confirmCardPayment
       payload = await stripe.confirmCardPayment(clientSecret, {
@@ -205,48 +243,30 @@ const StripePayment = ({
       setProcessing(false);
     } else {
       // The payment UI automatically closes with a success animation.
-      // Your customer is redirected to your `return_url`.
       setError(null);
       setProcessing(false);
       setSucceeded(true);
 
-      let orderData = {
-        cart: cart,
-        pickup: pickup,
-        customer: {
-          firstname: shippingData.firstName,
-          lastname: shippingData.lastName,
-          email: shippingData.email,
-        },
-        shipping: {
-          name: `${shippingData.firstName} ${shippingData.lastName}`,
-          address1: shippingData.address1,
-          city: shippingData.city,
-          state_code: shippingData.stateCode,
-          country_code: "US",
-          zip: shippingData.zip,
-          email: shippingData.email,
-        },
-        fulfillment: { shipping_method: shippingData.shippingOption },
-        payment: {
-          gateway: "stripe",
-          stripe: {
-            payment_intent_id: "",
-          },
-          discount: discount,
-        },
-      };
-
-      // log order to database
-      onCaptureCheckout(orderData);
-      setProcessing(false);
+      if (!express) {
+        // need to capture checkout if normal card payment
+        captureCheckout(express, payload.paymentIntent.id);
+      }
       nextStep();
     }
   };
 
+
   return (
-    <form className={classes.paymentForm} onSubmit={onConfirm}>
-      <ExpressCheckoutElement onConfirm={onConfirm} />
+    <form
+      className={classes.paymentForm}
+      onSubmit={(event) => onConfirm(event, false)}
+    >
+      <ExpressCheckoutElement onConfirm={() => onConfirm(false, true)} />
+      <div style={{margin: "10px 0"}}>
+      <Typography variant='body1' gutterBottom >
+        or
+      </Typography>
+      </div>
       <CardElement
         className={classes.cardElement}
         options={cardStyle}

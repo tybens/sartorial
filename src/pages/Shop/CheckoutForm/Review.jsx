@@ -13,48 +13,19 @@ import {
 } from "@material-ui/core";
 import axios from "axios";
 import useStyles from "./styles";
+import { calculateOrderAmountWithTax, calculateOrderAmountNoTax } from "utils";
 
-const Review = ({ cart, totalItems, discount, setDiscount, donation, handleCheck, pickup }) => {
+const Review = ({
+  cart,
+  totalItems,
+  discount,
+  setDiscount,
+  donation,
+  handleCheck,
+  pickup,
+}) => {
   const classes = useStyles();
   const concert = false;
-
-  function calculateOrderAmountWithTax(obj) {
-    var sum = 0;
-    const taxes = 1.07;
-    for (var el in obj) {
-      if (
-        obj.hasOwnProperty(el) &&
-        obj[el].hasOwnProperty("quantity") &&
-        obj[el].hasOwnProperty("price")
-      ) {
-        let thisSum = parseFloat(obj[el].quantity) * parseFloat(obj[el].price);
-        if (
-          obj[el].hasOwnProperty("data") &&
-          obj[el].data.hasOwnProperty("collection") &&
-          obj[el].data.collection !== "donation"
-        ) {
-          sum += thisSum * taxes;
-        } else {
-          sum += thisSum;
-        }
-      }
-    }
-    return sum;
-  }
-
-  function calculateOrderAmountNoTax(cart) {
-    var sum = 0;
-    for (var el in cart) {
-      if (
-        cart.hasOwnProperty(el) &&
-        cart[el].hasOwnProperty("quantity") &&
-        cart[el].hasOwnProperty("price")
-      ) {
-        sum += parseFloat(cart[el].quantity) * parseFloat(cart[el].price);
-      }
-    }
-    return sum;
-  }
 
   function round(num) {
     return Math.round(num * 100) / 100;
@@ -105,7 +76,7 @@ const Review = ({ cart, totalItems, discount, setDiscount, donation, handleCheck
             ${round(calculateOrderAmountNoTax(cart))}
           </Typography>
         </ListItem>
-        {(!donation && !pickup) && (
+        {!donation && !pickup && (
           <ListItem className={classes.listItem}>
             <ListItemText
               primary="Shipping"
@@ -141,7 +112,7 @@ const Review = ({ cart, totalItems, discount, setDiscount, donation, handleCheck
             </Typography>
           </ListItem>
         )}
-        {(!donation && concert) && (
+        {!donation && concert && (
           <ListItem className={classes.listItem}>
             <ListItemText
               primary="Pickup At The Concert ($5 off)"
@@ -159,7 +130,10 @@ const Review = ({ cart, totalItems, discount, setDiscount, donation, handleCheck
             }}
           />
           <Typography variant="subtitle1">
-            ${round(calculateOrderAmountWithTax(cart) * (1 - discount) - (pickup && 5))}
+            $
+            {round(
+              calculateOrderAmountWithTax(cart) * (1 - discount) - (pickup && 5)
+            )}
           </Typography>
         </ListItem>
       </List>
@@ -232,7 +206,7 @@ const DiscountForm = ({ setDiscount, discount }) => {
               }
             }}
             inputProps={{ maxLength: 50 }}
-            onChange={(e) => setCouponCode(e.target.value.replace(/\s+/g, ''))}
+            onChange={(e) => setCouponCode(e.target.value.replace(/\s+/g, ""))}
           />
         </Grid>
         <Grid item xs={3}>
