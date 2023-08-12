@@ -2,10 +2,11 @@ import React from "react";
 import { Typography, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import useStyles from "./styles";
+import EmailList from "components/EmailList";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = ["bifi-23"];
+  const newestCollectionName = [];
 
   return (
     <>
@@ -19,6 +20,14 @@ const Collections = ({ collectionsData, url }) => {
         id="content"
       >
         <Grid item container justify="space-around">
+          {newestCollectionName.length === 0 && (
+            <Grid item container direction="column" alignItems="center">
+              <Typography>
+                Currently no released collections.
+              </Typography>
+              <EmailList />
+            </Grid>
+          )}
           {collectionsData.map(({ id, name, img }, index) => {
             return (
               newestCollectionName.includes(id) && (
@@ -76,7 +85,17 @@ const Collections = ({ collectionsData, url }) => {
           {collectionsData.map(({ id, altLink, name, img }, index) => {
             return (
               !newestCollectionName.includes(id) && (
-                <Grid style={{marginTop: Math.random() * 50, marginLeft: Math.random() * 50}} item xs={8} md={5} className={classes.oldLanding} key={id}>
+                <Grid
+                  style={{
+                    marginTop: Math.random() * 50,
+                    marginLeft: Math.random() * 50,
+                  }}
+                  item
+                  xs={8}
+                  md={5}
+                  className={classes.oldLanding}
+                  key={id}
+                >
                   <Link
                     className={classes.landingImage}
                     style={{ backgroundImage: `url(${img})` }}
