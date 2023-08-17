@@ -3,6 +3,91 @@ import { Typography, Link, Grid } from "@material-ui/core";
 const thumbnailImageManip = "w_1000,h_1000,q_auto,c_fill";
 const lookbookImageManip = "q_auto,c_fill,g_auto";
 
+const bifi23Photos = {
+  type: "lookbook",
+  types: [
+    {
+      name: "Live Show",
+      bgColor: "#01DF01",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "17 Aug 2023",
+  author: "Habitat Sartorial",
+  title: "Photos: By Indy, For Indy 2023 w/ midwxst at Hi-Fi Annex",
+  text: "...",
+  id: "bifi23-photos",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1692283071/bifi23/finalphotos/8-10-23HSConcertSelects-117_jcc6wk.jpg`,
+  images: [
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282583/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-090_f5vqwx.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282980/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-014_rmyrso.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282586/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-005_meixa0.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282588/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-066_t5mpqg.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282587/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-101_opmeyi.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282589/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-021_x5ilk9.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282593/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-099_chzoqy.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282594/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-060_dfdisq.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282599/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-048_phpmc8.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282603/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-110_lnqevd.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282597/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-038_axkvcw.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282599/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-116_d3myd0.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282587/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-101_opmeyi.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282591/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-124_gfuaeo.jpg`,
+      
+      //verticals start here
+      
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282756/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-004_isspey.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282767/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-052_nxam79.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282765/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-056_bb1r5c.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282765/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-053_nuncyb.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282763/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-072_tsohse.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282761/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-040_tu8kow.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282779/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-016_vbo15s.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282776/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-086_cwr5ix.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282769/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-081_we8ukt.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282768/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-077_yaxec1.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282755/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-003_owymnz.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282755/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-009_p4aanj.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282755/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-006_snpaq2.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282781/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-096_hs1oxd.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282755/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-013_fjslln.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282781/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-097_ezyld5.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282784/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-113_hob5p9.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282775/bifi23/finalphotos/verticals/8-10-23HSConcertSelects-117_tbxskd.jpg`,
+  ],
+  img1Src:
+    "https://res.cloudinary.com/habitatsartorial/image/upload/v1660228646/2022/bifi22/Photos/8-4-22HabSatconcert-027_ewz3xh.jpg",
+
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Photography by KJ Bail. Find his instagram at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://instagram.com/bailcreative?utm_medium=copy_link"
+      >
+        @bailcreative
+      </Link>
+      . Arboretum, Henryd, JusMari, Kenny Morrell, Norrie the Goat, OCC TAEE, Taylor Hall, and midwxst
+      for Habitat Sartorial, in By Indy, For Indy 2022. Find their music
+      on&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://open.spotify.com/playlist/6qtypSLMPcaUFoYpG7x7eM?si=Pxh83I0ETHKTvPw83Kj5Rg"
+      >
+        the show recap Spotify playlist
+      </Link>
+      .
+    </Typography>
+  ),
+};
+
 const bifi23ArtistApparel = {
   type: "concert",
   types: [
@@ -135,9 +220,9 @@ const bifi22Photos = {
         target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
-        href="https://instagram.com/kj_bail_photography?utm_medium=copy_link"
+        href="https://instagram.com/bailcreative?utm_medium=copy_link"
       >
-        @kj_bail_photography
+        @bailcreative
       </Link>
       . Henryd, Ellit, JusMari, Arboretum, Huckleberry Funk, and Outer Limits
       for Habitat Sartorial, in By Indy, For Indy 2022. Find their music
@@ -201,9 +286,9 @@ const earthday22Lookbook = {
         target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
-        href="https://instagram.com/kj_bail_photography?utm_medium=copy_link"
+        href="https://instagram.com/bailcreative?utm_medium=copy_link"
       >
-        @kj_bail_photography
+        @bailcreative
       </Link>
       .
     </Typography>
@@ -328,9 +413,9 @@ const musicLookbook = {
         target="_blank"
         color="secondary"
         style={{ fontWeight: 700 }}
-        href="https://instagram.com/kj_bail_photography?utm_medium=copy_link"
+        href="https://instagram.com/bailcreative?utm_medium=copy_link"
       >
-        @kj_bail_photography
+        @bailcreative
       </Link>
       .
     </Typography>
@@ -607,6 +692,7 @@ const bifi22Video = {
 };
 
 const postsData = [
+  bifi23Photos,
   bifi23ArtistApparel,
   bifi22Video,
   bifi22Photos,
