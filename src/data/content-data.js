@@ -26,7 +26,7 @@ const bifi23Photos = {
     `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282980/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-014_rmyrso.jpg`,
     `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282586/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-005_meixa0.jpg`,
     `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282588/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-066_t5mpqg.jpg`,
-    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282587/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-101_opmeyi.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1692321935/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-025_j5jdyf.jpg`,
     `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282589/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-021_x5ilk9.jpg`,
     `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282593/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-099_chzoqy.jpg`,
     `https://res.cloudinary.com/habitatsartorial/image/upload/v1692282594/bifi23/finalphotos/horizontals/8-10-23HSConcertSelects-060_dfdisq.jpg`,
