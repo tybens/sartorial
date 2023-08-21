@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
 import { Session } from "bc-react-session";
@@ -18,13 +22,14 @@ import {
   Support,
   Measurements,
   AboutUs,
-  Contracting
+  Contracting,
 } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
 import VideoIntro from "components/VideoIntro";
 // import products from "data/products";
 import useWindowSize from "hooks/useWindowSize";
+import routeToExt from "hooks/routeToExt.js";
 import theme from "./theme.js";
 import Footer from "components/Footer";
 import PageWrapper from "components/PageWrapper/index.jsx";
@@ -317,28 +322,12 @@ const App = () => {
                               </PageWrapper>
                             </Route>
                             <Route
-                              path="/tickets"
-                              component={() => {
-                                var link = document.createElement("a");
-                                link.href =
-                                  "https://wl.seetickets.us/event/By-IndyForIndy2023wmidwxstHI-FIAnnex/552190?afflky=HIFI";
-                                document.body.appendChild(link);
-
-                                link.click();
-                                return null;
-                              }}
-                            />
-                            <Route
                               path="/linkedin"
-                              component={() => {
-                                var link = document.createElement("a");
-                                link.href =
-                                  "https://www.linkedin.com/company/habitatsartorial/";
-                                document.body.appendChild(link);
-
-                                link.click();
-                                return null;
-                              }}
+                              component={() =>
+                                routeToExt(
+                                  "https://www.linkedin.com/company/habitatsartorial/"
+                                )
+                              }
                             />
                             <Route exact path="/contracting">
                               <PageWrapper title="Contracting">
@@ -355,6 +344,10 @@ const App = () => {
                                 <AboutUs />
                               </PageWrapper>
                             </Route>
+                            <Route
+                              path="*"
+                              component={() => routeToExt("/")}
+                            />
                           </Switch>
                           <Footer />
                         </div>

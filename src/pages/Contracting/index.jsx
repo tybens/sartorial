@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Divider, Grid, Typography } from "@material-ui/core";
+import routeToExt from "hooks/routeToExt";
 
 const useStyles = makeStyles((theme) => ({
   contentBlock: {},
@@ -95,17 +96,6 @@ const images = [
 const Contracting = () => {
   const classes = useStyles();
 
-  const onClickPricing = () => {
-    var link = document.createElement("a");
-    link.href = "habitatsartorial_pricingguide.pdf";
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    return null;
-  };
-
   return (
     <Grid container>
       <Grid item container className={classes.contentBlock} spacing={4}>
@@ -131,7 +121,7 @@ const Contracting = () => {
           >
             {contracts.map((data, id) => (
               <Grid item xs={12} md={6} lg={3} key={id}>
-                <img src={data.img} width="100%" alt={id}/>
+                <img src={data.img} width="100%" alt={id} />
               </Grid>
             ))}
           </Grid>
@@ -143,7 +133,11 @@ const Contracting = () => {
           >
             Would you like to join this list? Check out our pricing document:
           </Typography>
-          <Button variant="outlined" color="primary" onClick={onClickPricing}>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => routeToExt("habitatsartorial_pricingguide.pdf")}
+          >
             Download Pricing PDF
           </Button>
           <Divider style={{ margin: "20px 30%" }} />

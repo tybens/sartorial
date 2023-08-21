@@ -9,6 +9,7 @@ import Blobs from "./blobs";
 
 import makeStyles from "./styles.js";
 import EmailList from "components/EmailList";
+import routeToExt from "hooks/routeToExt";
 
 const Home = ({ history, navColors, onSetNavColors }) => {
   const classes = makeStyles();
@@ -44,10 +45,6 @@ const Home = ({ history, navColors, onSetNavColors }) => {
     }
   }
 
-  const handleClickFlyer = () => {
-    history.push(`/tickets`);
-  };
-
   const waveOptions = {
     height: 60,
     amplitude: 40,
@@ -71,21 +68,34 @@ const Home = ({ history, navColors, onSetNavColors }) => {
         direction="column"
         alignItems="center"
       >
-        <h1 className={classes.concertText}>We're hosting another concert!</h1>
+        <h1 className={classes.concertText}>More concerts!</h1>
         <Typography variant="h6" color="inherit" className={classes.flyerText}>
-          By Indy, For Indy; a summer concert brought to you by Habitat
-          Sartorial comes this August 10th. Tickets are available now. Click the
-          flyer to purchase!
+          Coming to Nashville and Chicago! Click on the flyers to purchase tickets.
         </Typography>
-        <img
-          className={classes.flyer}
-          src="https://res.cloudinary.com/chickennuggets/image/upload/v1685051513/sartorial/bifi23poster_cdksh5.jpg"
-          width="50%"
-          alt="flyer"
-          height="100%"
-          onClick={handleClickFlyer}
-        />
+        <Grid container>
+          <Grid item xs={6}>
+            <img
+              className={classes.flyer}
+              src="https://res.cloudinary.com/habitatsartorial/image/upload/v1692461466/Nashville2023/cfcnashville23_poster.jpg"
+              width="50%"
+              alt="flyer"
+              height="100%"
+              onClick={() => routeToExt("https://www.ticketweb.com/event/homes-at-night-hana-the-east-room-tickets/13510838")}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <img
+              className={classes.flyer}
+              src="https://res.cloudinary.com/habitatsartorial/image/upload/v1692461423/bcfc23/ticketlinkposter_bcfc23_hs_xbdxcw.jpg"
+              width="50%"
+              alt="flyer"
+              height="100%"
+              onClick={() => routeToExt("https://www.ticketweb.com/event/by-chicago-for-chicago-w-thalia-hall-tickets/13514488?pl=thalia3")}
+            />
+          </Grid>
+        </Grid>
       </Grid>
+
       <h1 className={classes.firstBlock}>
         <Grid
           container
@@ -170,7 +180,8 @@ const Home = ({ history, navColors, onSetNavColors }) => {
                 color="inherit"
                 className={classes.gutterBottom}
               >
-                We are a creative design studio, making fashion valuable beyond the aesthetics and art valuable beyond the experience.
+                We are a creative design studio, making fashion valuable beyond
+                the aesthetics and art valuable beyond the experience.
               </Typography>
             </Grid>
           </Grid>
