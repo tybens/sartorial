@@ -277,7 +277,8 @@ const collectionRelease2 = [
       },
     ],
   },
-  {
+    
+    {
     id: "bifi-23",
     name: "Artist Apparel: By Indy, For Indy 2023",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1688578611/bifi23/IMG_3960090DF490-1_hiwgwr.jpg",

@@ -68,29 +68,25 @@ const Home = ({ history, navColors, onSetNavColors }) => {
         direction="column"
         alignItems="center"
       >
-        <h1 className={classes.concertText}>More concerts!</h1>
-        <Typography variant="h6" color="inherit" className={classes.flyerText}>
-          Coming to Nashville and Chicago! Click on the flyers to purchase tickets.
+        <Typography variant="h1" className={classes.concertText}>
+          More concerts!
         </Typography>
-        <Grid container>
-          <Grid item xs={6}>
-            <img
-              className={classes.flyer}
-              src="https://res.cloudinary.com/habitatsartorial/image/upload/v1692461466/Nashville2023/cfcnashville23_poster.jpg"
-              width="50%"
-              alt="flyer"
-              height="100%"
-              onClick={() => routeToExt("https://www.ticketweb.com/event/homes-at-night-hana-the-east-room-tickets/13510838")}
-            />
-          </Grid>
-          <Grid item xs={6}>
+        <Typography variant="h6" color="inherit" className={classes.flyerText}>
+          Coming to Chicago! Click on the flyers to purchase tickets.
+        </Typography>
+        <Grid container justify="center">
+          <Grid item xs={8}>
             <img
               className={classes.flyer}
               src="https://res.cloudinary.com/habitatsartorial/image/upload/v1692461423/bcfc23/ticketlinkposter_bcfc23_hs_xbdxcw.jpg"
               width="50%"
               alt="flyer"
               height="100%"
-              onClick={() => routeToExt("https://www.ticketweb.com/event/by-chicago-for-chicago-w-thalia-hall-tickets/13514488?pl=thalia3")}
+              onClick={() =>
+                routeToExt(
+                  "https://www.ticketweb.com/event/by-chicago-for-chicago-w-thalia-hall-tickets/13514488?pl=thalia3"
+                )
+              }
             />
           </Grid>
         </Grid>

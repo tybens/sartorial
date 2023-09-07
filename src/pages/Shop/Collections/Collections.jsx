@@ -6,7 +6,7 @@ import EmailList from "components/EmailList";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = [];
+  const newestCollectionName = ["bcfc-23"];
 
   return (
     <>
@@ -52,7 +52,7 @@ const Collections = ({ collectionsData, url }) => {
                       <span
                         style={{
                           "-webkit-text-stroke":
-                            name === "Henryd" ? "1px black" : "",
+                            id === "bcfc-23" ? "2px black" : "",
                         }}
                       >
                         {name}
@@ -61,6 +61,11 @@ const Collections = ({ collectionsData, url }) => {
                     <Link
                       to={`${url}/${id}`}
                       className={classes.landingSubName}
+
+                      style={{
+                        "-webkit-text-stroke":
+                          id === "bcfc-23" ? "1px black" : "",
+                      }}
                       // TODO: onHover={scale(1.5)}
                     >
                       browse
