@@ -32,11 +32,11 @@ export default makeStyles((theme) => ({
     // padding: "10px",
     // margin: "50px 10% 0 10%",
     // fontStyle: "normal",
-    // transition: "transform 0.2s",
-    // "&:hover": {
-    //   transform: "scale(1.05)",
-    //   cursor: "pointer",
-    // },
+    transition: "transform 0.2s",
+    "&:hover": {
+      transform: "scale(1.01)",
+      cursor: "pointer",
+    },
   },
 
   gutterBottom: {

@@ -3,6 +3,108 @@ import { Typography, Link, Grid } from "@material-ui/core";
 const thumbnailImageManip = "w_1000,h_1000,q_auto,c_fill";
 const lookbookImageManip = "q_auto,c_fill,g_auto";
 
+const bcfc23Recap = {
+  type: "video",
+  types: [
+    {
+      name: "Live Show",
+      bgColor: "#01DF01",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "12 Sep 2023",
+  author: "Habitat Sartorial",
+  title: "Recap: By Chicago, For Chicago 2023 w/ Peter CottonTale",
+  text: "...",
+  id: "bcfc23-recap",
+  video: "https://youtu.be/LAFVh7Y_nLE",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/${thumbnailImageManip}/v1694879722/bcfc23/horizontals_bcfc23_hs/BN8A4123_ala6ay.jpg`,
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Videography by Henry Bobeck. Find his socials at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://henrybobeck.com/"
+      >
+        henrybobeck.com
+      </Link>
+      .
+    </Typography>
+  ),
+};
+
+const bcfc23Photos = {
+  type: "lookbook",
+  types: [
+    {
+      name: "Live Show",
+      bgColor: "#01DF01",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "12 Sep 2023",
+  author: "Habitat Sartorial",
+  title: "Photos: By Chicago, For Chicago 2023 w/ Peter CottonTale at Thalia Hall",
+  text: "...",
+  id: "bcfc23-photos",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1694880219/bcfc23/insta_bcfc23_hs/BN8A4607_withb0.jpg`,
+  images: [
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879720/bcfc23/horizontals_bcfc23_hs/BN8A3900_arkzeg.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879721/bcfc23/horizontals_bcfc23_hs/BN8A3913_mb3h83.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879723/bcfc23/horizontals_bcfc23_hs/BN8A3981_trwt3u.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879721/bcfc23/horizontals_bcfc23_hs/BN8A3957_hjccob.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879721/bcfc23/horizontals_bcfc23_hs/BN8A3961_er2gge.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879722/bcfc23/horizontals_bcfc23_hs/BN8A4055_vcfoxh.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879722/bcfc23/horizontals_bcfc23_hs/BN8A4108_mbqvui.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879722/bcfc23/horizontals_bcfc23_hs/BN8A4123_ala6ay.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879721/bcfc23/horizontals_bcfc23_hs/_MG_0118_hrwtgh.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879722/bcfc23/horizontals_bcfc23_hs/BN8A4330_imah6l.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879723/bcfc23/horizontals_bcfc23_hs/BN8A4607_sfl349.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879720/bcfc23/horizontals_bcfc23_hs/_MG_0233_dbf85u.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879720/bcfc23/horizontals_bcfc23_hs/_MG_0248_qliqo2.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879723/bcfc23/horizontals_bcfc23_hs/BN8A4389_gunzzw.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879723/bcfc23/horizontals_bcfc23_hs/BN8A4532_j21sy6.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879725/bcfc23/horizontals_bcfc23_hs/BN8A4733_dguptm.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879725/bcfc23/horizontals_bcfc23_hs/BN8A4739_dtisw2.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879725/bcfc23/horizontals_bcfc23_hs/BN8A4925_qnk7av.jpg`,
+      
+      //verticals start here
+      
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879735/bcfc23/verticals_bcfc23_hs/BN8A4031_gbjv5b.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879735/bcfc23/verticals_bcfc23_hs/BN8A4125_hswjea.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879736/bcfc23/verticals_bcfc23_hs/BN8A4546_x4kt1w.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879736/bcfc23/verticals_bcfc23_hs/BN8A4355_jngulf.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1694879735/bcfc23/verticals_bcfc23_hs/BN8A3954_rzlfq0.jpg`,
+   
+  ],
+  img1Src:
+    "https://res.cloudinary.com/habitatsartorial/image/upload/v1694879723/bcfc23/horizontals_bcfc23_hs/BN8A4607_sfl349.jpg",
+
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Photography by Cris Orozco. Find his instagram at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://www.instagram.com/cris___orozco/"
+      >
+        @cris___orozco
+      </Link>
+      . Peter CottonTale, Jamila Woods, Nico Segal, Nnamdï, Nico Segal, Shawnee Dez, and SheGo Turbo
+      for Habitat Sartorial, in By Chicago, For Chicago 2023.
+    </Typography>
+  ),
+};
+
 const bifi23Photos = {
   type: "lookbook",
   types: [
@@ -692,6 +794,8 @@ const bifi22Video = {
 };
 
 const postsData = [
+  bcfc23Recap,
+  bcfc23Photos,
   bifi23Photos,
   bifi23ArtistApparel,
   bifi22Video,

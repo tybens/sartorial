@@ -9,7 +9,6 @@ import Blobs from "./blobs";
 
 import makeStyles from "./styles.js";
 import EmailList from "components/EmailList";
-import routeToExt from "hooks/routeToExt";
 
 const Home = ({ history, navColors, onSetNavColors }) => {
   const classes = makeStyles();
@@ -45,6 +44,10 @@ const Home = ({ history, navColors, onSetNavColors }) => {
     }
   }
 
+  const handleClickHeader = () => {
+    history.push(`/content/bcfc23-photos`);
+  };
+
   const waveOptions = {
     height: 60,
     amplitude: 40,
@@ -54,43 +57,12 @@ const Home = ({ history, navColors, onSetNavColors }) => {
 
   return (
     <>
-      {/* <Grid item xs={12} className={classes.gutterBottom} container direction="column" alignItems="center">
-        <h2 onClick={handleClickHeader} className={classes.concertText}>Thanks for the support at the By Indy, For Indy 2022 concert!</h2>
+      <Grid item xs={12}  container direction="column" alignItems="center">
+        <h2 onClick={handleClickHeader} className={classes.concertText}>Thanks for the support at the By Chicago, For Chicago 2023 concert!</h2>
       </Grid>
-      <video width="100%" height="100%" autoPlay muted loop playsInline>
-        <source src="/videos/hifi.mp4" type="video/mp4" />
-      </video> */}
-      <Grid
-        item
-        xs={12}
-        className={classes.gutterBottom}
-        container
-        direction="column"
-        alignItems="center"
-      >
-        <Typography variant="h1" className={classes.concertText}>
-          More concerts!
-        </Typography>
-        <Typography variant="h6" color="inherit" className={classes.flyerText}>
-          Coming to Chicago! Click on the flyers to purchase tickets.
-        </Typography>
-        <Grid container justify="center">
-          <Grid item xs={8}>
-            <img
-              className={classes.flyer}
-              src="https://res.cloudinary.com/habitatsartorial/image/upload/v1692461423/bcfc23/ticketlinkposter_bcfc23_hs_xbdxcw.jpg"
-              width="50%"
-              alt="flyer"
-              height="100%"
-              onClick={() =>
-                routeToExt(
-                  "https://www.ticketweb.com/event/by-chicago-for-chicago-w-thalia-hall-tickets/13514488?pl=thalia3"
-                )
-              }
-            />
-          </Grid>
-        </Grid>
-      </Grid>
+      <video onClick={handleClickHeader} width="100%" height="100%" autoPlay muted loop playsInline>
+        <source src="/videos/bcfc-recap.mp4" type="video/mp4" />
+      </video>
 
       <h1 className={classes.firstBlock}>
         <Grid
