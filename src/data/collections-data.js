@@ -180,7 +180,7 @@ const collectionRelease2 = [
     name: "Artist Apparel: By Chicago, For Chicago 2023",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1694108970/bcfc23/317habitat_xrvcta.jpg",
     description: "Artist Apparel: By Chicago, For Chicago 2023.",
-    altLink: "/bifi23-artist-apparel",
+    altLink: "/content/bcfc23-recap",
     products: [
       {
         id: 34,
@@ -282,7 +282,7 @@ const collectionRelease2 = [
     name: "Artist Apparel: By Indy, For Indy 2023",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1688578611/bifi23/IMG_3960090DF490-1_hiwgwr.jpg",
     description: "Artist Apparel: By Indy, For Indy 2023.",
-    altLink: "/bifi23-artist-apparel",
+    altLink: "/content/bifi23-photos",
     products: [
       {
         id: 30,
