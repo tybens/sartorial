@@ -6,7 +6,7 @@ import EmailList from "components/EmailList";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = ["bcfc-23"];
+  const newestCollectionName = [];
 
   return (
     <>
