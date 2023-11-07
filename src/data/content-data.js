@@ -3,6 +3,69 @@ import { Typography, Link, Grid } from "@material-ui/core";
 const thumbnailImageManip = "w_1000,h_1000,q_auto,c_fill";
 const lookbookImageManip = "q_auto,c_fill,g_auto";
 
+const nashville2023Photos = {
+  type: "lookbook",
+  types: [
+    {
+      name: "Live Show",
+      bgColor: "#01DF01",
+    },
+    {
+      name: "Music",
+      bgColor: "#d597ce",
+    },
+  ],
+  date: "02 Sep 2023",
+  author: "Habitat Sartorial",
+  title: "Photos: Concerts for Charity: Nashville 2023 w/ Georgia Webster at the East Room",
+  text: "...",
+  id: "nashville2023-photos",
+  thumbnail: `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362071/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-117_lpflfe.jpg`,
+  images: [
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362045/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-124_dxu6sw.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362045/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-120_c21wby.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362044/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-092_su41c4.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362044/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-106_eqtjiz.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362043/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-070_urndah.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362046/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-062_ba46jn.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362045/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-033_g7zvu7.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362044/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-009_hhqsdl.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362040/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-013_ddvjf8.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362042/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-021_axfmwo.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362041/Nashville2023/horizontals_nashville2023/9-2-23HSnashconcert-selects-002_s7xl3h.jpg`,
+   
+      
+      //verticals start here
+      
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362071/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-117_lpflfe.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362064/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-084_cdiqty.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362065/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-090_ztjjpb.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362065/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-095_ku9eiy.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362061/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-045_yewchx.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362063/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-080_drclke.jpg`,
+    `https://res.cloudinary.com/habitatsartorial/image/upload/v1697362060/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-036_qnimyf.jpg`,
+  ],
+  img1Src:
+    "https://res.cloudinary.com/habitatsartorial/image/upload/v1697362071/Nashville2023/verticals_nashville2023/9-2-23HSnashconcert-selects-117_lpflfe.jpg",
+
+  suffix: (
+    <Typography align="center" variant="body2" style={{ fontSize: "1rem" }}>
+      Photography by KJ Bail. Find his instagram at&nbsp;
+      <Link
+        target="_blank"
+        color="secondary"
+        style={{ fontWeight: 700 }}
+        href="https://instagram.com/bailcreative?utm_medium=copy_link"
+      >
+        @bailcreative
+      </Link>
+      . Georgia Webster, Arboretum, Hana Eid, and Homes at Night
+      for Habitat Sartorial, in Concerts for Charity: Nashville 2023.
+    </Typography>
+  ),
+};
+
+
 const bcfc23Recap = {
   type: "video",
   types: [
@@ -794,6 +857,7 @@ const bifi22Video = {
 };
 
 const postsData = [
+  nashville2023Photos,
   bcfc23Recap,
   bcfc23Photos,
   bifi23Photos,
