@@ -3,6 +3,7 @@ import { withRouter, Switch, Route } from "react-router-dom";
 import Collections from "./Collections";
 import Products from "../Products/Products";
 import ProductPage from "../Products/ProductPage";
+import AnywhereCollection from "components/AnywhereCollection";
 
 const CollectionsRouter = ({ collectionsData, onAddToCart, match }) => {
   return (
@@ -12,6 +13,9 @@ const CollectionsRouter = ({ collectionsData, onAddToCart, match }) => {
           onAddToCart={onAddToCart}
           collectionsData={collectionsData}
         />
+      </Route>
+      <Route path={`${match.path}/anywhere`}>
+        <AnywhereCollection />
       </Route>
       <Route path={`${match.path}/:collectionId`}>
         <Products collectionsData={collectionsData} onAddToCart={onAddToCart} />
