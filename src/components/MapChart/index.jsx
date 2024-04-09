@@ -9,22 +9,27 @@ const MapChart = () => {
     {
       name: "United States",
       message: "United States",
-      url: "/shop/collection/anywhere-prods",
+      url: "/shop/collections/anywhere-prods",
     },
     {
       name: "Peru",
       message: "Peru",
-      url: "/shop/collection/anywhere-prods",
+      url: "/shop/collections/anywhere-prods",
+    },
+    {
+      name: "Palau",
+      message: "Palau",
+      url: "/shop/collections/anywhere-prods",
     },
     {
       name: "Eswatini",
       message: "Eswatini",
-      url: "/shop/collection/anywhere-prods",
+      url: "/shop/collections/anywhere-prods",
     },
     {
       name: "United Arab Emirates",
       message: "United Arab Emirates",
-      url: "/shop/collection/anywhere-prods",
+      url: "/shop/collections/anywhere-prods",
     },
     { name: "Guatemala", message: "Guatemala", url: "/guatemala" },
     { name: "Ghana", message: "Ghana (coming soon)", url: "/coming-soon" },
