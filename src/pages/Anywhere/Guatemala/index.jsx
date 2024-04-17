@@ -84,7 +84,7 @@ const Guatemala = () => {
             Visit Collection
           </Button>
         </Grid>
-        <Grid item xs={0} md={2} />
+        <Grid item md={2} />
         <Grid item xs={12} md={5} className={classes.border}>
           <Typography variant="h4" gutterBottom >
             What Else They Need

@@ -12,7 +12,7 @@ const AnywhereRouter = ({ match}) => {
   return (
     <Switch>
       {linkMap.map(({ path, component }) => {
-        return <Route path={`${match.path}/${path}`}>{component}</Route>;
+        return <Route key={path} path={`${match.path}/${path}`}>{component}</Route>;
       })}
       <Route path={`${match.path}`}>
         <AnywhereMap />
