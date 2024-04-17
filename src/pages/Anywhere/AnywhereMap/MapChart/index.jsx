@@ -2,45 +2,40 @@ import React from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css"; // This is important for default styling
+import targetCountries from "./targetCountries";
 
 const MapChart = () => {
   // Define your target countries, their messages, and redirect URLs
-  const targetCountries = [
-    {
-      name: "United States",
-      message: "United States",
-      url: "/shop/collections/anywhere-prods",
-    },
-    {
-      name: "Peru",
-      message: "Peru",
-      url: "/shop/collections/anywhere-prods",
-    },
-    {
-      name: "Palau",
-      message: "Palau",
-      url: "/shop/collections/anywhere-prods",
-    },
-    {
-      name: "Eswatini",
-      message: "Eswatini",
-      url: "/shop/collections/anywhere-prods",
-    },
-    {
-      name: "United Arab Emirates",
-      message: "United Arab Emirates",
-      url: "/shop/collections/anywhere-prods",
-    },
-    { name: "Guatemala", message: "Guatemala", url: "/anywhere/guatemala" },
-    { name: "Ghana", message: "Ghana (coming soon)", url: "/coming-soon" },
-    { name: "Tanzania", message: "Tanzania (coming soon)", url: "/coming-soon" },
-    { name: "Honduras", message: "Honduras (coming soon)", url: "/coming-soon" },
-  ];
 
   // Handle click event for redirecting
   const handleCountryClick = (url) => {
     // Using window.location for redirection
     window.location.href = url;
+  };
+
+  const comingSoonStyle = {
+    default: {
+      fill: "black",
+      outline: "none",
+    },
+    hover: {
+      fill: "grey",
+      cursor: "default",
+    },
+    pressed: {
+      fill: "grey",
+    },
+  };
+
+  const liveStyle = {
+    default: { fill: "#095" },
+    hover: {
+      fill: "#00ac57",
+      cursor: "pointer",
+    },
+    pressed: {
+      fill: "#0c6e43",
+    },
   };
 
   return (
@@ -53,7 +48,8 @@ const MapChart = () => {
                 (c) => c.name === geo.properties.name
               );
 
-			  const comingSoon = countryData && countryData.url.includes('coming-soon')
+              const comingSoon =
+                countryData && countryData.url.includes("coming-soon");
 
               if (countryData) {
                 // For target countries, add Tippy tooltip and click handler
@@ -61,12 +57,10 @@ const MapChart = () => {
                   <Tippy key={geo.rsmKey} content={countryData.message}>
                     <Geography
                       geography={geo}
-                      onClick={() => comingSoon ? false : handleCountryClick(countryData.url)}
-                      style={{
-                        default: { outline: "none" },
-                        hover: { fill: "#F53", outline: "none", cursor: comingSoon ? "default" : "pointer"},
-                        pressed: { fill: "#E42", outline: "none" },
-                      }}
+                      onClick={() =>
+                        comingSoon ? false : handleCountryClick(countryData.url)
+                      }
+                      style={comingSoon ? comingSoonStyle : liveStyle}
                     />
                   </Tippy>
                 );
