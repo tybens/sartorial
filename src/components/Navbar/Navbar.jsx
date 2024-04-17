@@ -18,7 +18,6 @@ const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
     return (
       <NavLink
         strict
-        exact
         to={to}
         style={{ zIndex: 2 }}
         key={to}

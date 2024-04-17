@@ -1,18 +1,12 @@
 import React from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css"; // This is important for default styling
 import targetCountries from "./targetCountries";
 
 const MapChart = () => {
-  // Define your target countries, their messages, and redirect URLs
-
   // Handle click event for redirecting
-  const handleCountryClick = (url) => {
-    // Using window.location for redirection
-    window.location.href = url;
-  };
-
   const comingSoonStyle = {
     default: {
       fill: "black",
@@ -55,13 +49,12 @@ const MapChart = () => {
                 // For target countries, add Tippy tooltip and click handler
                 return (
                   <Tippy key={geo.rsmKey} content={countryData.message}>
-                    <Geography
-                      geography={geo}
-                      onClick={() =>
-                        comingSoon ? false : handleCountryClick(countryData.url)
-                      }
-                      style={comingSoon ? comingSoonStyle : liveStyle}
-                    />
+                    <Link to={countryData.url}>
+                      <Geography
+                        geography={geo}
+                        style={comingSoon ? comingSoonStyle : liveStyle}
+                      />
+                    </Link>
                   </Tippy>
                 );
               } else {
