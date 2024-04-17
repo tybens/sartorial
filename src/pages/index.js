@@ -10,4 +10,5 @@ export { default as Support } from "./Support";
 export { default as Measurements } from "./Measurements";
 export { default as AboutUs } from "./AboutUs";
 export { default as Contracting } from "./Contracting";
+export { default as Anywhere } from "./Anywhere/AnywhereRouter";
 

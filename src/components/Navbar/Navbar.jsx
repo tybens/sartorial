@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import useStyles from "./styles";
 
 const routes = [
+  { to: "/anywhere", label: "(Anywhere)"},
   { to: "/content", label: "Content" },
   { to: "/mission", label: "Mission" },
   { to: "/shop/collections", label: "Shop" },
@@ -13,7 +14,6 @@ const routes = [
 
 const PrimarySearchAppBar = ({ totalItems, habitatLogo }) => {
   const classes = useStyles();
-
   const links = routes.map(({ to, label }) => {
     return (
       <NavLink

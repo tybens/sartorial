@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
 import { omit } from "lodash";
 import { Session } from "bc-react-session";
@@ -23,6 +19,7 @@ import {
   Measurements,
   AboutUs,
   Contracting,
+  Anywhere
 } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
@@ -306,6 +303,11 @@ const App = () => {
                                 <Blog type="content" />
                               </PageWrapper>
                             </Route>
+                            <Route path={`/anywhere`}>
+                              <PageWrapper title="(Anywhere)">
+                                <Anywhere />
+                              </PageWrapper>
+                            </Route>
                             <Route path="/contact">
                               <PageWrapper title="Contact">
                                 <ContactUs />
@@ -344,10 +346,7 @@ const App = () => {
                                 <AboutUs />
                               </PageWrapper>
                             </Route>
-                            <Route
-                              path="*"
-                              component={() => routeToExt("/")}
-                            />
+                            <Route path="*" component={() => routeToExt("/")} />
                           </Switch>
                           <Footer />
                         </div>

@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import BlogReader from "./BlogReader";
 import Blog from "./index";
 
-import Anywhere from "pages/Blog/Anywhere";
 import missionData from "data/mission-data";
 import contentData from "data/content-data";
 
@@ -12,9 +11,6 @@ const BlogRouter = ({ match, type = "mission" }) => {
 
   return (
     <Switch>
-      <Route path={`/${type}/anywhere`}>
-        <Anywhere />
-      </Route>
       <Route path={`/${type}/:blogId`}>
         <BlogReader postsData={postsData} />
       </Route>

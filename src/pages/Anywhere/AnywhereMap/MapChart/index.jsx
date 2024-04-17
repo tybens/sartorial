@@ -31,7 +31,7 @@ const MapChart = () => {
       message: "United Arab Emirates",
       url: "/shop/collections/anywhere-prods",
     },
-    { name: "Guatemala", message: "Guatemala", url: "/guatemala" },
+    { name: "Guatemala", message: "Guatemala", url: "/anywhere/guatemala" },
     { name: "Ghana", message: "Ghana (coming soon)", url: "/coming-soon" },
     { name: "Tanzania", message: "Tanzania (coming soon)", url: "/coming-soon" },
     { name: "Honduras", message: "Honduras (coming soon)", url: "/coming-soon" },
