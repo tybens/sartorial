@@ -46,19 +46,25 @@ const MapChart = () => {
                 countryData && countryData.url.includes("coming-soon");
 
               if (countryData) {
-                // For target countries, add Tippy tooltip and click handler
-                return (
-                  <Tippy key={geo.rsmKey} content={countryData.message}>
-                    <Link to={countryData.url}>
-                      <Geography
-                        geography={geo}
-                        style={comingSoon ? comingSoonStyle : liveStyle}
-                      />
-                    </Link>
-                  </Tippy>
-                );
+                if (!comingSoon) {
+                  // TARGET COUNTRIES
+                  return (
+                    <Tippy key={geo.rsmKey} content={countryData.message}>
+                      <Link to={countryData.url}>
+                        <Geography geography={geo} style={liveStyle} />
+                      </Link>
+                    </Tippy>
+                  );
+                } else {
+                  // COMING SOON COUNTRIES
+                  return (
+                    <Tippy key={geo.rsmKey} content={countryData.message}>
+                      <Geography geography={geo} style={comingSoonStyle} />
+                    </Tippy>
+                  );
+                }
               } else {
-                // Render non-target countries without Tippy and without click handler
+                // NON TARGET COUNTRIES
                 return (
                   <Geography
                     key={geo.rsmKey}
