@@ -6,7 +6,8 @@ import EmailList from "components/EmailList";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const newestCollectionName = [];
+  const hideCollectionID = ['anywhere']
+  const newestCollectionID = [];
 
   return (
     <>
@@ -20,7 +21,7 @@ const Collections = ({ collectionsData, url }) => {
         id="content"
       >
         <Grid item container justify="space-around">
-          {newestCollectionName.length === 0 && (
+          {newestCollectionID.length === 0 && (
             <Grid item container direction="column" alignItems="center">
               <Typography>
                 Currently no released collections.
@@ -30,7 +31,7 @@ const Collections = ({ collectionsData, url }) => {
           )}
           {collectionsData.map(({ id, name, img }, index) => {
             return (
-              newestCollectionName.includes(id) && (
+              newestCollectionID.includes(id) && (
                 <Grid item xs={12} lg={12} className={classes.landing} key={id}>
                   <Link
                     className={classes.landingImage}
@@ -89,7 +90,7 @@ const Collections = ({ collectionsData, url }) => {
           )}
           {collectionsData.map(({ id, altLink, name, img }, index) => {
             return (
-              !newestCollectionName.includes(id) && (
+              !newestCollectionID.includes(id) && !hideCollectionID.includes(id) && (
                 <Grid
                   style={{
                     marginTop: Math.random() * 50,

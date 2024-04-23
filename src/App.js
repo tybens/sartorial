@@ -59,7 +59,7 @@ const App = () => {
     if (!introComplete) {
       const timer = setTimeout(() => {
         setIntroComplete(true);
-      }, 5000);
+      }, 6000);
 
       return () => clearTimeout(timer);
     }

@@ -192,7 +192,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1694108425/bcfc23/317habitat1._005_derw1z.jpg",
         ],
         description: [
-          'Watercolor Peter CottonTale logo across chest',
+          "Watercolor Peter CottonTale logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -201,12 +201,11 @@ const collectionRelease2 = [
           "",
           "Half the profits from sales of this tee will go to Peter, and half to our selected Chicago Charities.",
           "",
-
         ],
         name: "Peter CottonTale Tee",
         disabled: false,
       },
-        {
+      {
         id: 35,
         price: 34,
         type: "Tee",
@@ -216,7 +215,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1694108425/bcfc23/317habitat1._005_derw1z.jpg",
         ],
         description: [
-          'Watercolor Nico Segal logo across chest',
+          "Watercolor Nico Segal logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -229,7 +228,7 @@ const collectionRelease2 = [
         name: "Nico Segal Tee",
         disabled: false,
       },
-        {
+      {
         id: 36,
         price: 34,
         type: "Tee",
@@ -239,7 +238,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1694108425/bcfc23/317habitat1._005_derw1z.jpg",
         ],
         description: [
-          'Watercolor Shawnee Dez logo across chest',
+          "Watercolor Shawnee Dez logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -252,7 +251,7 @@ const collectionRelease2 = [
         name: "Shawnee Dez Tee",
         disabled: false,
       },
-        {
+      {
         id: 37,
         price: 34,
         type: "Tee",
@@ -262,7 +261,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1694108425/bcfc23/317habitat1._005_derw1z.jpg",
         ],
         description: [
-          'Watercolor SheGo Turbo logo across chest',
+          "Watercolor SheGo Turbo logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -296,7 +295,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1688403399/bifi23/317habitat._005_wqguv8.jpg",
         ],
         description: [
-          'Watercolor midwxst logo across chest',
+          "Watercolor midwxst logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -306,7 +305,6 @@ const collectionRelease2 = [
           "Half the profits from sales of this tee will go to midwxst, and half to the Indianapolis charity of his choice.",
           "Each By Indy, For Indy 2023 Artist Apparel purchase comes with a code for 10% off tickets to the show.",
           "",
-
         ],
         name: "midwxst Tee",
         disabled: false,
@@ -321,7 +319,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1688403399/bifi23/317habitat._005_wqguv8.jpg",
         ],
         description: [
-          'Watercolor TopView logo across chest',
+          "Watercolor TopView logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -331,7 +329,6 @@ const collectionRelease2 = [
           "Half the profits from sales of this tee will go to TopView, and half to the Indianapolis charity of their artists' choice.",
           "Each By Indy, For Indy 2023 Artist Apparel purchase comes with a code for 10% off tickets to the show.",
           "",
-
         ],
         name: "TopView Tee",
         disabled: false,
@@ -349,7 +346,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1688403399/bifi23/317habitat._005_wqguv8.jpg",
         ],
         description: [
-          'Watercolor Henryd logo across chest',
+          "Watercolor Henryd logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -359,7 +356,6 @@ const collectionRelease2 = [
           "Half the profits from sales of this tee will go to Henryd, and half to the Indianapolis charity of his choice.",
           "Each By Indy, For Indy 2023 Artist Apparel purchase comes with a code for 10% off tickets to the show.",
           "",
-
         ],
         name: "Henryd Tee",
         disabled: false,
@@ -376,7 +372,7 @@ const collectionRelease2 = [
           "https://res.cloudinary.com/habitatsartorial/image/upload/v1688403399/bifi23/317habitat._005_wqguv8.jpg",
         ],
         description: [
-          'Watercolor Arboretum logo across chest',
+          "Watercolor Arboretum logo across chest",
           "100% 11.5 oz American grown SUPIMA cotton",
           "Cut and sewn in Portugal",
           "Oversized fit",
@@ -386,7 +382,6 @@ const collectionRelease2 = [
           "Half the profits from sales of this tee will go to Arboretum, and half to the Indianapolis charity of their choice.",
           "Each By Indy, For Indy 2023 Artist Apparel purchase comes with a code for 10% off tickets to the show.",
           "",
-
         ],
         name: "Arboretum Tee",
         disabled: false,
@@ -693,6 +688,250 @@ const collectionRelease2 = [
   },
 ];
 
+const collectionRelease3 = [
+  {
+    id: "anywhere",
+    name: "(anywhere)",
+    img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1713886785/%28anywhere%29/%28anywhere%29i/anywhere_coverii_glmdhn.jpg",
+    description: "Description 1",
+    altLink: "/anywhere",
+    products: [
+      {
+        id: 125,
+        price: 29,
+        type: "LS Tee",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713884269/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._003_zv4cuo.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605201/%28anywhere%29/%28anywhere%29i/1W3A2757_zvqcl3.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605242/%28anywhere%29/%28anywhere%29i/1W3A2802_cptt2d.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713884269/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._003_zv4cuo.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713884288/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._004_r8ddxj.jpg",
+        ],
+        description: [
+          '"Liwa Oasis" graphic with arabic label across chest',
+          '"charity you can wear (anywhere)" logo at base of neck',
+          "100% ringspun cotton, 13oz",
+          "Preshrunk, soft-washed, garment dyed fabric",
+          "Color: Desert",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"Liwa Oasis" LS Tee',
+        disabled: false,
+      },
+
+      {
+        id: 126,
+        price: 44,
+        type: "Hoodie",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713884363/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._005_ghnhql.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605243/%28anywhere%29/%28anywhere%29i/1W3A3101_ky522a.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713884363/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._005_ghnhql.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713884358/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._006_uznimx.jpg",
+
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605197/%28anywhere%29/%28anywhere%29i/1W3A2735_xcvj3u.jpg",
+        ],
+        description: [
+          '"Elk Range" graphic at center of chest',
+          '"charity you can wear (anywhere) logo on back of hood',
+          "Preshrunk, soft-washed, garment dyed fabric, brushed interior",
+          "Color: Conifer",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"Elk Range" Hoodie',
+        disabled: false,
+      },
+
+      {
+        id: 127,
+        price: 34,
+        type: "Sweatshort",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713885301/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._011_u5nk7e.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605219/%28anywhere%29/%28anywhere%29i/1W3A3236_l82cdu.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885301/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._011_u5nk7e.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885294/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._012_p4i76p.jpg",
+        ],
+        description: [
+          '"HA317AT" logo across front',
+          "100% Organic Cotton loopback French terry, 16oz",
+          "Color: Desert",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"HA317AT" Sweatshort',
+        disabled: false,
+      },
+
+      {
+        id: 128,
+        price: 39,
+        type: "Sweatpant",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713885252/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._013_ijedcp.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605201/%28anywhere%29/%28anywhere%29i/1W3A2757_zvqcl3.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885252/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._013_ijedcp.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885297/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._014_xpylgt.jpg",
+        ],
+        description: [
+          '"Catarata del Gocta" graphic on below left front pocket',
+          '"charity you can wear (anywhere) logo at right knee',
+          "100% Organic Cotton double-folded, flat-knit cotton ribbing",
+          "Color: Lavender",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"Catarata del Gocta" Sweatpant',
+        disabled: false,
+      },
+
+      {
+        id: 129,
+        price: 44,
+        type: "Hoodie",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713886045/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._007_lta08q.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605219/%28anywhere%29/%28anywhere%29i/1W3A3236_l82cdu.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713886045/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._007_lta08q.jpg",
+
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713886046/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._008_vlj32n.jpg",
+        ],
+        description: [
+          'Rounded "HA317AT" Logo at center of chest',
+          '"charity you can wear (anywhere)" logo on back of hood',
+          "100% ringspun cotton, 32oz",
+          "Preshrunk, soft-washed, garment dyed fabric, brushed interior",
+          "Color: Grey",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"HA317AT" (anywhere) Hoodie',
+        disabled: false,
+      },
+
+      {
+        id: 130,
+        price: 34,
+        type: "Sweatshort",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713885160/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._009_c8dooh.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605224/%28anywhere%29/%28anywhere%29i/1W3A3104_izupwf.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885160/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._009_c8dooh.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885188/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._010_jkuaun.jpg",
+        ],
+        description: [
+          '"HA317AT SARTORIAL" logo on left front',
+          '"charity you can wear" logo on right front',
+          "100% Organic Cotton loopback French terry, 16oz",
+          "Color: Lavender",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"HA317AT" (anywhere) Sweatshorts',
+        disabled: false,
+      },
+
+      {
+        id: 131,
+        price: 39,
+        type: "Sweatpants",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713885323/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._015_on6jgg.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605197/%28anywhere%29/%28anywhere%29i/1W3A2735_xcvj3u.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1705605225/%28anywhere%29/%28anywhere%29i/1W3A3183_bnmpx9.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885323/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._015_on6jgg.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713885221/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._016_yui40b.jpg",
+        ],
+        description: [
+          '"Maletsunyane" graphic on below left front pocket',
+          '"charity you can wear (anywhere) logo at right knee',
+          "100% Organic Cotton double-folded, flat-knit cotton ribbing",
+          "Color: Natural",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"Maletsunyane" Sweatpant',
+        disabled: false,
+      },
+
+      {
+        id: 132,
+        price: 34,
+        type: "Crewneck Sweatshirt",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1713884314/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._001_rpx34v.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713884314/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._001_rpx34v.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1713884245/%28anywhere%29/%28anywhere%29i/anywhere_product_shots._002_w945zy.jpg",
+        ],
+        description: [
+          '"Palau" graphic across chest',
+          '"charity you can wear (anywhere)" logo at base of neck',
+          "100% ringspun cotton, 32oz",
+          "Preshrunk, soft-washed, garment dyed fabric, brushed interior",
+          "Color: Lavender",
+          "",
+          "All (anywhere) apparel can be customized to any color!",
+          "If you'd like a different color than pictured here, place an order, then send",
+          "an email to payne@habitatsartorial.org with your color preference, and we'll make it for you!",
+          "",
+          "All profits from sales of (anywhere) apparel go to Habitat Sartorial's (anywhere) fund.",
+          "This fund supports existing international projects and those we are working on behind the scenes.",
+          "",
+        ],
+        name: '"Palau" Sweatshirt',
+        disabled: false,
+      },
+    ],
+  },
+];
+
 collectionRelease2.push(...collectionRelease1);
+collectionRelease2.push(...collectionRelease3);
+
+
 
 export default collectionRelease2;

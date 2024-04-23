@@ -7,7 +7,7 @@ const VideoIntro = () => {
     return (
             <div className={classes.videoPreloader}>
                 <video width="100%" height="100%" autoPlay="autoplay" muted loop playsInline>
-                    <source src="https://res.cloudinary.com/do8jxdvtx/video/upload/v1658155847/hsllc/intro2_wpqtqg.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/habitatsartorial/video/upload/v1708453971/317habitat_widescreen_movie_bbj9qh.mp4" type="video/mp4" />
                 </video>
             </div>
 
