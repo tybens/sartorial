@@ -38,3 +38,5 @@ sartorial-indy-firebase-adminsdk-meyuc-e352883614.json
 .firebase/
 
 *.csv
+
+public/videos/*

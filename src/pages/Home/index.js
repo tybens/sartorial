@@ -45,7 +45,7 @@ const Home = ({ history, navColors, onSetNavColors }) => {
   }
 
   const handleClickHeader = () => {
-    history.push(`/content/bcfc23-photos`);
+    history.push(`/anywhere`);
   };
 
   const waveOptions = {
@@ -57,11 +57,8 @@ const Home = ({ history, navColors, onSetNavColors }) => {
 
   return (
     <>
-      <Grid item xs={12}  container direction="column" alignItems="center">
-        <h2 onClick={handleClickHeader} className={classes.concertText}>Thanks for the support at the By Chicago, For Chicago 2023 concert!</h2>
-      </Grid>
-      <video onClick={handleClickHeader} width="100%" height="100%" autoPlay muted loop playsInline>
-        <source src="/videos/bcfc-recap.mp4" type="video/mp4" />
+      <video onClick={handleClickHeader} width="100%" height="100%" autoPlay muted loop playsInline style={{cursor: 'pointer'}}>
+        <source src="/videos/anywhere-final.mov" type="video/mp4" />
       </video>
 
       <h1 className={classes.firstBlock}>

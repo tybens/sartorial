@@ -139,8 +139,8 @@ const howhsllcworks = {
   type: "article",
   types: [
     {
-      name: "Pinned",
-      bgColor: "#fcb941",
+      name: "Habitat Sartorial",
+      bgColor: "#000000",
     },
     {
       name: "Mission Statement",
@@ -392,8 +392,8 @@ const announce501c3 = {
   type: "link",
   types: [
     {
-      name: "Pinned",
-      bgColor: "#fcb941",
+      name: "Mission Statement",
+      bgColor: "#FC6042",
     },
     {
       name: "Habitat Sartorial",
@@ -409,13 +409,57 @@ const announce501c3 = {
   thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1663172476/misc/Screen_Shot_2022-09-14_at_12.20.51_delp0l.png",
 };
 
+const anywhereAnnouncement = {
+  type: "link",
+  types: [
+    {
+      name: "(anywhere)",
+      bgColor: "#63C2D8",
+    },
+    {
+      name: "Habitat Sartorial",
+      bgColor: "#000000",
+    },
+  ],
+  link: "https://www.linkedin.com/pulse/copy-introducing-anywhere-habitat-sartorials-global-vopkc",
+  date: "24 Apr 2024",
+  author: "Payne Vogtman",
+  title: "Introducing (anywhere): Habitat Sartorial's Global Charity Initiative",
+  text: "We're partnering with charities around the globe to make giving to charity internationally easier than ever before.",
+  id: "",
+  thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1713897573/%28anywhere%29/anywherecoveriii_fcyuho.jpg",
+};
+
+const anywhereGuatemala = {
+  type: "link",
+  types: [
+    {
+      name: "(anywhere)",
+      bgColor: "#63C2D8",
+    },
+    {
+      name: "Habitat Sartorial",
+      bgColor: "#000000",
+    },
+  ],
+  link: "https://habitatsartorial.org/anywhere/guatemala",
+  date: "25 Apr 2024",
+  author: "Habitat Sartorial",
+  title: "(anywhere) Guatemala: Long Way Home's Hero School",
+  text: "See how LWH provides work for teachers, peace of mind for parents, and schooling for hundreds of local students in San Juan Comalapa, Guatemala.",
+  id: "",
+  thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1713897570/%28anywhere%29/anywhereguatemalacover_nnujgv.jpg",
+};
+
 const postsData = [
-  howhsllcworks,
+  anywhereGuatemala,
+  anywhereAnnouncement,
   announce501c3,
   earthDay22,
   results2021,
   edemHorizon,
   logoHistory,
+  howhsllcworks,
   homelessness,
 ];
 export default postsData;
