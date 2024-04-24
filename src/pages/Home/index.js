@@ -58,7 +58,7 @@ const Home = ({ history, navColors, onSetNavColors }) => {
   return (
     <>
       <video onClick={handleClickHeader} width="100%" height="100%" autoPlay muted loop playsInline style={{cursor: 'pointer'}}>
-        <source src="/videos/anywhere-final.mov" type="video/mp4" />
+        <source src="/videos/anywhere-final.mp4" type="video/mp4" />
       </video>
 
       <h1 className={classes.firstBlock}>
