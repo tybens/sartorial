@@ -9,6 +9,7 @@ import Blobs from "./blobs";
 
 import makeStyles from "./styles.js";
 import EmailList from "components/EmailList";
+import routeToExt from "hooks/routeToExt";
 
 const Home = ({ history, navColors, onSetNavColors }) => {
   const classes = makeStyles();
@@ -45,7 +46,7 @@ const Home = ({ history, navColors, onSetNavColors }) => {
   }
 
   const handleClickHeader = () => {
-    history.push(`/anywhere`);
+    routeToExt('https://www.linkedin.com/pulse/copy-introducing-anywhere-habitat-sartorials-global-vopkc/')
   };
 
   const waveOptions = {
