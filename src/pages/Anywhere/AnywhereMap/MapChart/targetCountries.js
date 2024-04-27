@@ -1,47 +1,47 @@
 const targetCountries = [
   {
     name: "United States",
-    message: "United States",
-    url: "/coming-soon",
+    message: "Apparel: Elk Range in the United States",
+    url: "/shop/collections/anywhere/126",
   },
   {
     name: "Peru",
-    message: "Peru (coming soon)",
-    url: "/coming-soon",
+    message: "Apparel: Catarata del Gocta in Peru",
+    url: "/shop/collections/anywhere/128",
   },
   {
     name: "Palau",
-    message: "Palau (coming soon)",
-    url: "/coming-soon",
+    message: "Apparel: Archipelago of Palau",
+    url: "/shop/collections/anywhere/132",
   },
   {
     name: "Eswatini",
-    message: "Eswatini (coming soon)",
-    url: "/coming-soon",
+    message: "Apparel: Maletsunyane in Eswatini",
+    url: "/shop/collections/anywhere/131",
   },
   {
     name: "United Arab Emirates",
-    message: "United Arab Emirates (coming soon)",
-    url: "/coming-soon",
+    message: "Apparel: Liwa Oasis in the United Arab Emirates",
+    url: "/shop/collections/anywhere/125",
   },
   {
     name: "Guatemala",
-    message: "Guatemala",
+    message: "PROJECT: Long Way Home in Guatemala",
     url: "/anywhere/guatemala",
   },
   {
     name: "Ghana",
-    message: "Ghana (coming soon)",
+    message: "Ghana (Project coming soon)",
     url: "/coming-soon",
   },
   {
     name: "Tanzania",
-    message: "Tanzania (coming soon)",
+    message: "Tanzania (Project coming soon)",
     url: "/coming-soon",
   },
   {
     name: "Honduras",
-    message: "Honduras (coming soon)",
+    message: "Honduras (Project coming soon)",
     url: "/coming-soon",
   },
 ];

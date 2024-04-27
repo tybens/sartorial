@@ -6,8 +6,8 @@ import EmailList from "components/EmailList";
 
 const Collections = ({ collectionsData, url }) => {
   const classes = useStyles();
-  const hideCollectionID = ['anywhere']
-  const newestCollectionID = [];
+  const hideCollectionID = []
+  const newestCollectionID = ['anywhere'];
 
   return (
     <>

@@ -9,15 +9,28 @@ const MapChart = () => {
   // Handle click event for redirecting
   const comingSoonStyle = {
     default: {
-      fill: "black",
+      fill: "#A0A0A0", // A solid medium gray, neutral and subdued
       outline: "none",
     },
     hover: {
-      fill: "grey",
-      cursor: "default",
+      fill: "#B8B8B8", // A slightly lighter gray to subtly indicate hover without suggesting interactivity
     },
     pressed: {
-      fill: "grey",
+      fill: "#B8B8B8", // Keeps the same as default to reinforce non-interactivity when pressed
+    },
+  };
+
+  const apparelStyle = {
+    default: {
+      fill: "#6991C7", // A moderate blue, calm and neutral
+      outline: "none",
+    },
+    hover: {
+      fill: "#9DBCE2", // A lighter blue to indicate interactivity
+      cursor: "pointer", // Changed to pointer to better indicate that the item is interactive
+    },
+    pressed: {
+      fill: "#4A6FA5", // A darker blue to provide feedback when pressed
     },
   };
 
@@ -45,13 +58,24 @@ const MapChart = () => {
               const comingSoon =
                 countryData && countryData.url.includes("coming-soon");
 
+              const apparel = countryData && countryData.url.includes("shop");
+
               if (countryData) {
-                if (!comingSoon) {
+                if (!comingSoon && !apparel) {
                   // TARGET COUNTRIES
                   return (
                     <Tippy key={geo.rsmKey} content={countryData.message}>
                       <Link to={countryData.url}>
                         <Geography geography={geo} style={liveStyle} />
+                      </Link>
+                    </Tippy>
+                  );
+                } else if (apparel) {
+                  // APPAREL COUNTRIES
+                  return (
+                    <Tippy key={geo.rsmKey} content={countryData.message}>
+                      <Link to={countryData.url}>
+                        <Geography geography={geo} style={apparelStyle} />
                       </Link>
                     </Tippy>
                   );
