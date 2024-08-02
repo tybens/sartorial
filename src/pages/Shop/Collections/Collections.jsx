@@ -16,7 +16,7 @@ const Collections = ({ collectionsData, url }) => {
         item
         className={classes.parentWrap}
         justify="space-between"
-        alignItems="center"
+      alignItems="center"
         direction="column"
         id="content"
       >

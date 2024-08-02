@@ -46,7 +46,9 @@ const Home = ({ history, navColors, onSetNavColors }) => {
   }
 
   const handleClickHeader = () => {
-    routeToExt('https://www.linkedin.com/pulse/copy-introducing-anywhere-habitat-sartorials-global-vopkc/')
+    routeToExt(
+      "https://www.linkedin.com/pulse/copy-introducing-anywhere-habitat-sartorials-global-vopkc/"
+    );
   };
 
   const waveOptions = {
@@ -58,9 +60,36 @@ const Home = ({ history, navColors, onSetNavColors }) => {
 
   return (
     <>
-      <video onClick={handleClickHeader} width="100%" height="100%" autoPlay muted loop playsInline style={{cursor: 'pointer'}}>
+      <Grid
+        item
+        xs={12}
+        className={classes.gutterBottom}
+        container
+        direction="column"
+        alignItems="center"
+      >
+        <h1 className={classes.concertText}>BIFI 2024</h1>
+        <Typography variant="h6" color="inherit" className={classes.flyerText}>
+          By Indy For Indy 2024 is here! Click the flyer below to get your tickets now!
+        </Typography>
+          <Grid item xs={10}>
+            <img
+              className={classes.flyer}
+              src="https://res.cloudinary.com/habitatsartorial/image/upload/v1722374229/bifi24/317habitat._001_j7hvxn.jpg"
+              width="100%"
+              alt="flyer"
+              height="100%"
+              onClick={() =>
+                routeToExt(
+                  "https://wl.seetickets.us/event/by-indy-for-indy-2024-hi-fi-annex/614140?afflky=HIFI"
+                )
+              }
+            />
+        </Grid>
+      </Grid>
+      {/* <video onClick={handleClickHeader} width="100%" height="100%" autoPlay muted loop playsInline style={{cursor: 'pointer'}}>
         <source src="/videos/anywhere-final.mp4" type="video/mp4" />
-      </video>
+      </video> */}
 
       <h1 className={classes.firstBlock}>
         <Grid
