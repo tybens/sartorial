@@ -45,11 +45,11 @@ const Home = ({ history, navColors, onSetNavColors }) => {
     }
   }
 
-  const handleClickHeader = () => {
-    routeToExt(
-      "https://www.linkedin.com/pulse/copy-introducing-anywhere-habitat-sartorials-global-vopkc/"
-    );
-  };
+  // const handleClickHeader = () => {
+  //   routeToExt(
+  //     "https://www.linkedin.com/pulse/copy-introducing-anywhere-habitat-sartorials-global-vopkc/"
+  //   );
+  // };
 
   const waveOptions = {
     height: 60,
