@@ -176,6 +176,42 @@ const collectionRelease1 = [
 
 const collectionRelease2 = [
   {
+    id: "bifi-24",
+    name: "Artist Apparel: By Indy, For Indy 2024",
+    img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1724345008/bifi24/Screenshot_2024-08-22_at_12.43.24_vspkj0.png",
+    description: "Artist Apparel: By Indy, For Indy 2024.",
+    altLink: "/shop/collections/bifi-24",
+    products: [
+      {
+        id: 200,
+        price: 24,
+        type: "Tee",
+        img: `https://res.cloudinary.com/habitatsartorial/image/upload/${productsImageManip}/v1724344932/bifi24/lineupandmerch_bifi24_hs._005_gka6en.jpg`,
+        images: [
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1724344932/bifi24/lineupandmerch_bifi24_hs._005_gka6en.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1724344932/bifi24/lineupandmerch_bifi24_hs._001_ovqghw.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1724344932/bifi24/lineupandmerch_bifi24_hs._002_q0r7vh.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1724344932/bifi24/lineupandmerch_bifi24_hs._003_kqbcxv.jpg",
+          "https://res.cloudinary.com/habitatsartorial/image/upload/v1724344932/bifi24/lineupandmerch_bifi24_hs._004_ckxepf.jpg",
+        ],
+        description: [
+          "One-Line Artist Logo across front of shirt",
+          "Show Poster across back of shirt",
+          "100% 6 oz American grown SUPIMA cotton",
+          "Cut and sewn in Peru",
+          "Standard fit",
+          "Color: Natural",
+          "",
+          "Half the profits from sales of this tee will go to the Artist, and half to Horizon House Indy.",
+          "",
+        ],
+        name: "BIFI24 Concert Apparel",
+        disabled: false,
+      },
+    ],
+  },
+
+  {
     id: "bcfc-23",
     name: "Artist Apparel: By Chicago, For Chicago 2023",
     img: "https://res.cloudinary.com/habitatsartorial/image/upload/v1694108970/bcfc23/317habitat_xrvcta.jpg",
@@ -929,9 +965,7 @@ const collectionRelease3 = [
   },
 ];
 
-collectionRelease2.push(...collectionRelease1);
-collectionRelease2.push(...collectionRelease3);
+collectionRelease3.push(...collectionRelease2);
+collectionRelease3.push(...collectionRelease1);
 
-
-
-export default collectionRelease2;
+export default collectionRelease3;
