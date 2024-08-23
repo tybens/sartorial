@@ -19,7 +19,7 @@ import {
   Measurements,
   AboutUs,
   Contracting,
-  Anywhere
+  Anywhere,
 } from "pages";
 import Navbar from "components/Navbar/Navbar";
 import { play, exit } from "timelines";
@@ -329,6 +329,12 @@ const App = () => {
                                 routeToExt(
                                   "https://www.linkedin.com/company/habitatsartorial/"
                                 )
+                              }
+                            />
+                            <Route
+                              path="/qr"
+                              component={() =>
+                                routeToExt("/shop/collections/bifi-24/200")
                               }
                             />
                             <Route exact path="/contracting">
