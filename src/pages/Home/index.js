@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import ReactRotatingText from "react-rotating-text";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./ReactRotatingText.css";
 import classNames from "classnames";
 import Wave from "react-wavify";
@@ -9,7 +9,6 @@ import Blobs from "./blobs";
 
 import makeStyles from "./styles.js";
 import EmailList from "components/EmailList";
-import routeToExt from "hooks/routeToExt";
 
 const Home = ({ history, navColors, onSetNavColors }) => {
   const classes = makeStyles();
@@ -45,12 +44,6 @@ const Home = ({ history, navColors, onSetNavColors }) => {
     }
   }
 
-  // const handleClickHeader = () => {
-  //   routeToExt(
-  //     "https://www.linkedin.com/pulse/copy-introducing-anywhere-habitat-sartorials-global-vopkc/"
-  //   );
-  // };
-
   const waveOptions = {
     height: 60,
     amplitude: 40,
@@ -60,7 +53,7 @@ const Home = ({ history, navColors, onSetNavColors }) => {
 
   return (
     <>
-      <Grid
+      {/* <Grid
         item
         xs={12}
         className={classes.gutterBottom}
@@ -86,10 +79,20 @@ const Home = ({ history, navColors, onSetNavColors }) => {
               }
             />
         </Grid>
-      </Grid>
-      {/* <video onClick={handleClickHeader} width="100%" height="100%" autoPlay muted loop playsInline style={{cursor: 'pointer'}}>
-        <source src="/videos/anywhere-final.mp4" type="video/mp4" />
-      </video> */}
+      </Grid> */}
+      <Link to="/anywhere">
+        <video
+          width="100%"
+          height="100%"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ cursor: "pointer" }}
+        >
+          <source src="/videos/anywhere-final.mp4" type="video/mp4" />
+        </video>
+      </Link>
 
       <h1 className={classes.firstBlock}>
         <Grid

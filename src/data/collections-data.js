@@ -206,7 +206,7 @@ const collectionRelease2 = [
           "",
         ],
         name: "BIFI24 Concert Apparel",
-        disabled: false,
+        disabled: true,
       },
     ],
   },
