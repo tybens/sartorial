@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Guatemala = () => {
+const Tanzania = () => {
   const classes = useStyles();
 
   return (
@@ -51,7 +51,7 @@ const Guatemala = () => {
         >
           <iframe
             className={classes.videoEmbed}
-            src="https://www.youtube.com/embed/y7Q_jCgdW4U?si=MiRw6PFzqe9kF2EQ"
+            src="https://www.youtube.com/embed/joh4PpQZnp4?si=u1A3DMpi-kI1Wlau"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -61,30 +61,15 @@ const Guatemala = () => {
         </Grid>
         <Grid item xs={12} md={6} className={classes.containerInner}>
           <Typography variant="h2" gutterBottom>
-            Long Way Home's Hero School
+            Attraction Birds Conservation Arusha
           </Typography>
           <Typography variant="body1">
-            In San Juan Comalapa, Guatemala, Long Way Home's Hero School
-            (recipient of the 2023 UNESCO prize for Education for Sustainable
-            Development) provides work for teachers, peace of mind for parents,
-            and schooling for hundreds of local students.
+            In Arusha, Tanzania, in the shadows of Mt. Kilimanjaro, Attraction Birds Conservation trains young Tanzanians in wildlife preservation, giving the local bird populations a safer future and local guides a path to steady income and stability. 
           </Typography>
         </Grid>
         <Grid item xs={12} className={classNames(classes.border, classes.text)}>
           <Typography variant="body1">
-            Long Way Home has broken the cycle of poverty for thousands of
-            Guatemalans by implementing infrastructure projects such as water,
-            housing, and sanitation. LWH is the 3rd biggest employer in the area
-            and have provided a steady job for hundreds of Guatemalans spanning
-            nearly two decades. LWH has built sustainable homes, clinics,
-            schools and much more on three continents. LWH has upcycled over
-            100,000 used-tires and hundreds of tons of plastic rubbish. 175 low
-            income students currently attend our primary, middle, and high
-            school. This is our 12 year of operation. LWH has open sourced all
-            of our green building techniques at lwhomegreen.org. 4000
-            international volunteers have learned grassroots sustainable
-            development with LWH. LWH have pioneered a relevant, replicable and
-            scalable poverty fighting education model.
+            ABC Arusha (Attraction Birds Conservation) is an organization dedicated to empowering youth through conservation education, with a special focus on bird studies and wildlife preservation. We aim to inspire young people, especially girls, by providing them with opportunities to learn about nature and develop practical skills in birding, environmental awareness, and conservation. Our programs create a pathway for youth to engage with and protect the natural world while fostering future conservation leaders in Tanzania.
           </Typography>
         </Grid>
         <Grid item xs={12} md={5} className={classes.border}>
@@ -92,13 +77,12 @@ const Guatemala = () => {
             What We've Given
           </Typography>
           <ul style={{ textAlign: "left" }}>
-            <li>Work shirts for LWH's building staff</li>
-            <li>Labcoats for all students in the School's new science wing</li>
+            <li>Two computers for ABC's training program</li>
           </ul>
           <Button
             variant="contained"
             color="primary"
-            href="/shop/collections/anywhere"
+            href="/collection/anywhere"
             className={classes.linkButton}
           >
             Visit Collection
@@ -110,23 +94,19 @@ const Guatemala = () => {
             What Else They Need
           </Typography>
           <ul style={{ textAlign: "left" }}>
-            <li>Recurring monthly donations to pay teachers salaries.</li>
-            <li>15 laptops for our computer lab</li>
-            <li>A volunteer CPA</li>
-            <li>School uniforms (classroom & Sports)</li>
-            <li>
-              Equipment and furniture for our cafeteria (fridge, counters,
-              cabinets, etc.)
-            </li>
+            <li>Transportation costs for youth to attend birding trips and conservation training</li>
+            <li>Equipment such as binoculars and field guides</li>
+            <li>Funds for educational materials and access to learning spaces</li>
+            <li>Support for workshops and training sessions to expand our reach</li>
           </ul>
           <Button
             target="_blank"
             variant="contained"
             color="primary"
-            href="https://lwhome.org/fundraise"
+            href="https://www.facebook.com/birding4life/"
             className={classes.linkButton}
           >
-            Donate Directly <LaunchIcon />
+            Donate Directly: Stanbic Bank Account #9120002423950 <LaunchIcon />
           </Button>
         </Grid>
       </Grid>
@@ -134,4 +114,4 @@ const Guatemala = () => {
   );
 };
 
-export default Guatemala;
+export default Tanzania;

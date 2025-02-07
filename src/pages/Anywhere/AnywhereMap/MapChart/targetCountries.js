@@ -36,12 +36,17 @@ const targetCountries = [
   },
   {
     name: "Tanzania",
-    message: "Tanzania (Project coming soon)",
-    url: "/coming-soon",
+    message: "PROJECT: Attractions Bird Conservation in Tanzania",
+    url: "/anywhere/tanzania",
   },
   {
     name: "Honduras",
     message: "Honduras (Project coming soon)",
+    url: "/coming-soon",
+  },
+    {
+    name: "Denmark",
+    message: "Denmark (Project coming soon)",
     url: "/coming-soon",
   },
 ];

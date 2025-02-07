@@ -3,12 +3,17 @@ import {withRouter, Switch, Route } from "react-router-dom";
 
 import AnywhereMap from "pages/Anywhere/AnywhereMap";
 import Guatemala from "pages/Anywhere/Guatemala";
+import Tanzania from "pages/Anywhere/Tanzania";
 
 const AnywhereRouter = ({ match}) => {
   var linkMap = [{
     path: "guatemala",
     component: <Guatemala />,
-  }]
+  },
+{
+  path: "tanzania",
+  component: <Tanzania />
+}]
   return (
     <Switch>
       {linkMap.map(({ path, component }) => {
