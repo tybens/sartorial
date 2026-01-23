@@ -41,12 +41,17 @@ const targetCountries = [
   },
   {
     name: "Honduras",
-    message: "Honduras (Project coming soon)",
-    url: "/coming-soon",
+    message: "Honduras (PROJECT: Children of Soledad in Sabá, Colón)",
+    url: "/anywhere/honduras",
   },
     {
     name: "Denmark",
     message: "Denmark (Project coming soon)",
+    url: "/coming-soon",
+  },
+   {
+    name: "Albania",
+    message: "Albania (Project coming soon)",
     url: "/coming-soon",
   },
 ];

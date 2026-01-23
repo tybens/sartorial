@@ -448,10 +448,54 @@ const anywhereGuatemala = {
   title: "(anywhere) Guatemala: Long Way Home's Hero School",
   text: "See how LWH provides work for teachers, peace of mind for parents, and schooling for hundreds of local students in San Juan Comalapa, Guatemala.",
   id: "",
-  thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1713897570/%28anywhere%29/anywhereguatemalacover_nnujgv.jpg",
+  thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1759133184/%28anywhere%29/guatemalacoversquare__anywhere__hs_whnukx.jpg",
+};
+
+const anywhereTanzania = {
+  type: "link",
+  types: [
+    {
+      name: "(anywhere)",
+      bgColor: "#63C2D8",
+    },
+    {
+      name: "Habitat Sartorial",
+      bgColor: "#000000",
+    },
+  ],
+  link: "https://habitatsartorial.org/anywhere/tanzania",
+  date: "08 Feb 2025",
+  author: "Habitat Sartorial",
+  title: "(anywhere) Tanzania: Attraction Birds Conservation in Arusha",
+  text: "See how ABC Arusha trains young Tanzanians in birding and conservation to provide a career path and protect the Arusha area's natural beauty.",
+  id: "",
+  thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1759133210/%28anywhere%29/tanzaniasquare__anywhere__hs_qqygor.jpg",
+};
+
+const anywhereHonduras = { //NEEDS CREATED
+  type: "link",
+  types: [
+    {
+      name: "(anywhere)",
+      bgColor: "#63C2D8",
+    },
+    {
+      name: "Habitat Sartorial",
+      bgColor: "#000000",
+    },
+  ],
+  link: "https://habitatsartorial.org/anywhere/honduras",
+  date: "25 Jan 2026",
+  author: "Habitat Sartorial",
+  title: "(anywhere) Honduras: Centro Educativo Jairo Castellanos in Sabá",
+  text: "See how Children of Soledad provides the most basic needs - water, buildings, and education - to the children of Colón in Sabá, Honduras.",
+  id: "",
+  thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1759079913/%28anywhere%29/hondurascoversquare__anywhere__hs_qmqbnr.jpg",
 };
 
 const postsData = [
+  anywhereHonduras,
+  anywhereTanzania,
   anywhereGuatemala,
   anywhereAnnouncement,
   announce501c3,
