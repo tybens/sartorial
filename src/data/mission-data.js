@@ -472,7 +472,7 @@ const anywhereTanzania = {
   thumbnail: "https://res.cloudinary.com/habitatsartorial/image/upload/v1759133210/%28anywhere%29/tanzaniasquare__anywhere__hs_qqygor.jpg",
 };
 
-const anywhereHonduras = { //NEEDS CREATED
+const anywhereHonduras = { 
   type: "link",
   types: [
     {
