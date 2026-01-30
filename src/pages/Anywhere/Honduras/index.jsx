@@ -51,12 +51,12 @@ const Honduras = () => {
         >
           <iframe
             className={classes.videoEmbed}
-            src=src="https://www.youtube.com/embed/S_QucAZNXCY?si=c6e-e-VF1x_r_W2r"
+            src="https://www.youtube.com/embed/S_QucAZNXCY?si=c6e-e-VF1x_r_W2r"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullscreen
           ></iframe>
         </Grid>
         <Grid item xs={12} md={6} className={classes.containerInner}>
